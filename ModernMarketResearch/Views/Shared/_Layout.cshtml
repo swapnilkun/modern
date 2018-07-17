@@ -1,0 +1,445 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+ 
+    <title>@ViewBag.Title</title>
+    <link rel="icon" href="~/Images/favicon.png" type="image/gif"/>
+    <meta name="description" content="@ViewBag.Description"/>
+    <meta name="keyword" content="@ViewBag.Keywords"/>
+    
+    <!-- Web Fonts -->
+        <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900,200italic,300italic,400italic,600italic,700italic,900italic' rel='stylesheet' type='text/css'>
+        
+    @Styles.Render("~/bundles/bootstrapstyle")
+
+    @Scripts.Render("~/bundles/jquery")
+
+    @Scripts.Render("~/bundles/bootstrapscript")
+
+    @*@Scripts.Render("~/bundles/jqueryval")*@
+
+    @Styles.Render("~/templatecss")
+
+    @Scripts.Render("~/templatejs")
+
+
+</head>
+<body id="page-top">
+		<div id="st-container" class="st-container">
+		    <div class="st-pusher">
+	        	<div class="st-content">
+				  	<header class="header">
+				  		<nav class="top-bar">
+				  			<div class="overlay-bg">
+					  			<div class="container">
+					  				<div class="row">
+					  					
+					  					<div class="col-sm-6 col-xs-12">
+						  					<div class="call-to-action">
+						  						<ul class="list-inline">
+						  							<li><a href="#"><i class="fa fa-phone"></i> 1-800-987-654</a></li>
+						  							<li><a href="#"><i class="fa fa-envelope"></i> admin@domain.com</a></li>
+						  						</ul>
+						  					</div><!-- /.call-to-action -->
+					  					</div><!-- /.col-sm-6 -->
+
+					  					<div class="col-sm-6 hidden-xs">
+						  					<div class="topbar-right">
+							  					<div class="lang-support pull-right">
+													<select class="cs-select cs-skin-elastic">
+														<option value="" disabled selected>Language</option>
+														<option value="united-kingdom" data-class="flag-uk">English</option>
+														<option value="france" data-class="flag-france">French</option>
+														<option value="spain" data-class="flag-spain">Spanish</option>
+														<option value="south-africa" data-class="flag-bd">Bengali</option>
+													</select>
+												</div>
+
+						  						<ul class="social-links list-inline pull-right">
+						  							<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+						  							<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+						  							<li><a href="#"><i class="fa fa-instagram"></i></a></li>
+						  							<li><a href="#"><i class="fa fa-tumblr"></i></a></li>
+						  						</ul>
+						  					</div><!-- /.social-links -->
+					  					</div><!-- /.col-sm-6 -->
+						  				
+					  				</div><!-- /.row -->
+					  			</div><!-- /.container -->
+				  			</div><!-- /.overlay-bg -->
+				  		</nav><!-- /.top-bar -->
+
+				  		<div id="search">
+						    <button type="button" class="close">×</button>
+						    <form>
+						        <input type="search" value="" placeholder="type keyword(s) here" />
+						        <button type="submit" class="btn btn-primary">Search</button>
+						    </form>
+						</div>
+						
+						<nav class="navbar navbar-default" role="navigation">
+							
+							<div class="container mainnav">
+								<div class="navbar-header">
+									<h1 class="logo"><a class="navbar-brand" href="index.html"><img src="img/logo.png" alt=""></a></h1>
+
+									<!-- offcanvas-trigger -->
+			                        <button type="button" class="navbar-toggle collapsed pull-right" >
+			                          <span class="sr-only">Toggle navigation</span>
+			                          <i class="fa fa-bars"></i>
+			                        </button>
+
+								</div>
+
+								<!-- Collect the nav links, forms, and other content for toggling -->
+								<div class="collapse navbar-collapse navbar-collapse">
+
+									
+
+					                <span class="search-button pull-right"><a href="#search"><i class="fa fa-search"></i></a></span>
+
+									<ul class="nav navbar-nav navbar-right">
+										<!-- Home -->
+                                        <li class="dropdown active"><a href="index.html">Home <span class="fa fa-angle-down"></span></a>
+                                            <!-- submenu-wrapper -->
+                                            <div class="submenu-wrapper">
+                                                <div class="submenu-inner">
+                                                    <ul class="dropdown-menu">
+                                                    	<li><a href="index2.html">Home2</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <!-- /submenu-wrapper -->
+                                        </li>
+                                        <!-- /Home -->
+
+                                        <!-- Pages -->
+                                        <li class="dropdown"><a href="#">Pages <span class="fa fa-angle-down"></span></a>
+                                            <!-- submenu-wrapper -->
+                                            <div class="submenu-wrapper">
+                                                <div class="submenu-inner">
+                                                    <ul class="dropdown-menu">
+                                                    	<li><a href="about.html">About</a></li>
+                                                        <li><a href="service.html">Service</a></li>
+                                                        <li><a href="our-people.html">Our people</a></li>
+                                                        <li><a href="career.html">Career</a></li>
+                                                        <li><a href="faq.html">FAQ Page</a></li>
+                                                        <li><a href="typography.html">Typography</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <!-- /submenu-wrapper -->
+                                        </li>
+                                        <!-- /Pages -->
+
+                                        <!-- Services -->
+                                        <li class="dropdown"><a href="#">Services <span class="fa fa-angle-down"></span></a>
+                                            <!-- submenu-wrapper -->
+                                            <div class="submenu-wrapper">
+                                                <div class="submenu-inner">
+                                                    <ul class="dropdown-menu">
+                                                    	<li><a href="air.html">Air transportation</a></li>
+                                                        <li><a href="marine.html">Marine transportation</a></li>
+                                                        <li><a href="moving.html">Moving & storage</a></li>
+                                                        <li><a href="shipping.html">Shipping & operations</a></li>
+                                                        <li><a href="transportation.html">Transportation logistics</a></li>
+                                                        <li><a href="trucking.html">Trucking</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <!-- /submenu-wrapper -->
+                                        </li>
+                                        <!-- MEGA MENU -->
+											<li class="dropdown mega-fw has-megamenu"><a href="#" data-toggle="dropdown" class="dropdown-toggle">Features <span class="fa fa-angle-down"></span></a>
+												<!-- megamenu-wrapper -->
+												<div class="submenu-wrapper megamenu-wrapper">
+													<div class="submenu-inner megamenu-inner">
+													
+														<ul class="dropdown-menu">
+															<li>
+																<div class="mega-content">
+																	<div class="row">
+																	
+																		<div class="col-sm-3 mega-col">
+																			<ul>
+																				<li class="dropdown-header">Features</li>
+																				<li><a href="#">100% Responsive</a></li>
+																				<li><a href="#">Animations</a></li>
+																				<li><a href="#">Bootstrap 3+</a></li>
+																				<li><a href="#">Valid Markups</a></li>
+																				<li><a href="#">Mega Menu</a></li>
+																				<li><a href="#">Free Supports And Update</a></li>
+																			</ul>
+																		</div><!-- /.col -->
+																		
+																		
+																		<div class="col-sm-3 mega-col">
+																			<ul>
+																				<li class="dropdown-header">Pages</li>
+																				<li><a href="about.html">About</a></li>
+						                                                        <li><a href="service.html">Service</a></li>
+						                                                        <li><a href="our-people.html">Our people</a></li>
+						                                                        <li><a href="career.html">Career</a></li>
+						                                                        <li><a href="faq.html">FAQ Page</a></li>
+						                                                        <li><a href="typography.html">Typography</a></li>
+																			</ul>
+																		</div><!-- /.col-->
+
+
+																		<div class="col-sm-3 mega-col">
+																			<ul>
+																				<li class="dropdown-header">Services</li>
+																				<li><a href="air.html">Air transportation</a></li>
+						                                                        <li><a href="marine.html">Marine transportation</a></li>
+						                                                        <li><a href="moving.html">Moving & storage</a></li>
+						                                                        <li><a href="shipping.html">Shipping & operations</a></li>
+						                                                        <li><a href="transportation.html">Transportation logistics</a></li>
+						                                                        <li><a href="trucking.html">Trucking</a></li>
+																			</ul>
+																		</div><!-- /.col-->
+
+
+																		<div class="col-sm-3 mega-col">
+																			<ul>
+																				<li class="dropdown-header">Typography</li>
+																				<li><a href="#">Bootstrap grids</a></li>
+																				<li><a href="#">Google fonts</a></li>
+																				<li><a href="#">Fontawesome icons</a></li>
+																				<li><a href="#">Flat icons</a></li>
+																				<li><a href="#">Tabs</a></li>
+																				<li><a href="#">Button elements</a></li>
+																			</ul>
+																		</div><!-- /.col -->	
+																	</div><!-- /.row -->
+																</div><!-- /.mega-content -->
+															</li>
+														</ul><!-- /.dropdown menu -->
+													</div><!-- /.megamenu-inner -->
+												</div> <!-- /.megamenu-wrapper -->
+											</li> <!-- /MEGA MENU -->
+                                        <!-- /Pages -->
+										<!-- Blog -->
+                                        <li class="dropdown"><a href="#">Blog <span class="fa fa-angle-down"></span></a>
+                                            <!-- submenu-wrapper -->
+                                            <div class="submenu-wrapper">
+                                                <div class="submenu-inner">
+                                                    <ul class="dropdown-menu">
+                                                    	<li><a href="blog.html">Standard blog</a></li>
+                                                        <li><a href="blog-single.html">Single blog</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <!-- /submenu-wrapper -->
+                                        </li>
+										<li><a href="contact.html">Contact</a></li>
+									</ul>
+								</div><!-- /.navbar-collapse -->
+							</div><!-- /.container -->
+
+							
+						</nav>
+					</header>
+
+                    @RenderBody()
+
+			        <!-- footer-widget-section start -->
+			        <section class="footer-widget-section section-padding">
+			        	<div class="container">
+			        		<div class="row">
+			        			<div class="col-md-3 col-md-offset-1 col-sm-4">
+			        				<div class="footer-widget">
+			        					<h3>Place &amp; Contact</h3>
+
+										<address>
+										  384 Maple Circle<br>
+										  Simi Valley, Nevada 47424<br>
+
+										  <!-- Google Map Modal Trigger -->
+										  <button type="button" class="modal-map" data-toggle="modal" data-target="#cssMapModal">Location  Map</button>
+
+										  <span class="tel">(554) 616-9926</span>
+										</address>
+
+
+										<!-- Modal -->
+										<div class="modal fade" id="cssMapModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+										  <div class="modal-dialog modal-lg">
+										    <div class="modal-content">
+										      <div class="modal-header">
+										        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+										        <h4 class="modal-title" id="myModalLabel">Our Location</h4>
+										      </div>
+										      <div class="modal-body">
+
+											    <div id="googleMap"></div>
+											    
+										      </div>
+										    </div><!-- /.modal-content -->
+										  </div><!-- /.modal-dialog -->
+										</div><!-- End Modal -->
+			        				</div><!-- /.footer-widget -->
+			        			</div><!-- /.col-md-4 -->
+
+			        			<div class="col-md-3 col-sm-4">
+			        				<div class="footer-widget">
+			        					<h3>About Transport</h3>
+
+			        					<ul>
+                                        	<li><a href="about.html">About</a></li>
+                                            <li><a href="service.html">Service</a></li>
+                                            <li><a href="our-people.html">Our people</a></li>
+                                            <li><a href="career.html">Career</a></li>
+                                            <li><a href="faq.html">FAQ Page</a></li>
+                                        </ul>
+			        				</div><!-- /.footer-widget -->
+			        			</div><!-- /.col-md-4 -->
+
+			        			<div class="col-md-4 col-sm-4">
+			        				<div class="footer-widget">
+			        					<h3>Stay in Touch</h3>
+			        					<p>Enter your email address to receive news &amp; offers from us</p>
+
+										<form class="newsletter-form">
+											<div class="form-group">
+												<label class="sr-only" for="InputEmail1">Email address</label>
+												<input type="email" class="form-control" id="InputEmail1" placeholder="Your email address">
+												<button type="submit" class="">Send &nbsp;<i class="fa fa-angle-right"></i></button>
+											</div>
+										</form>		        				
+									</div><!-- /.footer-widget -->
+			        			</div><!-- /.col-md-4 -->
+			        		</div><!-- /.row -->
+			        	</div><!-- /.container -->
+			        </section><!-- /.cta-section -->
+			        <!-- footer-widget-section end -->
+
+			        <!-- copyright-section start -->
+			        <footer class="copyright-section">
+			        	<div class="container text-center">
+			        		<div class="footer-menu">
+			        			<ul>
+			        				<li><a href="#">Privacy &amp; Cookies</a></li>
+			        				<li><a href="#">Terms &amp; Conditions</a></li>
+			        				<li><a href="#">Accessibility</a></li>
+			        			</ul>
+			        		</div>
+
+			        		<div class="copyright-info">
+			        			<span>Copyright © 2015 Unship. All Rights Reserved. Designed by <a href="https://uicookies.com">uiCookies</a><br> Proudly powered by <a href="http://www.w3schools.com/html/html5_intro.asp">HTML5</a> and <a href="getbootstrap.com">Bootstrap3</a></span>
+			        		</div>
+			        	</div><!-- /.container -->
+			        </footer>
+			        <!-- copyright-section end -->
+	    		</div> <!-- .st-content -->
+		    </div> <!-- .st-pusher -->
+			
+			<!-- OFF CANVAS MENU -->
+	    	<div class="offcanvas-menu offcanvas-effect">
+	    		<div class="offcanvas-wrap">
+			        <div class="off-canvas-header">
+			        	<button type="button" class="close" aria-hidden="true" data-toggle="offcanvas" id="off-canvas-close-btn">&times;</button>
+			        </div>
+			        <ul id ="offcanvasMenu" class="list-unstyled visible-xs visible-sm">
+			            <li class="active"><a href="index.html">Home<span class="sr-only">(current)</span></a></li>
+			            <li>
+			            	<a href="#">Pages</a>
+			            	<ul>
+								<li><a href="about.html">About</a></li>
+							    <li><a href="service.html">Service</a></li>
+							    <li><a href="our-people.html">Our people</a></li>
+							    <li><a href="career.html">Career</a></li>
+							    <li><a href="faq.html">FAQ Page</a></li>
+							    <li><a href="typography.html">Typography</a></li>
+							</ul>
+
+			            </li>
+			            <li>
+			            	<a href="#">Services</a>
+			            	<ul>
+								<li><a href="air.html">Air transportation</a></li>
+								<li><a href="marine.html">Marine transportation</a></li>
+								<li><a href="moving.html">Moving &amp; storage</a></li>
+								<li><a href="shipping.html">Shipping &amp; operations</a></li>
+								<li><a href="transportation.html">Transportation logistics</a></li>
+								<li><a href="trucking.html">Trucking</a></li>
+							</ul>
+
+			            </li>
+			            <li>
+			            	<a href="#">Blog</a>
+							<ul>
+			            		<li>
+			            			<a href="blog.html">Standard blog</a>
+			            		</li>
+			            		<li>
+			            			<a href="blog-single.html">Single blog</a>
+			            		</li>
+			            	</ul>
+			            </li>
+			            <li><a href="contact.html">Contact</a></li>
+			            <li><a href="typography.html">Typography</a></li>
+			        </ul>
+			        <div class="offcanvas-widgets hidden-sm hidden-xs">
+				        <div id="twitterWidget">
+							<h2>Tweeter feed</h2>				    	
+							<div class="twitter-widget"></div>
+						</div>
+						<div class="newsletter-widget">
+							<h2>Stay in Touch</h2>
+							<p>Enter your email address to receive news &amp; offers from us</p>
+
+							<form class="newsletter-form">
+								<div class="form-group">
+									<label class="sr-only" for="InputEmail1">Email address</label>
+									<input type="email" class="form-control" id="InputEmail2" placeholder="Your email address">
+									<button type="submit" class="btn">Send &nbsp;<i class="fa fa-angle-right"></i></button>
+								</div>
+							</form>		
+							       				
+						</div><!-- newsletter-widget -->
+					</div>
+				</div>
+	      	</div><!-- .offcanvas-menu -->
+		</div><!-- /st-container -->
+
+
+		<!-- Preloader -->
+		<!--<div id="preloader">
+			<div id="status">
+				<div class="status-mes"></div>
+			</div>
+		</div>-->
+
+	    <!-- jQuery -->
+	    <script src="js/jquery.js"></script>
+	    <!-- Bootstrap Core JavaScript -->
+	    <script src="js/bootstrap.min.js"></script>
+	    <!-- owl.carousel -->
+	    <script src="owl.carousel/owl.carousel.min.js"></script>
+	    <!-- Magnific-popup -->
+		<script src="js/jquery.magnific-popup.min.js"></script>
+		<!-- Offcanvas Menu -->
+		<script src="js/hippo-offcanvas.js"></script>
+		<!-- inview -->
+		<script src="js/jquery.inview.min.js"></script>
+		<!-- stellar -->
+		<script src="js/jquery.stellar.js"></script>
+		<!-- countTo -->
+		<script src="js/jquery.countTo.js"></script>
+		<!-- classie -->
+		<script src="js/classie.js"></script>
+		<!-- selectFx -->
+		<script src="js/selectFx.js"></script>
+		<!-- sticky kit -->
+		<script src="js/jquery.sticky-kit.min.js"></script>
+	    <!-- GOGLE MAP -->
+	    <script src="https://maps.googleapis.com/maps/api/js"></script>
+	    <!--TWITTER FETCHER-->
+	    <script src="js/twitterFetcher_min.js"></script>
+	    <!-- Custom Script -->
+	    <script src="js/scripts.js"></script>
+	</body>
+
+</html>

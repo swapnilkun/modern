@@ -1,0 +1,262 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ModernMarketResearchModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="ModernMarketResearchModelStoreContainer">
+    <EntitySet Name="ActionMaster" EntityType="ModernMarketResearchModel.Store.ActionMaster" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CategoryMaster" EntityType="ModernMarketResearchModel.Store.CategoryMaster" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="NewsMaster" EntityType="ModernMarketResearchModel.Store.NewsMaster" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PublisherMaster" EntityType="ModernMarketResearchModel.Store.PublisherMaster" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ReportDeliveryType" EntityType="ModernMarketResearchModel.Store.ReportDeliveryType" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ReportMaster" EntityType="ModernMarketResearchModel.Store.ReportMaster" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ReportType" EntityType="ModernMarketResearchModel.Store.ReportType" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="RoleActionRelation" EntityType="ModernMarketResearchModel.Store.RoleActionRelation" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="RoleMaster" EntityType="ModernMarketResearchModel.Store.RoleMaster" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="UserMaster" EntityType="ModernMarketResearchModel.Store.UserMaster" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="UserRoleRelation" EntityType="ModernMarketResearchModel.Store.UserRoleRelation" store:Type="Tables" Schema="dbo" />
+  </EntityContainer>
+  <EntityType Name="ActionMaster">
+    <Key>
+      <PropertyRef Name="ActionId" />
+    </Key>
+    <Property Name="ActionId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="ActionName" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="IsValid" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CategoryMaster">
+    <Key>
+      <PropertyRef Name="CategoryId" />
+    </Key>
+    <Property Name="CategoryId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="CategoryName" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="ParentCategoryId" Type="int" />
+    <Property Name="ShortDescription" Type="nvarchar" MaxLength="50" />
+    <Property Name="LongDescription" Type="nvarchar" MaxLength="50" />
+    <Property Name="CategoryUrl" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="MetaTitle" Type="nvarchar" MaxLength="50" />
+    <Property Name="Keywords" Type="nvarchar" MaxLength="50" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="MetaDescription" Type="nvarchar" MaxLength="50" />
+    <Property Name="CreatedBy" Type="int" Nullable="false" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedBy" Type="int" />
+    <Property Name="ModifiedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="NewsMaster">
+    <Key>
+      <PropertyRef Name="NewsId" />
+    </Key>
+    <Property Name="NewsId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="NewsTitle" Type="nvarchar" Nullable="false" MaxLength="2550" />
+    <Property Name="NewsUrl" Type="nvarchar" MaxLength="500" />
+    <Property Name="CategoryId" Type="int" Nullable="false" />
+    <Property Name="NewsDescription" Type="text" Nullable="false" />
+    <Property Name="PublishingDate" Type="datetime" Nullable="false" />
+    <Property Name="MetaTitle" Type="nvarchar" MaxLength="750" />
+    <Property Name="MetaDescritpion" Type="text" />
+    <Property Name="Keywords" Type="nvarchar" MaxLength="550" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="CreatedBy" Type="int" Nullable="false" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedBy" Type="int" />
+    <Property Name="ModifiedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="PublisherMaster">
+    <Key>
+      <PropertyRef Name="PublisherId" />
+    </Key>
+    <Property Name="PublisherId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="PublisherName" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Address" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="PublisherContactNumber" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="publisherUrl" Type="nvarchar" MaxLength="50" />
+    <Property Name="Keywords" Type="nvarchar" MaxLength="50" />
+    <Property Name="LongDescription" Type="nvarchar" MaxLength="50" />
+    <Property Name="ShortDescription" Type="nvarchar" MaxLength="50" />
+    <Property Name="MetaDescription" Type="nvarchar" MaxLength="50" />
+    <Property Name="ContactName" Type="nvarchar" MaxLength="50" />
+    <Property Name="CreatedBy" Type="int" Nullable="false" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedBy" Type="int" />
+    <Property Name="ModifiedDate" Type="datetime" />
+    <Property Name="IsValid" Type="bit" />
+  </EntityType>
+  <EntityType Name="ReportDeliveryType">
+    <Key>
+      <PropertyRef Name="ReportDeliveryTypeId" />
+    </Key>
+    <Property Name="ReportDeliveryTypeId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="ReportDeliveryType" Type="nvarchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="ReportMaster">
+    <Key>
+      <PropertyRef Name="ReportId" />
+    </Key>
+    <Property Name="ReportId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="ReportTitle" Type="nvarchar" Nullable="false" MaxLength="2000" />
+    <Property Name="ReportUrl" Type="nvarchar" Nullable="false" MaxLength="350" />
+    <Property Name="CategoryId" Type="int" Nullable="false" />
+    <Property Name="PublishereId" Type="int" Nullable="false" />
+    <Property Name="PublishingDate" Type="datetime" Nullable="false" />
+    <Property Name="MetaTitle" Type="nvarchar" MaxLength="2000" />
+    <Property Name="MetaDescription" Type="text" />
+    <Property Name="Keywords" Type="nvarchar" MaxLength="500" />
+    <Property Name="SinglePrice" Type="decimal" Nullable="false" />
+    <Property Name="MultiUserPrice" Type="decimal" />
+    <Property Name="CorporateUserPrice" Type="decimal" />
+    <Property Name="Domain" Type="nvarchar" MaxLength="50" />
+    <Property Name="ReportDeliveryTypeId" Type="int" Nullable="false" />
+    <Property Name="ReportTypeId" Type="int" Nullable="false" />
+    <Property Name="ReportImage" Type="nvarchar" MaxLength="500" />
+    <Property Name="NumberOfPages" Type="int" Nullable="false" />
+    <Property Name="ShortDescription" Type="text" />
+    <Property Name="LongDescritpion" Type="text" />
+    <Property Name="TableOfContent" Type="text" />
+    <Property Name="ListOfCharts" Type="text" />
+    <Property Name="ListOfFigure" Type="text" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="CreatedBy" Type="int" Nullable="false" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedBy" Type="int" />
+    <Property Name="ModifiedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="ReportType">
+    <Key>
+      <PropertyRef Name="ReportTypeId" />
+    </Key>
+    <Property Name="ReportTypeId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="ReportType" Type="nvarchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="RoleActionRelation">
+    <Key>
+      <PropertyRef Name="RAId" />
+    </Key>
+    <Property Name="RAId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="RId" Type="int" Nullable="false" />
+    <Property Name="AId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RoleMaster">
+    <Key>
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="RoleId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="RoleName" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="IsValid" Type="bit" Nullable="false" />
+    <Property Name="CreatedBy" Type="int" Nullable="false" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedBy" Type="int" />
+    <Property Name="ModifiedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="UserMaster">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="UserFName" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="UserLName" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="CurrentAddress" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="EmailAddress" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Password" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="State" Type="nvarchar" MaxLength="50" />
+    <Property Name="City" Type="nvarchar" MaxLength="50" />
+    <Property Name="ContactNumber" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="PermnentAddress" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Gender" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="CompanyName" Type="nvarchar" MaxLength="50" />
+    <Property Name="CreatedBy" Type="int" Nullable="false" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedBy" Type="int" />
+    <Property Name="ModifiedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="UserRoleRelation">
+    <Key>
+      <PropertyRef Name="UserRoleId" />
+    </Key>
+    <Property Name="UserRoleId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="URoleId" Type="int" Nullable="false" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+  </EntityType>
+  <Function Name="spDetailsRoleAction" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="RoleId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="spDetailsUserRole" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SplitString" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="StringToSplit" Type="varchar(max)" Mode="In" />
+    <ReturnType>
+      <CollectionType>
+        <RowType>
+          <Property Name="Name" Type="nvarchar" MaxLength="500" />
+        </RowType>
+      </CollectionType>
+    </ReturnType>
+  </Function>
+  <Function Name="spRoleActionDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="RoleId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="spRoleActionInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="RoleId" Type="int" Mode="In" />
+    <Parameter Name="RoleName" Type="nvarchar" Mode="In" />
+    <Parameter Name="IsActive" Type="bit" Mode="In" />
+    <Parameter Name="CreatedBy" Type="int" Mode="In" />
+    <Parameter Name="ModifiedBy" Type="int" Mode="In" />
+    <Parameter Name="CreatedDate" Type="datetime" Mode="In" />
+    <Parameter Name="ModifiedDate" Type="datetime" Mode="In" />
+    <Parameter Name="ActionId" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="spRoleActionUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="RoleId" Type="int" Mode="In" />
+    <Parameter Name="RoleName" Type="nvarchar" Mode="In" />
+    <Parameter Name="IsActive" Type="bit" Mode="In" />
+    <Parameter Name="CreatedBy" Type="int" Mode="In" />
+    <Parameter Name="ModifiedBy" Type="int" Mode="In" />
+    <Parameter Name="CreatedDate" Type="datetime" Mode="In" />
+    <Parameter Name="ModifiedDate" Type="datetime" Mode="In" />
+    <Parameter Name="ActionId" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="spSelectRoleAction" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="spUserRoleDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="spUserRoleInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserId" Type="int" Mode="In" />
+    <Parameter Name="UserFName" Type="nvarchar" Mode="In" />
+    <Parameter Name="UserLName" Type="nvarchar" Mode="In" />
+    <Parameter Name="CurrentAddress" Type="nvarchar" Mode="In" />
+    <Parameter Name="State" Type="nvarchar" Mode="In" />
+    <Parameter Name="City" Type="nvarchar" Mode="In" />
+    <Parameter Name="ContactNumber" Type="nvarchar" Mode="In" />
+    <Parameter Name="PermnentAddress" Type="nvarchar" Mode="In" />
+    <Parameter Name="Gender" Type="nvarchar" Mode="In" />
+    <Parameter Name="CompanyName" Type="nvarchar" Mode="In" />
+    <Parameter Name="EmailAddress" Type="nvarchar" Mode="In" />
+    <Parameter Name="Password" Type="nvarchar" Mode="In" />
+    <Parameter Name="IsActive" Type="bit" Mode="In" />
+    <Parameter Name="CreatedBy" Type="int" Mode="In" />
+    <Parameter Name="ModifiedBy" Type="int" Mode="In" />
+    <Parameter Name="CreatedDate" Type="datetime" Mode="In" />
+    <Parameter Name="ModifiedDate" Type="datetime" Mode="In" />
+    <Parameter Name="RoleId" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="spUserRoleSelect" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="spUserRoleUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserId" Type="int" Mode="In" />
+    <Parameter Name="UserFName" Type="nvarchar" Mode="In" />
+    <Parameter Name="UserLName" Type="nvarchar" Mode="In" />
+    <Parameter Name="CurrentAddress" Type="nvarchar" Mode="In" />
+    <Parameter Name="State" Type="nvarchar" Mode="In" />
+    <Parameter Name="City" Type="nvarchar" Mode="In" />
+    <Parameter Name="ContactNumber" Type="nvarchar" Mode="In" />
+    <Parameter Name="PermnentAddress" Type="nvarchar" Mode="In" />
+    <Parameter Name="Gender" Type="nvarchar" Mode="In" />
+    <Parameter Name="CompanyName" Type="nvarchar" Mode="In" />
+    <Parameter Name="EmailAddress" Type="nvarchar" Mode="In" />
+    <Parameter Name="Password" Type="nvarchar" Mode="In" />
+    <Parameter Name="IsActive" Type="bit" Mode="In" />
+    <Parameter Name="CreatedBy" Type="int" Mode="In" />
+    <Parameter Name="ModifiedBy" Type="int" Mode="In" />
+    <Parameter Name="CreatedDate" Type="datetime" Mode="In" />
+    <Parameter Name="ModifiedDate" Type="datetime" Mode="In" />
+    <Parameter Name="RoleId" Type="nvarchar" Mode="In" />
+  </Function>
+</Schema>
