@@ -8,26 +8,26 @@ namespace ModernMarketResearch
         // For more information on Bundling, visit http://go.microsoft.com/fwlink/?LinkId=254725
         public static void RegisterBundles(BundleCollection bundles)
         {
-            bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
-                        "~/Scripts/jquery-3.3.1.js"));
+            //bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
+            //            "~/Scripts/jquery-3.3.1.js"));
 
-            bundles.Add(new ScriptBundle("~/bundles/jqueryui").Include(
-                        "~/Scripts/jquery-ui-{version}.js"));
+            //bundles.Add(new ScriptBundle("~/bundles/jqueryui").Include(
+            //            "~/Scripts/jquery-ui-{version}.js"));
 
             //bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
             //            "~/Scripts/jquery.unobtrusive*",
             //            "~/Scripts/jquery.validate*"));
 
-            bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
-                       "~/Scripts/jquery.validate.js",
-                       "~/Scripts/jquery.validate.unobtrusive.3.2.6.js"));
+            //bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
+            //           "~/Scripts/jquery.validate.js",
+            //           "~/Scripts/jquery.validate.unobtrusive.3.2.6.js"));
 
             // Use the development version of Modernizr to develop with and learn from. Then, when you're
             // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
-            bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
-                        "~/Scripts/modernizr-*"));
+          //  bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
+                 //       "~/Scripts/modernizr-*"));
 
-            bundles.Add(new StyleBundle("~/Content/css").Include("~/Content/site.css"));
+           // bundles.Add(new StyleBundle("~/Content/css").Include("~/Content/site.css"));
 
             //bundles.Add(new StyleBundle("~/Content/themes/base/css").Include(
             //            "~/Content/themes/base/jquery.ui.core.css",
@@ -43,14 +43,30 @@ namespace ModernMarketResearch
             //            "~/Content/themes/base/jquery.ui.progressbar.css",
             //            "~/Content/themes/base/jquery.ui.theme.css"));
 
-            bundles.Add(new ScriptBundle("~/bundles/bootstrapscript")
-         .Include("~/Scripts/bootstrap.js"
+         //   bundles.Add(new ScriptBundle("~/bundles/bootstrapscript")
+         //.Include("~/Scripts/bootstrap.js"
+         //));
+            bundles.Add(new ScriptBundle("~/templatefooterjs")
+         .Include("~/js/vendor/modernizr-2.8.1.min.js",
+                   "~/js/jquery.js",
+                   "~/js/bootstrap.min.js",
+                   "~/owl.carousel/owl.carousel.min.js",
+                   "~/js/jquery.magnific-popup.min.js",
+                   "~/js/hippo-offcanvas.js",
+                   "~/js/jquery.inview.min.js",
+                   "~/js/jquery.stellar.js",
+                   "~/js/jquery.countTo.js",
+                   "~/js/classie.js",
+                   "~/js/selectFx.js",
+                   "~/js/jquery.sticky-kit.min.js",
+                   "~/js/twitterFetcher_min.js",
+                   "~/js/scripts.js"
          ));
             bundles.Add(new ScriptBundle("~/templatejs")
          .Include("~/js/vendor/modernizr-2.8.1.min.js"
          ));
             bundles.Add(new StyleBundle("~/bundles/bootstrapstyle")
-                .Include("~/Content/bootstrap.css"));
+                .Include("~/Content/bootstrap.min.css"));
             bundles.Add(new StyleBundle("~/templatecss")
                 .Include("~/css/bootstrap.min.css",
                 "~/fonts/flaticon/flaticon.css",
