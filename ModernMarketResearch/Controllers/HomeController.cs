@@ -22,24 +22,24 @@ namespace ModernMarketResearch.Controllers
             ViewBag.ChemicalsMaterials = (from l in db.CategoryMasters
                                           join r in db.ReportMasters on l.CategoryId equals r.CategoryId
                                           //where l.CategoryName == "Chemicals & Materials"
-                                          where l.CategoryId == 749 || l.ParentCategoryId == 749
+                                          where l.CategoryId == 10 || l.ParentCategoryId == 10
                                           orderby r.CreatedDate descending
                                           select new ReportVM
                                           {
                                               ReportTitle = r.ReportTitle,
                                               ReportUrl = r.ReportUrl
-                                          }).Take(3).ToList();
+                                          }).Take(4).ToList();
 
-            ViewBag.ElectricalElectronic = (from l in db.CategoryMasters
+            ViewBag.TechnologyMedia = (from l in db.CategoryMasters
                                             join r in db.ReportMasters on l.CategoryId equals r.CategoryId
                                             //where l.CategoryName == "Electrical & Electronic"
-                                            where l.CategoryId == 750 || l.ParentCategoryId == 750
+                                            where l.CategoryId == 8 || l.ParentCategoryId == 8
                                             orderby r.CreatedDate descending
                                             select new ReportVM
                                             {
                                                 ReportTitle = r.ReportTitle,
                                                 ReportUrl = r.ReportUrl
-                                            }).Take(3).ToList();
+                                            }).Take(4).ToList();
 
             ViewBag.ICTMedia = (from l in db.CategoryMasters
                                 join r in db.ReportMasters on l.CategoryId equals r.CategoryId
@@ -50,22 +50,23 @@ namespace ModernMarketResearch.Controllers
                                 {
                                     ReportTitle = r.ReportTitle,
                                     ReportUrl = r.ReportUrl
-                                }).Take(3).ToList();
+                                }).Take(4).ToList();
 
-            ViewBag.MedicalHealth = (from l in db.CategoryMasters
+            ViewBag.HealthCares = (from l in db.CategoryMasters
                                      join r in db.ReportMasters on l.CategoryId equals r.CategoryId
                                      //where l.CategoryName == "Medical & Health"
-                                     where l.CategoryId == 751 || l.ParentCategoryId == 751
+                                     where l.CategoryId == 4 || l.ParentCategoryId == 4
                                      orderby r.CreatedDate descending
                                      select new ReportVM
                                      {
                                          ReportTitle = r.ReportTitle,
                                          ReportUrl = r.ReportUrl
-                                     }).Take(3).ToList();
+                                     }).Take(4).ToList();
 
-            ViewBag.Title = "Market Research Trade - Market Research Reports, Industry Analysis, Trends and Forecast";
-            ViewBag.Description = "Market Research Trade provides in-depth and reliable market data, size, applications, industry structure, forecasts, related to Global and Chinese markets";
-            return View();
+            var ParentCategory = db.CategoryMasters.Where(x => x.ParentCategoryId == 0).ToList();
+            ViewBag.Title = "Modern Market Research  - Market Research Reports, Industry Analysis, Trends and Forecast";
+            ViewBag.Description = "Modern Market Research  provides in-depth and reliable market data, size, applications, industry structure, forecasts, related to Global and Chinese markets";
+            return View(ParentCategory);
         }
 
         [HttpGet]
