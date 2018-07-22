@@ -1,0 +1,175 @@
+﻿@using PagedList
+@using PagedList.Mvc
+@model IPagedList<ModernMarketResearch.Areas.Admin.Models.ViewModel.ReportVM>
+@{
+    ViewBag.Title = "All Latest Market Research Reports ";
+    Layout = null;
+}
+<link href="~/Content/PagedList.css" rel="stylesheet" />
+
+<script type="text/javascript">
+    var x = {};
+    $(document).ready(function z() {
+        x = $("#ReportId");
+        ValidateInput(x);
+    });
+    function ValidateInput() {
+        if (x.val() != '') {
+            $('#btnsubmit').attr('disabled', false);
+        }
+        else {
+            $('#btnsubmit').attr('disabled', true);
+        }
+    }
+</script>
+@*<script type="text/javascript">
+    $(function () {
+        $("#ReportId").autocomplete({
+            source: function (request, response) {
+                $.ajax({
+                    url: '@Url.Action("GetReports", "Reports")',
+                    type: 'post',
+                    dataType: 'json',
+                    data: {
+                        'ReportKey': request.term
+                    },
+                    success: function (data) {
+                        debugger;
+                        response(data);
+                    },
+                    error: function (err) {
+                        debugger;
+                        console.log(err);
+                    }
+                });
+            }
+        });
+
+    });
+</script>*@
+
+<style>
+    .field-validation-error {
+        color: red;
+    }
+</style>
+
+
+@*<div id="bannersection">
+    <div class="searchsection">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-6">
+            <h5><span class="searchheader">Search Market Research Reports from Top Publishers</span></h5>
+            @{Html.RenderAction("SearchingPartialView", "Home");}
+        </div>
+        <div class="col-sm-3"></div>
+    </div>
+</div>
+<div class="clear"></div>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-8">
+            <!--report start-->
+            <h1>Latest Reports</h1>
+            @if (ViewBag.Totalreports > 0)
+            {
+                
+                <div id="reportcontainer">
+                    @foreach (var item in Model)
+                    {
+                        <div class="latestreportdiv">
+                            <h3 class="goodretailclass"><a href='@Url.Action("ReportDetail", "Report", new { ReportUrl = item.ReportUrl })'><b>@item.ReportTitle</b></a></h3>
+                            <div id="datpric">
+                                <span class="glyphicon glyphicon-calendar"></span>@item.PublishingDate.ToString("MMM-yy") | <span class="glyphicon glyphicon-globe"></span>@Html.DisplayFor(model => item.CategoryName) |<span class="glyphicon glyphicon-usd"></span>Price : $ @item.PriceSingleUser
+                            </div>
+                            <p class="goodretailclass textjustify" style="font-size: 14px;">
+                                @Html.Raw(item.FullDescription)<a href='@Url.Action("ReportDetail", "Report", new { ReportUrl = item.ReportUrl })'><br />
+                                    <span style="border: 1px solid #009651; background-color: #009688; color: #FFFFFF; padding: 3px;">Read More..</span>
+                                </a>
+                            </p>
+                        </div>
+                    }
+                    <!-- row 2 -->
+
+
+                    <!-- row 3 -->
+
+                    <!-- pagination -->
+                    <ul class="pagination">
+                        @Html.PagedListPager(Model, pageno => Url.Action("AllReports", new
+                   {
+                       pageno
+                   }), new PagedListRenderOptions() { Display = PagedListDisplayMode.IfNeeded, DisplayPageCountAndCurrentLocation = true })
+                    </ul>
+                    <!-- pagination -->
+                </div> 
+            }
+            else
+            {
+                @ViewBag.Reports
+            }
+            <!--report finish-->
+        </div>
+        <div class="col-sm-4">
+            @{Html.RenderAction("LatestNews", "News");}
+        </div>
+    </div>
+
+</div>*@
+<!-- footer -->
+
+<div class="wrapper">
+
+    <div class="row">
+        <div class="col-md-8">
+
+            <h1 class="title">Latest Report</h1>
+
+            <div>
+                <table cellspacing="0" border="0" id="ctl00_ContentPlaceHolder1_grdReports" style="width: 100%; border-collapse: collapse;">
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <a href="@Url.Action("ReportDetail", "Report", new { @ReportUrl = item.ReportUrl })">
+                                                <h3 class="panel-title">@item.ReportTitle</h3>
+                                            </a>
+                                        </div>
+                                        <div class="panel-body category-short-note">
+                                            <p class="date-info"><i class="fa fa-calendar"></i>@item.PublishingDate.ToString("MMM-yy") | <a href="@Url.Action("PublisherRelatedReports","Report",new{@puburl=item.PublishingUrl})"> @item.PublisherName </a> | <a href="@Url.Action("CategoryRelatedReports", "Report", new {@caturl=item.CategoryUrl })"> @item.CategoryName </a></p>
+
+                                            @Html.Raw(item.FullDescription)...
+
+                                    <br>
+                                            <a rel="nofollow" href="@Url.Action("ReportDetail", "Report", new { @ReportUrl = item.ReportUrl })">View More <i class="fa fa-arrow-circle-right"></i></a>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+
+            <ul class="pagination">
+                @if (ViewBag.Totalreports > 0)
+                {
+                          
+                    @Html.PagedListPager(Model, pageno => Url.Action("AllReports", new
+                              {
+                                  pageno,
+                              }), new PagedListRenderOptions() { Display = PagedListDisplayMode.IfNeeded, DisplayPageCountAndCurrentLocation = true })
+                  
+                }
+            </ul>
+        </div>
+        <div class="col-md-4">
+
+            @*@{Html.RenderAction("LatestNews", "News");}*@
+
+        </div>
+    </div>
+</div>

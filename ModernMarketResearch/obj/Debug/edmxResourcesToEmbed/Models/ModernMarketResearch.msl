@@ -10,6 +10,34 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="BuyingInfoes">
+      <EntityTypeMapping TypeName="ModernMarketResearchModel.BuyingInfo">
+        <MappingFragment StoreEntitySet="BuyingInfo">
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="EmailId" ColumnName="EmailId" />
+          <ScalarProperty Name="Designation" ColumnName="Designation" />
+          <ScalarProperty Name="Company" ColumnName="Company" />
+          <ScalarProperty Name="CaptchaCode" ColumnName="CaptchaCode" />
+          <ScalarProperty Name="CustomerMessage" ColumnName="CustomerMessage" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Zipcode" ColumnName="Zipcode" />
+          <ScalarProperty Name="Paymentmode" ColumnName="Paymentmode" />
+          <ScalarProperty Name="AreaCode" ColumnName="AreaCode" />
+          <ScalarProperty Name="IPAddress" ColumnName="IPAddress" />
+          <ScalarProperty Name="GuId" ColumnName="GuId" />
+          <ScalarProperty Name="ReportUrl" ColumnName="ReportUrl" />
+          <ScalarProperty Name="TransactionId" ColumnName="TransactionId" />
+          <ScalarProperty Name="ReportTitle" ColumnName="ReportTitle" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="CategoryMasters">
       <EntityTypeMapping TypeName="ModernMarketResearchModel.CategoryMaster">
         <MappingFragment StoreEntitySet="CategoryMaster">
@@ -23,6 +51,65 @@
           <ScalarProperty Name="Keywords" ColumnName="Keywords" />
           <ScalarProperty Name="IsActive" ColumnName="IsActive" />
           <ScalarProperty Name="MetaDescription" ColumnName="MetaDescription" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Countries">
+      <EntityTypeMapping TypeName="ModernMarketResearchModel.Country">
+        <MappingFragment StoreEntitySet="Country">
+          <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+          <ScalarProperty Name="iso" ColumnName="iso" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="nicename" ColumnName="nicename" />
+          <ScalarProperty Name="iso3" ColumnName="iso3" />
+          <ScalarProperty Name="numcode" ColumnName="numcode" />
+          <ScalarProperty Name="phonecode" ColumnName="phonecode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CustomerInquiries">
+      <EntityTypeMapping TypeName="ModernMarketResearchModel.CustomerInquiry">
+        <MappingFragment StoreEntitySet="CustomerInquiry">
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="EmailId" ColumnName="EmailId" />
+          <ScalarProperty Name="Designation" ColumnName="Designation" />
+          <ScalarProperty Name="Company" ColumnName="Company" />
+          <ScalarProperty Name="CaptchaCode" ColumnName="CaptchaCode" />
+          <ScalarProperty Name="CustomerMessage" ColumnName="CustomerMessage" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="ReportId" ColumnName="ReportId" />
+          <ScalarProperty Name="FormType" ColumnName="FormType" />
+          <ScalarProperty Name="ReportTitle" ColumnName="ReportTitle" />
+          <ScalarProperty Name="AreaCode" ColumnName="AreaCode" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="InquiryForms">
+      <EntityTypeMapping TypeName="ModernMarketResearchModel.InquiryForm">
+        <MappingFragment StoreEntitySet="InquiryForm">
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="EmailId" ColumnName="EmailId" />
+          <ScalarProperty Name="Designation" ColumnName="Designation" />
+          <ScalarProperty Name="Company" ColumnName="Company" />
+          <ScalarProperty Name="CaptchaCode" ColumnName="CaptchaCode" />
+          <ScalarProperty Name="CustomerMessage" ColumnName="CustomerMessage" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="ReportId" ColumnName="ReportId" />
+          <ScalarProperty Name="FormType" ColumnName="FormType" />
+          <ScalarProperty Name="ReportTitle" ColumnName="ReportTitle" />
+          <ScalarProperty Name="AreaCode" ColumnName="AreaCode" />
           <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
           <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
           <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
@@ -181,6 +268,41 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spBreadsCum" FunctionName="ModernMarketResearchModel.Store.spBreadsCum">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ModernMarketResearchModel.spBreadsCum_Result">
+          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+          <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+          <ScalarProperty Name="CategoryUrl" ColumnName="CategoryUrl" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spCategoryRelatedReport" FunctionName="ModernMarketResearchModel.Store.spCategoryRelatedReport">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ModernMarketResearchModel.spCategoryRelatedReport_Result">
+          <ScalarProperty Name="ReportTitle" ColumnName="ReportTitle" />
+          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+          <ScalarProperty Name="ReportUrl" ColumnName="ReportUrl" />
+          <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+          <ScalarProperty Name="PublishingDate" ColumnName="PublishingDate" />
+          <ScalarProperty Name="LongDescription" ColumnName="LongDescription" />
+          <ScalarProperty Name="NumberOfPages" ColumnName="NumberOfPages" />
+          <ScalarProperty Name="ReportId" ColumnName="ReportId" />
+          <ScalarProperty Name="SinglePrice" ColumnName="SinglePrice" />
+          <ScalarProperty Name="ShortDescription" ColumnName="ShortDescription" />
+          <ScalarProperty Name="TableOfContent" ColumnName="TableOfContent" />
+          <ScalarProperty Name="MetaTitle" ColumnName="MetaTitle" />
+          <ScalarProperty Name="MetaDescription" ColumnName="MetaDescription" />
+          <ScalarProperty Name="Keywords" ColumnName="Keywords" />
+          <ScalarProperty Name="MultiUserPrice" ColumnName="MultiUserPrice" />
+          <ScalarProperty Name="CorporateUserPrice" ColumnName="CorporateUserPrice" />
+          <ScalarProperty Name="ReportTypeId" ColumnName="ReportTypeId" />
+          <ScalarProperty Name="ReportImage" ColumnName="ReportImage" />
+          <ScalarProperty Name="CategoryUrl" ColumnName="CategoryUrl" />
+          <ScalarProperty Name="PublisherName" ColumnName="PublisherName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
     <FunctionImportMapping FunctionImportName="spDetailsRoleAction" FunctionName="ModernMarketResearchModel.Store.spDetailsRoleAction">
       <ResultMapping>
         <ComplexTypeMapping TypeName="ModernMarketResearchModel.spDetailsRoleAction_Result">
@@ -199,9 +321,80 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spLatestNews" FunctionName="ModernMarketResearchModel.Store.spLatestNews">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ModernMarketResearchModel.spLatestNews_Result">
+          <ScalarProperty Name="NewsId" ColumnName="NewsId" />
+          <ScalarProperty Name="NewsTitle" ColumnName="NewsTitle" />
+          <ScalarProperty Name="NewsUrl" ColumnName="NewsUrl" />
+          <ScalarProperty Name="PublishingDate" ColumnName="PublishingDate" />
+          <ScalarProperty Name="NewsDescription" ColumnName="NewsDescription" />
+          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+          <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+          <ScalarProperty Name="CategoryUrl" ColumnName="CategoryUrl" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spLatestReport" FunctionName="ModernMarketResearchModel.Store.spLatestReport">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ModernMarketResearchModel.spLatestReport_Result">
+          <ScalarProperty Name="ReportId" ColumnName="ReportId" />
+          <ScalarProperty Name="ReportTitle" ColumnName="ReportTitle" />
+          <ScalarProperty Name="ReportUrl" ColumnName="ReportUrl" />
+          <ScalarProperty Name="PublishingDate" ColumnName="PublishingDate" />
+          <ScalarProperty Name="LongDescritpion" ColumnName="LongDescritpion" />
+          <ScalarProperty Name="SinglePrice" ColumnName="SinglePrice" />
+          <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+          <ScalarProperty Name="PublisherId" ColumnName="PublisherId" />
+          <ScalarProperty Name="PublisherName" ColumnName="PublisherName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spNewAllLatestReport" FunctionName="ModernMarketResearchModel.Store.spNewAllLatestReport">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ModernMarketResearchModel.spNewAllLatestReport_Result">
+          <ScalarProperty Name="ReportTitle" ColumnName="ReportTitle" />
+          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+          <ScalarProperty Name="ReportUrl" ColumnName="ReportUrl" />
+          <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+          <ScalarProperty Name="PublishingDate" ColumnName="PublishingDate" />
+          <ScalarProperty Name="LongDescription" ColumnName="LongDescription" />
+          <ScalarProperty Name="NumberOfPages" ColumnName="NumberOfPages" />
+          <ScalarProperty Name="ReportId" ColumnName="ReportId" />
+          <ScalarProperty Name="SinglePrice" ColumnName="SinglePrice" />
+          <ScalarProperty Name="ShortDescription" ColumnName="ShortDescription" />
+          <ScalarProperty Name="TableOfContent" ColumnName="TableOfContent" />
+          <ScalarProperty Name="MetaTitle" ColumnName="MetaTitle" />
+          <ScalarProperty Name="MetaDescription" ColumnName="MetaDescription" />
+          <ScalarProperty Name="Keywords" ColumnName="Keywords" />
+          <ScalarProperty Name="MultiUserPrice" ColumnName="MultiUserPrice" />
+          <ScalarProperty Name="CorporateUserPrice" ColumnName="CorporateUserPrice" />
+          <ScalarProperty Name="ReportTypeId" ColumnName="ReportTypeId" />
+          <ScalarProperty Name="ReportImage" ColumnName="ReportImage" />
+          <ScalarProperty Name="CategoryUrl" ColumnName="CategoryUrl" />
+          <ScalarProperty Name="PublisherName" ColumnName="PublisherName" />
+          <ScalarProperty Name="PublisherId" ColumnName="PublisherId" />
+          <ScalarProperty Name="publisherUrl" ColumnName="publisherUrl" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
     <FunctionImportMapping FunctionImportName="spRoleActionDelete" FunctionName="ModernMarketResearchModel.Store.spRoleActionDelete" />
     <FunctionImportMapping FunctionImportName="spRoleActionInsert" FunctionName="ModernMarketResearchModel.Store.spRoleActionInsert" />
     <FunctionImportMapping FunctionImportName="spRoleActionUpdate" FunctionName="ModernMarketResearchModel.Store.spRoleActionUpdate" />
+    <FunctionImportMapping FunctionImportName="spSelectedNewsDetails" FunctionName="ModernMarketResearchModel.Store.spSelectedNewsDetails">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ModernMarketResearchModel.spSelectedNewsDetails_Result">
+          <ScalarProperty Name="NewsId" ColumnName="NewsId" />
+          <ScalarProperty Name="NewsTitle" ColumnName="NewsTitle" />
+          <ScalarProperty Name="NewsDescription" ColumnName="NewsDescription" />
+          <ScalarProperty Name="NewsUrl" ColumnName="NewsUrl" />
+          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+          <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+          <ScalarProperty Name="CategoryUrl" ColumnName="CategoryUrl" />
+          <ScalarProperty Name="PublishingDate" ColumnName="PublishingDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
     <FunctionImportMapping FunctionImportName="spSelectRoleAction" FunctionName="ModernMarketResearchModel.Store.spSelectRoleAction">
       <ResultMapping>
         <ComplexTypeMapping TypeName="ModernMarketResearchModel.spSelectRoleAction_Result">

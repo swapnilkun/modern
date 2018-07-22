@@ -1,5 +1,6 @@
 ﻿using ModernMarketResearch.Areas.Admin.Models.ViewModel;
 using ModernMarketResearch.Models;
+using ModernMarketResearch.Models.ViewModel;
 using PagedList;
 using System;
 using System.Collections.Generic;
@@ -25,107 +26,108 @@ namespace ModernMarketResearch.Controllers
         }
 
         [OutputCache(Duration = 60, VaryByParam = "none")]
-        //public ActionResult LatestReportsForNews()
-        //{
-        //    var LatestPublishedReports = (from l in db.spLatestReport()
-        //                                  select new ReportVM
-        //                                  {
-        //                                      FullDescription = System.Text.RegularExpressions.Regex.Replace(l.FullDescription, @"<[^>]+>|&nbsp;", "").Trim(),
-        //                                      CategoryName = l.CategoryName,
-        //                                      ReportId = l.ReportId,
-        //                                      ReportTitle = l.ReportTitle,
-        //                                      ReportUrl = l.ReportURL,
-        //                                      PriceSingleUser = l.PriceSingleUser,
-        //                                      PublishingDate = Convert.ToDateTime(l.PublishingDate)
-        //                                  }).ToList();
-        //    return PartialView(LatestPublishedReports);
-        ////}
-        //public ActionResult AllReports(int? pageno)
-        //{
-        //    //var Allreports = (from l in db.ReportMasters
-        //    //                  join c in db.CategoryMasters
-        //    //                  on l.CategoryId equals c.CategoryId
-        //    //                  join p in db.PublisherMasters 
-        //    //                  on l.PublisherId equals p.PublisherId
-        //    //                  orderby l.CreatedDate descending
-        //    //                  //where l.FullDescription.Replace("<[^>]+>|&nbsp;", "").Trim().Contains(@"<[^>]+>|&nbsp;", "")
-        //    //                  select new ReportVM
-        //    //                  {
-        //    //                      ReportTitle = l.ReportTitle,
-        //    //                      ReportUrl = l.ReportURL,
-        //    //                      FullDescription = l.FullDescription.Substring(0, 300),
-        //    //                      NumberOfPage = l.NumberOfPage,
-        //    //                      CategoryId = l.CategoryId,
-        //    //                      PublishingDate = l.PublishingDate,
-        //    //                      PriceSingleUser = l.PriceSingleUser,
-        //    //                      CategoryName = c.CategoryName,
-        //    //                      CategoryUrl=c.CategoryUrl,
-        //    //                      PublisherName=p.CompanyName,
-        //    //                      PublisherId=p.PublisherId,
-        //    //                      PublishingUrl=p.PublisherUrl
-        //    //                  }).ToList();
-        //    //ObjectParameter count = new ObjectParameter("p_Count", 0);
+        public ActionResult LatestReportsForNews()
+        {
+            var LatestPublishedReports = (from l in db.spLatestReport()
+                                          select new ReportVM
+                                          {
+                                              FullDescription = System.Text.RegularExpressions.Regex.Replace(l.LongDescritpion, @"<[^>]+>|&nbsp;", "").Trim(),
+                                              CategoryName = l.CategoryName,
+                                              ReportId = l.ReportId,
+                                              ReportTitle = l.ReportTitle,
+                                              ReportUrl = l.ReportUrl,
+                                              PriceSingleUser = l.SinglePrice,
+                                              PublishingDate = Convert.ToDateTime(l.PublishingDate)
+                                          }).ToList();
+            return PartialView(LatestPublishedReports);
+        }
+        public ActionResult AllReports(int? pageno)
+        {
+            //var Allreports = (from l in db.ReportMasters
+            //                  join c in db.CategoryMasters
+            //                  on l.CategoryId equals c.CategoryId
+            //                  join p in db.PublisherMasters 
+            //                  on l.PublisherId equals p.PublisherId
+            //                  orderby l.CreatedDate descending
+            //                  //where l.FullDescription.Replace("<[^>]+>|&nbsp;", "").Trim().Contains(@"<[^>]+>|&nbsp;", "")
+            //                  select new ReportVM
+            //                  {
+            //                      ReportTitle = l.ReportTitle,
+            //                      ReportUrl = l.ReportURL,
+            //                      FullDescription = l.FullDescription.Substring(0, 300),
+            //                      NumberOfPage = l.NumberOfPage,
+            //                      CategoryId = l.CategoryId,
+            //                      PublishingDate = l.PublishingDate,
+            //                      PriceSingleUser = l.PriceSingleUser,
+            //                      CategoryName = c.CategoryName,
+            //                      CategoryUrl=c.CategoryUrl,
+            //                      PublisherName=p.CompanyName,
+            //                      PublisherId=p.PublisherId,
+            //                      PublishingUrl=p.PublisherUrl
+            //                  }).ToList();
+            ObjectParameter count = new ObjectParameter("p_Count", 0);
 
-        //    //var Allreports = (from r in db.spNewAllLatestReport(pageno ?? 1, count).ToList()
-        //    //                  select new ReportVM
-        //    //                  {
-        //    //                      ReportTitle = r.ReportTitle,
-        //    //                      CategoryId = r.CategoryId,
-        //    //                      PublishingDate = Convert.ToDateTime(r.PublishingDate),
-        //    //                      ReportUrl = r.ReportURL,
-        //    //                      PriceSingleUser = r.PriceSingleUser,
-        //    //                      FullDescription = r.FullDescription,
-        //    //                      NumberOfPage = r.NumberOfPage,
-        //    //                      CategoryName = r.CategoryName,
-        //    //                      CategoryUrl = r.CategoryURL,
-        //    //                      PublisherName = r.CompanyName,
-        //    //                      PublisherId = r.PublisherId,
-        //    //                      PublishingUrl = r.PublisherUrl
-        //    //                  }).ToList();
-        //    //var result = Allreports.Select(x => new ReportVM
-        //    //{
-        //    //    ReportTitle = x.ReportTitle,
-        //    //    ReportUrl = x.ReportUrl,
-        //    //    FullDescription = Regex.Replace(x.FullDescription, @"<[^>]+>|&nbsp;", "").Trim(),
-        //    //    NumberOfPage = x.NumberOfPage,
-        //    //    CategoryId = x.CategoryId,
-        //    //    PublishingDate = x.PublishingDate,
-        //    //    PriceSingleUser = x.PriceSingleUser,
-        //    //    CategoryName = x.CategoryName,
-        //    //    CategoryUrl = x.CategoryUrl,
-        //    //    PublisherName = x.PublisherName,
-        //    //    PublisherId = x.PublisherId,
-        //    //    PublishingUrl = x.PublishingUrl
+            var Allreports = (from r in db.spNewAllLatestReport(pageno ?? 1, count).ToList()
+                              select new ReportVM
+                              {
+                                  ReportTitle = r.ReportTitle,
+                                  CategoryId = r.CategoryId,
+                                  PublishingDate = Convert.ToDateTime(r.PublishingDate),
+                                  ReportUrl = r.ReportUrl,
+                                  PriceSingleUser = r.SinglePrice,
+                                  FullDescription = r.LongDescription,
+                                  NumberOfPage = r.NumberOfPages,
+                                  CategoryName = r.CategoryName,
+                                  CategoryUrl = r.CategoryUrl,
+                                  PublisherName = r.PublisherName,
+                                  PublisherId = r.PublisherId,
+                                  PublishingUrl = r.publisherUrl
+                              }).ToList();
+            var result = Allreports.Select(x => new ReportVM
+            {
+                ReportTitle = x.ReportTitle,
+                ReportUrl = x.ReportUrl,
+                FullDescription = Regex.Replace(x.FullDescription, @"<[^>]+>|&nbsp;", "").Trim(),
+                NumberOfPage = x.NumberOfPage,
+                CategoryId = x.CategoryId,
+                PublishingDate = x.PublishingDate,
+                PriceSingleUser = x.PriceSingleUser,
+                CategoryName = x.CategoryName,
+                CategoryUrl = x.CategoryUrl,
+                PublisherName = x.PublisherName,
+                PublisherId = x.PublisherId,
+                PublishingUrl = x.PublishingUrl
+            }).ToList();
 
-        //    //}).ToList();
-        //    //var reports = new StaticPagedList<ReportVM>(result, pageno ?? 1, 10, Convert.ToInt32(count.Value));
-        //    //ViewBag.Totalreports = reports.TotalItemCount;
-        //    //ViewBag.Title = "All Latest Market Research Reports | QY Group";
-        //    //ViewBag.Description = "Market Research Trade Provides All Latest Market Research Reports in Different Categories and Latest Trends";
-        //    //ViewBag.Keywords = "Latest Reports, Trending Reports, Custom Reports, ";
+            var reports = new StaticPagedList<ReportVM>(result, pageno ?? 1, 10, Convert.ToInt32(count.Value));
+           
+            ViewBag.Totalreports = reports.TotalItemCount;
+            ViewBag.Title = "All Latest Market Research Reports | Modern Market Research";
+            ViewBag.Description = "Modern Market Research  Provides All Latest Market Research Reports of Different Categories and Custom Reports";
+            ViewBag.Keywords = "Latest Reports, Trending Reports, Custom Reports, ";
+           
+            return View(reports);
 
-        //    //return View(reports);
+        }
+        //s[OutputCache(Duration = 60, VaryByParam = "none")]
+        public ActionResult LatestReport()
+        {
+            var latestreport = (from l in db.spLatestReport()
+                                select new ReportVM
+                                {
+                                    ReportId = l.ReportId,
+                                    ReportTitle = l.ReportTitle,
+                                    ReportUrl = l.ReportUrl,
+                                    FullDescription = Regex.Replace(l.LongDescritpion, @"<[^>]+>|&nbsp;", "").Trim(),
+                                    PriceSingleUser = l.SinglePrice,
+                                    PublishingDate = Convert.ToDateTime(l.PublishingDate),
+                                    CategoryName = l.CategoryName,
+                                    PublisherId = l.PublisherId,
+                                    PublisherName = l.PublisherName
+                                }).ToList();
 
-        //}
-        //[OutputCache(Duration = 60, VaryByParam = "none")]
-        //public ActionResult LatestReport()
-        //{
-        //    var latestreport = (from l in db.spLatestReport()
-        //                        select new ReportVM
-        //                        {
-        //                            ReportId = l.ReportId,
-        //                            ReportTitle = l.ReportTitle,
-        //                            ReportUrl = l.ReportURL,
-        //                            FullDescription = Regex.Replace(l.FullDescription, @"<[^>]+>|&nbsp;", "").Trim(),
-        //                            PriceSingleUser = l.PriceSingleUser,
-        //                            PublishingDate = Convert.ToDateTime(l.PublishingDate),
-        //                            CategoryName = l.CategoryName,
-        //                            PublisherId = l.PublisherId,
-        //                            PublisherName = l.CompanyName
-        //                        }).ToList();
-
-        //    return PartialView(latestreport);
-        //}
+            return PartialView(latestreport);
+        }
         public ActionResult ReportDetail(string Reporturl)
         {
             ReportDetailsVM report = new ReportDetailsVM();
@@ -160,8 +162,7 @@ namespace ModernMarketResearch.Controllers
                 //throw new HttpException(404, "Page Not Found");
                 return HttpNotFound();
             }
-            report.BreadcrumbCategory = db.Database.SqlQuery<BreadsCum>("exec  BreadCascading @CategoryId", new SqlParameter("@CategoryId", report.ReportDetails.CategoryId)).ToList();
-
+            report.BreadcrumbCategory = db.Database.SqlQuery<BreadsCum>("exec  spBreadsCum @CategoryId", new SqlParameter("@CategoryId", report.ReportDetails.CategoryId)).ToList();
             return View(report);
         }
 
@@ -232,184 +233,183 @@ namespace ModernMarketResearch.Controllers
                 // return View(r);
                 return HttpNotFound();
         }
-        //public ActionResult CategoryRelatedReports(string caturl, int? pageno)
-        //{
+        public ActionResult CategoryRelatedReports(string caturl, int? pageno)
+        {
 
-        //    // check Where it is parent category or child Category 
+            // check Where it is parent category or child Category 
 
-        //    ReportVM ObjReortVM = new ReportVM();
+            ReportVM ObjReortVM = new ReportVM();
 
-        //    var categoryID = db.CategoryMasters.Where(c => c.CategoryUrl == caturl).Select(c => c.CategoryId).FirstOrDefault();
-        //    int catid = Convert.ToInt32(categoryID);
-
-
-        //    var parentcategory = db.CategoryMasters.Where(x => x.CategoryId == catid && x.ParentCategoryId == 0).Select(x => x.CategoryName).FirstOrDefault();
-
-        //    ViewBag.CategoryName = parentcategory + " " + "Market Research Reports";
-
-        //    if (!string.IsNullOrEmpty(parentcategory))
-        //    {
-        //        // Reports with Parent and child wised 
+            var categoryID = db.CategoryMasters.Where(c => c.CategoryUrl == caturl).Select(c => c.CategoryId).FirstOrDefault();
+            int catid = Convert.ToInt32(categoryID);
 
 
-        //        ObjectParameter count = new ObjectParameter("p_Count", 0);
+            var parentcategory = db.CategoryMasters.Where(x => x.CategoryId == catid && x.ParentCategoryId == 0).Select(x => x.CategoryName).FirstOrDefault();
 
-        //        var RelatedReportsOfSamefamilly = (from r in db.CategoryRelatedReport(catid, pageno ?? 1, count).ToList()
-        //                                           select new ReportVM
-        //                                           {
-        //                                               ReportTitle = r.ReportTitle,
-        //                                               CategoryId = r.CategoryId,
-        //                                               PublishingDate = Convert.ToDateTime(r.PublishingDate),
-        //                                               ReportUrl = r.ReportUrl,
-        //                                               PriceSingleUser = r.PriceSingleUser,
-        //                                               FullDescription = r.FullDescription,
-        //                                               NumberOfPage = r.NumberOfPage,
-        //                                               CategoryName = r.CategoryName,
-        //                                               MetaTitle = r.MetaTitle,
-        //                                               MetaKeywords = r.MetaKeywords,
-        //                                               MetaDescription = r.MetaDescription,
-        //                                               CategoryUrl = r.CategoryUrl,
-        //                                               ShortCatDesc = r.ShortDescription,
-        //                                               LongCatDesc = r.LongDescription,
-        //                                               PublisherId = r.PublisherId,
-        //                                               PublisherName = r.CompanyName
-        //                                           }).ToPagedList(pageno ?? 1, 10);
+            ViewBag.CategoryName = parentcategory + " " + "Market Research Reports";
 
-        //        var catreports = (from x in RelatedReportsOfSamefamilly
-        //                          select new ReportVM
-        //                          {
-        //                              ReportTitle = x.ReportTitle,
-        //                              CategoryId = x.CategoryId,
-        //                              PublishingDate = Convert.ToDateTime(x.PublishingDate),
-        //                              ReportUrl = x.ReportUrl,
-        //                              PriceSingleUser = x.PriceSingleUser,
-        //                              FullDescription = Regex.Replace(x.FullDescription, @"<[^>]+>|&nbsp;", "").Trim(),
-        //                              NumberOfPage = x.NumberOfPage,
-        //                              CategoryName = x.CategoryName,
-        //                              MetaTitle = x.MetaTitle,
-        //                              MetaKeywords = x.MetaKeywords,
-        //                              MetaDescription = x.MetaDescription,
-        //                              CategoryUrl = x.CategoryUrl,
-        //                              ShortCatDesc = x.ShortCatDesc,
-        //                              LongCatDesc = x.LongCatDesc,
-        //                              PublisherId = x.PublisherId,
-        //                              PublisherName = x.PublisherName
-        //                          }).ToList();
+            if (!string.IsNullOrEmpty(parentcategory))
+            {
+                // Reports with Parent and child wised 
 
-        //        var reports = new StaticPagedList<ReportVM>(catreports, pageno ?? 1, 10, Convert.ToInt32(count.Value));
 
-        //        ObjReortVM = (from c in db.CategoryMasters
-        //                      where c.CategoryId == catid
-        //                      select new ReportVM
-        //                      {
-        //                          ShortCatDesc = c.ShortDescription,
-        //                          LongCatDesc = c.LongDescription
-        //                      }).FirstOrDefault();
-        //        //ViewBag.Totalreports = Convert.ToInt32(count.Value);
-        //        ViewBag.ShortDesc = ObjReortVM.ShortCatDesc;
-        //        ViewBag.LongDesc = ObjReortVM.LongCatDesc;
-        //        ViewBag.Title = parentcategory + " Market Research Report and Industry Analysis Market Research Report and Industry Analysis & Forecast - Market Research Trade";
-        //        ViewBag.Description = "";
-        //        ViewBag.Keywords = "";
-        //        return View(reports);
+                ObjectParameter count = new ObjectParameter("p_Count", 0);
 
-        //    }
-        //    else
-        //    {
-        //        // Only CategoryWised Reports 
-        //        var childCatName = db.CategoryMasters.Where(x => x.CategoryId == catid).Select(x => x.CategoryName).FirstOrDefault();
-        //        ViewBag.CategoryName = childCatName + " " + "Market Research Reports";
-        //        var Relatedreports = (from r in db.ReportMasters
-        //                              join c in db.CategoryMasters on r.CategoryId equals c.CategoryId
-        //                              join p in db.PublisherMasters on r.PublishereId equals p.PublisherId
-        //                              where c.CategoryId == catid
-        //                              orderby r.CreatedDate descending
-        //                              select new ReportVM
-        //                              {
-        //                                  ReportTitle = r.ReportTitle,
-        //                                  ReportUrl = r.ReportUrl,
-        //                                  CategoryId = r.CategoryId,
-        //                                  CategoryName = c.CategoryName,
-        //                                  ShortCatDesc = c.ShortDescription,
-        //                                  LongCatDesc = c.LongDescription,
-        //                                  PublisherName = p.ContactName,
-        //                                  FullDescription = r.LongDescritpion.Substring(0, 300),
-        //                                  PublishingDate = r.PublishingDate,
-        //                                  PublisherId = r.PublishereId,
-        //                                  CategoryUrl = c.CategoryUrl,
-        //                                  PublishingUrl = p.publisherUrl
+                var RelatedReportsOfSamefamilly = (from r in db.spCategoryRelatedReport(catid, pageno ?? 1, count).ToList()
+                                                   select new ReportVM
+                                                   {
+                                                       ReportTitle = r.ReportTitle,
+                                                       CategoryId = r.CategoryId,
+                                                       PublishingDate = Convert.ToDateTime(r.PublishingDate),
+                                                       ReportUrl = r.ReportUrl,
+                                                       PriceSingleUser = r.SinglePrice,
+                                                       FullDescription = r.LongDescription,
+                                                       NumberOfPage = r.NumberOfPages,
+                                                       CategoryName = r.CategoryName,
+                                                       MetaTitle = r.MetaTitle,
+                                                       MetaKeywords = r.Keywords,
+                                                       MetaDescription = r.MetaDescription,
+                                                       CategoryUrl = r.CategoryUrl,
+                                                       ShortCatDesc = r.ShortDescription,
+                                                       LongCatDesc = r.LongDescription,
+                                                       PublisherName = r.PublisherName
+                                                   }).ToPagedList(pageno ?? 1, 10);
 
-        //                              }).ToList();
+                var catreports = (from x in RelatedReportsOfSamefamilly
+                                  select new ReportVM
+                                  {
+                                      ReportTitle = x.ReportTitle,
+                                      CategoryId = x.CategoryId,
+                                      PublishingDate = Convert.ToDateTime(x.PublishingDate),
+                                      ReportUrl = x.ReportUrl,
+                                      PriceSingleUser = x.PriceSingleUser,
+                                      FullDescription = Regex.Replace(x.FullDescription, @"<[^>]+>|&nbsp;", "").Trim(),
+                                      NumberOfPage = x.NumberOfPage,
+                                      CategoryName = x.CategoryName,
+                                      MetaTitle = x.MetaTitle,
+                                      MetaKeywords = x.MetaKeywords,
+                                      MetaDescription = x.MetaDescription,
+                                      CategoryUrl = x.CategoryUrl,
+                                      ShortCatDesc = x.ShortCatDesc,
+                                      LongCatDesc = x.LongCatDesc,
+                                      PublisherId = x.PublisherId,
+                                      PublisherName = x.PublisherName
+                                  }).ToList();
 
-        //        var reports = (from x in Relatedreports
-        //                       select new ReportVM
-        //                       {
-        //                           ReportTitle = x.ReportTitle,
-        //                           ReportUrl = x.ReportUrl,
-        //                           CategoryId = x.CategoryId,
-        //                           CategoryName = x.CategoryName,
-        //                           ShortCatDesc = x.ShortCatDesc,
-        //                           LongCatDesc = x.LongCatDesc,
-        //                           FullDescription = Regex.Replace(x.FullDescription, @"<[^>]+>|&nbsp;", "").Trim(),
-        //                           PublishingDate = x.PublishingDate,
-        //                           PublisherId = x.PublisherId,
-        //                           PublisherName = x.PublisherName,
-        //                           CategoryUrl = x.CategoryUrl,
-        //                           PublishingUrl = x.PublishingUrl
-        //                       }).ToPagedList(pageno ?? 1, 10);
+                var reports = new StaticPagedList<ReportVM>(catreports, pageno ?? 1, 10, Convert.ToInt32(count.Value));
 
-        //        //ObjectParameter count = new ObjectParameter("p_Count", 0);
+                ObjReortVM = (from c in db.CategoryMasters
+                              where c.CategoryId == catid
+                              select new ReportVM
+                              {
+                                  ShortCatDesc = c.ShortDescription,
+                                  LongCatDesc = c.LongDescription
+                              }).FirstOrDefault();
+                //ViewBag.Totalreports = Convert.ToInt32(count.Value);
+                ViewBag.ShortDesc = ObjReortVM.ShortCatDesc;
+                ViewBag.LongDesc = ObjReortVM.LongCatDesc;
+                ViewBag.Title = parentcategory + " Market Research Report and Industry Analysis Market Research Report and Industry Analysis & Forecast - Market Research Trade";
+                ViewBag.Description = "";
+                ViewBag.Keywords = "";
+                return View(reports);
 
-        //        //var RelatedReportsOfSamefamilly = (from r in db.ChildCategoryRelatedReport(catid, pageno ?? 1, count).ToList()
-        //        //                                   select new ReportVM
-        //        //                                   {
-        //        //                                       ReportTitle = r.ReportTitle,
-        //        //                                       CategoryId = r.CategoryId,
-        //        //                                       PublishingDate = Convert.ToDateTime(r.PublishingDate),
-        //        //                                       ReportUrl = r.ReportUrl,
-        //        //                                       PriceSingleUser = r.PriceSingleUser,
-        //        //                                       FullDescription = r.FullDescription,
-        //        //                                       NumberOfPage = r.NumberOfPage,
-        //        //                                       CategoryName = r.CategoryName,
-        //        //                                       MetaTitle = r.MetaTitle,
-        //        //                                       MetaKeywords = r.MetaKeywords,
-        //        //                                       MetaDescription = r.MetaDescription,
-        //        //                                       CategoryUrl = r.CategoryUrl,
-        //        //                                       ShortCatDesc = r.ShortDescription,
-        //        //                                       LongCatDesc = r.LongDescription,
-        //        //                                       PublisherId = r.PublisherId,
-        //        //                                       PublisherName = r.CompanyName
-        //        //                                   }).ToList();
+            }
+            else
+            {
+                // Only CategoryWised Reports 
+                var childCatName = db.CategoryMasters.Where(x => x.CategoryId == catid).Select(x => x.CategoryName).FirstOrDefault();
+                ViewBag.CategoryName = childCatName + " " + "Market Research Reports";
+                var Relatedreports = (from r in db.ReportMasters
+                                      join c in db.CategoryMasters on r.CategoryId equals c.CategoryId
+                                      join p in db.PublisherMasters on r.PublishereId equals p.PublisherId
+                                      where c.CategoryId == catid
+                                      orderby r.CreatedDate descending
+                                      select new ReportVM
+                                      {
+                                          ReportTitle = r.ReportTitle,
+                                          ReportUrl = r.ReportUrl,
+                                          CategoryId = r.CategoryId,
+                                          CategoryName = c.CategoryName,
+                                          ShortCatDesc = c.ShortDescription,
+                                          LongCatDesc = c.LongDescription,
+                                          PublisherName = p.ContactName,
+                                          FullDescription = r.LongDescritpion.Substring(0, 300),
+                                          PublishingDate = r.PublishingDate,
+                                          PublisherId = r.PublishereId,
+                                          CategoryUrl = c.CategoryUrl,
+                                          PublishingUrl = p.publisherUrl
 
-        //        //var catreports = (from x in RelatedReportsOfSamefamilly
-        //        //                  select new ReportVM
-        //        //                  {
-        //        //                      ReportTitle = x.ReportTitle,
-        //        //                      CategoryId = x.CategoryId,
-        //        //                      PublishingDate = Convert.ToDateTime(x.PublishingDate),
-        //        //                      ReportUrl = x.ReportUrl,
-        //        //                      PriceSingleUser = x.PriceSingleUser,
-        //        //                      FullDescription = Regex.Replace(x.FullDescription, @"<[^>]+>|&nbsp;", "").Trim(),
-        //        //                      NumberOfPage = x.NumberOfPage,
-        //        //                      CategoryName = x.CategoryName,
-        //        //                      MetaTitle = x.MetaTitle,
-        //        //                      MetaKeywords = x.MetaKeywords,
-        //        //                      MetaDescription = x.MetaDescription,
-        //        //                      CategoryUrl = x.CategoryUrl,
-        //        //                      ShortCatDesc = x.ShortCatDesc,
-        //        //                      LongCatDesc = x.LongCatDesc,
-        //        //                      PublisherId = x.PublisherId,
-        //        //                      PublisherName = x.PublisherName
-        //        //                  }).ToList();
+                                      }).ToList();
 
-        //        //var reports = new StaticPagedList<ReportVM>(catreports, pageno ?? 1, 10, Convert.ToInt32(count.Value));
-        //        ViewBag.Title = ViewBag.CategoryName + " Market Research Report and Industry Analysis & Forecast - Market Research Trade";
-        //        ViewBag.Description = "";
-        //        ViewBag.Keywords = "";
-        //        return View(reports);
-        //    }
+                var reports = (from x in Relatedreports
+                               select new ReportVM
+                               {
+                                   ReportTitle = x.ReportTitle,
+                                   ReportUrl = x.ReportUrl,
+                                   CategoryId = x.CategoryId,
+                                   CategoryName = x.CategoryName,
+                                   ShortCatDesc = x.ShortCatDesc,
+                                   LongCatDesc = x.LongCatDesc,
+                                   FullDescription = Regex.Replace(x.FullDescription, @"<[^>]+>|&nbsp;", "").Trim(),
+                                   PublishingDate = x.PublishingDate,
+                                   PublisherId = x.PublisherId,
+                                   PublisherName = x.PublisherName,
+                                   CategoryUrl = x.CategoryUrl,
+                                   PublishingUrl = x.PublishingUrl
+                               }).ToPagedList(pageno ?? 1, 10);
 
-        //}
+                //ObjectParameter count = new ObjectParameter("p_Count", 0);
+
+                //var RelatedReportsOfSamefamilly = (from r in db.ChildCategoryRelatedReport(catid, pageno ?? 1, count).ToList()
+                //                                   select new ReportVM
+                //                                   {
+                //                                       ReportTitle = r.ReportTitle,
+                //                                       CategoryId = r.CategoryId,
+                //                                       PublishingDate = Convert.ToDateTime(r.PublishingDate),
+                //                                       ReportUrl = r.ReportUrl,
+                //                                       PriceSingleUser = r.PriceSingleUser,
+                //                                       FullDescription = r.FullDescription,
+                //                                       NumberOfPage = r.NumberOfPage,
+                //                                       CategoryName = r.CategoryName,
+                //                                       MetaTitle = r.MetaTitle,
+                //                                       MetaKeywords = r.MetaKeywords,
+                //                                       MetaDescription = r.MetaDescription,
+                //                                       CategoryUrl = r.CategoryUrl,
+                //                                       ShortCatDesc = r.ShortDescription,
+                //                                       LongCatDesc = r.LongDescription,
+                //                                       PublisherId = r.PublisherId,
+                //                                       PublisherName = r.CompanyName
+                //                                   }).ToList();
+
+                //var catreports = (from x in RelatedReportsOfSamefamilly
+                //                  select new ReportVM
+                //                  {
+                //                      ReportTitle = x.ReportTitle,
+                //                      CategoryId = x.CategoryId,
+                //                      PublishingDate = Convert.ToDateTime(x.PublishingDate),
+                //                      ReportUrl = x.ReportUrl,
+                //                      PriceSingleUser = x.PriceSingleUser,
+                //                      FullDescription = Regex.Replace(x.FullDescription, @"<[^>]+>|&nbsp;", "").Trim(),
+                //                      NumberOfPage = x.NumberOfPage,
+                //                      CategoryName = x.CategoryName,
+                //                      MetaTitle = x.MetaTitle,
+                //                      MetaKeywords = x.MetaKeywords,
+                //                      MetaDescription = x.MetaDescription,
+                //                      CategoryUrl = x.CategoryUrl,
+                //                      ShortCatDesc = x.ShortCatDesc,
+                //                      LongCatDesc = x.LongCatDesc,
+                //                      PublisherId = x.PublisherId,
+                //                      PublisherName = x.PublisherName
+                //                  }).ToList();
+
+                //var reports = new StaticPagedList<ReportVM>(catreports, pageno ?? 1, 10, Convert.ToInt32(count.Value));
+                ViewBag.Title = ViewBag.CategoryName + " Market Research Report and Industry Analysis & Forecast - Market Research Trade";
+                ViewBag.Description = "";
+                ViewBag.Keywords = "";
+                return View(reports);
+            }
+
+        }
 
         public ActionResult PublisherRelatedReports(string puburl, int? pageno)
         {

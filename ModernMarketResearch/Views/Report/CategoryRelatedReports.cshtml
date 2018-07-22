@@ -1,0 +1,165 @@
+﻿@using PagedList
+@using PagedList.Mvc
+@model IPagedList<ModernMarketResearch.Areas.Admin.Models.ViewModel.ReportVM>
+@{
+    Layout = null;
+}
+<link href="~/Content/PagedList.css" rel="stylesheet" />
+<style>
+    .read-more-state {
+        display: none;
+    }
+
+    .read-more-target {
+        opacity: 0;
+        height: 0;
+        font-size: 0;
+        transition: .25s ease;
+    }
+
+        .read-more-target p {
+            display: none;
+        }
+
+    .read-more-wrap {
+        text-align: justify;
+    }
+
+    .read-more-state:checked ~ .read-more-wrap .read-more-target {
+        opacity: 1;
+        font-size: inherit;
+        max-height: 999em;
+    }
+
+        .read-more-state:checked ~ .read-more-wrap .read-more-target p {
+            display: block;
+        }
+
+    .read-more-state ~ .read-more-trigger:before {
+        content: 'Read more ...';
+    }
+
+    .read-more-state:checked ~ .read-more-trigger:before {
+        content: 'Read less ...';
+    }
+
+    .read-more-trigger {
+        cursor: pointer;
+        display: inline-block;
+        padding: 0 .5em;
+        color: #666;
+        font-size: .9em;
+        line-height: 2;
+        border: 1px solid #ddd;
+        border-radius: .25em;
+        margin-bottom: 30px;
+    }
+</style>
+@*<script type="text/javascript">
+    var removedStr = '';
+    var mydescStr = [];
+    var newStr = '';
+    $(document).ready(function () {
+        //var maxLength = 500;
+        $("#catshortDesc").each(function () {
+            mycatshortDesc.push($(this).text());
+
+            //if ($(this).text().length > maxLength) {
+            //    newdescStr = $(this).text().substring(0, maxLength);
+                // removedStr = myStr.substring(maxLength, $.trim(myStr).length);
+                $(this).html(mycatshortDesc);
+                $(this).append('<div class="read-more"><button type="button" class="btn btn-primary" style="border: 1px solid #009651; background-color: #009688; color: #FFFFFF;padding:3px;">Read More..</button></div>');
+                //$(this).append('<span class="more-text">' + removedStr + '</span>');
+           // }
+        });
+
+        $(".read-more").click(function () {
+            debugger;
+            var t = $(this);
+            
+            //$(".read-more").empty();
+            //$(".show-read-more").html("");
+            //$(".show-read-more").append(mydescStr);
+        });
+
+    });
+</script>*@
+<div class="wrapper">
+
+    <div class="row">
+        <div class="col-md-8">
+
+            <h1 class="title">@ViewBag.CategoryName</h1>
+
+
+            <input type="checkbox" class="read-more-state" id="post-1">
+            <div class="read-more-wrap">
+                <div id="catshortDesc">
+                    @Html.Raw(ViewBag.ShortDesc)
+                </div>
+                <span class="read-more-target">
+
+                    @Html.Raw(ViewBag.LongDesc)
+
+                    @*   <p>
+                        Complete equipment is combination of the different types of the machinery unite together to form a unique machine. This is able to perform all the desired work. For example Army of items which are issued with a vehicle is consisting of different parts of the small equipment to form one piece of machine. Complete equipment includes army equipment, electronics, electrical, heavy machinery etc. It is use to perform work with high speed without consumption of much time. It is act as complete machine which is vary from industrial to consumable products manufacture equipment. The aim of the complete equipment industry is to reduce job injuries at work without hampering operational objectives. It offers solution for day to day business operations, remedies to increasing productivity and efficiency on the workplace and stand alone to meet and exceeds industrial standards.
+                    </p>
+                    <p>
+                        Company profiles, market trends, market drivers, historical information and related activities within Complete Equipments industries. Our expert’s team analyzes and provides complete accurate set of information to the client. Our reports also provide the competitive scenario of key players and their contribution in market size along with market attractiveness.
+                    </p>*@
+
+                </span>
+
+            </div>
+            <label for="post-1" class="read-more-trigger"></label>
+
+            <div>
+                <table cellspacing="0" border="0" id="ctl00_ContentPlaceHolder1_grdReports" style="width: 100%; border-collapse: collapse;">
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <a href="@Url.Action("ReportDetail", "Report", new { @ReportUrl = item.ReportUrl })">
+                                                <h3 class="panel-title">@item.ReportTitle</h3>
+                                            </a>
+                                        </div>
+                                        <div class="panel-body category-short-note">
+                                            <p class="date-info"><i class="fa fa-calendar"></i>@item.PublishingDate.ToString("MMM-yy") | <a href="@Url.Action("PublisherRelatedReports", "Report", new { @puburl = item.PublishingUrl })">@item.PublisherName </a>| <a href="@Url.Action("CategoryRelatedReports", "Report", new { @caturl = item.CategoryUrl })">@item.CategoryName </a></p>
+
+                                            @Html.Raw(item.FullDescription)...
+
+                                    <br>
+                                            <a rel="nofollow" href="@Url.Action("ReportDetail", "Report", new { @ReportUrl = item.ReportUrl })">View More <i class="fa fa-arrow-circle-right"></i></a>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+
+            <ul class="pagination">
+                @Html.PagedListPager(Model, pageno => Url.Action("CategoryRelatedReports", new
+                              {
+                                  pageno,
+                              }), new PagedListRenderOptions() { Display = PagedListDisplayMode.IfNeeded, DisplayPageCountAndCurrentLocation = true })
+             @*   @if (ViewBag.Totalreports > 0)
+                {
+
+
+
+                }*@
+            </ul>
+        </div>
+        <div class="col-md-4">
+
+            @*@{Html.RenderAction("LatestNews", "News");}*@
+
+        </div>
+    </div>
+</div>
+

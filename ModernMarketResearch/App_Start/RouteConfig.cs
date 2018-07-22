@@ -14,9 +14,31 @@ namespace ModernMarketResearch
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
+           name: "CategoryRelatedReports",
+           url: "category/{caturl}",
+           defaults: new { controller = "Report", action = "CategoryRelatedReports", caturl = UrlParameter.Optional },
+           namespaces: new[] { "ModernMarketResearch.Controllers" }
+           );
+
+            routes.MapRoute(
+              name: "AllLatestReport",
+              url: "latest/reports/",
+              defaults: new { controller = "Report", action = "AllReports" },
+              namespaces: new[] { "ModernMarketResearch.Controllers" }
+           );
+           
+            routes.MapRoute(
+               name: "LatestReport",
+               url: "latest-report/",
+               defaults: new { controller = "Report", action = "LatestReport" },
+               namespaces: new[] { "ModernMarketResearch.Controllers" }
+            );
+
+            routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional },
+                namespaces: new[] { "ModernMarketResearch.Controllers" }
             );
         }
     }

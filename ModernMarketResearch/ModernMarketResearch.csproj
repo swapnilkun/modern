@@ -178,7 +178,7 @@
     <Compile Include="Areas\Admin\Controllers\ExcelUploadController.cs" />
     <Compile Include="Areas\Admin\Controllers\NewsController.cs" />
     <Compile Include="Areas\Admin\Controllers\PublisherController.cs" />
-    <Compile Include="Areas\Admin\Controllers\ReportController.cs" />
+    <Compile Include="Areas\Admin\Controllers\AdminReportController.cs" />
     <Compile Include="Areas\Admin\Controllers\RoleActionController.cs" />
     <Compile Include="Areas\Admin\Controllers\UserRoleController.cs" />
     <Compile Include="Areas\Admin\Models\Common.cs" />
@@ -199,6 +199,7 @@
     <Compile Include="Areas\Admin\Models\DAL\UserRoleRepository.cs" />
     <Compile Include="Areas\Admin\Models\ViewModel\ActionVM.cs" />
     <Compile Include="Areas\Admin\Models\ViewModel\CategoryVM.cs" />
+    <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\ExcelReportVM.cs" />
     <Compile Include="Areas\Admin\Models\ViewModel\LoginVM.cs" />
     <Compile Include="Areas\Admin\Models\ViewModel\NewsVM.cs" />
@@ -208,6 +209,8 @@
     <Compile Include="Areas\Admin\Models\ViewModel\UserRoleVM.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\InquiryFormController.cs" />
+    <Compile Include="Controllers\NewsController.cs" />
     <Compile Include="Controllers\ReportController.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
@@ -218,8 +221,21 @@
       <DependentUpon>ModernMarketResearch.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\BreadsCum.cs" />
+    <Compile Include="Models\BuyingInfo.cs">
+      <DependentUpon>ModernMarketResearch.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Category.cs" />
+    <Compile Include="Models\CategoryDataRepository.cs" />
     <Compile Include="Models\CategoryMaster.cs">
+      <DependentUpon>ModernMarketResearch.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Country.cs">
+      <DependentUpon>ModernMarketResearch.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CustomerInquiry.cs">
+      <DependentUpon>ModernMarketResearch.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\InquiryForm.cs">
       <DependentUpon>ModernMarketResearch.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ModernMarketResearch.Context.cs">
@@ -246,7 +262,6 @@
     <Compile Include="Models\ReportDeliveryType.cs">
       <DependentUpon>ModernMarketResearch.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\ReportDetailsVM.cs" />
     <Compile Include="Models\ReportMaster.cs">
       <DependentUpon>ModernMarketResearch.tt</DependentUpon>
     </Compile>
@@ -259,13 +274,31 @@
     <Compile Include="Models\RoleMaster.cs">
       <DependentUpon>ModernMarketResearch.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\spBreadsCum_Result.cs">
+      <DependentUpon>ModernMarketResearch.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\spCategoryRelatedReport_Result.cs">
+      <DependentUpon>ModernMarketResearch.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\spDetailsRoleAction_Result.cs">
       <DependentUpon>ModernMarketResearch.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\spDetailsUserRole_Result.cs">
       <DependentUpon>ModernMarketResearch.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\spLatestNews_Result.cs">
+      <DependentUpon>ModernMarketResearch.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\spLatestReport_Result.cs">
+      <DependentUpon>ModernMarketResearch.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\SplitString_Result.cs">
+      <DependentUpon>ModernMarketResearch.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\spNewAllLatestReport_Result.cs">
+      <DependentUpon>ModernMarketResearch.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\spSelectedNewsDetails_Result.cs">
       <DependentUpon>ModernMarketResearch.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\spSelectRoleAction_Result.cs">
@@ -280,15 +313,10 @@
     <Compile Include="Models\UserRoleRelation.cs">
       <DependentUpon>ModernMarketResearch.tt</DependentUpon>
     </Compile>
-    <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
-    <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
-    <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
-    <Compile Include="obj\Release\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
-    <Compile Include="obj\Release\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
-    <Compile Include="obj\Release\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
-    <Compile Include="obj\x86\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
-    <Compile Include="obj\x86\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
-    <Compile Include="obj\x86\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
+    <Compile Include="Models\ViewModel\NewsDetailsVM.cs" />
+    <Compile Include="Models\ViewModel\ReportDetailsVM.cs" />
+    <Compile Include="Models\ViewModel\BuyingVM.cs" />
+    <Compile Include="Models\ViewModel\InquiryVM.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -763,9 +791,6 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\flaticon\flaticon.css" />
     <Content Include="fonts\flaticon\flaticon.html" />
-    <Content Include="fonts\flaticon\flaticon.svg" />
-    <Content Include="fonts\fontawesome\fontawesome-webfont.svg" />
-    <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Areas\Admin\Views\Web.config" />
     <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
@@ -812,26 +837,6 @@
     <Content Include="img\fast.png" />
     <Content Include="img\feature-bg.jpg" />
     <Content Include="img\feature-bg2.jpg" />
-    <Content Include="img\flags\argentina.svg" />
-    <Content Include="img\flags\australia.svg" />
-    <Content Include="img\flags\bangladesh.svg" />
-    <Content Include="img\flags\belgium.svg" />
-    <Content Include="img\flags\brazil.svg" />
-    <Content Include="img\flags\canada.svg" />
-    <Content Include="img\flags\denmark.svg" />
-    <Content Include="img\flags\finland.svg" />
-    <Content Include="img\flags\france.svg" />
-    <Content Include="img\flags\germany.svg" />
-    <Content Include="img\flags\italy.svg" />
-    <Content Include="img\flags\japan.svg" />
-    <Content Include="img\flags\new-zealand.svg" />
-    <Content Include="img\flags\saudi-arabia.svg" />
-    <Content Include="img\flags\singapore.svg" />
-    <Content Include="img\flags\south-africa.svg" />
-    <Content Include="img\flags\south-korea.svg" />
-    <Content Include="img\flags\spain.svg" />
-    <Content Include="img\flags\united-kingdom.svg" />
-    <Content Include="img\flags\united-states.svg" />
     <Content Include="img\grabbing.png" />
     <Content Include="img\gradientbg.png" />
     <Content Include="img\intro-bg.jpg" />
@@ -923,18 +928,6 @@
     <Content Include="js\vendor\html5shim.js" />
     <Content Include="js\vendor\modernizr-2.8.1.min.js" />
     <Content Include="js\vendor\respond.min.js" />
-    <Content Include="obj\Debug\ModernMarketResearch.csproj.FileListAbsolute.txt" />
-    <Content Include="obj\Debug\ModernMarketResearch.dll" />
-    <Content Include="obj\Debug\ModernMarketResearch.pdb" />
-    <Content Include="obj\Debug\TempPE\Models.ModernMarketResearch.cs.dll" />
-    <Content Include="obj\Debug\TempPE\Models.ModernMarketResearch.Designer.cs.dll" />
-    <Content Include="obj\Release\TempPE\Models.ModernMarketResearch.cs.dll" />
-    <Content Include="obj\Release\TempPE\Models.ModernMarketResearch.Designer.cs.dll" />
-    <Content Include="obj\x86\Debug\ModernMarketResearch.csproj.FileListAbsolute.txt" />
-    <Content Include="obj\x86\Debug\ModernMarketResearch.dll" />
-    <Content Include="obj\x86\Debug\ModernMarketResearch.pdb" />
-    <Content Include="obj\x86\Debug\TempPE\Models.ModernMarketResearch.cs.dll" />
-    <Content Include="obj\x86\Debug\TempPE\Models.ModernMarketResearch.Designer.cs.dll" />
     <Content Include="owl.carousel\assets\owl.carousel.css" />
     <Content Include="owl.carousel\owl.carousel.js" />
     <Content Include="owl.carousel\owl.carousel.min.js" />
@@ -971,11 +964,16 @@
     <Content Include="Areas\Admin\Views\News\NewsEdit.cshtml" />
     <Content Include="Areas\Admin\Views\News\NewsDetails.cshtml" />
     <Content Include="Areas\Admin\Views\News\NewsDelete.cshtml" />
-    <Content Include="Areas\Admin\Views\Report\ReportCreate.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminReport\ReportCreate.cshtml" />
     <Content Include="Areas\Admin\Views\UserRole\UserRoleIndex.cshtml" />
     <Content Include="Areas\Admin\Views\UserRole\UserRoleCreate.cshtml" />
     <Content Include="Areas\Admin\Views\UserRole\UserRoleDetail.cshtml" />
     <Content Include="Areas\Admin\Views\UserRole\UserRoleEdit.cshtml" />
+    <Content Include="Areas\Admin\Views\ExcelUpload\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\ExcelUpload\Import.cshtml" />
+    <Content Include="Areas\Admin\Views\ExcelUpload\TotalReports.cshtml" />
+    <Content Include="Areas\Admin\Views\ExcelCategory\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\ExcelCategory\Import.cshtml" />
     <EntityDeploy Include="Models\ModernMarketResearch.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>ModernMarketResearch.Designer.cs</LastGenOutput>
@@ -993,36 +991,41 @@
       <DependentUpon>ModernMarketResearch.edmx</DependentUpon>
       <LastGenOutput>ModernMarketResearch.cs</LastGenOutput>
     </Content>
-    <Content Include="Areas\Admin\Views\ExcelUpload\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\ExcelUpload\Import.cshtml" />
-    <Content Include="Areas\Admin\Views\ExcelUpload\TotalReports.cshtml" />
-    <Content Include="Areas\Admin\Views\ExcelCategory\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\ExcelCategory\Import.cshtml" />
     <Content Include="fonts\flaticon\flaticon.eot" />
+    <Content Include="fonts\flaticon\flaticon.svg" />
     <Content Include="fonts\flaticon\flaticon.ttf" />
     <Content Include="fonts\flaticon\flaticon.woff" />
     <Content Include="fonts\fontawesome\fontawesome-webfont.eot" />
+    <Content Include="fonts\fontawesome\fontawesome-webfont.svg" />
     <Content Include="fonts\fontawesome\fontawesome-webfont.ttf" />
     <Content Include="fonts\fontawesome\fontawesome-webfont.woff" />
     <Content Include="fonts\fontawesome\FontAwesome.otf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="img\.DS_Store" />
+    <Content Include="img\flags\argentina.svg" />
+    <Content Include="img\flags\australia.svg" />
+    <Content Include="img\flags\bangladesh.svg" />
+    <Content Include="img\flags\belgium.svg" />
+    <Content Include="img\flags\brazil.svg" />
+    <Content Include="img\flags\canada.svg" />
+    <Content Include="img\flags\denmark.svg" />
+    <Content Include="img\flags\finland.svg" />
+    <Content Include="img\flags\france.svg" />
+    <Content Include="img\flags\germany.svg" />
+    <Content Include="img\flags\italy.svg" />
+    <Content Include="img\flags\japan.svg" />
+    <Content Include="img\flags\new-zealand.svg" />
+    <Content Include="img\flags\saudi-arabia.svg" />
+    <Content Include="img\flags\singapore.svg" />
+    <Content Include="img\flags\south-africa.svg" />
+    <Content Include="img\flags\south-korea.svg" />
+    <Content Include="img\flags\spain.svg" />
+    <Content Include="img\flags\united-kingdom.svg" />
+    <Content Include="img\flags\united-states.svg" />
     <Content Include="img\slider\.DS_Store" />
-    <Content Include="obj\Debug\DesignTimeResolveAssemblyReferences.cache" />
-    <Content Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
-    <Content Include="obj\Debug\edmxResourcesToEmbed\Models\ModernMarketResearch.csdl" />
-    <Content Include="obj\Debug\edmxResourcesToEmbed\Models\ModernMarketResearch.msl" />
-    <Content Include="obj\Debug\edmxResourcesToEmbed\Models\ModernMarketResearch.ssdl" />
-    <Content Include="obj\Debug\ModernMarketResearch.csprojResolveAssemblyReference.cache" />
-    <Content Include="obj\Release\DesignTimeResolveAssemblyReferencesInput.cache" />
-    <Content Include="obj\x86\Debug\DesignTimeResolveAssemblyReferences.cache" />
-    <Content Include="obj\x86\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
-    <Content Include="obj\x86\Debug\edmxResourcesToEmbed\Models\ModernMarketResearch.csdl" />
-    <Content Include="obj\x86\Debug\edmxResourcesToEmbed\Models\ModernMarketResearch.msl" />
-    <Content Include="obj\x86\Debug\edmxResourcesToEmbed\Models\ModernMarketResearch.ssdl" />
-    <Content Include="obj\x86\Debug\ModernMarketResearch.csprojResolveAssemblyReference.cache" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -1081,6 +1084,13 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Web.config" />
+    <Content Include="Views\Report\LatestReportsForNews.cshtml" />
+    <Content Include="Views\Report\LatestReport.cshtml" />
+    <Content Include="Views\Report\AllReports.cshtml" />
+    <Content Include="Views\Report\ReportDetail.cshtml" />
+    <Content Include="Views\Home\SearchingPartialView.cshtml" />
+    <Content Include="Views\Report\CategoryRelatedReports.cshtml" />
+    <Content Include="Views\InquiryForm\InquiryForm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
