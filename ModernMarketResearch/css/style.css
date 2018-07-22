@@ -297,7 +297,7 @@ Featuer Section
     }
 
         .feature-section .btn:hover {
-            background-color: rgba(101, 211, 227, 0.7) !important;
+            background-color: rgb(45, 104, 113) !important;
         }
 
 /*home2*/
@@ -1564,7 +1564,16 @@ Contact Page
     color: #0c3f69;
     margin-bottom: 15px;
 }
-
+.news h2 {
+    color: #606676;
+    margin-bottom: 35px;
+}
+.news {
+    background-color: #f4f6f7;
+}
+.news p {
+        color: #000000;
+    }
 .relatedpost h3 {
     margin-top: 15px;
 }
@@ -1577,7 +1586,7 @@ Contact Page
 .categorys .btn {
     font-size: 15px;
     line-height: 15px;
-    padding: 10px 20px;
+    padding: 10px 40px;
     border-radius: 30px;
     font-weight: 600;
     margin-top: 5px;
