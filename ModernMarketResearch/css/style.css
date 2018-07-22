@@ -1549,13 +1549,14 @@ Contact Page
     display: inline-block;
 }
 
-.categorys:nth-child(odd) {
-    background-color: #f2f2f2;
-}
+    .categorys:nth-child(odd) {
+        background-color: #f2f2f2;
+    }
 
-.categorys:nth-child(even) {
-    background-color: #ffffff;
-}
+    .categorys:nth-child(even) {
+        background-color: #ffffff;
+    }
+
 .relatedpost p {
     line-height: 20px;
 }
@@ -1564,16 +1565,20 @@ Contact Page
     color: #0c3f69;
     margin-bottom: 15px;
 }
+
 .news h2 {
     color: #606676;
     margin-bottom: 35px;
 }
+
 .news {
     background-color: #f4f6f7;
 }
-.news p {
+
+    .news p {
         color: #000000;
     }
+
 .relatedpost h3 {
     margin-top: 15px;
 }
@@ -1606,9 +1611,87 @@ Contact Page
     padding: 0 30px;
     box-shadow: 0px 0px 10px #f2f2f2;
 }
+
 .popular-categories-row {
     padding-top: 50px;
 }
+
 section.service-home.section-padding {
     background-color: #f4f6f7;
+}
+
+.news-content {
+    background-color: #ffffff;
+    padding: 20px;
+    box-shadow: 0px 0px 15px #c5c5c5;
+    margin-bottom: 30px;
+}
+
+.arrow_box {
+    position: relative;
+    background: #65d3e3;
+    border: 4px solid #65d3e3;
+    border-radius: 10px;
+    width: 40%;
+    padding-bottom: 10px;
+}
+
+.arrow_box:after, .arrow_box:before {
+    left: 100%;
+    top: 50%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+}
+
+.arrow_box:after {
+    border-color: rgba(136, 183, 213, 0);
+    border-left-color: #65d3e3;
+    border-width: 30px;
+    margin-top: -30px;
+}
+
+.arrow_box:before {
+    border-color: rgba(194, 225, 245, 0);
+    border-left-color: #65d3e3;
+    border-width: 36px;
+    margin-top: -36px;
+}
+
+address {
+    line-height: 24px;
+    color: #ffffff;
+}
+
+address h3 {
+    color: #ffffff;
+}
+
+.homepagecontact {
+    padding-left: 40px;
+}
+
+.homepagecontact .form-control {
+    box-shadow: none;
+    border: 1px solid #d2d0d0;
+    border-radius: 7px;
+    height: 40px;
+    background: transparent;
+}
+
+.homepagecontact .form-group {
+    min-height: 40px;
+}
+
+.areacode {
+    float: left;
+    width: 13%;
+}
+
+input.form-control.phno {
+    width: 83%;
+    margin-left: 73px;
 }
