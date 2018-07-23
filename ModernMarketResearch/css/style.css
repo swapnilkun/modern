@@ -1695,3 +1695,14 @@ input.form-control.phno {
     width: 83%;
     margin-left: 73px;
 }
+.homesearch {
+    box-shadow: none;
+    border: 1px solid #b5b0b040;
+    border-radius: 30px;
+    width: 85%;
+    height: 46px;
+    background: transparent;
+    float: left;
+    margin: 0 0 25px 25px;
+    text-align: center;
+}

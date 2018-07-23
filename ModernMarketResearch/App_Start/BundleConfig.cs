@@ -49,6 +49,43 @@ namespace ModernMarketResearch
             bundles.Add(new StyleBundle("~/bundles/bootstrapstyle")
                 .Include("~/Content/bootstrap.css"));
 
+            bundles.Add(new StyleBundle("~/bundles/templatestyle")
+                .Include("~/css/bootstrap.min.css", // will look for bootstrap.min.css
+                         "~/fonts/flaticon/flaticon.css",
+                         "~/css/font-awesome.min.css",
+                         "~/css/hippo-off-canvas.css",
+                         "~/css/animate.css",
+                         "~/css/language-select.css",
+                         "~/owl.carousel/assets/owl.carousel.css",
+                         "~/css/magnific-popup.css",
+                         "~/css/menu.css",
+                         "~/css/template.css",
+                         "~/css/style.css",
+                         "~/css/responsive.css"
+                ));
+
+            bundles.Add(new ScriptBundle("~/bundles/templatejs")
+         .Include("~/js/vendor/modernizr-2.8.1.min.js"
+         ));
+
+            bundles.Add(new ScriptBundle("~/bundles/templatefooterjs")
+         .Include("~/js/jquery.js",
+                  "~/js/bootstrap.min.js",
+                  "~/owl.carousel/owl.carousel.min.js",
+                  "~/js/jquery.magnific-popup.min.js",
+                  "~/js/hippo-offcanvas.js",
+                  "~/js/jquery.inview.min.js",
+                  "~/js/jquery.stellar.js",
+                  "~/js/jquery.countTo.js",
+                  "~/js/classie.js",
+                  "~/js/selectFx.js",
+                  "~/js/jquery.sticky-kit.min.js",
+                  "~/js/twitterFetcher_min.js",
+                  "~/js/scripts.js"
+         ));
+
+
+            BundleTable.EnableOptimizations = true;
         }
     }
 }
