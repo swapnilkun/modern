@@ -17,7 +17,7 @@ namespace ModernMarketResearch.Models
         public string NewsTitle { get; set; }
         public string NewsUrl { get; set; }
         public System.DateTime PublishingDate { get; set; }
-        public string NewsDescription { get; set; }
+        public string LongDescription { get; set; }
         public int CategoryId { get; set; }
         public string CategoryName { get; set; }
         public string CategoryUrl { get; set; }

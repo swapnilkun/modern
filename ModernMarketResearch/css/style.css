@@ -1549,11 +1549,11 @@ Contact Page
     display: inline-block;
 }
 
-    .categorys:nth-child(odd) {
+    .categorys:nth-child(odd), .categorys pre:nth-child(odd) {
         background-color: #f2f2f2;
     }
 
-    .categorys:nth-child(even) {
+    .categorys:nth-child(even), .categorys pre:nth-child(even) {
         background-color: #ffffff;
     }
 
@@ -1587,6 +1587,14 @@ Contact Page
     margin-bottom: 15px;
     line-height: 35px;
 }
+.categorys img {
+    width: 200px;
+    height: 150px;
+}
+.categorys h3 {
+    font-size: 18px;
+    line-height: 25px;
+}
 
 .categorys .btn {
     font-size: 15px;
@@ -1604,6 +1612,18 @@ Contact Page
 
 .recentpost .col-md-7 {
     padding-top: 25px;
+}
+.categorys pre {
+    background-color: #ffffff;
+    border: 0;
+    font-size: 15px;
+    overflow: hidden;
+    min-height: 160px;
+    white-space: pre-wrap;       /* Since CSS 2.1 */
+    white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+    white-space: -pre-wrap;      /* Opera 4-6 */
+    white-space: -o-pre-wrap;    /* Opera 7 */
+    word-wrap: break-word;       /* Internet Explorer 5.5+ */
 }
 
 .letestnews {

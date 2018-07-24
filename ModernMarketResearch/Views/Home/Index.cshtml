@@ -2,9 +2,8 @@
 @{
     ViewBag.Title = "Index";
 }
-﻿<div id="main-carousel" class="carousel slide hero-slide" data-ride="carousel" >
-
-    <form>
+﻿<div id="main-carousel" class="carousel slide hero-slide" data-ride="carousel">
+<form>
         <input class="form-control homesearch" type="search" value="" placeholder="Type Keyword(s) Here">
         <button type="submit" class="btn btn-primary">Search</button>
     </form>
@@ -21,7 +20,6 @@
             <!--Slide Image-->
 
             <div class="container">
-
                 <div class="carousel-caption">
                     <small class="animated fadeIn">CALL US TODAY</small>
                     <div class="phone animated lightSpeedIn">1-800-1234-567</div>
@@ -31,7 +29,7 @@
                         It's a tag line, where you can write a key point of your idea.
                         It is a long
                         established fact that a reader will be distracted.
-
+                   
                     </p>
 
                     <a class="btn btn-primary animated lightSpeedIn" href="#">Work With Us Today</a>
@@ -55,7 +53,7 @@
                         It's a tag line, where you can write a key point of your idea. It
                         is a long
                         established fact that a reader will be distracted.
-
+                   
                     </p>
                     <a class="btn btn-primary animated bounceIn" href="#">Work With Us Today</a>
                 </div>
@@ -92,15 +90,23 @@
 
         <div class="row">
             <div class="col-xs-12 col-md-12 popular-categories-row">
-                @foreach(var item in Model)
+               <div class="row">
+                   @{int i = 0;}
+                 @foreach(var item in ViewBag.ParentCategory)
                 {
-                <div class="col-sm-12 col-md-2">
-                    <div class="popular-categories">
-                        <i class="fa fa-medkit" aria-hidden="true"></i>
-                        <p class="cat-title"><a href="@Url.Action("CategoryRelatedReports","Report",new{@Caturl=item.CategoryUrl} )">@item.CategoryName</a></p>
-                        <p class="cat-info"></p>
+                     if (i == 6)
+                    {
+                         @:</div><div class="row">
+                             i = 0;
+                    }
+                    <div class="col-sm-12 col-md-2">
+                        <div class="popular-categories">
+                            <i class="fa fa-medkit" aria-hidden="true"></i>
+                            <p class="cat-title"><a href="@Url.Action("CategoryRelatedReports","Report",new{@Caturl=item.CategoryUrl} )">@item.CategoryName</a></p>
+                            <p class="cat-info"></p>
+                        </div>
                     </div>
-                </div>
+                    i++;
                 }
             </div>
         </div>
@@ -195,7 +201,7 @@
                                         if (ViewBag.ChemicalsMaterials.IndexOf(item) == 0)
                                         {
                                         <h3><a href="@Url.Action("ReportDetail", "Report", new { @ReportUrl = item.ReportUrl })">@item.ReportTitle</a></h3>
-                                        <p></p> 
+                                        <div>@Html.Raw(item.FullDescription)</div> 
                                         }
                                     }
                                     <a href="#" class="btn btn-primary quote-btn">Read More</a>
@@ -218,7 +224,7 @@
                                         <div class="col-md-4">
                                             <img src="~/img/fast.png" />
                                             <h3><a href="@Url.Action("ReportDetail", "Report", new { @ReportUrl = item.ReportUrl })">@item.ReportTitle</a></h3>
-                                            <p></p>
+                                            <div>@Html.Raw(item.FullDescription)</div>
                                             <a href="#" class="btn btn-primary quote-btn">Read More</a>
                                         </div>
                                     }
@@ -260,7 +266,7 @@
                                         if (ViewBag.TechnologyMedia.IndexOf(item) == 0)
                                         {
                                         <h3><a href="@Url.Action("ReportDetail", "Report", new { @ReportUrl = item.ReportUrl })">@item.ReportTitle</a></h3>
-                                        <p></p> 
+                                        <div>@Html.Raw(item.FullDescription)</div> 
                                         }
                                     }
                                     <a href="#" class="btn btn-primary quote-btn">Read More</a>
@@ -283,7 +289,7 @@
                                         <div class="col-md-4">
                                             <img src="~/img/fast.png" />
                                             <h3><a href="@Url.Action("ReportDetail", "Report", new { @ReportUrl = item.ReportUrl })">@item.ReportTitle</a></h3>
-                                            <p></p>
+                                            <div>@Html.Raw(item.FullDescription)</div>
                                             <a href="#" class="btn btn-primary quote-btn">Read More</a>
                                         </div>
                                     }
@@ -353,7 +359,8 @@
 <!-- featuer-section News start -->
 <section class="feature-section section-padding news">
     <div class="container">
-        <div class="row text-center">
+        @{Html.RenderAction("LatestNewsForIndexPage", "News");}
+        @*<div class="row text-center">
             <div class="col-xs-12">
                 <h2 class="section-title">Letest News</h2>
             </div>
@@ -384,7 +391,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div>*@
     </div>
 </section>
 <!-- featuer-section News end -->
@@ -426,7 +433,7 @@
                             <div class="col-md-12 padding-left-0">
                                 Tel: +1-518-618-1030
                                 <br>
-                                Email: sales@transparencymarketresearch.com
+                                Email: sales@trarencymarketresearch.com
                            
                             </div>
 
@@ -435,8 +442,9 @@
                     </div>
                 </div>
                 <div class="col-md-7 homepagecontact">
-                    <div>
-                        <form action="" method="post">
+                    @{Html.RenderAction("Index", "ContactUs");}
+                 @*   <div>
+                        <form action="InquiryForm/InquiryForm" method="post">
                             <div class="form-group">
                                 <div class="col-md-3 col-sm-12">
                                     <label for="name">Name</label>
@@ -507,7 +515,7 @@
                                 </div>
                             </div>
                         </form>
-                    </div>
+                    </div>*@
                 </div>
             </div>
 

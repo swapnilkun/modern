@@ -815,7 +815,7 @@
           <Property Type="String" Name="NewsTitle" Nullable="false" MaxLength="2550" />
           <Property Type="String" Name="NewsUrl" Nullable="true" MaxLength="500" />
           <Property Type="DateTime" Name="PublishingDate" Nullable="false" Precision="23" />
-          <Property Type="String" Name="NewsDescription" Nullable="false" MaxLength="Max" />
+          <Property Type="String" Name="LongDescription" Nullable="true" MaxLength="300" />
           <Property Type="Int32" Name="CategoryId" Nullable="false" />
           <Property Type="String" Name="CategoryName" Nullable="false" MaxLength="50" />
           <Property Type="String" Name="CategoryUrl" Nullable="false" MaxLength="50" />
@@ -1208,7 +1208,7 @@
                 <ScalarProperty Name="NewsTitle" ColumnName="NewsTitle" />
                 <ScalarProperty Name="NewsUrl" ColumnName="NewsUrl" />
                 <ScalarProperty Name="PublishingDate" ColumnName="PublishingDate" />
-                <ScalarProperty Name="NewsDescription" ColumnName="NewsDescription" />
+                <ScalarProperty Name="LongDescription" ColumnName="LongDescription" />
                 <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
                 <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
                 <ScalarProperty Name="CategoryUrl" ColumnName="CategoryUrl" />

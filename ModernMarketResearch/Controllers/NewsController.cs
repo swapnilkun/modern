@@ -27,6 +27,11 @@ namespace ModernMarketResearch.Controllers
             var latestnews = db.spLatestNews().ToList();
             return PartialView(latestnews);
         }
+        public ActionResult LatestNewsForIndexPage()
+        {
+            var latestnews = db.spLatestNews().ToList();
+            return PartialView(latestnews);
+        }
         public ActionResult LatestNewsForReportDetails()
         {
             //var latestnews = (from l in db.spLatestNews()
