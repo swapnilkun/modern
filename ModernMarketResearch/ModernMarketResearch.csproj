@@ -200,6 +200,7 @@
     <Compile Include="Areas\Admin\Models\ViewModel\ActionVM.cs" />
     <Compile Include="Areas\Admin\Models\ViewModel\CategoryVM.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
+    <Compile Include="Controllers\ContactUsController.cs" />
     <Compile Include="Controllers\ExcelReportVM.cs" />
     <Compile Include="Areas\Admin\Models\ViewModel\LoginVM.cs" />
     <Compile Include="Areas\Admin\Models\ViewModel\NewsVM.cs" />
@@ -233,9 +234,6 @@
       <DependentUpon>ModernMarketResearch.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\CustomerInquiry.cs">
-      <DependentUpon>ModernMarketResearch.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\InquiryForm.cs">
       <DependentUpon>ModernMarketResearch.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ModernMarketResearch.Context.cs">
@@ -313,6 +311,7 @@
     <Compile Include="Models\UserRoleRelation.cs">
       <DependentUpon>ModernMarketResearch.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\ViewModel\ContactUsVM.cs" />
     <Compile Include="Models\ViewModel\NewsDetailsVM.cs" />
     <Compile Include="Models\ViewModel\ReportDetailsVM.cs" />
     <Compile Include="Models\ViewModel\BuyingVM.cs" />
@@ -974,23 +973,6 @@
     <Content Include="Areas\Admin\Views\ExcelUpload\TotalReports.cshtml" />
     <Content Include="Areas\Admin\Views\ExcelCategory\Index.cshtml" />
     <Content Include="Areas\Admin\Views\ExcelCategory\Import.cshtml" />
-    <EntityDeploy Include="Models\ModernMarketResearch.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>ModernMarketResearch.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\ModernMarketResearch.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ModernMarketResearch.edmx</DependentUpon>
-      <LastGenOutput>ModernMarketResearch.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\ModernMarketResearch.edmx.diagram">
-      <DependentUpon>ModernMarketResearch.edmx</DependentUpon>
-    </Content>
-    <Content Include="Models\ModernMarketResearch.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ModernMarketResearch.edmx</DependentUpon>
-      <LastGenOutput>ModernMarketResearch.cs</LastGenOutput>
-    </Content>
     <Content Include="fonts\flaticon\flaticon.eot" />
     <Content Include="fonts\flaticon\flaticon.svg" />
     <Content Include="fonts\flaticon\flaticon.ttf" />
@@ -1026,6 +1008,23 @@
     <Content Include="img\flags\united-kingdom.svg" />
     <Content Include="img\flags\united-states.svg" />
     <Content Include="img\slider\.DS_Store" />
+    <EntityDeploy Include="Models\ModernMarketResearch.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ModernMarketResearch.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\ModernMarketResearch.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModernMarketResearch.edmx</DependentUpon>
+      <LastGenOutput>ModernMarketResearch.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\ModernMarketResearch.edmx.diagram">
+      <DependentUpon>ModernMarketResearch.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\ModernMarketResearch.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModernMarketResearch.edmx</DependentUpon>
+      <LastGenOutput>ModernMarketResearch.cs</LastGenOutput>
+    </Content>
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -1080,7 +1079,6 @@
     <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Web.config" />
@@ -1091,6 +1089,10 @@
     <Content Include="Views\Home\SearchingPartialView.cshtml" />
     <Content Include="Views\Report\CategoryRelatedReports.cshtml" />
     <Content Include="Views\InquiryForm\InquiryForm.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\ContactUs\Index.cshtml" />
+    <Content Include="Views\News\LatestNewsForIndexPage.cshtml" />
+    <Content Include="Views\InquiryForm\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

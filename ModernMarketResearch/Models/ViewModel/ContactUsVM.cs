@@ -35,10 +35,11 @@ namespace ModernMarketResearch.Models.ViewModel
         [Display(Name = "Verification Code:")]
         public string CaptchaCode { get; set; }
 
-        [Required(ErrorMessage = "Area code not be empty")]
-        public string AreaCode { get; set; }
+        //[Required(ErrorMessage = "Area code not be empty")]
+        //public string AreaCode { get; set; }
 
         public string RealCaptcha { get; set; }
-   
+
+        public string Country { get; set; }
     }
 }

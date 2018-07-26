@@ -48,10 +48,13 @@ namespace ModernMarketResearch.Controllers
                     cst.CustomerMessage = eq.CustomerMessage;
                     cst.EmailId = eq.EmailId;
                     cst.Name = eq.Name;
-                    eq.AreaCode += "-" + eq.PhoneNumber;
-                    cst.PhoneNumber = eq.AreaCode;
+                   // eq.AreaCode += "-" + eq.PhoneNumber;
+                    cst.PhoneNumber = eq.PhoneNumber;
                     cst.ReportId = eq.ReportId;
+                    cst.Country = eq.Country;
                     cst.CaptchaCode = eq.CaptchaCode;
+                    cst.CreatedBy = 1;
+                    cst.CreatedDate = DateTime.Now;
                     string ReportTitle = string.Empty;
                     string ReportUrl = string.Empty;
 

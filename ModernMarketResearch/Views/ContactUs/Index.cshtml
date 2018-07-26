@@ -3,7 +3,45 @@
     ViewBag.Title = "Index";
     Layout = null;    
 }
-                 
+     <script type="text/javascript">
+    function ValidCaptcha() {
+        debugger;
+        var obj = {};
+        var v = $("#txtInput").val();
+        var w = $("#txtCaptcha").val();
+        var res = false;
+
+        obj.inputcapcha = v;
+        obj.RealCaptcha = w;
+
+        $.ajax({
+            type: "post",
+            url: '@Url.Action("CaptchaValidation", "InquiryForm")',
+            data: JSON.stringify(obj),
+            dataType: "json",
+            contentType: "application/json; charset=utf-8",
+            async: false,
+            success: function (data) {
+                res = data;
+            },
+            error: function (res) {
+                alert("Error..." + res.responseText);
+            }
+        });
+        return res;
+    }
+    function ValidateForm(e, formType) {
+        debugger;
+        if ($("#Enquiryform").valid()) {
+            if (ValidCaptcha()) {
+                $("#Enquiryform").submit();
+            } else {
+                e.preventDefault();
+                $("#captchaError").html("Not Valid Captcha !..");
+            }
+        }
+    }
+</script>            
     <div>
         @using (Html.BeginForm("Index", "ContactUs", FormMethod.Post, new { @class = "form-horizontal", @id = "Enquiryform" }))
                     {
@@ -46,11 +84,13 @@
                     <label for="country">Country</label>
                 </div>
                 <div class="col-md-9 col-sm-12">
-                    <select name="country" class="form-control">
-                        <option value="0">--Select Country--</option>
-                        <option value="1">India</option>
-                        <option value="2">United State</option>
-                    </select>
+                     @Html.DropDownListFor(m => m.Country, from l in new ModernMarketResearch.Models.ViewModel.InquiryVM().GetCountries()
+                                                              select new SelectListItem
+                                                              {
+                                                                  Text = l.nicename,
+                                                                  Value = l.nicename
+                                                              }, "- Select Country -", new { @Class = "form-control" })
+
                 </div>
             </div>@*
             <div class="form-group">

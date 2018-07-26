@@ -33,7 +33,6 @@ namespace ModernMarketResearch.Models
         public DbSet<CategoryMaster> CategoryMasters { get; set; }
         public DbSet<Country> Countries { get; set; }
         public DbSet<CustomerInquiry> CustomerInquiries { get; set; }
-        public DbSet<InquiryForm> InquiryForms { get; set; }
         public DbSet<NewsMaster> NewsMasters { get; set; }
         public DbSet<PublisherMaster> PublisherMasters { get; set; }
         public DbSet<ReportDeliveryType> ReportDeliveryTypes { get; set; }
