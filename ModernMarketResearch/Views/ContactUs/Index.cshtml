@@ -4,7 +4,7 @@
     Layout = null;    
 }
      <script type="text/javascript">
-    function ValidCaptcha() {
+     function ValidCaptcha() {
         debugger;
         var obj = {};
         var v = $("#txtInput").val();
@@ -30,20 +30,22 @@
         });
         return res;
     }
-    function ValidateForm(e, formType) {
+    function ValidateForm(e) {
         debugger;
-        if ($("#Enquiryform").valid()) {
+        if ($("#ContactUs").valid()) {
+            debugger;
             if (ValidCaptcha()) {
-                $("#Enquiryform").submit();
+                $("#ContactUs").submit();
             } else {
                 e.preventDefault();
+                debugger;
                 $("#captchaError").html("Not Valid Captcha !..");
             }
         }
     }
 </script>            
     <div>
-        @using (Html.BeginForm("Index", "ContactUs", FormMethod.Post, new { @class = "form-horizontal", @id = "Enquiryform" }))
+        @using (Html.BeginForm("Index", "ContactUs", FormMethod.Post, new { @class = "form-horizontal", @id ="ContactUs" }))
                     {
             @Html.ValidationSummary(true)
 
@@ -127,16 +129,17 @@
                 <div class="col-md-9 col-sm-12">
                     @Html.TextBoxFor(model => model.CaptchaCode, new { @class = "form-control", @placeholder = "Enter Captcha", @id = "txtInput" })
                     @Html.ValidationMessageFor(model => model.CaptchaCode)
-                </div>
-                <p class="help-block">
+                   @* <label id="captchaError"></label>*@
+                 </div>
+                @*<p class="help-block">
                     <label id="captchaError"></label>
-                </p>
+                </p>*@
                 
             </div>
             <div class="form-group">
                 <div class="col-md-3 col-sm-12">
                     <label for="custmsg">
-                        <button type="submit" id="btnSubmit" class="btn btn-primary">Submit</button></label>
+                        <button type="button" id="btnSubmit" class="btn btn-primary">Submit</button></label>
                 </div>
             </div>
         }

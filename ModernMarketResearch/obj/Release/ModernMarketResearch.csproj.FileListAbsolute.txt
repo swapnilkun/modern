@@ -50,4 +50,3 @@ D:\C#.net\DevelopedProject\GitProject\modern\ModernMarketResearch\bin\DotNetOpen
 D:\C#.net\DevelopedProject\GitProject\modern\ModernMarketResearch\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
 D:\C#.net\DevelopedProject\GitProject\modern\ModernMarketResearch\obj\Release\ModernMarketResearch.dll
 D:\C#.net\DevelopedProject\GitProject\modern\ModernMarketResearch\obj\Release\ModernMarketResearch.pdb
-D:\C#.net\DevelopedProject\GitProject\modern\ModernMarketResearch\obj\Release\ModernMarketResearch.csprojResolveAssemblyReference.cache
