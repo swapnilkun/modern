@@ -198,34 +198,99 @@
                         </div>
                     </div>
                     <!-- /.widget -->
+
+                    <div class="research_assistance">
+                        @using (Html.BeginForm("CheckoutForm", "BuyingInfo", FormMethod.Get))
+                        {
+                            <div class="title"><i class="fa fa-usd"></i>Select a Format</div>
+                            <div class="meta" style="text-align: left;">
+                                <table id="ctl00_ContentPlaceHolder2_rblReportPrise" border="0" style="text-align: left;">
+                                    <tbody>
+
+                                        <tr>
+                                            <td>
+                                                <input type="hidden" name="reportid" value="@Model.ReportDetails.ReportId" />
+                                                <input name="buynow" id="PriceSingleUser" value="0" checked="checked" type="radio"><label for="ctl00_ContentPlaceHolder2_rblReportPrise_0"><span style="font-weight: normal"> Single User Price : </span>$@Model.ReportDetails.PriceSingleUser</label></td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>
+                                                <input type="radio" name="buynow" id="PriceMultiUser" value="1"><label for="ctl00_ContentPlaceHolder2_rblReportPrise_1"><span style="font-weight: normal"> Multi User Price : </span>$@Model.ReportDetails.PriceMultiUser</label></td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <input type="radio" name="buynow" id="PriceCUL" value="2"><label for="ctl00_ContentPlaceHolder2_rblReportPrise_2"><span style="font-weight: normal"> Corporate User Price : </span>$@Model.ReportDetails.PriceCUL</label></td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                @*<a id="ctl00_ContentPlaceHolder2_btnBuyNow" class="btn btn-danger">Buy Now &nbsp;<i class="fa fa-shopping-cart" style="font-size: 25px"></i></a>*@
+                                                <a>
+                                                    <span style="margin-left: 20px; margin-top: 25px;">
+                                                        <input type="image" src="~/Images/buy-now-button.png" style="margin-top: 10px;">
+                                                    </span>
+                                                </a>
+                                            </td>
+                                        </tr>
+
+
+
+                                        @*<button type="submit">
+                                            <img src="~/Images/buy-now5.png" />
+                                    </button>*@
+
+
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        }
+                    </div>
+
                 </div>
                 <!-- /.sidebar-wrapper -->
             </div>
             <!-- /.col -->
-            <div class="col-md-9 col-sm-7 col-xs-12">
+            <div class="col-md-9 col-sm-7 col-xs-12 report-details">
 
                 <div class="col-md-12">
+                    <div class="row text-center">
+                        <h1 class="title">
+                            <span id="">@Model.ReportDetails.ReportTitle</span></h1>
+                        @*      <a target="_blank" href="http://wwwresearchgroup.com/market-analysis/global-ir-emitter-receiver-market-2017-production-sales.pdf">
+                <strong>
+                    <span class="pull-right btn-primary" style="padding: 3px;">Download as PDF&nbsp;<i class="fa fa-file-pdf-o" style="font-size: 2em;"></i></span>
+                </strong>
+            </a>*@
+                        <p class="date-info-2">
+                            <i class="fa fa-calendar"></i><strong>&nbsp;Published:</strong>
+                            <span id="">@Model.ReportDetails.PublishingDate.ToString("MMM-yyyy")</span>
+                            | <i class="fa fa-file-pdf-o"></i><strong>&nbsp;Format:</strong>
+                            <span id="">PDF</span>
+                            |
+                <a href="@Url.Action("PublisherRelatedReports", "Report", new { @puburl = Model.ReportDetails.PublishingUrl })">@Model.ReportDetails.PublisherName</a>
+
+                            | <i class="fa fa-file-powerpoint-o"></i><strong>&nbsp;Number of pages:</strong>
+                            <span id="">@Model.ReportDetails.NumberOfPage</span>
+                        </p>
+                        <div id="Sett"></div>
+                    </div>
                     <div class="css-tab" role="tabpanel">
 
                         <!-- Nav tabs -->
                         <ul class="nav nav-tabs" role="tablist">
-                            <li role="presentation" class="active"><a href="#secure" aria-controls="secure" role="tab" data-toggle="tab"><i class="flaticon-logistics15"></i>Secure</a></li>
-                            <li role="presentation"><a href="#trackable" aria-controls="trackable" role="tab" data-toggle="tab"><i class="flaticon-logistics18"></i>Trackable</a></li>
-                            <li role="presentation"><a href="#fast" aria-controls="fast" role="tab" data-toggle="tab"><i class="flaticon-logistics16"></i>Fast</a></li>
-                            <li role="presentation"><a href="#reliable" aria-controls="reliable" role="tab" data-toggle="tab"><i class="flaticon-broken43"></i>Reliable</a></li>
+                            <li role="presentation" class="active"><a href="#reportdetails" aria-controls="secure" role="tab" data-toggle="tab">Report Details</a></li>
+                            <li role="presentation"><a href="#tablecontent" aria-controls="trackable" role="tab" data-toggle="tab">Table Of Content</a></li>
+                            <li role="presentation"><a href="#inquiry" aria-controls="fast" role="tab" data-toggle="tab">Inquiry For Buying</a></li>
+                            <li role="presentation"><a href="#reqsample" aria-controls="reliable" role="tab" data-toggle="tab">Request Sample</a></li>
                         </ul>
 
                         <!-- Tab panes -->
                         <div class="tab-content">
-                            <div role="tabpanel" class="tab-pane active fade in" id="secure">
+                            <div role="tabpanel" class="tab-pane active fade in" id="reportdetails">
                                 <div class="css-tab-content">
                                     <div class="row">
                                         <div class="col-md-12 content-text">
-                                            <h3>Continually disintermediate</h3>
-
-                                            <p>Credibly build virtual materials for fully researched paradigms. Authoritatively plagiarize long-term high-impact infomediaries with goal-oriented core competencies. Conveniently visualize process-centric applications through leading-edge testing procedures. Quickly build backend customer service for real-time metrics.</p>
-
-                                            <p>Efficiently transform an expanded array of methodologies rather than customized infomediaries.</p>
+                                            @Html.Raw(Model.ReportDetails.FullDescription)
                                         </div>
                                         <!-- /.col-md-12 -->
                                     </div>
@@ -233,15 +298,11 @@
                                 </div>
                                 <!-- /.css-tab-content -->
                             </div>
-                            <div role="tabpanel" class="tab-pane fade" id="trackable">
+                            <div role="tabpanel" class="tab-pane fade" id="tablecontent">
                                 <div class="css-tab-content">
                                     <div class="row">
                                         <div class="col-md-12 content-text">
-                                            <h3>Continually disintermediate</h3>
-
-                                            <p>Credibly build virtual materials for fully researched paradigms. Authoritatively plagiarize long-term high-impact infomediaries with goal-oriented core competencies. Conveniently visualize process-centric applications through leading-edge testing procedures. Quickly build backend customer service for real-time metrics.</p>
-
-                                            <p>Efficiently transform an expanded array of methodologies rather than customized infomediaries.</p>
+                                            @Html.Raw(Model.ReportDetails.TableofContent)
                                         </div>
                                         <!-- /.col-md-12 -->
                                     </div>
@@ -249,16 +310,12 @@
                                 </div>
                                 <!-- /.css-tab-content -->
                             </div>
-                            <div role="tabpanel" class="tab-pane fade" id="fast">
+                            <div role="tabpanel" class="tab-pane fade" id="inquiry">
                                 <div class="css-tab-content">
                                     <div class="row">
-                                        
+
                                         <div class="col-md-12 content-text">
-                                            <h3>Continually disintermediate</h3>
-
-                                            <p>Credibly build virtual materials for fully researched paradigms. Authoritatively plagiarize long-term high-impact infomediaries with goal-oriented core competencies. Conveniently visualize process-centric applications through leading-edge testing procedures. Quickly build backend customer service for real-time metrics.</p>
-
-                                            <p>Efficiently transform an expanded array of methodologies rather than customized infomediaries.</p>
+                                            @{Html.RenderAction("InquiryForm", "InquiryForm", new { @ReportID = Model.ReportDetails.ReportId, @FormType = "InquiryForm" });}
                                         </div>
                                         <!-- /.col-md-12 -->
                                     </div>
@@ -266,15 +323,11 @@
                                 </div>
                                 <!-- /.css-tab-content -->
                             </div>
-                            <div role="tabpanel" class="tab-pane fade" id="reliable">
+                            <div role="tabpanel" class="tab-pane fade" id="reqsample">
                                 <div class="css-tab-content">
                                     <div class="row">
                                         <div class="col-md-12 content-text">
-                                            <h3>Continually disintermediate</h3>
-
-                                            <p>Credibly build virtual materials for fully researched paradigms. Authoritatively plagiarize long-term high-impact infomediaries with goal-oriented core competencies. Conveniently visualize process-centric applications through leading-edge testing procedures. Quickly build backend customer service for real-time metrics.</p>
-
-                                            <p>Efficiently transform an expanded array of methodologies rather than customized infomediaries.</p>
+                                            @{Html.RenderAction("InquiryForm", "InquiryForm", new { @ReportID = Model.ReportDetails.ReportId, @FormType = "SampleRequestForm" });}
                                         </div>
                                         <!-- /.col-md-12 -->
                                     </div>

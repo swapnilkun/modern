@@ -1737,3 +1737,42 @@ input.form-control.phno {
 .report-lst-view:hover {
     box-shadow: 10px 10px 20px #0000002e;
 }
+h1.title {
+    font-size: 30px;
+    line-height: 40px;
+    font-weight: 600;
+}
+.date-info-2 i {
+    margin: 0 5px 0px 10px;
+}
+.date-info-2 a {
+    font-weight: 700;
+    font-size: 18px;
+    margin: 0 10px;
+}
+.date-info-2 i {
+    margin: 0 5px 0px 10px;
+}
+.date-info-2 span {
+    margin: 0 2px 0 5px;
+}
+.report-details .nav.nav-tabs {
+    margin-bottom: 10px;
+    margin-top: 30px;
+}
+#reportdetails pre, #tablecontent pre {
+    font-size: 15px;
+    border: 0px solid #ccc;
+    background: transparent;
+    white-space: -moz-pre-wrap;
+    white-space: -pre-wrap;
+    white-space: -o-pre-wrap;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+	padding:0 30px;
+}
+.report-details .css-tab {
+    border: 1px solid #f2f2f2;
+    border-radius: 15px;
+    box-shadow: 0px 7px 20px #2b292936;	
+}
