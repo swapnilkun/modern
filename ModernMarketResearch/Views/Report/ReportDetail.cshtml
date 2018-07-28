@@ -1,9 +1,9 @@
 ﻿@model ModernMarketResearch.Models.ViewModel.ReportDetailsVM
 @{
-    ViewBag.Title=Model.ReportDetails.ReportTitle;
-    ViewBag.Description="";
+    ViewBag.Title = Model.ReportDetails.ReportTitle;
+    ViewBag.Description = "";
     ViewBag.Keywords = "";
-    Layout = null;
+                //Layout = null;
                         
 }
 <script>
@@ -131,16 +131,178 @@
 <input type="hidden" value="@Model.ReportDetails.ReportId" id="RepID" />
 
 <!-- report details finish-->
+<section class="page-title-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="page-header-wrap">
+                    <div class="page-header">
+                        <h1>Report Details</h1>
+                    </div>
+                    <ol class="breadcrumb">
+                        <li><a href="/">Home</a></li>
+                        <li><a>Reports</a></li>
+                        <li class="active">Report Details</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
+<!-- Single-Service-Start -->
+<section class="single-service-contents">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 col-sm-5 col-xs-12">
+                <div class="service-sidebar sidebar-wrapper">
 
+                    <div class="widget">
+                        <h2 class="widget-title">Services</h2>
+                        <ul class="service-list">
+                            <li><a href="air.html" class="icon-air">Air transportation</a></li>
+                            <li><a href="marine.html" class="icon-marine">Marine transportation</a></li>
+                            <li><a href="moving.html" class="icon-store">Moving &amp; storage</a></li>
+                            <li><a href="shipping.html" class="icon-shipping">Shipping &amp; operations</a></li>
+                            <li><a href="transportation.html" class="icon-transportation">Transportation logistics</a></li>
+                            <li class="active"><a href="trucking.html" class="icon-trucking">Trucking</a></li>
+                        </ul>
+                    </div>
+                    <!-- /.widget -->
 
+                    <div class="widget">
+                        <div class="download-wrap company">
+                            <a href="#">Company profile <span>Download</span><i class="fa fa-download"></i></a>
+                        </div>
+                        <!-- /.download-wrap -->
+                        <div class="download-wrap annual">
+                            <a href="#">Annual Report <span>Download</span><i class="fa fa-download"></i></a>
+                        </div>
+                        <!-- /.download-wrap -->
+                        <div class="download-wrap brochure">
+                            <a href="#">Corporate Brochure <span>Download</span><i class="fa fa-download"></i></a>
+                        </div>
+                        <!-- /.download-wrap -->
+                    </div>
+                    <!-- /.widget -->
+
+                    <div class="widget">
+                        <h2 class="widget-title">Office Hours</h2>
+                        <div class="textwidget">
+                            <p>
+                                Monday -
+                                                    Friday: 9:00 - 18:00<br>
+                                Saturday: 9:00 - 2:00<br>
+                                Holidays: 9:00 - 12:00
+                            </p>
+                        </div>
+                    </div>
+                    <!-- /.widget -->
+                </div>
+                <!-- /.sidebar-wrapper -->
+            </div>
+            <!-- /.col -->
+            <div class="col-md-9 col-sm-7 col-xs-12">
+
+                <div class="col-md-12">
+                    <div class="css-tab" role="tabpanel">
+
+                        <!-- Nav tabs -->
+                        <ul class="nav nav-tabs" role="tablist">
+                            <li role="presentation" class="active"><a href="#secure" aria-controls="secure" role="tab" data-toggle="tab"><i class="flaticon-logistics15"></i>Secure</a></li>
+                            <li role="presentation"><a href="#trackable" aria-controls="trackable" role="tab" data-toggle="tab"><i class="flaticon-logistics18"></i>Trackable</a></li>
+                            <li role="presentation"><a href="#fast" aria-controls="fast" role="tab" data-toggle="tab"><i class="flaticon-logistics16"></i>Fast</a></li>
+                            <li role="presentation"><a href="#reliable" aria-controls="reliable" role="tab" data-toggle="tab"><i class="flaticon-broken43"></i>Reliable</a></li>
+                        </ul>
+
+                        <!-- Tab panes -->
+                        <div class="tab-content">
+                            <div role="tabpanel" class="tab-pane active fade in" id="secure">
+                                <div class="css-tab-content">
+                                    <div class="row">
+                                        <div class="col-md-12 content-text">
+                                            <h3>Continually disintermediate</h3>
+
+                                            <p>Credibly build virtual materials for fully researched paradigms. Authoritatively plagiarize long-term high-impact infomediaries with goal-oriented core competencies. Conveniently visualize process-centric applications through leading-edge testing procedures. Quickly build backend customer service for real-time metrics.</p>
+
+                                            <p>Efficiently transform an expanded array of methodologies rather than customized infomediaries.</p>
+                                        </div>
+                                        <!-- /.col-md-12 -->
+                                    </div>
+                                    <!-- /.row -->
+                                </div>
+                                <!-- /.css-tab-content -->
+                            </div>
+                            <div role="tabpanel" class="tab-pane fade" id="trackable">
+                                <div class="css-tab-content">
+                                    <div class="row">
+                                        <div class="col-md-12 content-text">
+                                            <h3>Continually disintermediate</h3>
+
+                                            <p>Credibly build virtual materials for fully researched paradigms. Authoritatively plagiarize long-term high-impact infomediaries with goal-oriented core competencies. Conveniently visualize process-centric applications through leading-edge testing procedures. Quickly build backend customer service for real-time metrics.</p>
+
+                                            <p>Efficiently transform an expanded array of methodologies rather than customized infomediaries.</p>
+                                        </div>
+                                        <!-- /.col-md-12 -->
+                                    </div>
+                                    <!-- /.row -->
+                                </div>
+                                <!-- /.css-tab-content -->
+                            </div>
+                            <div role="tabpanel" class="tab-pane fade" id="fast">
+                                <div class="css-tab-content">
+                                    <div class="row">
+                                        
+                                        <div class="col-md-12 content-text">
+                                            <h3>Continually disintermediate</h3>
+
+                                            <p>Credibly build virtual materials for fully researched paradigms. Authoritatively plagiarize long-term high-impact infomediaries with goal-oriented core competencies. Conveniently visualize process-centric applications through leading-edge testing procedures. Quickly build backend customer service for real-time metrics.</p>
+
+                                            <p>Efficiently transform an expanded array of methodologies rather than customized infomediaries.</p>
+                                        </div>
+                                        <!-- /.col-md-12 -->
+                                    </div>
+                                    <!-- /.row -->
+                                </div>
+                                <!-- /.css-tab-content -->
+                            </div>
+                            <div role="tabpanel" class="tab-pane fade" id="reliable">
+                                <div class="css-tab-content">
+                                    <div class="row">
+                                        <div class="col-md-12 content-text">
+                                            <h3>Continually disintermediate</h3>
+
+                                            <p>Credibly build virtual materials for fully researched paradigms. Authoritatively plagiarize long-term high-impact infomediaries with goal-oriented core competencies. Conveniently visualize process-centric applications through leading-edge testing procedures. Quickly build backend customer service for real-time metrics.</p>
+
+                                            <p>Efficiently transform an expanded array of methodologies rather than customized infomediaries.</p>
+                                        </div>
+                                        <!-- /.col-md-12 -->
+                                    </div>
+                                    <!-- /.row -->
+                                </div>
+                                <!-- /.css-tab-content -->
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.css-tab -->
+                </div>
+                <!-- /.col-md-12 -->
+
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /.container -->
+</section>
+<!-- Single-Service-End-->
 
 
 <ol class="breadcrumb">
     <li><a href="@Url.Action("Index", "Home")">Home</a></li>
     @foreach (var item in Model.BreadcrumbCategory)
     {
-        <li><a href="@Url.Action("CategoryRelatedReports","Report", new { @caturl = item.CategoryUrl })">@item.CategoryName</a></li>
+        <li><a href="@Url.Action("CategoryRelatedReports", "Report", new { @caturl = item.CategoryUrl })">@item.CategoryName</a></li>
     }
 </ol>
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -151,7 +313,7 @@
         <div class="col-md-8">
             <h1 class="title">
                 <span id="">@Model.ReportDetails.ReportTitle</span></h1>
-      @*      <a target="_blank" href="http://wwwresearchgroup.com/market-analysis/global-ir-emitter-receiver-market-2017-production-sales.pdf">
+            @*      <a target="_blank" href="http://wwwresearchgroup.com/market-analysis/global-ir-emitter-receiver-market-2017-production-sales.pdf">
                 <strong>
                     <span class="pull-right btn-primary" style="padding: 3px;">Download as PDF&nbsp;<i class="fa fa-file-pdf-o" style="font-size: 2em;"></i></span>
                 </strong>
@@ -162,8 +324,8 @@
                 | <i class="fa fa-file-pdf-o"></i><strong>&nbsp;Format:</strong>
                 <span id="">PDF</span>
                 |
-                <a href="@Url.Action("PublisherRelatedReports", "Report", new {@puburl=Model.ReportDetails.PublishingUrl})">@Model.ReportDetails.PublisherName</a>
-                
+                <a href="@Url.Action("PublisherRelatedReports", "Report", new { @puburl = Model.ReportDetails.PublishingUrl })">@Model.ReportDetails.PublisherName</a>
+
                 | <i class="fa fa-file-powerpoint-o"></i><strong>&nbsp;Number of pages:</strong>
                 <span id="">@Model.ReportDetails.NumberOfPage</span>
             </p>
@@ -176,7 +338,7 @@
                 <ul class="nav nav-tabs" id='myTab'>
                     <li class="active"><a data-toggle="tab" href="#Report_Details">Report Details</a></li>
                     <li><a data-toggle="tab" href="#TOC">Table Of Content</a></li>
-                    <li><a data-toggle="tab" href="#Buying_Inquiry"> Inquiry For Buying </a></li>
+                    <li><a data-toggle="tab" href="#Buying_Inquiry">Inquiry For Buying </a></li>
                     <li><a data-toggle="tab" href="#Request_Sample">Request Sample</a></li>
                 </ul>
                 <div class="tab-content">
@@ -206,10 +368,10 @@
                         <button type="button" class="btn btn-primary" id="btnTOC" style="padding: 2px 6px; font-size: 11px">Read More..</button></p>*@
                     </div>
                     <div id="Buying_Inquiry" class="tab-pane fade">
-                       @* @{Html.RenderAction("InquiryForm", "InquiryForm", new { @ReportID = Model.ReportDetails.ReportId, @FormType = "InquiryForm" });}*@
+                        @* @{Html.RenderAction("InquiryForm", "InquiryForm", new { @ReportID = Model.ReportDetails.ReportId, @FormType = "InquiryForm" });}*@
                     </div>
                     <div id="Request_Sample" class="tab-pane fade">
-                       @* @{Html.RenderAction("InquiryForm", "InquiryForm", new { @ReportID = Model.ReportDetails.ReportId, @FormType = "SampleRequestForm" });}*@
+                        @* @{Html.RenderAction("InquiryForm", "InquiryForm", new { @ReportID = Model.ReportDetails.ReportId, @FormType = "SampleRequestForm" });}*@
                     </div>
                     <br />
                     <hr />
@@ -254,7 +416,7 @@
                                         @*<a id="ctl00_ContentPlaceHolder2_btnBuyNow" class="btn btn-danger">Buy Now &nbsp;<i class="fa fa-shopping-cart" style="font-size: 25px"></i></a>*@
                                         <a>
                                             <span style="margin-left: 20px; margin-top: 25px;">
-                                                <input type="image" src="~/Images/buy-now-button.png" style="margin-top:10px;">
+                                                <input type="image" src="~/Images/buy-now-button.png" style="margin-top: 10px;">
                                             </span>
                                         </a>
                                     </td>
