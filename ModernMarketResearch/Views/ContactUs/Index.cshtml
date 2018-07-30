@@ -3,9 +3,9 @@
     ViewBag.Title = "Index";
     Layout = null;    
 }
-    @* <script type="text/javascript">
+     <script type="text/javascript">
      function ValidCaptcha() {
-        debugger;
+        
         var obj = {};
         var v = $("#txtInput").val();
         var w = $("#txtCaptcha").val();
@@ -31,19 +31,19 @@
         return res;
     }
     function ValidateForm(e) {
-        debugger;
+        
         if ($("#ContactUs").valid()) {
-            debugger;
+            
             if (ValidCaptcha()) {
                 $("#ContactUs").submit();
             } else {
                 e.preventDefault();
-                debugger;
+                
                 $("#captchaError").html("Not Valid Captcha !..");
             }
         }
     }
-</script>  *@          
+</script>            
     <div>
         @using (Html.BeginForm("Index", "ContactUs", FormMethod.Post, new { @class = "form-horizontal", @id ="ContactUs" }))
                     {
@@ -139,7 +139,7 @@
             <div class="form-group">
                 <div class="col-md-3 col-sm-12">
                     <label for="custmsg">
-                        <button type="button" id="btnSubmit" class="btn btn-primary">Submit</button></label>
+                        <button type="button" id="btnSubmit" onclick="ValidateForm(event);" class="btn btn-primary">Submit</button></label>
                 </div>
             </div>
         }
