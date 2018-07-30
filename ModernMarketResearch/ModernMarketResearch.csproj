@@ -179,6 +179,7 @@
     <Compile Include="Areas\Admin\Controllers\NewsController.cs" />
     <Compile Include="Areas\Admin\Controllers\PublisherController.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminReportController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ReportController.cs" />
     <Compile Include="Areas\Admin\Controllers\RoleActionController.cs" />
     <Compile Include="Areas\Admin\Controllers\UserRoleController.cs" />
     <Compile Include="Areas\Admin\Models\Common.cs" />
@@ -199,6 +200,7 @@
     <Compile Include="Areas\Admin\Models\DAL\UserRoleRepository.cs" />
     <Compile Include="Areas\Admin\Models\ViewModel\ActionVM.cs" />
     <Compile Include="Areas\Admin\Models\ViewModel\CategoryVM.cs" />
+    <Compile Include="Areas\Admin\Models\ViewModel\ExcelReport.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\ContactUsController.cs" />
     <Compile Include="Controllers\ExcelReportVM.cs" />
@@ -1025,7 +1027,20 @@
       <DependentUpon>ModernMarketResearch.edmx</DependentUpon>
       <LastGenOutput>ModernMarketResearch.cs</LastGenOutput>
     </Content>
+    <Content Include="css\flaticon.woff" />
+    <Content Include="fonts\fontawesome-webfont.woff2" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="Areas\Admin\Views\Report\ReportCreate.cshtml" />
+    <Content Include="Areas\Admin\Views\Report\ReportIndex.cshtml" />
+    <Content Include="Areas\Admin\Views\Report\ReportEdit.cshtml" />
+    <Content Include="Areas\Admin\Views\Report\ReportDetails.cshtml" />
+    <Content Include="Areas\Admin\Views\Report\ReportDelete.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.2.1.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
     <Content Include="Scripts\jquery-3.3.1.slim.js" />

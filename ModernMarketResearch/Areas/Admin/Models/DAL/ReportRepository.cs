@@ -19,9 +19,17 @@ namespace ModernMarketResearch.Areas.Admin.Models.DAL
 
             r.CreatedBy = 1;
             r.CreatedDate = DateTime.Now;
+
             JavaScriptSerializer serializer = new JavaScriptSerializer();
             var s = serializer.Serialize(r);
             ReportMaster re = serializer.Deserialize<ReportMaster>(s);
+            re.LongDescritpion = r.FullDescription;
+            re.SinglePrice = r.PriceSingleUser;
+            re.MultiUserPrice = r.PriceMultiUser;
+            re.CorporateUserPrice = r.PriceCUL;
+            re.NumberOfPages = r.NumberOfPage;
+            re.PublishereId = r.PublisherId;
+            re.ReportDeliveryTypeId = r.DeliveryTypeId;
             db.ReportMasters.Add(re);
             db.SaveChanges();
             re.ReportUrl = re.ReportUrl + "-" + re.ReportId;
@@ -79,6 +87,13 @@ namespace ModernMarketResearch.Areas.Admin.Models.DAL
                 JavaScriptSerializer serializer = new JavaScriptSerializer();
                 var report = serializer.Serialize(r);
                 ReportMaster repo = serializer.Deserialize<ReportMaster>(report);
+                repo.LongDescritpion = r.FullDescription;
+                repo.SinglePrice = r.PriceSingleUser;
+                repo.MultiUserPrice = r.PriceMultiUser;
+                repo.CorporateUserPrice = r.PriceCUL;
+                repo.NumberOfPages = r.NumberOfPage;
+                repo.PublishereId = r.PublisherId;
+                repo.ReportDeliveryTypeId = r.DeliveryTypeId;
                 db.Entry(repo).State = EntityState.Modified;
                 db.SaveChanges();
                 flag = true;

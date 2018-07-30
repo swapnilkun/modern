@@ -224,75 +224,75 @@ namespace ModernMarketResearch.Areas.Admin.Controllers
 
         //    return reportlist;
         //}
-        //public ActionResult ExportData(DateTime FromDate, DateTime ToDate)
-        //{
-        //    GridView gv = new GridView();
+        public ActionResult ExportData(DateTime FromDate, DateTime ToDate)
+        {
+            GridView gv = new GridView();
 
-        //    var reportlist = (from l in db.ReportMasters
-        //                      join c in db.CategoryMasters on l.CategoryId equals c.CategoryId
-        //                      orderby l.CreatedDate descending
-        //                      where l.CreatedDate >= FromDate.Date && FromDate.Date <= ToDate.Date
-        //                      select new ExcelReport
-        //                      {
-        //                          ReportId = l.ReportId,
-        //                          ReportTitle = l.ReportTitle,
-        //                          FullDescription = l.FullDescription,
-        //                          //htmlWrite.WriteLine("<td valign='top' nowrap >=\"" + ds.Tables[0].Rows[i][j].ToString().Replace("\r\n\r\n", "\" & CHAR(10)&CHAR(10) & \"").Replace("\r\n", "\" & CHAR(10) & \"").Replace(",", ",\"&\"").Replace("<pre>", "").Replace("</pre>", "") + "\"</td>");
-        //                          PublishingDate = l.PublishingDate,
-        //                          CategoryName = c.CategoryName,
-        //                          ReportUrl = "#report/" + l.ReportURL,
-        //                          CreatedDate = l.CreatedDate
-        //                      }).ToList();
-        //    foreach (var item in reportlist)
-        //    {
+            var reportlist = (from l in db.ReportMasters
+                              join c in db.CategoryMasters on l.CategoryId equals c.CategoryId
+                              orderby l.CreatedDate descending
+                              where l.CreatedDate >= FromDate.Date && FromDate.Date <= ToDate.Date
+                              select new ExcelReport
+                              {
+                                  ReportId = l.ReportId,
+                                  ReportTitle = l.ReportTitle,
+                                  FullDescription = l.LongDescritpion,
+                                  //htmlWrite.WriteLine("<td valign='top' nowrap >=\"" + ds.Tables[0].Rows[i][j].ToString().Replace("\r\n\r\n", "\" & CHAR(10)&CHAR(10) & \"").Replace("\r\n", "\" & CHAR(10) & \"").Replace(",", ",\"&\"").Replace("<pre>", "").Replace("</pre>", "") + "\"</td>");
+                                  PublishingDate = l.PublishingDate,
+                                  CategoryName = c.CategoryName,
+                                  ReportUrl = "#report/" + l.ReportUrl,
+                                  CreatedDate = l.CreatedDate
+                              }).ToList();
+            foreach (var item in reportlist)
+            {
 
-        //        string CONCATENATE = "=CONCATENATE(";
-        //        IEnumerable<string> Split = ZSubstring(item.FullDescription.Replace("<pre>", "").Replace("</pre>", ""), 200);
+                string CONCATENATE = "=CONCATENATE(";
+                IEnumerable<string> Split = ZSubstring(item.FullDescription.Replace("<pre>", "").Replace("</pre>", ""), 200);
 
-        //        foreach (string str in Split)
-        //            CONCATENATE += "\"" + str + "\", ";
+                foreach (string str in Split)
+                    CONCATENATE += "\"" + str + "\", ";
 
-        //        CONCATENATE = CONCATENATE.Substring(0, CONCATENATE.Length - 2).Replace("\n", "\" & CHAR(10) & \"") + ")";
-        //        item.FullDescription = CONCATENATE;
+                CONCATENATE = CONCATENATE.Substring(0, CONCATENATE.Length - 2).Replace("\n", "\" & CHAR(10) & \"") + ")";
+                item.FullDescription = CONCATENATE;
 
-        //    }
-        //    gv.DataSource = reportlist;
-        //    gv.DataBind();
-        //    Response.ClearContent();
-        //    Response.Buffer = true;
-        //    Response.AddHeader("content-disposition", "attachment; filename=ReportSheet.xls");
-        //    Response.ContentType = "application/ms-excel";
-        //    Response.Charset = "";
-        //    StringWriter sw = new StringWriter();
-        //    HtmlTextWriter htw = new HtmlTextWriter(sw);
-        //    gv.RenderControl(htw);
-        //    Response.Output.Write(sw.ToString());
-        //    Response.Flush();
-        //    Response.End();
-        //    return View(reportlist);
-        //    //return RedirectToAction("ReportIndex");
-        //}
-        //public string[] ZSubstring(string toSplit, int chunkSize)
-        //{
-        //    int stringLength = toSplit.Length;
+            }
+            gv.DataSource = reportlist;
+            gv.DataBind();
+            Response.ClearContent();
+            Response.Buffer = true;
+            Response.AddHeader("content-disposition", "attachment; filename=ReportSheet.xls");
+            Response.ContentType = "application/ms-excel";
+            Response.Charset = "";
+            StringWriter sw = new StringWriter();
+            HtmlTextWriter htw = new HtmlTextWriter(sw);
+            gv.RenderControl(htw);
+            Response.Output.Write(sw.ToString());
+            Response.Flush();
+            Response.End();
+            return View(reportlist);
+            //return RedirectToAction("ReportIndex");
+        }
+        public string[] ZSubstring(string toSplit, int chunkSize)
+        {
+            int stringLength = toSplit.Length;
 
-        //    int chunksRequired = (int)Math.Ceiling((decimal)stringLength / (decimal)chunkSize);
-        //    var stringArray = new string[chunksRequired];
+            int chunksRequired = (int)Math.Ceiling((decimal)stringLength / (decimal)chunkSize);
+            var stringArray = new string[chunksRequired];
 
-        //    int lengthRemaining = stringLength;
+            int lengthRemaining = stringLength;
 
-        //    for (int i = 0; i < chunksRequired; i++)
-        //    {
-        //        int lengthToUse = Math.Min(lengthRemaining, chunkSize);
-        //        int startIndex = chunkSize * i;
-        //        stringArray[i] = toSplit.Substring(startIndex, lengthToUse);
+            for (int i = 0; i < chunksRequired; i++)
+            {
+                int lengthToUse = Math.Min(lengthRemaining, chunkSize);
+                int startIndex = chunkSize * i;
+                stringArray[i] = toSplit.Substring(startIndex, lengthToUse);
 
-        //        lengthRemaining = lengthRemaining - lengthToUse;
-        //    }
+                lengthRemaining = lengthRemaining - lengthToUse;
+            }
 
-        //    return stringArray;
+            return stringArray;
 
-        //}
+        }
 
 
 

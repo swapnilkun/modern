@@ -9,7 +9,7 @@ namespace ModernMarketResearch
         public static void RegisterBundles(BundleCollection bundles)
         {
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
-                        "~/Scripts/jquery-3.3.1.js"));
+                        "~/Scripts/jquery-3.2.1.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryui").Include(
                         "~/Scripts/jquery-ui-{version}.js"));
@@ -19,7 +19,7 @@ namespace ModernMarketResearch
             //            "~/Scripts/jquery.validate*"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
-                       "~/Scripts/jquery.validate.js",
+                       "~/Scripts/jquery.validate.min.js",
                        "~/Scripts/jquery.validate.unobtrusive.3.2.6.js"));
 
             // Use the development version of Modernizr to develop with and learn from. Then, when you're
@@ -71,8 +71,8 @@ namespace ModernMarketResearch
             bundles.Add(new ScriptBundle("~/bundles/templatefooterjs")
          .Include("~/js/jquery.js",
                   "~/js/bootstrap.min.js",
-                  "~/owl.carousel/owl.carousel.min.js",
                   "~/js/jquery.magnific-popup.min.js",
+                  "~/owl.carousel/owl.carousel.min.js",
                   "~/js/hippo-offcanvas.js",
                   "~/js/jquery.inview.min.js",
                   "~/js/jquery.stellar.js",
@@ -80,6 +80,7 @@ namespace ModernMarketResearch
                   "~/js/classie.js",
                   "~/js/selectFx.js",
                   "~/js/jquery.sticky-kit.min.js",
+                  "~/js/googlemapaip.js",
                   "~/js/twitterFetcher_min.js",
                   "~/js/scripts.js"
          ));
