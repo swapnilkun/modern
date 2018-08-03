@@ -3,11 +3,17 @@
     ViewBag.Title = "Index";
     //Layout = null;    
 }
+<<<<<<< HEAD
 
 <script type="text/javascript">
 
     function ValidCaptcha() {
         debugger;
+=======
+     <script type="text/javascript">
+     function ValidCaptcha() {
+        
+>>>>>>> 17e74074dd1f1720433b976aa8ec45d97396244e
         var obj = {};
         var v = $("#txtInput").val();
         var w = $("#txtCaptcha").val();
@@ -33,24 +39,41 @@
         return res;
     }
     function ValidateForm(e) {
+<<<<<<< HEAD
         debugger;
         //var form = $("#ContactUs");
         //form.validate();
 
+=======
+        
+>>>>>>> 17e74074dd1f1720433b976aa8ec45d97396244e
         if ($("#ContactUs").valid()) {
-            debugger;
+            
             if (ValidCaptcha()) {
                 $("#ContactUs").submit();
             } else {
                 e.preventDefault();
+<<<<<<< HEAD
                 s$("#captchaError").html("Not Valid Captcha !..");
+=======
+                
+                $("#captchaError").html("Not Valid Captcha !..");
+>>>>>>> 17e74074dd1f1720433b976aa8ec45d97396244e
             }
         }
 
     }
+<<<<<<< HEAD
 </script>
 @*  <script type="text/javascript">
       $(document).ready(function () {
+=======
+</script>            
+    <div>
+        @using (Html.BeginForm("Index", "ContactUs", FormMethod.Post, new { @class = "form-horizontal", @id ="ContactUs" }))
+                    {
+            @Html.ValidationSummary(true)
+>>>>>>> 17e74074dd1f1720433b976aa8ec45d97396244e
 
           $("#ContactUs").validate();
           $("#btnSubmit").click(function () {
@@ -195,6 +218,17 @@
                     <button type="button" onclick="ValidateForm(event);" id="btnSubmit" class="btn btn-warning">Submit</button>
                     </label>
             </div>
+<<<<<<< HEAD
         </div>
     }
 </div>
+=======
+            <div class="form-group">
+                <div class="col-md-3 col-sm-12">
+                    <label for="custmsg">
+                        <button type="button" id="btnSubmit" onclick="ValidateForm(event);" class="btn btn-primary">Submit</button></label>
+                </div>
+            </div>
+        }
+    </div>
+>>>>>>> 17e74074dd1f1720433b976aa8ec45d97396244e

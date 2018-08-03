@@ -29,7 +29,6 @@ namespace ModernMarketResearch.Controllers
                                               ReportTitle = r.ReportTitle,
                                               ReportUrl = r.ReportUrl,
                                               FullDescription=r.LongDescritpion.Substring(0,150)
-                                          }).Take(4).ToList();
 
             ViewBag.TechnologyMedia = (from l in db.CategoryMasters
                                             join r in db.ReportMasters on l.CategoryId equals r.CategoryId
@@ -40,8 +39,8 @@ namespace ModernMarketResearch.Controllers
                                             {
                                                 ReportTitle = r.ReportTitle,
                                                 ReportUrl = r.ReportUrl,
-                                                FullDescription = r.LongDescritpion.Substring(0, 50)
-                                            }).Take(4).ToList();
+                                                FullDescription = r.LongDescritpion.Substring(0, 150)
+                                            }).Take(3).ToList();
 
             ViewBag.ICTMedia = (from l in db.CategoryMasters
                                 join r in db.ReportMasters on l.CategoryId equals r.CategoryId
@@ -53,7 +52,7 @@ namespace ModernMarketResearch.Controllers
                                     ReportTitle = r.ReportTitle,
                                     ReportUrl = r.ReportUrl,
                                     FullDescription = r.LongDescritpion.Substring(0, 150)
-                                }).Take(4).ToList();
+                                }).Take(3).ToList();
 
             ViewBag.HealthCares = (from l in db.CategoryMasters
                                      join r in db.ReportMasters on l.CategoryId equals r.CategoryId
@@ -64,8 +63,8 @@ namespace ModernMarketResearch.Controllers
                                      {
                                          ReportTitle = r.ReportTitle,
                                          ReportUrl = r.ReportUrl,
-                                         FullDescription = r.LongDescritpion.Substring(0, 200)
-                                     }).Take(4).ToList();
+                                         FullDescription = r.LongDescritpion.Substring(0, 150)
+                                     }).Take(3).ToList();
 
             ViewBag.ParentCategory = db.CategoryMasters.Where(x => x.ParentCategoryId == 0).ToList();
             ViewBag.Title = "Modern Market Research  - Market Research Reports, Industry Analysis, Trends and Forecast";
