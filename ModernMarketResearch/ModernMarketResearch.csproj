@@ -1108,6 +1108,9 @@
     <Content Include="Views\ContactUs\Index.cshtml" />
     <Content Include="Views\News\LatestNewsForIndexPage.cshtml" />
     <Content Include="Views\InquiryForm\Index.cshtml" />
+    <Content Include="Views\Report\PublisherRelatedReports.cshtml" />
+    <Content Include="Views\News\AllNews.cshtml" />
+    <Content Include="Views\News\NewsDetails.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

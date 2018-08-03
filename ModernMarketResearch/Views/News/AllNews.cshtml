@@ -1,0 +1,68 @@
+﻿@using PagedList
+@using PagedList.Mvc
+@model IPagedList<ModernMarketResearch.Areas.Admin.Models.ViewModel.NewsVM>
+@{
+    ViewBag.Title = "Latest News";
+    ViewBag.Description = "";
+    ViewBag.Keyword = "";
+}
+@*@section head {
+
+    <meta name="description" content="Find the latest developments, specific industries and market research reports trending news to Qy Group ">
+    <meta name="keyword" content="Press Release, Trending News, Press Room, Market Research Reports">
+}*@
+<link href="~/Content/PagedList.css" rel="stylesheet" />
+
+<div class="wrapper">
+
+    <div class="row">
+
+        <div class="col-md-8">
+            <h1 class="title">Latest News</h1>
+            <div>
+                <table cellspacing="0" border="0" id="ctl00_ContentPlaceHolder1_grdNews" style="width: 100%; border-collapse: collapse;">
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <p class="date-info"><i class="fa fa-calendar"></i> @item.NewsPublishingDate.ToString("dd-MMM-yyyy") | <a href="@Url.Action("CategoryRelatedReports", "Report", new { @caturl = item.CategoryUrl })">@item.CategoryName</a></p>
+                                            <a href="@Url.Action("NewsDetails", "News", new { @NewsUrl = item.NewsURL })">
+                                                <h3 class="panel-title">@item.NewsTitle</h3>
+                                            </a>
+                                            <div class="NewsDescription">
+                                                @Html.Raw(item.NewsDetail)...
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+            <ul class="pagination">
+                @Html.PagedListPager(Model, Pageno => Url.Action("AllNews", new
+                   {
+                       Pageno,
+                       NewsTitle = @Request.QueryString["NewsTitle"]
+
+                   }), new PagedListRenderOptions() { Display = PagedListDisplayMode.IfNeeded, DisplayPageCountAndCurrentLocation = true })
+            </ul>
+        </div>
+
+        <div class="col-md-4">
+
+
+            @{Html.RenderAction("LatestReport", "Report");}
+
+            <!--/.research_assistance end -->
+
+        </div>
+    </div>
+</div>
+
+
+

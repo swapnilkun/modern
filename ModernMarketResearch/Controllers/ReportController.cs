@@ -460,8 +460,8 @@ namespace ModernMarketResearch.Controllers
                             LongPublisherDesc = p.LongDescription,
                             ShortPublisherDesc = p.ShortDescription
                         }).FirstOrDefault();
-            ViewBag.ShortPubDesc = reportvm.ShortPublisherDesc;
-            ViewBag.LongPubDesc = reportvm.LongPublisherDesc;
+            //ViewBag.ShortPubDesc = reportvm.ShortPublisherDesc;
+            //ViewBag.LongPubDesc = reportvm.LongPublisherDesc;
             return View(pubrelatedreport);
 
         }
