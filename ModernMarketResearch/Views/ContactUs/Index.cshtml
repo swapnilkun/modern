@@ -1,11 +1,19 @@
 ﻿@model ModernMarketResearch.Models.ViewModel.ContactUsVM
 @{
     ViewBag.Title = "Index";
-    Layout = null;    
+    //Layout = null;    
 }
+<<<<<<< HEAD
+
+<script type="text/javascript">
+
+    function ValidCaptcha() {
+        debugger;
+=======
      <script type="text/javascript">
      function ValidCaptcha() {
         
+>>>>>>> 17e74074dd1f1720433b976aa8ec45d97396244e
         var obj = {};
         var v = $("#txtInput").val();
         var w = $("#txtCaptcha").val();
@@ -31,70 +39,137 @@
         return res;
     }
     function ValidateForm(e) {
+<<<<<<< HEAD
+        debugger;
+        //var form = $("#ContactUs");
+        //form.validate();
+
+=======
         
+>>>>>>> 17e74074dd1f1720433b976aa8ec45d97396244e
         if ($("#ContactUs").valid()) {
             
             if (ValidCaptcha()) {
                 $("#ContactUs").submit();
             } else {
                 e.preventDefault();
+<<<<<<< HEAD
+                s$("#captchaError").html("Not Valid Captcha !..");
+=======
                 
                 $("#captchaError").html("Not Valid Captcha !..");
+>>>>>>> 17e74074dd1f1720433b976aa8ec45d97396244e
             }
         }
+
     }
+<<<<<<< HEAD
+</script>
+@*  <script type="text/javascript">
+      $(document).ready(function () {
+=======
 </script>            
     <div>
         @using (Html.BeginForm("Index", "ContactUs", FormMethod.Post, new { @class = "form-horizontal", @id ="ContactUs" }))
                     {
             @Html.ValidationSummary(true)
+>>>>>>> 17e74074dd1f1720433b976aa8ec45d97396244e
 
-            @Html.HiddenFor(model => model.RealCaptcha, new { @id = "txtCaptcha" })
-            <div class="form-group">
-                <div class="col-md-3 col-sm-12">
-                    <label for="name">Name</label>
-                </div>
-                <div class="col-md-9 col-sm-12">
-                    @Html.TextBoxFor(model => model.Name, new { @class = "form-control", @placeholder = "Enter Name", @id = "name" })
-                    @Html.ValidationMessageFor(model => model.Name)
-                </div>
-                
-            </div>
-            <div class="form-group">
-                <div class="col-md-3 col-sm-12">
-                    <label for="emailid">Email Id</label>
-                </div>
-                <div class="col-md-9 col-sm-12">
-                    @Html.TextBoxFor(model => model.EmailId, new { @class = "form-control", @placeholder = "abc@xyz.com", @id = "email" })
-                    @Html.ValidationMessageFor(model => model.EmailId)
-                </div>
-                
-            </div>
-            <div class="form-group">
-                <div class="col-md-3 col-sm-12">
-                    <label for="areacode">Phone Number</label>
-                </div>
-                <div class="col-md-9 col-sm-12">
-                    @*<input name="areacode" type="text" class="form-control areacode" required="" placeholder="+91">*@
-                    @Html.TextBoxFor(model => model.PhoneNumber, new { @class = "form-control", @placeholder = "Phone-Number", @id = "phonenumber" })
-                    @Html.ValidationMessageFor(model => model.PhoneNumber)
-                </div>
-                
-            </div>
-            <div class="form-group">
-                <div class="col-md-3 col-sm-12">
-                    <label for="country">Country</label>
-                </div>
-                <div class="col-md-9 col-sm-12">
-                     @Html.DropDownListFor(m => m.Country, from l in new ModernMarketResearch.Models.ViewModel.InquiryVM().GetCountries()
-                                                              select new SelectListItem
-                                                              {
-                                                                  Text = l.nicename,
-                                                                  Value = l.nicename
-                                                              }, "- Select Country -", new { @Class = "form-control" })
+          $("#ContactUs").validate();
+          $("#btnSubmit").click(function () {
 
-                </div>
-            </div>@*
+              if ($("#ContactUs").valid()) {
+                  debugger;
+                  if (ValidCaptcha()) {
+                      $("#ContactUs").submit();
+                  } else {
+                      e.preventDefault();
+                      s$("#captchaError").html("Not Valid Captcha !..");
+                  }
+              }
+             
+
+          });
+
+      });
+      function ValidCaptcha() {
+          var obj = {};
+          var v = $("#txtInput").val();
+          var w = $("#txtCaptcha").val();
+          var res = false;
+
+          obj.inputcapcha = v;
+          //obj.RealCaptcha = w;
+
+          $.ajax({
+              type: "post",
+              url: '@Url.Action("CaptchaValidation", "InquiryForm")',
+              data: JSON.stringify(obj),
+              dataType: "json",
+              contentType: "application/json; charset=utf-8",
+              async: false,
+              success: function (data) {
+                  res = data;
+              },
+              error: function (res) {
+                  alert("Error..." + res.responseText);
+              }
+          });
+          return res;
+      }
+</script>*@
+
+<div>
+    @using (Html.BeginForm("Index", "ContactUs", FormMethod.Post, new { @class = "form-horizontal", @id = "ContactUs" }))
+    {
+        @Html.ValidationSummary(true)
+            
+        @Html.HiddenFor(model => model.RealCaptcha, new { @id = "txtCaptcha" })
+        <div class="form-group">
+            <div class="col-md-3 col-sm-12">
+                <label for="name">Name</label>
+            </div>
+            <div class="col-md-9 col-sm-12">
+                @Html.TextBoxFor(model => model.Name, new { @class = "form-control", @placeholder = "Enter Name", @id = "name" })
+                @Html.ValidationMessageFor(model => model.Name)
+            </div>
+
+        </div>
+        <div class="form-group">
+            <div class="col-md-3 col-sm-12">
+                <label for="emailid">Email Id</label>
+            </div>
+            <div class="col-md-9 col-sm-12">
+                @Html.TextBoxFor(model => model.EmailId, new { @class = "form-control", @placeholder = "abc@xyz.com", @id = "email" })
+                @Html.ValidationMessageFor(model => model.EmailId)
+            </div>
+
+        </div>
+        <div class="form-group">
+            <div class="col-md-3 col-sm-12">
+                <label for="areacode">Phone Number</label>
+            </div>
+            <div class="col-md-9 col-sm-12">
+                @*<input name="areacode" type="text" class="form-control areacode" required="" placeholder="+91">*@
+                @Html.TextBoxFor(model => model.PhoneNumber, new { @class = "form-control", @placeholder = "Phone-Number", @id = "phonenumber" })
+                @Html.ValidationMessageFor(model => model.PhoneNumber)
+            </div>
+
+        </div>
+        <div class="form-group">
+            <div class="col-md-3 col-sm-12">
+                <label for="country">Country</label>
+            </div>
+            <div class="col-md-9 col-sm-12">
+                @Html.DropDownListFor(m => m.Country, from l in new ModernMarketResearch.Models.ViewModel.InquiryVM().GetCountries()
+                                                      select new SelectListItem
+                                                      {
+                                                          Text = l.nicename,
+                                                          Value = l.nicename
+                                                      }, "- Select Country -", new { @Class = "form-control" })
+
+            </div>
+        </div>@*
             <div class="form-group">
                 <div class="col-md-3 col-sm-12">
                     <label for="designation">Designation</label>
@@ -111,31 +186,43 @@
                     <input name="company" type="text" class="form-control" required="" placeholder="">
                 </div>
             </div>*@
-            <div class="form-group">
-                <div class="col-md-3 col-sm-12">
-                    <label for="custmsg">Customer Message</label>
-                </div>
-                <div class="col-md-9 col-sm-12">
-                    @Html.TextAreaFor(model => model.CustomerMessage, new { @class = "form-control", @placeholder = "How can we help you ? " })
-                    @Html.ValidationMessageFor(model => model.CustomerMessage)
-                </div>
-                
+        <div class="form-group">
+            <div class="col-md-3 col-sm-12">
+                <label for="custmsg">Customer Message</label>
             </div>
-            <div class="form-group">
-                <div class="col-md-3 col-sm-12">
-                    <label for="recaptcha">
-                        <img id="CaptchImg"  style="background-color:#01819c" src="@Url.Action("GetCaptchaImage", "InquiryForm", new { @EncryText = Model.RealCaptcha })" /></label>
-                </div>
-                <div class="col-md-9 col-sm-12">
-                    @Html.TextBoxFor(model => model.CaptchaCode, new { @class = "form-control", @placeholder = "Enter Captcha", @id = "txtInput" })
-                    @Html.ValidationMessageFor(model => model.CaptchaCode)
-                   @* <label id="captchaError"></label>*@
-                 </div>
-                @*<p class="help-block">
+            <div class="col-md-9 col-sm-12">
+                @Html.TextAreaFor(model => model.CustomerMessage, new { @class = "form-control", @placeholder = "How can we help you ? " })
+                @Html.ValidationMessageFor(model => model.CustomerMessage)
+            </div>
+
+        </div>
+        <div class="form-group">
+            <div class="col-md-3 col-sm-12">
+                <label for="recaptcha">
+                    <img id="CaptchImg"  style="background-color:#01819c" src="@Url.Action("GetCaptchaImage", "InquiryForm", new { @EncryText = Model.RealCaptcha })" /></label>
+            </div>
+            <div class="col-md-9 col-sm-12">
+                @Html.TextBoxFor(model => model.CaptchaCode, new { @class = "form-control", @placeholder = "Enter Captcha", @id = "txtInput" })
+                @Html.ValidationMessageFor(model => model.CaptchaCode)
+                <label id="captchaError"></label>
+            </div>
+            @*<p class="help-block">
                     <label id="captchaError"></label>
                 </p>*@
-                
+            @*onClick="ValidateForm(this);*@
+        </div>
+        <div class="form-group">
+            <div class="col-md-3 col-sm-12">
+                <label for="custmsg">
+                    @* <button type="button" id="btnSubmit"  class="btn btn-primary">Submit</button></label>*@
+                    <button type="button" onclick="ValidateForm(event);" id="btnSubmit" class="btn btn-warning">Submit</button>
+                    </label>
             </div>
+<<<<<<< HEAD
+        </div>
+    }
+</div>
+=======
             <div class="form-group">
                 <div class="col-md-3 col-sm-12">
                     <label for="custmsg">
@@ -144,3 +231,4 @@
             </div>
         }
     </div>
+>>>>>>> 17e74074dd1f1720433b976aa8ec45d97396244e

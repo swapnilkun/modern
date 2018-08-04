@@ -24,7 +24,7 @@ namespace ModernMarketResearch.Controllers
             var EncryCaptcha = ModernMarketResearch.Areas.Admin.Models.Common.Encrypt(PlainText);
             cnt.ReportId = 0;
             cnt.RealCaptcha = EncryCaptcha;
-            return View(cnt);
+            return PartialView(cnt);
         }
 
         [HttpPost]

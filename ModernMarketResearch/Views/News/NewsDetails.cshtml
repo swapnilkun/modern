@@ -1,0 +1,62 @@
+﻿@model ModernMarketResearch.Models.ViewModel.NewsDetailsVM
+@{
+    ViewBag.Title = @Model.NewsTitle;
+    ViewBag.Description = "";
+    ViewBag.Keywords = "";
+}
+@*<div class="container">
+    <div class="row">
+        <div class="col-sm-8">
+            <!--report start-->
+            <div id="reportcontainer">
+                <div class="newstitle">
+                    <h1>@Model.NewsTitle</h1>
+                    <p><span>@Model.NewsPublishingDate.ToString("dd-MMM-yyyy") | @Model.CategoryName</span></p>
+                </div>
+                <div class=" row outerdiv">
+                    <div class="col-sm-12">
+                        <p>@Html.Raw(Model.NewsDetail)</p>
+                    </div>
+                </div>
+            </div>
+            <!--report finish-->
+        </div>
+        <div class="col-sm-4">
+            @{Html.RenderAction("LatestReport", "Report");}
+        </div>
+    </div>
+
+</div>*@
+<div class="wrapper">
+
+    <ol class="breadcrumb">
+        <li><a href="/">Home</a></li>
+        <li><a href="@Url.Action("AllNews","News")">News</a></li>
+        <li><a id="ctl00_ContentPlaceHolder1_aNewsTitle"></a></li>
+    </ol>
+    <div class="row">
+        <div class="col-md-8">
+            <h1 class="title">@Model.NewsTitle</h1>
+
+            <p class="date-info-2">
+                <i class="fa fa-calendar"></i><strong>Posted on:</strong>
+                <span id=""> @Model.NewsPublishingDate.ToString("MMM-yyyy")</span>
+
+                | <a href="@Url.Action("CategoryRelatedReports", "Report", new {@caturl=Model.CategoryUrl})"">@Model.CategoryName</a>
+
+            </p>
+            <div id="ctl00_ContentPlaceHolder1_divLongDescription" class="NewsDescription">
+              @Html.Raw(Model.NewsDetail)
+            </div>
+        </div>
+
+        <div class="col-md-4">
+
+               @{Html.RenderAction("LatestReport", "Report");}
+
+            <!--/.research_assistance end -->
+
+
+        </div>
+    </div>
+</div>

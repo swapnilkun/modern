@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace ModernMarketResearch.Models.ViewModel
 {
@@ -28,6 +29,7 @@ namespace ModernMarketResearch.Models.ViewModel
 
         public int? ReportId { get; set; }
 
+        [AllowHtml]
         [Required(ErrorMessage = "Customer Message should not be empty")]
         public string CustomerMessage { get; set; }
 

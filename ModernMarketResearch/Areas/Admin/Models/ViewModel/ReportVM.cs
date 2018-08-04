@@ -202,22 +202,7 @@ namespace ModernMarketResearch.Areas.Admin.Models.ViewModel
 
         public List<SelectListItem> GetPageSize()
         {
-            //List<SelectListItem> x = new List<SelectListItem>();
-            ////x.Add(new SelectListItem() { Text = "20", Value = "20" },
-
-
-            //SelectListItem z = new SelectListItem() { Text = "20", Value = "20" };
-            //SelectListItem z = new SelectListItem() { Text = "20", Value = "20" };
-
-
-            ////x.Add(new SelectListItem() { Text = "20", Value = "20" },
-
-            ////    new SelectListItem() { Text = "20", Value = "20" },
-            ////    new SelectListItem() { Text = "50", Value = "50" },
-            ////    new SelectListItem() { Text = "100", Value = "100" },
-            ////    new SelectListItem() { Text = "200", Value = "200" },
-            ////    new SelectListItem() { Text = "400", Value = "400" },
-            ////    new SelectListItem() { Text = "600", Value = "600" });
+            
             List<SelectListItem> items = new List<SelectListItem>();
             items.Add(new SelectListItem() { Text = "20", Value = "20" });
             items.Add(new SelectListItem() { Text = "50", Value = "50" });
