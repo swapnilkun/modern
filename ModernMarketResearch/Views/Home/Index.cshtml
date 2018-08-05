@@ -77,7 +77,7 @@
         <div class="row">
             <div class="col-xs-12 col-md-12 popular-categories-row">
                <div class="row">
-                   @{int i = 0;}
+                  @* @{int i = 0;}
                  @foreach (var item in ViewBag.ParentCategory)
                  {
                      if (i == 6)
@@ -94,7 +94,49 @@
                         </div>
                     </div>
                      i++;
-                 }
+                 }*@
+                   <div class="col-sm-12 col-md-2">
+                   <div class="popular-categories">
+                        <img src="~/img/icons/consumer-goods.png" />
+                        <p class="cat-title"><a href="#">Consumer Goods</a></p>
+                        <p class="cat-info"></p>
+                    </div>
+                       </div>
+                   <div class="col-sm-12 col-md-2">
+                   <div class="popular-categories">
+                        <img src="~/img/icons/chemical-and-materials.png" />
+                        <p class="cat-title"><a href="#">Chemical and Materials</a></p>
+                        <p class="cat-info"></p>
+                    </div>
+                       </div>
+                   <div class="col-sm-12 col-md-2">
+                   <div class="popular-categories">
+                        <img src="~/img/icons/food-and-beverages.png" />
+                        <p class="cat-title"><a href="#">Food & Beverages</a></p>
+                        <p class="cat-info"></p>
+                    </div>
+                       </div>
+                   <div class="col-sm-12 col-md-2">
+                   <div class="popular-categories">
+                        <img src="~/img/icons/technology-and-media.png" />
+                        <p class="cat-title"><a href="#">Technology & Media</a></p>
+                        <p class="cat-info"></p>
+                    </div>
+                       </div>
+                   <div class="col-sm-12 col-md-2">
+                   <div class="popular-categories">
+                        <img src="~/img/icons/manufacturing-and-construction.png" />
+                        <p class="cat-title"><a href="#">Manufacturing & Construction</a></p>
+                        <p class="cat-info"></p>
+                    </div>
+                       </div>
+                   <div class="col-sm-12 col-md-2">
+                   <div class="popular-categories">
+                        <img src="~/img/icons/electrical-and-electronic-device.png" />
+                        <p class="cat-title"><a href="#">Electrical & Electronic Device</a></p>
+                        <p class="cat-info"></p>
+                    </div>
+                       </div>
             </div>
                 <a href="@Url.Action("AllReports", "Report")" class="btn btn-primary quote-btn">All Categories</a>
         </div>

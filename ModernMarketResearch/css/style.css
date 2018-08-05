@@ -1562,6 +1562,19 @@ Contact Page
 		background-color: #ffffff;
 	}
 
+.popular-categories img {
+    width: 7em;
+}
+.popular-categories a {
+    color: #ffffff;
+    font-size: 0.9em;
+}
+.popular-categories img:hover {
+    opacity: 0.7;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0px 0px 40px #000000;
+}
 .relatedpost p {
 	line-height: 20px;
 }
@@ -1598,8 +1611,8 @@ Contact Page
 
 .categorys img {
 	width: 330px;
-	height: 200px;
-	opacity: 0.7;
+	height: 150px;
+	opacity: 0.8;
 }
 
 	.categorys img:hover {
