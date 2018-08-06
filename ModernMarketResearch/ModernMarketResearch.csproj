@@ -840,6 +840,14 @@
     <Content Include="img\feature-bg2.jpg" />
     <Content Include="img\grabbing.png" />
     <Content Include="img\gradientbg.png" />
+    <Content Include="img\icons\automotive-and-transportation.png" />
+    <Content Include="img\icons\chemical-and-materials.png" />
+    <Content Include="img\icons\consumer-goods.png" />
+    <Content Include="img\icons\electrical-and-electronic-device.png" />
+    <Content Include="img\icons\food-and-beverages.png" />
+    <Content Include="img\icons\manufacturing-and-construction.png" />
+    <Content Include="img\icons\pharmaceuticals-and-healthcare.png" />
+    <Content Include="img\icons\Technology-and-media.png" />
     <Content Include="img\intro-bg.jpg" />
     <Content Include="img\logo.png" />
     <Content Include="img\map-marker.png" />
