@@ -1,32 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="ModernMarketResearchModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+<Schema Namespace="ModernMarketResearchModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
   <EntityContainer Name="ModernMarketResearchModelStoreContainer">
     <EntitySet Name="ActionMaster" EntityType="ModernMarketResearchModel.Store.ActionMaster" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="BuyingInfo" EntityType="ModernMarketResearchModel.Store.BuyingInfo" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="CategoryMaster" EntityType="ModernMarketResearchModel.Store.CategoryMaster" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Country" EntityType="ModernMarketResearchModel.Store.Country" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="CustomerInquiry" EntityType="ModernMarketResearchModel.Store.CustomerInquiry" store:Type="Tables" store:Schema="dbo" store:Name="CustomerInquiry">
-      <DefiningQuery>SELECT 
-      [CustomerInquiry].[CustomerId] AS [CustomerId], 
-      [CustomerInquiry].[Name] AS [Name], 
-      [CustomerInquiry].[EmailId] AS [EmailId], 
-      [CustomerInquiry].[Designation] AS [Designation], 
-      [CustomerInquiry].[Company] AS [Company], 
-      [CustomerInquiry].[CaptchaCode] AS [CaptchaCode], 
-      [CustomerInquiry].[CustomerMessage] AS [CustomerMessage], 
-      [CustomerInquiry].[Country] AS [Country], 
-      [CustomerInquiry].[PhoneNumber] AS [PhoneNumber], 
-      [CustomerInquiry].[ReportId] AS [ReportId], 
-      [CustomerInquiry].[FormType] AS [FormType], 
-      [CustomerInquiry].[ReportTitle] AS [ReportTitle], 
-      [CustomerInquiry].[AreaCode] AS [AreaCode], 
-      [CustomerInquiry].[CreatedBy] AS [CreatedBy], 
-      [CustomerInquiry].[CreatedDate] AS [CreatedDate], 
-      [CustomerInquiry].[ModifiedBy] AS [ModifiedBy], 
-      [CustomerInquiry].[ModifiedDate] AS [ModifiedDate]
-      FROM [dbo].[CustomerInquiry] AS [CustomerInquiry]</DefiningQuery>
-    </EntitySet>
-    <EntitySet Name="InquiryForm" EntityType="ModernMarketResearchModel.Store.InquiryForm" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CustomerInquiry" EntityType="ModernMarketResearchModel.Store.CustomerInquiry" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="NewsMaster" EntityType="ModernMarketResearchModel.Store.NewsMaster" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="PublisherMaster" EntityType="ModernMarketResearchModel.Store.PublisherMaster" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="ReportDeliveryType" EntityType="ModernMarketResearchModel.Store.ReportDeliveryType" store:Type="Tables" Schema="dbo" />
@@ -103,27 +82,15 @@
     <Property Name="numcode" Type="nvarchar" MaxLength="50" />
     <Property Name="phonecode" Type="nvarchar" Nullable="false" MaxLength="50" />
   </EntityType>
-  <!--Errors Found During Generation:
-      warning 6002: The table/view 'ModernMarketResearch.dbo.CustomerInquiry' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
-      -->
   <EntityType Name="CustomerInquiry">
     <Key>
       <PropertyRef Name="CustomerId" />
-      <PropertyRef Name="Name" />
-      <PropertyRef Name="EmailId" />
-      <PropertyRef Name="Designation" />
-      <PropertyRef Name="Company" />
-      <PropertyRef Name="CaptchaCode" />
-      <PropertyRef Name="CustomerMessage" />
-      <PropertyRef Name="Country" />
-      <PropertyRef Name="CreatedBy" />
-      <PropertyRef Name="CreatedDate" />
     </Key>
     <Property Name="CustomerId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
     <Property Name="EmailId" Type="nvarchar" Nullable="false" MaxLength="50" />
-    <Property Name="Designation" Type="nvarchar" Nullable="false" MaxLength="50" />
-    <Property Name="Company" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Designation" Type="nvarchar" MaxLength="50" />
+    <Property Name="Company" Type="nvarchar" MaxLength="50" />
     <Property Name="CaptchaCode" Type="nvarchar" Nullable="false" MaxLength="50" />
     <Property Name="CustomerMessage" Type="text" Nullable="false" />
     <Property Name="Country" Type="nvarchar" Nullable="false" MaxLength="50" />
@@ -132,28 +99,6 @@
     <Property Name="FormType" Type="nvarchar" MaxLength="10" />
     <Property Name="ReportTitle" Type="nvarchar" MaxLength="50" />
     <Property Name="AreaCode" Type="nvarchar" MaxLength="10" />
-    <Property Name="CreatedBy" Type="int" Nullable="false" />
-    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
-    <Property Name="ModifiedBy" Type="int" />
-    <Property Name="ModifiedDate" Type="datetime" />
-  </EntityType>
-  <EntityType Name="InquiryForm">
-    <Key>
-      <PropertyRef Name="CustomerId" />
-    </Key>
-    <Property Name="CustomerId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
-    <Property Name="EmailId" Type="nvarchar" Nullable="false" MaxLength="50" />
-    <Property Name="Designation" Type="nvarchar" Nullable="false" MaxLength="50" />
-    <Property Name="Company" Type="nvarchar" Nullable="false" MaxLength="50" />
-    <Property Name="CaptchaCode" Type="nvarchar" Nullable="false" MaxLength="50" />
-    <Property Name="CustomerMessage" Type="text" Nullable="false" />
-    <Property Name="Country" Type="nvarchar" Nullable="false" MaxLength="50" />
-    <Property Name="PhoneNumber" Type="nchar" MaxLength="10" />
-    <Property Name="ReportId" Type="nchar" MaxLength="10" />
-    <Property Name="FormType" Type="nchar" MaxLength="10" />
-    <Property Name="ReportTitle" Type="nchar" MaxLength="10" />
-    <Property Name="AreaCode" Type="nchar" MaxLength="10" />
     <Property Name="CreatedBy" Type="int" Nullable="false" />
     <Property Name="CreatedDate" Type="datetime" Nullable="false" />
     <Property Name="ModifiedBy" Type="int" />

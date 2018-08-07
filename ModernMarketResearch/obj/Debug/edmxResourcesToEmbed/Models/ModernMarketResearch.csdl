@@ -6,7 +6,6 @@
     <EntitySet Name="CategoryMasters" EntityType="ModernMarketResearchModel.CategoryMaster" />
     <EntitySet Name="Countries" EntityType="ModernMarketResearchModel.Country" />
     <EntitySet Name="CustomerInquiries" EntityType="ModernMarketResearchModel.CustomerInquiry" />
-    <EntitySet Name="InquiryForms" EntityType="ModernMarketResearchModel.InquiryForm" />
     <EntitySet Name="NewsMasters" EntityType="ModernMarketResearchModel.NewsMaster" />
     <EntitySet Name="PublisherMasters" EntityType="ModernMarketResearchModel.PublisherMaster" />
     <EntitySet Name="ReportDeliveryTypes" EntityType="ModernMarketResearchModel.ReportDeliveryType" />
@@ -183,21 +182,12 @@
   <EntityType Name="CustomerInquiry">
     <Key>
       <PropertyRef Name="CustomerId" />
-      <PropertyRef Name="Name" />
-      <PropertyRef Name="EmailId" />
-      <PropertyRef Name="Designation" />
-      <PropertyRef Name="Company" />
-      <PropertyRef Name="CaptchaCode" />
-      <PropertyRef Name="CustomerMessage" />
-      <PropertyRef Name="Country" />
-      <PropertyRef Name="CreatedBy" />
-      <PropertyRef Name="CreatedDate" />
     </Key>
     <Property Name="CustomerId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
     <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
     <Property Name="EmailId" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
-    <Property Name="Designation" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
-    <Property Name="Company" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Designation" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Company" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
     <Property Name="CaptchaCode" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
     <Property Name="CustomerMessage" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
     <Property Name="Country" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
@@ -206,28 +196,6 @@
     <Property Name="FormType" Type="String" MaxLength="10" Unicode="true" FixedLength="false" />
     <Property Name="ReportTitle" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
     <Property Name="AreaCode" Type="String" MaxLength="10" Unicode="true" FixedLength="false" />
-    <Property Name="CreatedBy" Type="Int32" Nullable="false" />
-    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="ModifiedBy" Type="Int32" />
-    <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
-  </EntityType>
-  <EntityType Name="InquiryForm">
-    <Key>
-      <PropertyRef Name="CustomerId" />
-    </Key>
-    <Property Name="CustomerId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
-    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
-    <Property Name="EmailId" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
-    <Property Name="Designation" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
-    <Property Name="Company" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
-    <Property Name="CaptchaCode" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
-    <Property Name="CustomerMessage" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
-    <Property Name="Country" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
-    <Property Name="PhoneNumber" Type="String" MaxLength="10" Unicode="true" FixedLength="true" />
-    <Property Name="ReportId" Type="String" MaxLength="10" Unicode="true" FixedLength="true" />
-    <Property Name="FormType" Type="String" MaxLength="10" Unicode="true" FixedLength="true" />
-    <Property Name="ReportTitle" Type="String" MaxLength="10" Unicode="true" FixedLength="true" />
-    <Property Name="AreaCode" Type="String" MaxLength="10" Unicode="true" FixedLength="true" />
     <Property Name="CreatedBy" Type="Int32" Nullable="false" />
     <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="ModifiedBy" Type="Int32" />
@@ -410,7 +378,7 @@
     <Property Type="String" Name="NewsTitle" Nullable="false" MaxLength="2550" />
     <Property Type="String" Name="NewsUrl" Nullable="true" MaxLength="500" />
     <Property Type="DateTime" Name="PublishingDate" Nullable="false" Precision="23" />
-    <Property Type="String" Name="NewsDescription" Nullable="false" MaxLength="Max" />
+    <Property Type="String" Name="LongDescription" Nullable="true" MaxLength="300" />
     <Property Type="Int32" Name="CategoryId" Nullable="false" />
     <Property Type="String" Name="CategoryName" Nullable="false" MaxLength="50" />
     <Property Type="String" Name="CategoryUrl" Nullable="false" MaxLength="50" />

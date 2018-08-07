@@ -94,29 +94,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="InquiryForms">
-      <EntityTypeMapping TypeName="ModernMarketResearchModel.InquiryForm">
-        <MappingFragment StoreEntitySet="InquiryForm">
-          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="EmailId" ColumnName="EmailId" />
-          <ScalarProperty Name="Designation" ColumnName="Designation" />
-          <ScalarProperty Name="Company" ColumnName="Company" />
-          <ScalarProperty Name="CaptchaCode" ColumnName="CaptchaCode" />
-          <ScalarProperty Name="CustomerMessage" ColumnName="CustomerMessage" />
-          <ScalarProperty Name="Country" ColumnName="Country" />
-          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
-          <ScalarProperty Name="ReportId" ColumnName="ReportId" />
-          <ScalarProperty Name="FormType" ColumnName="FormType" />
-          <ScalarProperty Name="ReportTitle" ColumnName="ReportTitle" />
-          <ScalarProperty Name="AreaCode" ColumnName="AreaCode" />
-          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
-          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
-          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="NewsMasters">
       <EntityTypeMapping TypeName="ModernMarketResearchModel.NewsMaster">
         <MappingFragment StoreEntitySet="NewsMaster">
@@ -328,7 +305,7 @@
           <ScalarProperty Name="NewsTitle" ColumnName="NewsTitle" />
           <ScalarProperty Name="NewsUrl" ColumnName="NewsUrl" />
           <ScalarProperty Name="PublishingDate" ColumnName="PublishingDate" />
-          <ScalarProperty Name="NewsDescription" ColumnName="NewsDescription" />
+          <ScalarProperty Name="LongDescription" ColumnName="LongDescription" />
           <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
           <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
           <ScalarProperty Name="CategoryUrl" ColumnName="CategoryUrl" />

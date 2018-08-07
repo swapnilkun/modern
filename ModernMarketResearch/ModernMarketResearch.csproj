@@ -841,6 +841,14 @@
     <Content Include="img\feature-bg2.jpg" />
     <Content Include="img\grabbing.png" />
     <Content Include="img\gradientbg.png" />
+    <Content Include="img\icons\automotive-and-transportation.png" />
+    <Content Include="img\icons\chemical-and-materials.png" />
+    <Content Include="img\icons\consumer-goods.png" />
+    <Content Include="img\icons\electrical-and-electronic-device.png" />
+    <Content Include="img\icons\food-and-beverages.png" />
+    <Content Include="img\icons\manufacturing-and-construction.png" />
+    <Content Include="img\icons\pharmaceuticals-and-healthcare.png" />
+    <Content Include="img\icons\Technology-and-media.png" />
     <Content Include="img\intro-bg.jpg" />
     <Content Include="img\map-marker.png" />
     <Content Include="img\moving.jpg" />
@@ -1010,6 +1018,18 @@
     <Content Include="img\flags\united-kingdom.svg" />
     <Content Include="img\flags\united-states.svg" />
     <Content Include="img\slider\.DS_Store" />
+    <Content Include="css\flaticon.woff" />
+    <Content Include="fonts\fontawesome-webfont.woff2" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="Areas\Admin\Views\Report\ReportCreate.cshtml" />
+    <Content Include="Areas\Admin\Views\Report\ReportIndex.cshtml" />
+    <Content Include="Areas\Admin\Views\Report\ReportEdit.cshtml" />
+    <Content Include="Areas\Admin\Views\Report\ReportDetails.cshtml" />
+    <Content Include="Areas\Admin\Views\Report\ReportDelete.cshtml" />
     <EntityDeploy Include="Models\ModernMarketResearch.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>ModernMarketResearch.Designer.cs</LastGenOutput>
@@ -1027,18 +1047,6 @@
       <DependentUpon>ModernMarketResearch.edmx</DependentUpon>
       <LastGenOutput>ModernMarketResearch.cs</LastGenOutput>
     </Content>
-    <Content Include="css\flaticon.woff" />
-    <Content Include="fonts\fontawesome-webfont.woff2" />
-    <Content Include="fonts\fontawesome-webfont.woff" />
-    <Content Include="fonts\fontawesome-webfont.ttf" />
-    <Content Include="fonts\fontawesome-webfont.svg" />
-    <Content Include="fonts\fontawesome-webfont.eot" />
-    <Content Include="fonts\FontAwesome.otf" />
-    <Content Include="Areas\Admin\Views\Report\ReportCreate.cshtml" />
-    <Content Include="Areas\Admin\Views\Report\ReportIndex.cshtml" />
-    <Content Include="Areas\Admin\Views\Report\ReportEdit.cshtml" />
-    <Content Include="Areas\Admin\Views\Report\ReportDetails.cshtml" />
-    <Content Include="Areas\Admin\Views\Report\ReportDelete.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.2.1.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />

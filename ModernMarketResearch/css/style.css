@@ -518,7 +518,7 @@ TESTIMONIAL SECTION
 }
 
 .testimonial-section.testimonial2 > .container > .row-content {
-	padding: 40px 90px 40px;
+	padding: 0px 0px 0px;
 }
 
 .testimonial2 .carousel-inner {
@@ -1562,6 +1562,19 @@ Contact Page
 		background-color: #ffffff;
 	}
 
+.popular-categories img {
+    width: 7em;
+}
+.popular-categories a {
+    color: #ffffff;
+    font-size: 0.9em;
+}
+.popular-categories img:hover {
+    opacity: 0.7;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0px 0px 40px #000000;
+}
 .relatedpost p {
 	line-height: 20px;
 }
@@ -1598,8 +1611,8 @@ Contact Page
 
 .categorys img {
 	width: 330px;
-	height: 200px;
-	opacity: 0.7;
+	height: 150px;
+	opacity: 0.8;
 }
 
 	.categorys img:hover {
@@ -1666,8 +1679,16 @@ Contact Page
 .popular-categories-row {
 	padding-top: 50px;
 }
-
-section.service-home.section-padding, .section-letestnews, .footer-widget-section {
+.other-office-address {background-image: url(../img/page-header-bg.jpg); background-repeat:no-repeat; background-size:cover;
+}
+section.other-office-address h2, h3 {
+    color: #ffffff;
+    font-weight: 600;
+}
+testimonial-section.testimonial2 > .container > .row-content {
+     padding: 0px 0px 0px !important; 
+}
+section.service-home.section-padding, .section-letestnews, .footer-widget-section{
 	padding: 25px 0 !important;
 	background-image: url(../img/gradientbg.png);
 }
@@ -1691,7 +1712,7 @@ section.service-home.section-padding, .section-letestnews, .footer-widget-sectio
 	text-align: center;
 }
 
-.section-reports, .section-getintouch {
+.section-reports, .section-getintouch, .contact-info-section {
 	padding: 30px 0 !important;
 	background-image: url(../img/background3.jpg);
 	background-size: cover;
@@ -1885,4 +1906,20 @@ h1.title {
 	border: 1px solid #f2f2f2;
 	border-radius: 15px;
 	box-shadow: 0px 7px 20px #2b292936;
+}
+
+.contact-info-section .section-title {
+    line-height: 60px;
+    font-size: 4.5em;
+    font-weight: 600;
+    color: #ffffff;
+}
+.contact-info-section .section-sub {
+    color: #ffffff;
+}
+.contact-info-section h3 {
+    margin-bottom: 20px;
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 2.1em;
 }
