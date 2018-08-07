@@ -1,9 +1,10 @@
 ﻿@model ModernMarketResearch.Models.ViewModel.ReportDetailsVM
 @{
     ViewBag.Title = Model.ReportDetails.ReportTitle;
+
     ViewBag.Description = "";
     ViewBag.Keywords = "";
-                //Layout = null;
+    //Layout = null;
                         
 }
 <script>
@@ -39,7 +40,11 @@
 
         obj.inputcapcha = v;
         obj.RealCaptcha = w;
-
+        if (v == null)
+        {
+            e.preventDefault();
+            $("#captchaError_" + formType).html("Captcha should enter !..");
+        }
         $.ajax({
             type: "post",
             url: '@Url.Action("CaptchaValidation", "InquiryForm")',
@@ -58,7 +63,8 @@
     }
     function ValidateForm(e, formType) {
         debugger;
-        if ($("#Enquiryform_" + formType).valid()) {
+        var IsValid=$("#Enquiryform_" + formType).valid();
+        if (IsValid) {
             if (ValidCaptcha(formType)) {
                 $("#Enquiryform_" + formType).submit();
             } else {
@@ -67,6 +73,74 @@
             }
         }
     }
+
+    //function ValidateForm(e, formType) {
+    //    debugger;
+    //    $('#btnSubmit_' + formType).click(function () {
+    //        if ($(this).valid()) {
+    //            if (ValidCaptcha(formType)) {
+    //                alert('the form is valid');
+    //            }
+    //            else {
+    //                e.preventDefault();
+    //                $("#captchaError_" + formType).html("Not Valid Captcha !..");
+    //            }
+    //        }
+
+    //    });
+        
+    //    }
+    
+    //$('#btnSubmit_' + formType).click(function () {
+    //    debugger;
+    //    if ($(this).valid()) {
+    //        if (ValidCaptcha(formType)) {
+    //            $("#Enquiryform_" + formType).submit();
+    //            alert('the form is valid');
+    //        }
+    //        else {
+    //            e.preventDefault();
+    //            $("#captchaError_" + formType).html("Not Valid Captcha !..");
+    //        }
+    //    }
+
+    //});
+
+    //$('#btnSubmit_' +formType).click(function ValidateForm(e, formType) {
+    //    debugger;
+    //    if (ValidCaptcha(formType)) {
+    //        $('#btnSubmit_'+formType).submit(function () {
+    //            if ($(this).valid()) {
+    //                alert('the form is valid');
+    //            }
+    //        });
+    //    }
+    //    else
+    //    {
+    //        e.preventDefault();
+    //       $("#captchaError_" + formType).html("Not Valid Captcha !..");
+    //    }
+    //});
+
+    //function ValidateForm(e, formType) {
+    //    debugger;
+    //    var valid = $('btnSubmit_'+FormType).validate().checkForm();
+    //    if (valid) {
+    //        if (ValidCaptcha(formType)) {
+    //            $("#Enquiryform_" + formType).submit();
+    //        }
+    //        //$('.form-save').prop('disabled', false);
+    //        //$('.form-save').removeClass('isDisabled');
+    //    } else {
+
+    //        e.preventDefault();
+    //        $("#captchaError_" + formType).html("Not Valid Captcha !..");
+
+    //        //$('.form-save').prop('disabled', 'disabled');
+    //        //$('.form-save').addClass('isDisabled');
+    //    }
+    //}
+
 </script>
 <script type="text/javascript">
     var removedStr = '';
@@ -191,7 +265,7 @@
                         <div class="textwidget">
                             <p>
                                 Monday -
-                                                    Friday: 9:00 - 18:00<br>
+                                Friday: 9:00 - 18:00<br>
                                 Saturday: 9:00 - 2:00<br>
                                 Holidays: 9:00 - 12:00
                             </p>
@@ -351,167 +425,7 @@
 <!-- Single-Service-End-->
 
 
-<ol class="breadcrumb">
-    <li><a href="@Url.Action("Index", "Home")">Home</a></li>
-    @foreach (var item in Model.BreadcrumbCategory)
-    {
-        <li><a href="@Url.Action("CategoryRelatedReports", "Report", new { @caturl = item.CategoryUrl })">@item.CategoryName</a></li>
-    }
-</ol>
-<div id="myCarousel" class="carousel slide" data-ride="carousel">
-    @{Html.RenderAction("SearchingPartialView", "Home");}
-</div>
-<div class="row">
-    <div class="col-sm-12">
-        <div class="col-md-8">
-            <h1 class="title">
-                <span id="">@Model.ReportDetails.ReportTitle</span></h1>
-            @*      <a target="_blank" href="http://wwwresearchgroup.com/market-analysis/global-ir-emitter-receiver-market-2017-production-sales.pdf">
-                <strong>
-                    <span class="pull-right btn-primary" style="padding: 3px;">Download as PDF&nbsp;<i class="fa fa-file-pdf-o" style="font-size: 2em;"></i></span>
-                </strong>
-            </a>*@
-            <p class="date-info-2">
-                <i class="fa fa-calendar"></i><strong>&nbsp;Published:</strong>
-                <span id="">@Model.ReportDetails.PublishingDate.ToString("MMM-yyyy")</span>
-                | <i class="fa fa-file-pdf-o"></i><strong>&nbsp;Format:</strong>
-                <span id="">PDF</span>
-                |
-                <a href="@Url.Action("PublisherRelatedReports", "Report", new { @puburl = Model.ReportDetails.PublishingUrl })">@Model.ReportDetails.PublisherName</a>
-
-                | <i class="fa fa-file-powerpoint-o"></i><strong>&nbsp;Number of pages:</strong>
-                <span id="">@Model.ReportDetails.NumberOfPage</span>
-            </p>
-            <div id="Sett"></div>
-            @*   ADD HERE TAB Content Partial view *@
-            <div class="row">
-
-                <!--tab start-->
-
-                <ul class="nav nav-tabs" id='myTab'>
-                    <li class="active"><a data-toggle="tab" href="#Report_Details">Report Details</a></li>
-                    <li><a data-toggle="tab" href="#TOC">Table Of Content</a></li>
-                    <li><a data-toggle="tab" href="#Buying_Inquiry">Inquiry For Buying </a></li>
-                    <li><a data-toggle="tab" href="#Request_Sample">Request Sample</a></li>
-                </ul>
-                <div class="tab-content">
-                    <div id="Report_Details" class="tab-pane fade in active">
-                        <div style="text-align: justify;" id="divFullDescription">
-
-                            <div class="show-read-more">
-                                @Html.Raw(Model.ReportDetails.FullDescription)
-                            </div>
-
-                            @*     <pre>@Html.Raw(Model.ReportDetails.FullDescription)....  <p><button type="button" class="btn btn-primary" style="padding:2px 6px;font-size:11px" id="btnfulldesc">Read More..</button></p></pre>*@
-
-                            @* <button type="button" class="btn btn-primary" id="btnfulldesc">Read More..</button>*@
-
-                        </div>
-                    </div>
-                    <div id="TOC" class="tab-pane fade ">
-                        <div class="mypreformat">
-                            @Html.Raw(Model.ReportDetails.TableofContent)
-                        </div>
-
-                        @*     @Html.Raw(Model.ReportDetails.TableofContent)*@
-                        @*     <div class="show-read-more">
-                        @Html.Raw(Model.ReportDetails.TableofContent)
-                    </div>*@
-                        @* <p>
-                        <button type="button" class="btn btn-primary" id="btnTOC" style="padding: 2px 6px; font-size: 11px">Read More..</button></p>*@
-                    </div>
-                    <div id="Buying_Inquiry" class="tab-pane fade">
-                        @* @{Html.RenderAction("InquiryForm", "InquiryForm", new { @ReportID = Model.ReportDetails.ReportId, @FormType = "InquiryForm" });}*@
-                    </div>
-                    <div id="Request_Sample" class="tab-pane fade">
-                        @* @{Html.RenderAction("InquiryForm", "InquiryForm", new { @ReportID = Model.ReportDetails.ReportId, @FormType = "SampleRequestForm" });}*@
-                    </div>
-                    <br />
-                    <hr />
-
-
-                </div>
-                <!--tab finish-->
-
-
-
-            </div>
-            @*ADD HERE LATEST NEWS RENDER ACTION*@
-            @*@{Html.RenderAction("LatestNewsForReportDetails", "News");}*@
-        </div>
-
-        <div class="col-md-4">
-
-            <div class="research_assistance">
-                @using (Html.BeginForm("CheckoutForm", "BuyingInfo", FormMethod.Get))
-                {
-                    <div class="title"><i class="fa fa-usd"></i>Select a Format</div>
-                    <div class="meta" style="text-align: left;">
-                        <table id="ctl00_ContentPlaceHolder2_rblReportPrise" border="0" style="text-align: left;">
-                            <tbody>
-
-                                <tr>
-                                    <td>
-                                        <input type="hidden" name="reportid" value="@Model.ReportDetails.ReportId" />
-                                        <input name="buynow" id="PriceSingleUser" value="0" checked="checked" type="radio"><label for="ctl00_ContentPlaceHolder2_rblReportPrise_0"><span style="font-weight: normal"> Single User Price : </span>$@Model.ReportDetails.PriceSingleUser</label></td>
-                                </tr>
-
-                                <tr>
-                                    <td>
-                                        <input type="radio" name="buynow" id="PriceMultiUser" value="1"><label for="ctl00_ContentPlaceHolder2_rblReportPrise_1"><span style="font-weight: normal"> Multi User Price : </span>$@Model.ReportDetails.PriceMultiUser</label></td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <input type="radio" name="buynow" id="PriceCUL" value="2"><label for="ctl00_ContentPlaceHolder2_rblReportPrise_2"><span style="font-weight: normal"> Corporate User Price : </span>$@Model.ReportDetails.PriceCUL</label></td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        @*<a id="ctl00_ContentPlaceHolder2_btnBuyNow" class="btn btn-danger">Buy Now &nbsp;<i class="fa fa-shopping-cart" style="font-size: 25px"></i></a>*@
-                                        <a>
-                                            <span style="margin-left: 20px; margin-top: 25px;">
-                                                <input type="image" src="~/Images/buy-now-button.png" style="margin-top: 10px;">
-                                            </span>
-                                        </a>
-                                    </td>
-                                </tr>
-
-
-
-                                @*<button type="submit">
-                                            <img src="~/Images/buy-now5.png" />
-                                    </button>*@
-
-
-                            </tbody>
-                        </table>
-
-                    </div>
-                }
-            </div>
-
-            @{Html.RenderAction("LatestReport", "Report");}
-
-
-            <div class="research_assistance">
-                <div class="title"><i class="fa fa-users"></i>Customer services</div>
-                <div class="meta">
-                    We will be happy to help you find what you need. Please call us or write to us:<br>
-                    <br>
-                    1-855-465-4651 (US-Canada Toll Free)<br>
-                    GMT Tel: +49-322 210 92714
-           
-                    <br>
-                    Email: <a href="#" target="_top">sales@modernmarketresearch.com</a><br>
-                </div>
-            </div>
-
-            <!--/.research_assistance end -->
-
-
-        </div>
-    </div>
-
-</div>
+s
 
 
 

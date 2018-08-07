@@ -175,34 +175,7 @@
 
                     }
                 </div>
-                <div>
-                    <table cellspacing="0" border="0" id="ctl00_ContentPlaceHolder1_grdReports" style="width: 100%; border-collapse: collapse;">
-                        <tbody>
-                            @foreach (var item in Model)
-                            {
-                                <tr>
-                                    <td>
-                                        <div class="panel panel-default">
-                                            <div class="panel-heading">
-                                                <a href="@Url.Action("ReportDetail", "Report", new { @ReportUrl = item.ReportUrl })">
-                                                    <h3 class="panel-title">@item.ReportTitle</h3>
-                                                </a>
-                                            </div>
-                                            <div class="panel-body category-short-note">
-                                                <p class="date-info"><i class="fa fa-calendar"></i>@item.PublishingDate.ToString("MMM-yy") | <a href="@Url.Action("PublisherRelatedReports", "Report", new { @puburl = item.PublishingUrl })">@item.PublisherName </a>| <a href="@Url.Action("CategoryRelatedReports", "Report", new { @caturl = item.CategoryUrl })">@item.CategoryName </a></p>
-
-                                                @Html.Raw(item.FullDescription)...
-
-                                    <br>
-                                                <a rel="nofollow" href="@Url.Action("ReportDetail", "Report", new { @ReportUrl = item.ReportUrl })">View More <i class="fa fa-arrow-circle-right"></i></a>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
-                            }
-                        </tbody>
-                    </table>
-                </div>
+           
 
                 <ul class="pagination">
                     @if (ViewBag.Totalreports > 0)
@@ -286,19 +259,4 @@
 </div>*@
 <!-- footer -->
 
-<div class="wrapper">
 
-    <div class="row">
-        <div class="col-md-8">
-
-            <h1 class="title">Latest Report</h1>
-
-
-        </div>
-        <div class="col-md-4">
-
-            @*@{Html.RenderAction("LatestNews", "News");}*@
-
-        </div>
-    </div>
-</div>
