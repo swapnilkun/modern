@@ -14,6 +14,13 @@ namespace ModernMarketResearch
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
+                        name: "PublisherRelatedReports",
+                        url: "publisher/{puburl}",
+                        defaults: new { controller = "Report", action = "PublisherRelatedReports", puburl = UrlParameter.Optional },
+                         namespaces: new[] { "ModernMarketResearch.Controllers" }
+                    );
+
+            routes.MapRoute(
            name: "CategoryRelatedReports",
            url: "category/{caturl}",
            defaults: new { controller = "Report", action = "CategoryRelatedReports", caturl = UrlParameter.Optional },

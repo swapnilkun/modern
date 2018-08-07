@@ -817,6 +817,7 @@
     <Content Include="Content\ckeditor_4.6.2_full\ckeditor\skins\moono-lisa\readme.md" />
     <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Admin\Views\Action\CreateAction.cshtml" />
+    <Content Include="Images\buy-now-button.png" />
     <Content Include="img\admin.jpg" />
     <Content Include="img\annual-thumb.jpg" />
     <Content Include="img\blog\blog-1.jpg" />
@@ -841,7 +842,6 @@
     <Content Include="img\grabbing.png" />
     <Content Include="img\gradientbg.png" />
     <Content Include="img\intro-bg.jpg" />
-    <Content Include="img\logo.png" />
     <Content Include="img\map-marker.png" />
     <Content Include="img\moving.jpg" />
     <Content Include="img\page-header-bg.jpg" />
@@ -1047,16 +1047,14 @@
     <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
-    <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery-ui-1.8.20.js" />
     <Content Include="Scripts\jquery-ui-1.8.20.min.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.3.2.6.js" />
-    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
-    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\knockout-2.1.0.debug.js" />
     <Content Include="Scripts\knockout-2.1.0.js" />
     <Content Include="Scripts\modernizr-2.5.3.js" />

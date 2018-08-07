@@ -209,7 +209,7 @@ namespace ModernMarketResearch.Controllers
                 return View();
             }
 
-            return PartialView(eq);
+            return View();
         }
 
         public FileResult GetCaptchaImage(string EncryText)
