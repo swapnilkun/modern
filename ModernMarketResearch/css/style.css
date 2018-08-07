@@ -1923,3 +1923,23 @@ h1.title {
     font-weight: 600;
     font-size: 2.1em;
 }
+span.field-validation-error {
+    color: #ff0000;
+    font-size: 20px;
+    font-weight: 700;
+    background: #ffffff1f;
+    padding: 10px;
+    border-radius: 50px 50px;
+}
+#inquiry .form-control, #reqsample .form-control {
+    box-shadow: none;
+    border: 1px solid #C3CFD8;
+    border-radius: 0px;
+    height: 46px;
+    border-bottom: 1px solid #C3CFD8;
+    background: transparent;
+}
+.areacodecss {
+    width: 90px;
+    height: 45px;
+}
