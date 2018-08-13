@@ -14,28 +14,28 @@
     @*<script src="//code.jquery.com/jquery-migrate-1.2.1.js" type="text/javascript"></script>*@
     @*<script src="//code.jquery.com/ui/1.10.3/jquery-ui.js" type="text/javascript"></script>*@
 
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
-    <link href="~/fonts/flaticon/flaticon.css" rel="stylesheet" />
+   @* <link rel="stylesheet" href="//code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+    <link href="~/fonts/flaticon/flaticon.css" rel="stylesheet" />*@
 
-    <title>Unship</title>
+    <title>Excellent Market Research</title>
     <!-- Web Fonts -->
     
     <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900,200italic,300italic,400italic,600italic,700italic,900italic' rel='stylesheet' type='text/css' />
 
-    @*@Scripts.Render("~/Scripts/jquery-3.3.1.js")
+    @Scripts.Render("~/Scripts/jquery-3.3.1.js")
     @Scripts.Render("~/Scripts/jquery.validate.js")
-    @Scripts.Render("~/Scripts/jquery.validate.min.js")*@
+    @Scripts.Render("~/Scripts/jquery.validate.min.js")
 
 
     
-     @Scripts.Render("~/bundles/jquery")
+  @*   @Scripts.Render("~/bundles/jquery")*@
     @*<script src="~/Scripts/jquery-ui-1.8.20.js"></script>*@
-    @Scripts.Render("~/Scripts/jquery.validate.js")
-    @Scripts.Render("~/bundles/jqueryval") 
+   @* @Scripts.Render("~/Scripts/jquery.validate.js")
+    @Scripts.Render("~/bundles/jqueryval")*@ 
     
 
 
-    @Styles.Render("~/bundles/templatestyle")
+   @* @Styles.Render("~/bundles/templatestyle")*@
     @*@Scripts.Render("~/bundles/jqueryui")*@
 
    @* @Scripts.Render("~/bundles/jquery")*@
@@ -45,11 +45,37 @@
 
     @*@Scripts.Render("~/bundles/bootstrapscript")*@
 
-    @Scripts.Render("~/bundles/templatejs")
+  @*  @Scripts.Render("~/bundles/templatejs")*@
 
+    <!-- Bootstrap Core CSS -->
+	    <link href="@Url.Content("~/css/bootstrap.min.css")" rel="stylesheet">
+	    <!-- Flaticon CSS -->
+	    <link href="@Url.Content("~/fonts/flaticon/flaticon.css")" rel="stylesheet">
+	    <!-- font-awesome CSS -->
+	    <link href="@Url.Content("~/css/font-awesome.min.css")" rel="stylesheet">
+	    <!-- Offcanvas CSS -->
+	    <link href="@Url.Content("~/css/hippo-off-canvas.css")" rel="stylesheet">
+	    <!-- animate CSS -->
+	    <link href="@Url.Content("~/css/animate.css")" rel="stylesheet">
+	    <!-- language CSS -->
+	    <link href="@Url.Content("~/css/language-select.css")" rel="stylesheet">
+	    <!-- owl.carousel CSS -->
+	    <link href="@Url.Content("~/owl.carousel/assets/owl.carousel.css")" rel="stylesheet">
+		<!-- magnific-popup -->
+    	<link href="@Url.Content("~/css/magnific-popup.css")" rel="stylesheet">
+    	<!-- Main menu -->
+    	<link href="@Url.Content("~/css/menu.css")" rel="stylesheet">
+    	<!-- Template Common Styles -->
+    	<link href="@Url.Content("~/css/template.css")" rel="stylesheet">
+	    <!-- Custom CSS -->
+	    <link href="@Url.Content("~/css/style.css")" rel="stylesheet">
+	    <!-- Responsive CSS -->
+	    <link href="@Url.Content("~/css/responsive.css")" rel="stylesheet">
+
+	    <script src="@Url.Content("~/js/vendor/modernizr-2.8.1.min.js")"></script>
     <!-- HTML5 Shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
+    <!--[if lt IE 9] >
         <script src="js/vendor/html5shim.js"></script>
         <script src="js/vendor/respond.min.js"></script>
     <![endif]-->
@@ -420,9 +446,36 @@
         </div>
     </div>-->
     <!-- jQuery -->
-    @Scripts.Render("~/bundles/templatefooterjs")
-    <!-- GOGLE MAP -->
-    @*<script src="https://maps.googleapis.com/maps/api/js"></script>*@
+    @*@Scripts.Render("~/bundles/templatefooterjs")*@
+    
+     <!-- jQuery -->
+	    <script src="@Url.Content("~/js/jquery.js")"></script>
+	    <!-- Bootstrap Core JavaScript -->
+	    <script src="@Url.Content("~/js/bootstrap.min.js")"></script>
+	    <!-- owl.carousel -->
+	    <script src="@Url.Content("~/owl.carousel/owl.carousel.min.js")"></script>
+	    <!-- Magnific-popup -->
+		<script src="@Url.Content("~/js/jquery.magnific-popup.min.js")"></script>
+		<!-- Offcanvas Menu -->
+		<script src="@Url.Content("~/js/hippo-offcanvas.js")"></script>
+		<!-- inview -->
+		<script src="@Url.Content("~/js/jquery.inview.min.js")"></script>
+		<!-- stellar -->
+		<script src="@Url.Content("~/js/jquery.stellar.js")"></script>
+		<!-- countTo -->
+		<script src="@Url.Content("~/js/jquery.countTo.js")"></script>
+		<!-- classie -->
+		<script src="@Url.Content("~/js/classie.js")"></script>
+		<!-- selectFx -->
+		<script src="@Url.Content("~/js/selectFx.js")"></script>
+		<!-- sticky kit -->
+		<script src="@Url.Content("~/js/jquery.sticky-kit.min.js")"></script>
+	    <!-- GOGLE MAP -->
+	    <script src="https://maps.googleapis.com/maps/api/js"></script>
+	    <!--TWITTER FETCHER-->
+	    <script src="@Url.Content("~/js/twitterFetcher_min.js")"></script>
+	    <!-- Custom Script -->
+	    <script src="@Url.Content("~/js/scripts.js")"></script>
 
 </body>
 </html>

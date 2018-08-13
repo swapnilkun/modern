@@ -820,6 +820,15 @@
     <Content Include="Images\buy-now-button.png" />
     <Content Include="img\admin.jpg" />
     <Content Include="img\annual-thumb.jpg" />
+    <Content Include="img\background1.jpg" />
+    <Content Include="img\background2.png" />
+    <Content Include="img\background3.jpg" />
+    <Content Include="img\bg1.jpg" />
+    <Content Include="img\bg2.jpg" />
+    <Content Include="img\bg3.jpg" />
+    <Content Include="img\bg4.jpg" />
+    <Content Include="img\bg5.jpg" />
+    <Content Include="img\bg6.jpg" />
     <Content Include="img\blog\blog-1.jpg" />
     <Content Include="img\blog\blog-2.jpg" />
     <Content Include="img\blog\blog-3.jpg" />
@@ -832,6 +841,9 @@
     <Content Include="img\carousel-indicator-blue.png" />
     <Content Include="img\carousel-indicator-green.png" />
     <Content Include="img\carousel-indicator-tarquis.png" />
+    <Content Include="img\Chemical-and-Materials-1.jpg" />
+    <Content Include="img\Chemical-and-Materials-2.jpg" />
+    <Content Include="img\Chemical-and-Materials-3.jpg" />
     <Content Include="img\client\client-1.jpg" />
     <Content Include="img\client\client-2.jpg" />
     <Content Include="img\counter-bg.jpg" />
@@ -841,6 +853,9 @@
     <Content Include="img\feature-bg2.jpg" />
     <Content Include="img\grabbing.png" />
     <Content Include="img\gradientbg.png" />
+    <Content Include="img\Helthcare-1.jpg" />
+    <Content Include="img\Helthcare-2.jpg" />
+    <Content Include="img\Helthcare-3.jpg" />
     <Content Include="img\icons\automotive-and-transportation.png" />
     <Content Include="img\icons\chemical-and-materials.png" />
     <Content Include="img\icons\consumer-goods.png" />
@@ -850,6 +865,7 @@
     <Content Include="img\icons\pharmaceuticals-and-healthcare.png" />
     <Content Include="img\icons\Technology-and-media.png" />
     <Content Include="img\intro-bg.jpg" />
+    <Content Include="img\logo.png" />
     <Content Include="img\map-marker.png" />
     <Content Include="img\moving.jpg" />
     <Content Include="img\page-header-bg.jpg" />
@@ -912,6 +928,9 @@
     <Content Include="img\team\tm4.jpg" />
     <Content Include="img\team\tm5.jpg" />
     <Content Include="img\team\tm6.jpg" />
+    <Content Include="img\Technology-and-Media-1.jpg" />
+    <Content Include="img\Technology-and-Media-2.jpg" />
+    <Content Include="img\Technology-and-Media-3.jpg" />
     <Content Include="img\topbar-bg.jpg" />
     <Content Include="img\track.png" />
     <Content Include="img\trans.jpg" />

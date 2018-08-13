@@ -175,19 +175,33 @@
 
                     }
                 </div>
-           
 
-                <ul class="pagination">
-                    @if (ViewBag.Totalreports > 0)
-                    {
+                <!-- PAGINATION -->
+                <section class="pagination-wrap">
+
+                    <div class="blog-pagination">
+                        <ul class="pagination text-center">
+
+                            @if (ViewBag.Totalreports > 0)
+                            {
                           
-                        @Html.PagedListPager(Model, pageno => Url.Action("AllReports", new
-                   {
-                       pageno,
-                   }), new PagedListRenderOptions() { Display = PagedListDisplayMode.IfNeeded, DisplayPageCountAndCurrentLocation = true })
+                                @Html.PagedListPager(Model, pageno => Url.Action("AllReports", new
+                            {
+                                pageno,
+                            }), new PagedListRenderOptions() {  LinkToPreviousPageFormat = "Prev.", LinkToNextPageFormat = "Next", LiElementClasses = new List<string> {"myClass", "yourClass"}})
                   
-                    }
-                </ul>
+                            }
+                            
+                        </ul>
+                    </div>
+
+                </section>
+
+
+                <!-- END PAGINATION -->
+                <div class="clearfix"></div>
+
+               
             </div>
             <!-- /.col -->
         </div>
