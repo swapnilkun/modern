@@ -173,7 +173,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\ActionController.cs" />
-    <Compile Include="Areas\Admin\Controllers\CategoryController.cs" />
+    <Compile Include="Areas\Admin\Controllers\AdminCategoryController.cs" />
     <Compile Include="Areas\Admin\Controllers\ExcelCategoryController.cs" />
     <Compile Include="Areas\Admin\Controllers\ExcelUploadController.cs" />
     <Compile Include="Areas\Admin\Controllers\NewsController.cs" />
@@ -982,11 +982,11 @@
     <Content Include="Areas\Admin\Views\Publisher\PublisherEdit.cshtml" />
     <Content Include="Areas\Admin\Views\Publisher\PublisherDetails.cshtml" />
     <Content Include="Areas\Admin\Views\Publisher\PublisherDelete.cshtml" />
-    <Content Include="Areas\Admin\Views\Category\CreateCategory.cshtml" />
-    <Content Include="Areas\Admin\Views\Category\CategoryIndex.cshtml" />
-    <Content Include="Areas\Admin\Views\Category\CategoryEdit.cshtml" />
-    <Content Include="Areas\Admin\Views\Category\CategoryDetails.cshtml" />
-    <Content Include="Areas\Admin\Views\Category\CategoryDelete.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminCategory\CreateCategory.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminCategory\CategoryIndex.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminCategory\CategoryEdit.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminCategory\CategoryDetails.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminCategory\CategoryDelete.cshtml" />
     <Content Include="Areas\Admin\Views\News\NewsCreate.cshtml" />
     <Content Include="Areas\Admin\Views\News\NewsIndex.cshtml" />
     <Content Include="Areas\Admin\Views\News\NewsEdit.cshtml" />
@@ -1085,6 +1085,7 @@
     <Content Include="Scripts\knockout-2.1.0.debug.js" />
     <Content Include="Scripts\knockout-2.1.0.js" />
     <Content Include="Scripts\modernizr-2.5.3.js" />
+    <Content Include="trucking.html" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -1108,15 +1109,6 @@
     <Content Include="Images\orderedList8.png" />
     <Content Include="Images\orderedList9.png" />
     <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Account\_ChangePasswordPartial.cshtml" />
-    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
-    <Content Include="Views\Account\_RemoveExternalLoginsPartial.cshtml" />
-    <Content Include="Views\Account\_SetPasswordPartial.cshtml" />
-    <Content Include="Views\Account\Login.cshtml" />
-    <Content Include="Views\Account\Manage.cshtml" />
-    <Content Include="Views\Account\Register.cshtml" />
-    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
-    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
@@ -1136,6 +1128,8 @@
     <Content Include="Views\Report\PublisherRelatedReports.cshtml" />
     <Content Include="Views\News\AllNews.cshtml" />
     <Content Include="Views\News\NewsDetails.cshtml" />
+    <Content Include="Views\Report\SearchedReports.cshtml" />
+    <Content Include="Views\Category\MainCategories.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

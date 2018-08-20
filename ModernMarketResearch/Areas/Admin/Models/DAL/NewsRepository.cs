@@ -38,8 +38,9 @@ namespace ModernMarketResearch.Areas.Admin.Models.DAL
                 var newsurl = ModernMarketResearch.Areas.Admin.Models.Common.GenerateSlug(news.NewsTitle);
                 news.NewsURL = newsurl;
             }
-            //news.CreatedBy = 1;
-            //news.CreatedDate = DateTime.Now;
+            news.CreatedBy = 1;
+            news.CreatedDate = DateTime.Now;
+            newsmaster.NewsImage = news.NewsImage;
             newsmaster.CreatedBy = 1;
             newsmaster.CreatedDate = DateTime.Now;
             newsmaster.NewsTitle = news.NewsTitle;
@@ -93,6 +94,7 @@ namespace ModernMarketResearch.Areas.Admin.Models.DAL
             news.MetaKeywords = z.Keywords;
             news.MetaTitle = z.MetaTitle;
             news.MetaDescription = z.MetaDescritpion;
+            news.NewsImage = z.NewsImage;
             return news;
 
         }

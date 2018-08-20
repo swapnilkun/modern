@@ -12,7 +12,7 @@
 
     <!-- Wrapper for slides -->
     <div class="carousel-inner" role="listbox">
-        <form class="searchreports">
+   @*     <form class="searchreports">
     <div class="col-md-12">
         <div class="col-md-7"><input class="form-control homesearch" type="search" value="" placeholder=" "></div>
         <div class="col-md-3">  <select class="form-control" name="category">
@@ -21,7 +21,8 @@
         </div>
         <div class="col-md-2"><button type="submit" class="btn btn-primary">Search</button></div>
     </div>        
-    </form>
+    </form>*@
+        @{Html.RenderAction("SearchingPartialView", "Home");}
 
         <div class="item active">
             <img src="/img/slider/slide-1.jpg"" alt="Modern Market Research">

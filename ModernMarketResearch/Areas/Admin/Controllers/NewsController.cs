@@ -36,8 +36,31 @@ namespace ModernMarketResearch.Areas.Admin.Controllers
         [HttpPost]
         [ValidateInput(false)]
       //  [CustomAuthorization("ReportUploader,ReportCreater", "Create,Delete")]
-        public ActionResult NewsCreate(NewsVM news)
+        public ActionResult NewsCreate(NewsVM news,HttpPostedFileBase file)
         {
+
+            if (file != null && !string.IsNullOrEmpty(file.FileName))
+            {
+                string ImageName = System.IO.Path.GetFileName(file.FileName);
+                string fileExt = System.IO.Path.GetExtension(ImageName);
+
+
+                //checks whether file is is of type .jpg or bellow mensioned otherwise returns  message ...
+
+                if (fileExt != ".jpg" && fileExt != ".jpeg" && fileExt != ".gif" && fileExt != ".png")
+                {
+                    ViewBag.NewsImage = "Only image formats (jpg, png, gif) are accepted ";
+                    return View(news);
+                }
+                else
+                {
+                    string physicalPath = Server.MapPath("/Images/" + ImageName);
+                    string imgpath = ("/Images/" + ImageName);
+                    news.NewsImage = imgpath;
+                    file.SaveAs(physicalPath);
+                }
+            }
+
             var newstitle = db.NewsMasters.Where(x => x.NewsTitle == news.NewsTitle).Select(x => x.NewsTitle).FirstOrDefault();
 
             if (newstitle == null)

@@ -6,6 +6,7 @@
     .field-validation-error {
         color: red;
     }
+
     .table tbody tr td {
         text-align: right;
         border-top: none;
@@ -24,9 +25,9 @@
 <div class="Container">
     @using (Html.BeginForm())
     {
-        @Html.HiddenFor(x=>x.CreatedBy)
-        @Html.HiddenFor(x=>x.CreatedDate)
-        @Html.HiddenFor(x=>x.NewsId)
+        @Html.HiddenFor(x => x.CreatedBy)
+        @Html.HiddenFor(x => x.CreatedDate)
+        @Html.HiddenFor(x => x.NewsId)
         @Html.ValidationSummary(true)
 
         <table class="table" style="width: 85%; margin-left: 130px">
@@ -122,6 +123,17 @@
                 <td colspan="3" style="text-align: left">
                     @Html.CheckBoxFor(model => model.IsActive)
                     @Html.ValidationMessageFor(model => model.IsActive)
+                </td>
+            </tr>
+            <tr>
+                <td>Report Image 
+                </td>
+                <td>
+                    <input type="file" name="file" id="file" class="form-control" value="@Model.NewsImage" />
+                    @Html.ValidationMessageFor(model => model.NewsImage)
+                </td>
+                <td>
+                    <input type="image" src="@Model.NewsImage" height="200" width="200"/>
                 </td>
             </tr>
         </table>

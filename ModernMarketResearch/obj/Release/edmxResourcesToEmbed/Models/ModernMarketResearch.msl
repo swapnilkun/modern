@@ -101,6 +101,7 @@
           <ScalarProperty Name="NewsTitle" ColumnName="NewsTitle" />
           <ScalarProperty Name="NewsUrl" ColumnName="NewsUrl" />
           <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+          <ScalarProperty Name="NewsImage" ColumnName="NewsImage" />
           <ScalarProperty Name="NewsDescription" ColumnName="NewsDescription" />
           <ScalarProperty Name="PublishingDate" ColumnName="PublishingDate" />
           <ScalarProperty Name="MetaTitle" ColumnName="MetaTitle" />

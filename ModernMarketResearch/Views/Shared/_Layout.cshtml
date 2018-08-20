@@ -167,12 +167,12 @@
 
                                 <ul class="nav navbar-nav navbar-right">
                                     
-                                    <li class="active"><a href="@Url.Action("index", "Home")">Home</a></li>
+                                    <li class="active"><a href="@Url.Action("Index", "Home")">Home</a></li>
                                     <li><a href="@Url.Action("About", "Home")">About Us</a></li>
                                     <li><a href="@Url.Action("AllReports", "Report")">Reports</a></li>
                                     <!-- MEGA MENU -->
                                     <li class="dropdown mega-fw has-megamenu">
-                                        <a href="#" data-toggle="dropdown" class="dropdown-toggle">Categories <span class="fa fa-angle-down"></span></a>
+                                        <a href="@Url.Action("MainCategories","Category")" data-toggle="dropdown" class="dropdown-toggle">Categories <span class="fa fa-angle-down"></span></a>
                                         <!-- megamenu-wrapper -->
                                         <div class="submenu-wrapper megamenu-wrapper">
                                             <div class="submenu-inner megamenu-inner">

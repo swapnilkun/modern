@@ -61,8 +61,7 @@ namespace ModernMarketResearch.Models
 
             //int[] parentIds = parent.Select(p => p.CategoryId).ToArray();
 
-            int[] MainparentIds = new int[] { 749, 750, 751, 752, 753, 754, 755, 756, 757, 758, 759, 760, 761, 762, 878, 1081, 1270, 1271 };
-
+            int[] MainparentIds = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 190, 191, 192, };
 
             var parent = db.CategoryMasters.Where(x => MainparentIds.Contains((int)x.CategoryId)).Select(x => new Category
             {

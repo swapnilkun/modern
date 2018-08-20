@@ -59,6 +59,9 @@
         <div class="row">
             <div class="col-xs-12">
                 <div class="page-header-wrap">
+                    <div class="right">
+                        @{Html.RenderAction("SearchingPartialView", "Home");}
+                    </div>
                     <div class="page-header">
                         <h1>Latest Report</h1>
                     </div>
@@ -185,6 +188,35 @@
                             @if (ViewBag.Totalreports > 0)
                             {
                           
+<<<<<<< HEAD
+                        @Html.PagedListPager(Model, pageno => Url.Action("AllReports", new
+                   {
+                       pageno,
+                   }) , new PagedListRenderOptions() { Display = PagedListDisplayMode.IfNeeded, DisplayPageCountAndCurrentLocation = true })
+                  
+                    }
+                </ul>
+                <section class="pagination-wrap">
+										
+									    <div class="blog-pagination">
+									        <ul class="pagination text-center">
+				
+									            <li class="disabled"><a class="prev" href="#">Prev.</a></li>
+									            <li class="active"><a href="#">1</a></li>
+									            <li><a href="#">2</a></li>
+									            <li><a href="#">3</a></li>
+									            <li><a href="#">4</a></li>
+									            <li><a href="#">5</a></li>
+									            <li><a href="#">6</a></li>
+									            <li><a href="#">6</a></li>
+									            <li><a class="next" href="#">Next</a></li>
+									            
+									        </ul>
+									    </div>	
+
+									</section>
+
+=======
                                 @Html.PagedListPager(Model, pageno => Url.Action("AllReports", new
                             {
                                 pageno,
@@ -202,6 +234,7 @@
                 <div class="clearfix"></div>
 
                
+>>>>>>> b7dee5922082b366e704bacf9ccb2c989b800049
             </div>
             <!-- /.col -->
         </div>

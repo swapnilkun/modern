@@ -20,6 +20,7 @@ namespace ModernMarketResearch.Areas.Admin.Models.ViewModel
         public string MetaDescription { get; set; }
         [Required(ErrorMessage = "Category name should not be empty")]
         public int CategoryId { get; set; }
+        public string NewsImage { get; set; }
         public DateTime NewsPublishingDate { get; set; }
         public int CreatedBy { get; set; }
         public int? ModifiedBy { get; set; }

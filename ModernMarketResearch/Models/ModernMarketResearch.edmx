@@ -117,6 +117,7 @@
           <Property Name="NewsTitle" Type="nvarchar" Nullable="false" MaxLength="2550" />
           <Property Name="NewsUrl" Type="nvarchar" MaxLength="500" />
           <Property Name="CategoryId" Type="int" Nullable="false" />
+          <Property Name="NewsImage" Type="nvarchar" MaxLength="500" />
           <Property Name="NewsDescription" Type="text" Nullable="false" />
           <Property Name="PublishingDate" Type="datetime" Nullable="false" />
           <Property Name="MetaTitle" Type="nvarchar" MaxLength="750" />
@@ -559,6 +560,7 @@
           <Property Name="NewsTitle" Type="String" Nullable="false" MaxLength="2550" Unicode="true" FixedLength="false" />
           <Property Name="NewsUrl" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
           <Property Name="CategoryId" Type="Int32" Nullable="false" />
+          <Property Name="NewsImage" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
           <Property Name="NewsDescription" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
           <Property Name="PublishingDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="MetaTitle" Type="String" MaxLength="750" Unicode="true" FixedLength="false" />
@@ -894,6 +896,7 @@
                 <ScalarProperty Name="NewsTitle" ColumnName="NewsTitle" />
                 <ScalarProperty Name="NewsUrl" ColumnName="NewsUrl" />
                 <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+                <ScalarProperty Name="NewsImage" ColumnName="NewsImage" />
                 <ScalarProperty Name="NewsDescription" ColumnName="NewsDescription" />
                 <ScalarProperty Name="PublishingDate" ColumnName="PublishingDate" />
                 <ScalarProperty Name="MetaTitle" ColumnName="MetaTitle" />

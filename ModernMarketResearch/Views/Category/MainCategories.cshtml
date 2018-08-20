@@ -1,0 +1,79 @@
+﻿@model IEnumerable<ModernMarketResearch.Models.Category>
+@{
+    ViewBag.Title = "Market Research Trade Categories";
+ 
+}
+
+@*<script type="text/javascript">
+    //$(function () {
+    //    $('.panel-collapse').collapse({
+    //        toggle: false
+    //    });
+    //});
+    $(document).ready(function () {
+        $('.panel-collapse').collapse({ 'toggle': false });
+        $('#stepTwo').collapse({ 'toggle': false });
+        $('#stepThree').collapse({ 'toggle': false });
+    });
+</script>*@
+
+@*@foreach (var item in Model)
+{
+    <div class="panel-group" role="tablist" aria-multiselectable="true">
+        <div class="panel panel-default">
+            <div class="panel-heading" role="tab">
+                <h4 class="panel-title">
+                    <a href="@item.CategoryUrl">@item.CategoryName</a>
+                    <span class="count">@item.Count</span>
+                    <a data-toggle="collapse" data-parent="#accordion_automotive" href="#@item.CategoryId" aria-expanded="true" aria-controls="collapse_automotive" class="">
+                        <span class="toggle"><i class="fa fa-angle-down"></i></span>
+                    </a>
+                </h4>
+            </div>
+            <div id="@item.CategoryId" class="panel-collapse" role="tabpanel" aria-labelledby="acc_automotive" aria-expanded="true" style="">
+                @foreach (var childitem in item.ChildCategory)
+                {
+                    <div class="panel-body">
+                        <ul class="list-unstyled">
+                            <li>
+                                <a href="@childitem.CategoryUrl">@childitem.CategoryName</a>
+                                <span class="count">@childitem.Count</span>
+                            </li>
+                        </ul>
+                    </div>
+                }
+            </div>
+
+        </div>
+    </div>
+}*@
+
+<div class="wrapper">
+    <div class="row">
+        <div class="col-sm-12">
+     <div class="col-md-8">
+            <h1 class="title">Reports Category</h1>
+            <div class="CategoryListing">
+                <ul>
+                    @foreach (var item in Model)
+                    {
+                        <li><a href="@Url.Action("CategoryRelatedReports","Report",new { @caturl=item.CategoryUrl })"><i class="fa fa-book"></i>@item.CategoryName Market</a> <a class="RssFeed" href="/category/machinery-and-equipments.xml"><i class="fa fa-rss-square"></i></a>
+                            <ul>
+                                @foreach (var childitem in item.ChildCategory)
+                                {
+                                    <li><a href="@Url.Action("CategoryRelatedReports", "Report", new { @caturl=childitem.CategoryUrl })"><i class="fa fa-check-circle-o"></i>@childitem.CategoryName</a></li>
+                                }
+                            </ul>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+            <div class="col-sm-4">
+                    @{Html.RenderAction("LatestReport", "Report");}
+            </div>
+        </div>
+   
+    </div>
+</div>
+

@@ -23,7 +23,8 @@
     @Html.ActionLink("Back to List", "NewsIndex")
 </div>
 <div class="Container">
-    @using (Html.BeginForm())
+    @using (Html.BeginForm("NewsCreate", "News", FormMethod.Post,
+                    new { enctype = "multipart/form-data" }))
     {
         @Html.ValidationSummary(true)
 
@@ -118,8 +119,16 @@
                     <label class="control-label" for="pwd">Is Active</label>
                 </td>
                 <td colspan="3" style="text-align: left">
-                    @Html.CheckBoxFor(model => model.IsActive, new {@checked="checked" })
+                    @Html.CheckBoxFor(model => model.IsActive, new { @checked = "checked" })
                     @Html.ValidationMessageFor(model => model.IsActive)
+                </td>
+            </tr>
+            <tr>
+                <td>News Image 
+                </td>
+                <td>
+                    <input type="file" name="file" id="file" class="form-control" />
+                    @Html.ValidationMessageFor(model => model.NewsImage)
                 </td>
             </tr>
         </table>

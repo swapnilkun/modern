@@ -209,6 +209,7 @@
     <Property Name="NewsTitle" Type="String" Nullable="false" MaxLength="2550" Unicode="true" FixedLength="false" />
     <Property Name="NewsUrl" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
     <Property Name="CategoryId" Type="Int32" Nullable="false" />
+    <Property Name="NewsImage" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
     <Property Name="NewsDescription" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
     <Property Name="PublishingDate" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="MetaTitle" Type="String" MaxLength="750" Unicode="true" FixedLength="false" />

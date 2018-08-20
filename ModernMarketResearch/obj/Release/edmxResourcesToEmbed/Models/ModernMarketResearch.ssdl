@@ -112,6 +112,7 @@
     <Property Name="NewsTitle" Type="nvarchar" Nullable="false" MaxLength="2550" />
     <Property Name="NewsUrl" Type="nvarchar" MaxLength="500" />
     <Property Name="CategoryId" Type="int" Nullable="false" />
+    <Property Name="NewsImage" Type="nvarchar" MaxLength="500" />
     <Property Name="NewsDescription" Type="text" Nullable="false" />
     <Property Name="PublishingDate" Type="datetime" Nullable="false" />
     <Property Name="MetaTitle" Type="nvarchar" MaxLength="750" />

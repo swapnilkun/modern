@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="bdd0d8c56a0c4afd9bf06371139b8f5e" Name="Diagram1">
+      <Diagram DiagramId="276c2ef2175e4e48a24da1ac6752f0e9" Name="Diagram1">
         <EntityTypeShape EntityType="ModernMarketResearchModel.ActionMaster" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="ModernMarketResearchModel.BuyingInfo" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="ModernMarketResearchModel.CategoryMaster" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
