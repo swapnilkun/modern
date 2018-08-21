@@ -96,7 +96,8 @@ namespace ModernMarketResearch.Controllers
                          NewsPublishingDate = n.PublishingDate,
                          NewsURL = n.NewsUrl,
                          CategoryName = c.CategoryName,
-                         CategoryUrl = c.CategoryUrl
+                         CategoryUrl = c.CategoryUrl,
+                         NewsImage=n.NewsImage
                      }).ToPagedList(pageno ?? 1, 10);
 
             return View(x);

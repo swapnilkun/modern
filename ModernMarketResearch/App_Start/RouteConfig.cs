@@ -30,7 +30,7 @@ namespace ModernMarketResearch
            
             routes.MapRoute(
                  name: "MainCategories",
-                 url: "more-category",
+                 url: "all-category",
                  defaults: new { controller = "Category", action = "MainCategories" },
                         namespaces: new[] { "ModernMarketResearch.Controllers" }
                    );

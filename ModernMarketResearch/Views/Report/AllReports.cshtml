@@ -188,7 +188,7 @@
                             @if (ViewBag.Totalreports > 0)
                             {
                           
-<<<<<<< HEAD
+
                         @Html.PagedListPager(Model, pageno => Url.Action("AllReports", new
                    {
                        pageno,
@@ -196,7 +196,7 @@
                   
                     }
                 </ul>
-                <section class="pagination-wrap">
+              @*  <section class="pagination-wrap">
 										
 									    <div class="blog-pagination">
 									        <ul class="pagination text-center">
@@ -214,9 +214,8 @@
 									        </ul>
 									    </div>	
 
-									</section>
+									</section>*@
 
-=======
                                 @Html.PagedListPager(Model, pageno => Url.Action("AllReports", new
                             {
                                 pageno,
@@ -233,8 +232,7 @@
                 <!-- END PAGINATION -->
                 <div class="clearfix"></div>
 
-               
->>>>>>> b7dee5922082b366e704bacf9ccb2c989b800049
+
             </div>
             <!-- /.col -->
         </div>
