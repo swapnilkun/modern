@@ -9,6 +9,19 @@
 }
 <script>
     $(document).ready(function () {
+        $(window).scroll(function () {
+            var distanceFromTop = $(document).scrollTop();
+            if (distanceFromTop >= 140) {
+                $('#sticky').fadeIn(400).addClass('fixed');
+            }
+            else {
+                $('#sticky').fadeOut(400).removeClass('fixed');
+            }
+        });
+    });
+</script>
+<script>
+    $(document).ready(function () {
         var url = window.location.href;
         // Get the tab to make active from url link.
 
@@ -230,50 +243,8 @@
         <div class="row">
             <div class="col-md-3 col-sm-5 col-xs-12">
                 <div class="service-sidebar sidebar-wrapper">
-
-                    <div class="widget">
-                        <h2 class="widget-title">Services</h2>
-                        <ul class="service-list">
-                            <li><a href="air.html" class="icon-air">Air transportation</a></li>
-                            <li><a href="marine.html" class="icon-marine">Marine transportation</a></li>
-                            <li><a href="moving.html" class="icon-store">Moving &amp; storage</a></li>
-                            <li><a href="shipping.html" class="icon-shipping">Shipping &amp; operations</a></li>
-                            <li><a href="transportation.html" class="icon-transportation">Transportation logistics</a></li>
-                            <li class="active"><a href="trucking.html" class="icon-trucking">Trucking</a></li>
-                        </ul>
-                    </div>
-                    <!-- /.widget -->
-
-                    <div class="widget">
-                        <div class="download-wrap company">
-                            <a href="#">Company profile <span>Download</span><i class="fa fa-download"></i></a>
-                        </div>
-                        <!-- /.download-wrap -->
-                        <div class="download-wrap annual">
-                            <a href="#">Annual Report <span>Download</span><i class="fa fa-download"></i></a>
-                        </div>
-                        <!-- /.download-wrap -->
-                        <div class="download-wrap brochure">
-                            <a href="#">Corporate Brochure <span>Download</span><i class="fa fa-download"></i></a>
-                        </div>
-                        <!-- /.download-wrap -->
-                    </div>
-                    <!-- /.widget -->
-
-                    <div class="widget">
-                        <h2 class="widget-title">Office Hours</h2>
-                        <div class="textwidget">
-                            <p>
-                                Monday -
-                                Friday: 9:00 - 18:00<br>
-                                Saturday: 9:00 - 2:00<br>
-                                Holidays: 9:00 - 12:00
-                            </p>
-                        </div>
-                    </div>
-                    <!-- /.widget -->
-
-                    <div class="research_assistance">
+                     <div id="header"></div>
+                    <div class="research_assistance" id="sticky">
                         @using (Html.BeginForm("CheckoutForm", "BuyingInfo", FormMethod.Get))
                         {
                             <div class="title"><i class="fa fa-usd"></i>Select a Format</div>
@@ -320,6 +291,48 @@
                         }
                     </div>
 
+                    <div class="widget">
+                        <h2 class="widget-title">Services</h2>
+                        <ul class="service-list">
+                            <li><a href="air.html" class="icon-air">Air transportation</a></li>
+                            <li><a href="marine.html" class="icon-marine">Marine transportation</a></li>
+                            <li><a href="moving.html" class="icon-store">Moving &amp; storage</a></li>
+                            <li><a href="shipping.html" class="icon-shipping">Shipping &amp; operations</a></li>
+                            <li><a href="transportation.html" class="icon-transportation">Transportation logistics</a></li>
+                            <li class="active"><a href="trucking.html" class="icon-trucking">Trucking</a></li>
+                        </ul>
+                    </div>
+                    <!-- /.widget -->
+
+                    <div class="widget">
+                        <div class="download-wrap company">
+                            <a href="#">Company profile <span>Download</span><i class="fa fa-download"></i></a>
+                        </div>
+                        <!-- /.download-wrap -->
+                        <div class="download-wrap annual">
+                            <a href="#">Annual Report <span>Download</span><i class="fa fa-download"></i></a>
+                        </div>
+                        <!-- /.download-wrap -->
+                        <div class="download-wrap brochure">
+                            <a href="#">Corporate Brochure <span>Download</span><i class="fa fa-download"></i></a>
+                        </div>
+                        <!-- /.download-wrap -->
+                    </div>
+                    <!-- /.widget -->
+
+                    <div class="widget">
+                        <h2 class="widget-title">Office Hours</h2>
+                        <div class="textwidget">
+                            <p>
+                                Monday -
+                                Friday: 9:00 - 18:00<br>
+                                Saturday: 9:00 - 2:00<br>
+                                Holidays: 9:00 - 12:00
+                            </p>
+                        </div>
+                    </div>
+                    <!-- /.widget -->
+                   
                 </div>
                 <!-- /.sidebar-wrapper -->
             </div>
@@ -352,10 +365,10 @@
 
                         <!-- Nav tabs -->
                         <ul class="nav nav-tabs" role="tablist">
-                            <li role="presentation" class="active"><a href="#reportdetails" aria-controls="secure" role="tab" data-toggle="tab">Report Details</a></li>
-                            <li role="presentation"><a href="#tablecontent" aria-controls="trackable" role="tab" data-toggle="tab">Table Of Content</a></li>
-                            <li role="presentation"><a href="#inquiry" aria-controls="fast" role="tab" data-toggle="tab">Inquiry For Buying</a></li>
-                            <li role="presentation"><a href="#reqsample" aria-controls="reliable" role="tab" data-toggle="tab">Request Sample</a></li>
+                            <li role="presentation" class="active"><a href="#reportdetails" aria-controls="secure" role="tab" data-toggle="tab"><i class="flaticon-logistics15"></i>Report Details</a></li>
+                            <li role="presentation"><a href="#tablecontent" aria-controls="trackable" role="tab" data-toggle="tab"><i class="flaticon-logistics18"></i>Table Of Content</a></li>
+                            <li role="presentation"><a href="#inquiry" aria-controls="fast" role="tab" data-toggle="tab"><i class="flaticon-logistics16"></i>Inquiry For Buying</a></li>
+                            <li role="presentation"><a href="#reqsample" aria-controls="reliable" role="tab" data-toggle="tab"><i class="flaticon-broken43"></i>Request Sample</a></li>
                         </ul>
 
                         <!-- Tab panes -->
