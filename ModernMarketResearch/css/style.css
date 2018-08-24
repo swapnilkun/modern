@@ -342,7 +342,7 @@ Whyus Setion
 			color: #7b8a97;
 			font-size: 18px;
 			border-radius: 30px;
-			padding: 12px 33px;
+			padding: 10px 10px;
 			border: 0;
 		}
 
@@ -1555,7 +1555,7 @@ Contact Page
 }
 
 	.categorys:nth-child(odd) {
-		background-color: #f2f2f2;
+		background-color: #ffffff;
 	}
 
 	.categorys:nth-child(even) {
@@ -1622,6 +1622,9 @@ Contact Page
 .categorys h3 {
 	font-size: 18px;
 	line-height: 25px;
+	text-align: left;
+    padding: 0 10px;
+	min-height: 80px;
 }
 
 .report-content h3 a {
@@ -1633,6 +1636,7 @@ Contact Page
 
 .report-content {
 	padding-bottom: 10px;
+	box-shadow: 0px 7px 8px #928e8e78;
 }
 
 .categorys .btn {
@@ -1656,7 +1660,9 @@ Contact Page
 .categorys pre {
 	background-color: transparent;
 	border: 0;
-	font-size: 15px;
+	font-size: 18px;
+	font-family: 'Source Sans Pro', Arial, Helvetica, sans-serif !important;
+	padding: 0 15px;
 	overflow: hidden;
 	text-align: left;
 	white-space: pre-wrap; /* Since CSS 2.1 */
@@ -1723,7 +1729,7 @@ section.service-home.section-padding, .section-letestnews, .footer-widget-sectio
     font-size: 1.1em;
 }
 .section-getintouch .form-group input, .section-getintouch .form-group select, .section-getintouch .form-group textarea {
-    color: #ffffff;
+    color: #000000;
 }
 
 .footer-widget h3 {
@@ -1891,7 +1897,7 @@ h1.title {
 }
 
 #reportdetails pre, #tablecontent pre {
-	font-size: 15px;
+	font-size: 17px;
 	border: 0px solid #ccc;
 	background: transparent;
 	white-space: -moz-pre-wrap;
@@ -1900,6 +1906,7 @@ h1.title {
 	white-space: pre-wrap;
 	word-wrap: break-word;
 	padding: 0 30px;
+	font-family:'Source Sans Pro', Arial, Helvetica, sans-serif !important;
 }
 
 .report-details .css-tab {
@@ -1925,9 +1932,9 @@ h1.title {
 }
 span.field-validation-error {
     color: #ff0000;
-    font-size: 20px;
+    font-size: 15px;
     font-weight: 700;
-    background: #ffffff1f;
+    background: transparent;
     padding: 10px;
     border-radius: 50px 50px;
 }
@@ -1942,4 +1949,27 @@ span.field-validation-error {
 .areacodecss {
     width: 90px;
     height: 45px;
+}
+.report-details .input-group-addon {
+    padding: 6px 15px;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1;
+    color: #af14d6;
+    text-align: center;
+    background-color: #deccfb;
+    border: 1px solid #ccc;
+    border-radius: 52px 0px 0px 52px;
+}
+#header { background-color: #cb5454; height: 140px; }
+#sticky {
+    display: none;
+    background-color: #546bcb;
+    height: 70px;
+}
+#sticky.fixed {
+    display: block;
+    position: fixed;
+    top: 0;
+    width: 100%;
 }
