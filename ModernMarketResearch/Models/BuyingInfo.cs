@@ -15,6 +15,7 @@ namespace ModernMarketResearch.Models
     public partial class BuyingInfo
     {
         public int CustomerId { get; set; }
+        public int ReportId { get; set; }
         public string Name { get; set; }
         public string EmailId { get; set; }
         public string Designation { get; set; }
