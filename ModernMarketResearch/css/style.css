@@ -339,10 +339,10 @@ Whyus Setion
 	}
 
 		.css-tab .nav-tabs > li > a {
-			color: #7b8a97;
+			color: #000000;
 			font-size: 18px;
 			border-radius: 30px;
-			padding: 10px 10px;
+			padding: 10px 35px;
 			border: 0;
 		}
 
@@ -1951,7 +1951,7 @@ span.field-validation-error {
     height: 45px;
 }
 .report-details .input-group-addon {
-    padding: 6px 15px;
+    /*padding: 6px 15px;
     font-size: 15px;
     font-weight: 400;
     line-height: 1;
@@ -1959,7 +1959,7 @@ span.field-validation-error {
     text-align: center;
     background-color: #deccfb;
     border: 1px solid #ccc;
-    border-radius: 52px 0px 0px 52px;
+    border-radius: 52px 0px 0px 52px;*/
 }
 #header { background-color: #cb5454; height: 140px; }
 #sticky {
