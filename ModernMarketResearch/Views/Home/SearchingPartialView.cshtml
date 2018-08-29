@@ -54,37 +54,20 @@
 
 @using (Html.BeginForm("SearchedReports", "Report", FormMethod.Get, new { @id = "form", @class = "searchreports" }))
 {
-@*<div class="search-cont">
-        <div class="row">
-            <div>
-                <div class="col-xs-12 col-md-8 col-md-offset-2" style="padding-top:50px;">
-                    <h1>World’s Best Collection For Market Research Reports</h1>
-                    <div class="input-group">
-                         <input name="searchkey" type="text" id="ReportId" class="form-control"  placeholder="Search ..." onkeyup="ValidateInput()" />
-                        <span class="input-group-btn">
-                            <button type="submit" class="btn btn-search" id="btnsubmit">
-                                <span class="glyphicon glyphicon-search"></span>
-                            </button>
-                           
-                        </span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>*@
-  
-        <div class="col-md-12">
-        <div class="col-md-10">
-            <input name="searchkey" type="text" id="ReportId" class="form-control" placeholder="Search ..." onkeyup="ValidateInput()" /></div>
-  @*      <div class="col-md-3">
-            <select class="form-control" name="category">
-                <option>-- Select Catory --</option>
-            </select>
-        </div>*@
-        <div class="col-md-2">
-            <button type="submit" class="btn btn-primary">Search</button></div>
-    </div>
+   
 
-       
+                            <div class="col-md-8" style="margin-left:15%">
+                                <input name="searchkey" type="text" id="ReportId" class="form-control" placeholder="Search ..." onkeyup="ValidateInput()" />
+                            </div>
+                            <div class="col-md-2">
+                                <button type="submit" class="btn btn-primary">Search</button>
+                            </div>
+           
+               
 }
+
+
+
+
+
 

@@ -71,6 +71,11 @@ namespace ModernMarketResearch.Models.ViewModel
                 var countries = db.Countries.OrderBy(x => x.name).ToList();
                 return countries;
             }
+            //public List<Country> GetPhoneCode()
+            //{
+            //    var phonecodes = db.Countries.OrderBy(x => x.name).ToList();
+            //    return
+            //}
         }
 
     

@@ -4,6 +4,25 @@
 @{
     ViewBag.Title = "PublisherRelatedReports";
 }
+<section class="page-title-section" style="height:100px;">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="page-header-wrap">
+                    <div class="page-header">
+                        @{Html.RenderAction("SearchingPartialView", "Home");}
+                    </div>
+                   @* <ol class="breadcrumb">
+                        <li><a href="/">Home</a></li>
+                        <li><a>Reports</a></li>
+                        <li class="active">Report Details</li>
+                    </ol>*@
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
 <!-- Single-Service-Start -->
 <section class="single-service-contents">
     <div class="container">
@@ -56,6 +75,7 @@
                 <!-- /.sidebar-wrapper -->
             </div>
             <!-- /.col -->
+
             <div class="col-md-9 col-sm-7 col-xs-12">
                 <div class="col-md-12">
                     @{ int i = 0; }

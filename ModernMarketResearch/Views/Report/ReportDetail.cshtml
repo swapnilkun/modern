@@ -4,7 +4,7 @@
 
     ViewBag.Description = "";
     ViewBag.Keywords = "";
-    //Layout = null;
+                //Layout = null;
                         
 }
 <script>
@@ -53,8 +53,7 @@
 
         obj.inputcapcha = v;
         obj.RealCaptcha = w;
-        if (v == null)
-        {
+        if (v == null) {
             e.preventDefault();
             $("#captchaError_" + formType).html("Captcha should enter !..");
         }
@@ -76,7 +75,7 @@
     }
     function ValidateForm(e, formType) {
         debugger;
-        var IsValid=$("#Enquiryform_" + formType).valid();
+        var IsValid = $("#Enquiryform_" + formType).valid();
         if (IsValid) {
             if (ValidCaptcha(formType)) {
                 $("#Enquiryform_" + formType).submit();
@@ -101,9 +100,9 @@
     //        }
 
     //    });
-        
+
     //    }
-    
+
     //$('#btnSubmit_' + formType).click(function () {
     //    debugger;
     //    if ($(this).valid()) {
@@ -218,32 +217,33 @@
 <input type="hidden" value="@Model.ReportDetails.ReportId" id="RepID" />
 
 <!-- report details finish-->
-<section class="page-title-section">
+<section class="page-title-section" style="height:100px;">
     <div class="container">
         <div class="row">
             <div class="col-xs-12">
                 <div class="page-header-wrap">
                     <div class="page-header">
-                        <h1>Report Details</h1>
+                        @{Html.RenderAction("SearchingPartialView", "Home");}
                     </div>
-                    <ol class="breadcrumb">
+                   @* <ol class="breadcrumb">
                         <li><a href="/">Home</a></li>
                         <li><a>Reports</a></li>
                         <li class="active">Report Details</li>
-                    </ol>
+                    </ol>*@
                 </div>
+
             </div>
         </div>
     </div>
 </section>
-
+@*@{Html.RenderAction("SearchingPartialView", "Home");}*@
 <!-- Single-Service-Start -->
 <section class="single-service-contents">
     <div class="container">
         <div class="row">
             <div class="col-md-3 col-sm-5 col-xs-12">
                 <div class="service-sidebar sidebar-wrapper">
-<<<<<<< HEAD
+
 
                     <div class="widget">
                         <h2 class="widget-title">Services</h2>
@@ -287,13 +287,9 @@
                     </div>
                     <!-- /.widget -->
 
-                    <div class="research_assistance">
-                        @using (Html.BeginForm("CheckoutForm", "ReportBuying", FormMethod.Get))
-=======
-                     <div id="header"></div>
+
                     <div class="research_assistance" id="sticky">
                         @using (Html.BeginForm("CheckoutForm", "BuyingInfo", FormMethod.Get))
->>>>>>> d1eab056cbfc00cd120abdf271ec9d5186dbda28
                         {
                             <div class="title"><i class="fa fa-usd"></i>Select a Format</div>
                             <div class="meta" style="text-align: left;">
@@ -339,34 +335,8 @@
                         }
                     </div>
 
-                    <div class="widget">
-                        <h2 class="widget-title">Services</h2>
-                        <ul class="service-list">
-                            <li><a href="air.html" class="icon-air">Air transportation</a></li>
-                            <li><a href="marine.html" class="icon-marine">Marine transportation</a></li>
-                            <li><a href="moving.html" class="icon-store">Moving &amp; storage</a></li>
-                            <li><a href="shipping.html" class="icon-shipping">Shipping &amp; operations</a></li>
-                            <li><a href="transportation.html" class="icon-transportation">Transportation logistics</a></li>
-                            <li class="active"><a href="trucking.html" class="icon-trucking">Trucking</a></li>
-                        </ul>
-                    </div>
-                    <!-- /.widget -->
 
-                    <div class="widget">
-                        <div class="download-wrap company">
-                            <a href="#">Company profile <span>Download</span><i class="fa fa-download"></i></a>
-                        </div>
-                        <!-- /.download-wrap -->
-                        <div class="download-wrap annual">
-                            <a href="#">Annual Report <span>Download</span><i class="fa fa-download"></i></a>
-                        </div>
-                        <!-- /.download-wrap -->
-                        <div class="download-wrap brochure">
-                            <a href="#">Corporate Brochure <span>Download</span><i class="fa fa-download"></i></a>
-                        </div>
-                        <!-- /.download-wrap -->
-                    </div>
-                    <!-- /.widget -->
+
 
                     <div class="widget">
                         <h2 class="widget-title">Office Hours</h2>
@@ -380,7 +350,7 @@
                         </div>
                     </div>
                     <!-- /.widget -->
-                   
+
                 </div>
                 <!-- /.sidebar-wrapper -->
             </div>
@@ -486,7 +456,7 @@
 <!-- Single-Service-End-->
 
 
-s
+
 
 
 

@@ -27,9 +27,5 @@ namespace ModernMarketResearch.Models
         public string FormType { get; set; }
         public string ReportTitle { get; set; }
         public string AreaCode { get; set; }
-        public int CreatedBy { get; set; }
-        public System.DateTime CreatedDate { get; set; }
-        public Nullable<int> ModifiedBy { get; set; }
-        public Nullable<System.DateTime> ModifiedDate { get; set; }
     }
 }

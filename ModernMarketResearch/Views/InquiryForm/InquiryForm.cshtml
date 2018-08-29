@@ -58,17 +58,22 @@
             </div>
             <div class="form-group">
                 <label class="col-md-3 control-label required">Phone<span class="customrequiredsign">*</span> </label>
-                <div class="col-md-2 inputGroupContainer">
+                <div class="col-md-4 inputGroupContainer">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-phone"></i></span>
                         @*<input class="form-control" id="areacode" name="AreaCode" placeholder="1212" type="text" value="">*@
-                        @Html.TextBoxFor(model => model.AreaCode, new { @class = "form-contol areacodecss", @placeholder = "  Area-Code", @id = "areaCode_" + Model.FormType })
+                        @Html.DropDownListFor(m => m.AreaCode, from l in new  ModernMarketResearch.Models.ViewModel.InquiryVM().GetCountries()
+                                                              select new SelectListItem
+                                                              {
+                                                                  Text = l.nicename+"+"+l.phonecode,
+                                                                  Value = l.phonecode.ToString()
+                                                              }, "- Select Country -", new { @Class = "form-control", @id = "country_" + Model.FormType })
                     </div>
                     @Html.ValidationMessageFor(model => model.AreaCode)
 
                     <span class="field-validation-valid"></span>
                 </div>
-                <div class="col-md-6 inputGroupContainer">
+                <div class="col-md-4 inputGroupContainer">
                     @Html.TextBoxFor(model => model.PhoneNumber, new { @class = "form-control", @placeholder = "Phone-Number", @id = "phonenumber_" + Model.FormType })
                     @Html.ValidationMessageFor(model => model.PhoneNumber)
                 </div>

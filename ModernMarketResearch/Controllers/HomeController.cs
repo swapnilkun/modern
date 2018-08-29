@@ -79,6 +79,7 @@ namespace ModernMarketResearch.Controllers
             return PartialView(r);
         }
 
+       
         public ActionResult About()
         {
             ViewBag.Message = "Your app description page.";

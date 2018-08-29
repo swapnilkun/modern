@@ -53,8 +53,7 @@ namespace ModernMarketResearch.Controllers
                     cst.ReportId = eq.ReportId;
                     cst.Country = eq.Country;
                     cst.CaptchaCode = eq.CaptchaCode;
-                    cst.CreatedBy = 1;
-                    cst.CreatedDate = DateTime.Now;
+                  
                     string ReportTitle = string.Empty;
                     string ReportUrl = string.Empty;
 

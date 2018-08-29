@@ -54,22 +54,21 @@
     }
 </style>
 
-<section class="page-title-section">
+<section class="page-title-section" style="height:100px;">
     <div class="container">
         <div class="row">
             <div class="col-xs-12">
                 <div class="page-header-wrap">
-                    <div class="right">
+                    <div class="page-header">
                         @{Html.RenderAction("SearchingPartialView", "Home");}
                     </div>
-                    <div class="page-header">
-                        <h1>Latest Report</h1>
-                    </div>
-                    <ol class="breadcrumb">
+                   @* <ol class="breadcrumb">
                         <li><a href="/">Home</a></li>
-                        <li class="active">Latest Report</li>
-                    </ol>
+                        <li><a>Reports</a></li>
+                        <li class="active">Report Details</li>
+                    </ol>*@
                 </div>
+
             </div>
         </div>
     </div>
