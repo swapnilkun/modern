@@ -1,5 +1,5 @@
 /*
-Template Name: Transport
+Template Name: Excellent Market Research
 Description: HTML5 / CSS3 Multi Page
 Version: 1.0
 Author: Cloud Software Solution Ltd.
@@ -1013,7 +1013,7 @@ SERVICE PAGES
 
 .service-sidebar.sidebar-wrapper {
 	background-color: #F9F9FB;
-	padding: 20px;
+	padding: 10px;
 	margin-bottom: 35px;
 	-webkit-border-radius: 5px;
 	-moz-border-radius: 5px;
@@ -1963,7 +1963,7 @@ span.field-validation-error {
 }
 #header { background-color: #cb5454; height: 140px; }
 #sticky {
-    display: none;
+    /*display: none;*/
     background-color: #546bcb;
     height: 70px;
 }
@@ -1973,3 +1973,9 @@ span.field-validation-error {
     top: 0;
     width: 100%;
 }
+.service-sidebar.sidebar-wrapper .panel-heading {text-align:center;	font-weight:700;}
+.service-sidebar.sidebar-wrapper .panel-body {padding: 5px;}
+.service-sidebar.sidebar-wrapper .badge {padding: 5px 5px;line-height: 1.5;}
+.service-sidebar.sidebar-wrapper .list-group-item {padding: 10px 5px;}
+.service-sidebar.sidebar-wrapper input {margin-right: 10px;}
+.service-sidebar.sidebar-wrapper .panel .list-group {margin-bottom:0px;}

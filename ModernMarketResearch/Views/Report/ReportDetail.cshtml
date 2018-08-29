@@ -8,41 +8,20 @@
                         
 }
 <script>
-    $(document).ready(function () {
-        $(window).scroll(function () {
-            var distanceFromTop = $(document).scrollTop();
-            if (distanceFromTop >= 140) {
-                $('#sticky').fadeIn(400).addClass('fixed');
-            }
-            else {
-                $('#sticky').fadeOut(400).removeClass('fixed');
-            }
-        });
-    });
+    //$(document).ready(function () {
+    //    $('#sticky').css("display","block");
+    //    $(window).scroll(function () {
+    //        var distanceFromTop = $(document).scrollTop();
+    //        if (distanceFromTop >= 140) {
+    //            $('#sticky').fadeIn(400).addClass('fixed');
+    //        }
+    //        else {
+    //            $('#sticky').fadeOut(400).removeClass('fixed');
+    //        }
+    //    });
+    //});
 </script>
-<script>
-    $(document).ready(function () {
-        var url = window.location.href;
-        // Get the tab to make active from url link.
 
-        var activeTab = url.substring(url.indexOf("#") + 1);
-        // Remove old active tab class
-
-        //   $(".tab-pane").removeClass("active in");
-
-        //  Add active class to new tab
-
-        $("#" + activeTab).addClass("active in");
-        //  Or directly open tab after getting activeTab.
-
-        $('a[href="#' + activeTab + '"]').tab('show');
-
-        //$('html, body').animate({
-        //    scrollTop: $('.titlecolor').offset().top - 50
-        //}, 2000);
-
-    });
-</script>
 <script type="text/javascript">
     function ValidCaptcha(formType) {
         debugger;
@@ -243,7 +222,37 @@
         <div class="row">
             <div class="col-md-3 col-sm-5 col-xs-12">
                 <div class="service-sidebar sidebar-wrapper">
-
+                    <div class="panel panel-default">
+                        <div class="panel-heading">Payment Mode</div>
+                        <div class="panel-body">
+                            @using (Html.BeginForm("CheckoutForm", "BuyingInfo", FormMethod.Get))
+                            {
+                            <ul class="list-group">
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <input type="hidden" name="reportid" value="@Model.ReportDetails.ReportId" />
+                                                <input name="buynow" id="PriceSingleUser" value="0" checked="checked" type="radio">Single User Price :
+                                    <span class="badge badge-primary badge-pill">$ @Model.ReportDetails.PriceSingleUser</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <input type="radio" name="buynow" id="PriceMultiUser" value="1">Multi User Price :
+                                    <span class="badge badge-primary badge-pill">$ @Model.ReportDetails.PriceMultiUser</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <input type="radio" name="buynow" id="PriceCUL" value="2">Corporate User Price :
+                                    <span class="badge badge-primary badge-pill">$ @Model.ReportDetails.PriceCUL</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <a>
+                                        <span style="margin-left: 20px; margin-top: 25px;">
+                                            <input type="image" src="~/Images/buy-now-button.png" style="margin-top: 10px;">
+                                        </span>
+                                    </a>
+                                </li>
+                            </ul>
+                            }
+                        </div>
+                      </div>
+                    
 
                     <div class="widget">
                         <h2 class="widget-title">Services</h2>
@@ -274,83 +283,7 @@
                     </div>
                     <!-- /.widget -->
 
-                    <div class="widget">
-                        <h2 class="widget-title">Office Hours</h2>
-                        <div class="textwidget">
-                            <p>
-                                Monday -
-                                Friday: 9:00 - 18:00<br>
-                                Saturday: 9:00 - 2:00<br>
-                                Holidays: 9:00 - 12:00
-                            </p>
-                        </div>
-                    </div>
-                    <!-- /.widget -->
-
-
-                    <div class="research_assistance" id="sticky">
-                        @using (Html.BeginForm("CheckoutForm", "BuyingInfo", FormMethod.Get))
-                        {
-                            <div class="title"><i class="fa fa-usd"></i>Select a Format</div>
-                            <div class="meta" style="text-align: left;">
-                                <table id="ctl00_ContentPlaceHolder2_rblReportPrise" border="0" style="text-align: left;">
-                                    <tbody>
-
-                                        <tr>
-                                            <td>
-                                                <input type="hidden" name="reportid" value="@Model.ReportDetails.ReportId" />
-                                                <input name="buynow" id="PriceSingleUser" value="0" checked="checked" type="radio"><label for="ctl00_ContentPlaceHolder2_rblReportPrise_0"><span style="font-weight: normal"> Single User Price : </span>$@Model.ReportDetails.PriceSingleUser</label></td>
-                                        </tr>
-
-                                        <tr>
-                                            <td>
-                                                <input type="radio" name="buynow" id="PriceMultiUser" value="1"><label for="ctl00_ContentPlaceHolder2_rblReportPrise_1"><span style="font-weight: normal"> Multi User Price : </span>$@Model.ReportDetails.PriceMultiUser</label></td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <input type="radio" name="buynow" id="PriceCUL" value="2"><label for="ctl00_ContentPlaceHolder2_rblReportPrise_2"><span style="font-weight: normal"> Corporate User Price : </span>$@Model.ReportDetails.PriceCUL</label></td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                @*<a id="ctl00_ContentPlaceHolder2_btnBuyNow" class="btn btn-danger">Buy Now &nbsp;<i class="fa fa-shopping-cart" style="font-size: 25px"></i></a>*@
-                                                <a>
-                                                    <span style="margin-left: 20px; margin-top: 25px;">
-                                                        <input type="image" src="~/Images/buy-now-button.png" style="margin-top: 10px;">
-                                                    </span>
-                                                </a>
-                                            </td>
-                                        </tr>
-
-
-
-                                        @*<button type="submit">
-                                            <img src="~/Images/buy-now5.png" />
-                                    </button>*@
-
-
-                                    </tbody>
-                                </table>
-
-                            </div>
-                        }
-                    </div>
-
-
-
-
-                    <div class="widget">
-                        <h2 class="widget-title">Office Hours</h2>
-                        <div class="textwidget">
-                            <p>
-                                Monday -
-                                Friday: 9:00 - 18:00<br>
-                                Saturday: 9:00 - 2:00<br>
-                                Holidays: 9:00 - 12:00
-                            </p>
-                        </div>
-                    </div>
-                    <!-- /.widget -->
-
+                    
                 </div>
                 <!-- /.sidebar-wrapper -->
             </div>
