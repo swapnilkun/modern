@@ -1979,3 +1979,18 @@ span.field-validation-error {
 .service-sidebar.sidebar-wrapper .list-group-item {padding: 10px 5px;}
 .service-sidebar.sidebar-wrapper input {margin-right: 10px;}
 .service-sidebar.sidebar-wrapper .panel .list-group {margin-bottom:0px;}
+
+.CategoryListing img {
+    width: 22%;
+    float: right;
+    position: relative;
+}
+.CategoryListing span {
+    word-wrap: break-word;
+    word-break: break-all;
+    width: 75% !important;
+    float: left;
+    line-height: 20px;
+}
+.CategoryListing .panel-heading { min-height:70px;
+}
