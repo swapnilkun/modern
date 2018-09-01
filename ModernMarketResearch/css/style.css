@@ -1990,7 +1990,11 @@ span.field-validation-error {
     word-break: break-all;
     width: 75% !important;
     float: left;
+    font-weight: 600;
     line-height: 20px;
+    padding: 10px 0 0px;
+    margin-bottom: 5px;
+	font-size:13px;
 }
-.CategoryListing .panel-heading { min-height:70px;
-}
+.CategoryListing .panel-heading { min-height:70px;}
+.CategoryListing .col-md-4 {padding: 0 5px;}
