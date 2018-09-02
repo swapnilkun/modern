@@ -35,7 +35,6 @@
           <ScalarProperty Name="ReportUrl" ColumnName="ReportUrl" />
           <ScalarProperty Name="TransactionId" ColumnName="TransactionId" />
           <ScalarProperty Name="ReportTitle" ColumnName="ReportTitle" />
-          <ScalarProperty Name="ReportId" ColumnName="ReportId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -88,6 +87,10 @@
           <ScalarProperty Name="FormType" ColumnName="FormType" />
           <ScalarProperty Name="ReportTitle" ColumnName="ReportTitle" />
           <ScalarProperty Name="AreaCode" ColumnName="AreaCode" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

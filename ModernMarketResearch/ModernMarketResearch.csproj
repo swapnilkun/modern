@@ -214,6 +214,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InquiryFormController.cs" />
     <Compile Include="Controllers\NewsController.cs" />
+    <Compile Include="Controllers\ReportBuyingController.cs" />
     <Compile Include="Controllers\ReportController.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
@@ -1130,6 +1131,7 @@
     <Content Include="Views\News\NewsDetails.cshtml" />
     <Content Include="Views\Report\SearchedReports.cshtml" />
     <Content Include="Views\Category\MainCategories.cshtml" />
+    <Content Include="Views\Home\TermsAndCondition.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
