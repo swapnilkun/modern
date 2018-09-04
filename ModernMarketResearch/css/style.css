@@ -2010,3 +2010,13 @@ span.field-validation-error {
 .CategoryListing .col-md-4 {padding: 0 5px;}
 .accordion-inner ul li {font-size: 14px;margin-left: 25px;list-style-type: disc;}
 .verify-img img {width: 40%;}
+.checkout img.img-responsive {
+    height: auto;
+}
+.checkout .form-control {
+	border: 1px solid #C3CFD8;
+}
+.checkout input#AreaCode {
+    width: 100px;
+    padding: 6px;
+}

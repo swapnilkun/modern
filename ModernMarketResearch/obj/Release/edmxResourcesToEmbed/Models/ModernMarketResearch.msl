@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="ModernMarketResearchModelStoreContainer" CdmEntityContainer="ModernMarketResearchEntities">
+  <EntityContainerMapping StorageEntityContainer="ModernMarketResearchModelStoreContainer" CdmEntityContainer="ModernMarketResearchEntities2">
     <EntitySetMapping Name="ActionMasters">
       <EntityTypeMapping TypeName="ModernMarketResearchModel.ActionMaster">
         <MappingFragment StoreEntitySet="ActionMaster">
@@ -35,6 +35,7 @@
           <ScalarProperty Name="ReportUrl" ColumnName="ReportUrl" />
           <ScalarProperty Name="TransactionId" ColumnName="TransactionId" />
           <ScalarProperty Name="ReportTitle" ColumnName="ReportTitle" />
+          <ScalarProperty Name="ReportId" ColumnName="ReportId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -87,10 +88,6 @@
           <ScalarProperty Name="FormType" ColumnName="FormType" />
           <ScalarProperty Name="ReportTitle" ColumnName="ReportTitle" />
           <ScalarProperty Name="AreaCode" ColumnName="AreaCode" />
-          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
-          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
-          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

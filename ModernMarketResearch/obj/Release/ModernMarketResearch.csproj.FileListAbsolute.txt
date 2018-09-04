@@ -50,7 +50,7 @@ D:\C#.net\DevelopedProject\GitProject\modern\ModernMarketResearch\bin\DotNetOpen
 D:\C#.net\DevelopedProject\GitProject\modern\ModernMarketResearch\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
 D:\C#.net\DevelopedProject\GitProject\modern\ModernMarketResearch\obj\Release\ModernMarketResearch.dll
 D:\C#.net\DevelopedProject\GitProject\modern\ModernMarketResearch\obj\Release\ModernMarketResearch.pdb
-E:\githubproject\newmodern\modern\ModernMarketResearch\bin\System.Web.Http.WebHost.dll
+D:\C#.net\DevelopedProject\GitProject\modern\ModernMarketResearch\obj\Release\ModernMarketResearch.csprojResolveAssemblyReference.cache
 E:\githubproject\newmodern\modern\ModernMarketResearch\bin\ModernMarketResearch.dll
 E:\githubproject\newmodern\modern\ModernMarketResearch\bin\ModernMarketResearch.pdb
 E:\githubproject\newmodern\modern\ModernMarketResearch\bin\Antlr3.Runtime.dll
@@ -69,6 +69,7 @@ E:\githubproject\newmodern\modern\ModernMarketResearch\bin\PagedList.Mvc.dll
 E:\githubproject\newmodern\modern\ModernMarketResearch\bin\System.Net.Http.Formatting.dll
 E:\githubproject\newmodern\modern\ModernMarketResearch\bin\System.Web.Helpers.dll
 E:\githubproject\newmodern\modern\ModernMarketResearch\bin\System.Web.Http.dll
+E:\githubproject\newmodern\modern\ModernMarketResearch\bin\System.Web.Http.WebHost.dll
 E:\githubproject\newmodern\modern\ModernMarketResearch\bin\System.Web.Mvc.dll
 E:\githubproject\newmodern\modern\ModernMarketResearch\bin\System.Web.Optimization.dll
 E:\githubproject\newmodern\modern\ModernMarketResearch\bin\System.Web.Razor.dll
@@ -102,4 +103,4 @@ E:\githubproject\newmodern\modern\ModernMarketResearch\bin\DotNetOpenAuth.OpenId
 E:\githubproject\newmodern\modern\ModernMarketResearch\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
 E:\githubproject\newmodern\modern\ModernMarketResearch\obj\Release\ModernMarketResearch.dll
 E:\githubproject\newmodern\modern\ModernMarketResearch\obj\Release\ModernMarketResearch.pdb
-D:\C#.net\DevelopedProject\GitProject\modern\ModernMarketResearch\obj\Release\ModernMarketResearch.csprojResolveAssemblyReference.cache
+E:\githubproject\newmodern\modern\ModernMarketResearch\obj\Release\ModernMarketResearch.csprojResolveAssemblyReference.cache

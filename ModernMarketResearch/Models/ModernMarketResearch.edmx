@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="ModernMarketResearchModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="ModernMarketResearchModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityContainer Name="ModernMarketResearchModelStoreContainer">
           <EntitySet Name="ActionMaster" EntityType="ModernMarketResearchModel.Store.ActionMaster" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="BuyingInfo" EntityType="ModernMarketResearchModel.Store.BuyingInfo" store:Type="Tables" Schema="dbo" />
@@ -55,6 +55,7 @@
           <Property Name="ReportUrl" Type="nvarchar" Nullable="false" MaxLength="50" />
           <Property Name="TransactionId" Type="nvarchar" Nullable="false" MaxLength="50" />
           <Property Name="ReportTitle" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="ReportId" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="CategoryMaster">
           <Key>
@@ -101,13 +102,9 @@
           <Property Name="Country" Type="nvarchar" Nullable="false" MaxLength="50" />
           <Property Name="PhoneNumber" Type="nvarchar" MaxLength="15" />
           <Property Name="ReportId" Type="int" />
-          <Property Name="FormType" Type="nvarchar" MaxLength="10" />
+          <Property Name="FormType" Type="nvarchar" MaxLength="30" />
           <Property Name="ReportTitle" Type="nvarchar" MaxLength="50" />
           <Property Name="AreaCode" Type="nvarchar" MaxLength="10" />
-          <Property Name="CreatedBy" Type="int" Nullable="false" />
-          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
-          <Property Name="ModifiedBy" Type="int" />
-          <Property Name="ModifiedDate" Type="datetime" />
         </EntityType>
         <EntityType Name="NewsMaster">
           <Key>
@@ -351,7 +348,7 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="ModernMarketResearchModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityContainer Name="ModernMarketResearchEntities" p1:LazyLoadingEnabled="true">
+        <EntityContainer Name="ModernMarketResearchEntities2" p1:LazyLoadingEnabled="true">
           <EntitySet Name="ActionMasters" EntityType="ModernMarketResearchModel.ActionMaster" />
           <EntitySet Name="BuyingInfoes" EntityType="ModernMarketResearchModel.BuyingInfo" />
           <EntitySet Name="CategoryMasters" EntityType="ModernMarketResearchModel.CategoryMaster" />
@@ -498,6 +495,7 @@
           <Property Name="ReportUrl" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
           <Property Name="TransactionId" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
           <Property Name="ReportTitle" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="ReportId" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="CategoryMaster">
           <Key>
@@ -544,13 +542,9 @@
           <Property Name="Country" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
           <Property Name="PhoneNumber" Type="String" MaxLength="15" Unicode="true" FixedLength="false" />
           <Property Name="ReportId" Type="Int32" />
-          <Property Name="FormType" Type="String" MaxLength="10" Unicode="true" FixedLength="false" />
+          <Property Name="FormType" Type="String" MaxLength="30" Unicode="true" FixedLength="false" />
           <Property Name="ReportTitle" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
           <Property Name="AreaCode" Type="String" MaxLength="10" Unicode="true" FixedLength="false" />
-          <Property Name="CreatedBy" Type="Int32" Nullable="false" />
-          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="ModifiedBy" Type="Int32" />
-          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
         </EntityType>
         <EntityType Name="NewsMaster">
           <Key>
@@ -795,7 +789,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="ModernMarketResearchModelStoreContainer" CdmEntityContainer="ModernMarketResearchEntities">
+        <EntityContainerMapping StorageEntityContainer="ModernMarketResearchModelStoreContainer" CdmEntityContainer="ModernMarketResearchEntities2">
           <EntitySetMapping Name="ActionMasters">
             <EntityTypeMapping TypeName="ModernMarketResearchModel.ActionMaster">
               <MappingFragment StoreEntitySet="ActionMaster">
@@ -830,6 +824,7 @@
                 <ScalarProperty Name="ReportUrl" ColumnName="ReportUrl" />
                 <ScalarProperty Name="TransactionId" ColumnName="TransactionId" />
                 <ScalarProperty Name="ReportTitle" ColumnName="ReportTitle" />
+                <ScalarProperty Name="ReportId" ColumnName="ReportId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -882,10 +877,6 @@
                 <ScalarProperty Name="FormType" ColumnName="FormType" />
                 <ScalarProperty Name="ReportTitle" ColumnName="ReportTitle" />
                 <ScalarProperty Name="AreaCode" ColumnName="AreaCode" />
-                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
-                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
-                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

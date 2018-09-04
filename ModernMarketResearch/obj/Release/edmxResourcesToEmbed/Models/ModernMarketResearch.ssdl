@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="ModernMarketResearchModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+<Schema Namespace="ModernMarketResearchModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
   <EntityContainer Name="ModernMarketResearchModelStoreContainer">
     <EntitySet Name="ActionMaster" EntityType="ModernMarketResearchModel.Store.ActionMaster" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="BuyingInfo" EntityType="ModernMarketResearchModel.Store.BuyingInfo" store:Type="Tables" Schema="dbo" />
@@ -50,6 +50,7 @@
     <Property Name="ReportUrl" Type="nvarchar" Nullable="false" MaxLength="50" />
     <Property Name="TransactionId" Type="nvarchar" Nullable="false" MaxLength="50" />
     <Property Name="ReportTitle" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="ReportId" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="CategoryMaster">
     <Key>
@@ -96,13 +97,9 @@
     <Property Name="Country" Type="nvarchar" Nullable="false" MaxLength="50" />
     <Property Name="PhoneNumber" Type="nvarchar" MaxLength="15" />
     <Property Name="ReportId" Type="int" />
-    <Property Name="FormType" Type="nvarchar" MaxLength="10" />
+    <Property Name="FormType" Type="nvarchar" MaxLength="30" />
     <Property Name="ReportTitle" Type="nvarchar" MaxLength="50" />
     <Property Name="AreaCode" Type="nvarchar" MaxLength="10" />
-    <Property Name="CreatedBy" Type="int" Nullable="false" />
-    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
-    <Property Name="ModifiedBy" Type="int" />
-    <Property Name="ModifiedDate" Type="datetime" />
   </EntityType>
   <EntityType Name="NewsMaster">
     <Key>

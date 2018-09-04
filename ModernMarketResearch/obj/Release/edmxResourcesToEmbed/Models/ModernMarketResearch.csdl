@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="ModernMarketResearchModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-  <EntityContainer Name="ModernMarketResearchEntities" p1:LazyLoadingEnabled="true">
+  <EntityContainer Name="ModernMarketResearchEntities2" p1:LazyLoadingEnabled="true">
     <EntitySet Name="ActionMasters" EntityType="ModernMarketResearchModel.ActionMaster" />
     <EntitySet Name="BuyingInfoes" EntityType="ModernMarketResearchModel.BuyingInfo" />
     <EntitySet Name="CategoryMasters" EntityType="ModernMarketResearchModel.CategoryMaster" />
@@ -147,6 +147,7 @@
     <Property Name="ReportUrl" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
     <Property Name="TransactionId" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
     <Property Name="ReportTitle" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="ReportId" Type="Int32" Nullable="false" />
   </EntityType>
   <EntityType Name="CategoryMaster">
     <Key>
@@ -193,13 +194,9 @@
     <Property Name="Country" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
     <Property Name="PhoneNumber" Type="String" MaxLength="15" Unicode="true" FixedLength="false" />
     <Property Name="ReportId" Type="Int32" />
-    <Property Name="FormType" Type="String" MaxLength="10" Unicode="true" FixedLength="false" />
+    <Property Name="FormType" Type="String" MaxLength="30" Unicode="true" FixedLength="false" />
     <Property Name="ReportTitle" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
     <Property Name="AreaCode" Type="String" MaxLength="10" Unicode="true" FixedLength="false" />
-    <Property Name="CreatedBy" Type="Int32" Nullable="false" />
-    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="ModifiedBy" Type="Int32" />
-    <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
   </EntityType>
   <EntityType Name="NewsMaster">
     <Key>
