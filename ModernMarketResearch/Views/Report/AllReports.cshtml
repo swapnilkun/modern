@@ -79,8 +79,9 @@
 <section class="single-service-contents">
     <div class="container">
         <div class="row">
-            <div class="col-md-3 col-sm-5 col-xs-12">
-                <div class="service-sidebar sidebar-wrapper">
+            <div class="col-md-3 col-sm-5 col-xs-12" >
+                @{Html.RenderAction("PartialCat", "Category");}
+               @* <div class="service-sidebar sidebar-wrapper">
 
                     <div class="widget">
                         <h2 class="widget-title">Services</h2>
@@ -123,7 +124,8 @@
                         </div>
                     </div>
                     <!-- /.widget -->
-                </div>
+                </div>*@
+
                 <!-- /.sidebar-wrapper -->
             </div>
             <!-- /.col -->

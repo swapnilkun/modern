@@ -174,6 +174,7 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\ActionController.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminCategoryController.cs" />
+    <Compile Include="Areas\Admin\Controllers\CategoryController.cs" />
     <Compile Include="Areas\Admin\Controllers\ExcelCategoryController.cs" />
     <Compile Include="Areas\Admin\Controllers\ExcelUploadController.cs" />
     <Compile Include="Areas\Admin\Controllers\NewsController.cs" />
@@ -257,6 +258,8 @@
     <Compile Include="Models\NewsMaster.cs">
       <DependentUpon>ModernMarketResearch.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\PaymentGateway\Emailsending.cs" />
+    <Compile Include="Models\PaymentGateway\IPAddress.cs" />
     <Compile Include="Models\PublisherMaster.cs">
       <DependentUpon>ModernMarketResearch.tt</DependentUpon>
     </Compile>
@@ -1131,7 +1134,10 @@
     <Content Include="Views\News\NewsDetails.cshtml" />
     <Content Include="Views\Report\SearchedReports.cshtml" />
     <Content Include="Views\Category\MainCategories.cshtml" />
-    <Content Include="Views\Home\TermsAndCondition.cshtml" />
+    <Content Include="Views\ReportBuying\CheckoutForm.cshtml" />
+    <Content Include="Views\Home\PageTitleDiv.cshtml" />
+    <Content Include="Views\Category\PartialCat.cshtml" />
+    <Content Include="Views\InquiryForm\SampleRequest.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

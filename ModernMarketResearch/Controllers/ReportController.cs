@@ -255,7 +255,7 @@ namespace ModernMarketResearch.Controllers
 
                 ObjectParameter count = new ObjectParameter("p_Count", 0);
 
-                var RelatedReportsOfSamefamilly = (from r in db.spCategoryRelatedReport(catid, pageno ?? 1, count).ToList()
+                var RelatedReportsOfSamefamilly = (from r in db.spCategoryRelatedReport(catid, pageno ?? 1, count)
                                                    select new ReportVM
                                                    {
                                                        ReportTitle = r.ReportTitle,
@@ -273,7 +273,7 @@ namespace ModernMarketResearch.Controllers
                                                        ShortCatDesc = r.ShortDescription,
                                                        LongCatDesc = r.LongDescription,
                                                        PublisherName = r.PublisherName
-                                                   }).ToPagedList(pageno ?? 1, 10);
+                                                   }).ToList();
 
                 var catreports = (from x in RelatedReportsOfSamefamilly
                                   select new ReportVM

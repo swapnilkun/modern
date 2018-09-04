@@ -90,13 +90,17 @@ namespace ModernMarketResearch.Controllers
                     //CategoryMaster categorymaster = serializer.Deserialize<CategoryMaster>(s);
 
                     ObjBuy.GuId = System.Guid.NewGuid().ToString();
-                    //ObjBuy.IPAddress = QYGroupRepository.PaymentGateway.IPAddress.GetIPAddress();
+                    ObjBuy.IPAddress = ModernMarketResearch.Models.PaymentGateway.IPAddress.GetIPAddress();
 
 
                     BuyingInfo binfo = new BuyingInfo();
 
                     binfo.Address = ObjBuy.Address;
                     binfo.Name = ObjBuy.Name;
+                    binfo.AreaCode = ObjBuy.AreaCode;
+                    binfo.CustomerMessage = ObjBuy.CustomerMessage;
+                    binfo.ReportTitle = ObjBuy.ReportTitle;
+                    binfo.ReportUrl = ObjBuy.ReportUrl;
                     binfo.EmailId = ObjBuy.EmailId;
                     binfo.Company = ObjBuy.Company;
                     binfo.CaptchaCode = ObjBuy.CaptchaCode;

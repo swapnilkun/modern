@@ -35,7 +35,6 @@ namespace ModernMarketResearch.Models.ViewModel
         public string CaptchaCode { get; set; }
 
         [Display(Name = "Customer Message")]
-        //[Required(ErrorMessage = "User name should not be empty")]
         public string CustomerMessage { get; set; }
 
         [Display(Name = "Country Name")]
@@ -47,7 +46,7 @@ namespace ModernMarketResearch.Models.ViewModel
 
 
 
-        [Required(ErrorMessage = "User name should not be empty")]
+       // [Required(ErrorMessage = "User name should not be empty")]
         public decimal Price { get; set; }
 
         [Required(ErrorMessage = "State is required."), MaxLength(20, ErrorMessage = "State should not be more than 20 characters.")]
@@ -56,7 +55,7 @@ namespace ModernMarketResearch.Models.ViewModel
         [Required(ErrorMessage = "City is required."), MaxLength(20, ErrorMessage = "City should not be more than 20 characters.")]
         public string City { get; set; }
 
-        [Required(ErrorMessage = "Type should not be empty")]
+        
         public string Type { get; set; }
 
         [Required(ErrorMessage = "Address is required."), MaxLength(150, ErrorMessage = "Address should not be more than 150 characters.")]

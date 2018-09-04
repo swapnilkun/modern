@@ -65,74 +65,8 @@
         }
     }
 
-    //function ValidateForm(e, formType) {
-    //    debugger;
-    //    $('#btnSubmit_' + formType).click(function () {
-    //        if ($(this).valid()) {
-    //            if (ValidCaptcha(formType)) {
-    //                alert('the form is valid');
-    //            }
-    //            else {
-    //                e.preventDefault();
-    //                $("#captchaError_" + formType).html("Not Valid Captcha !..");
-    //            }
-    //        }
-
-    //    });
-
-    //    }
-
-    //$('#btnSubmit_' + formType).click(function () {
-    //    debugger;
-    //    if ($(this).valid()) {
-    //        if (ValidCaptcha(formType)) {
-    //            $("#Enquiryform_" + formType).submit();
-    //            alert('the form is valid');
-    //        }
-    //        else {
-    //            e.preventDefault();
-    //            $("#captchaError_" + formType).html("Not Valid Captcha !..");
-    //        }
-    //    }
-
-    //});
-
-    //$('#btnSubmit_' +formType).click(function ValidateForm(e, formType) {
-    //    debugger;
-    //    if (ValidCaptcha(formType)) {
-    //        $('#btnSubmit_'+formType).submit(function () {
-    //            if ($(this).valid()) {
-    //                alert('the form is valid');
-    //            }
-    //        });
-    //    }
-    //    else
-    //    {
-    //        e.preventDefault();
-    //       $("#captchaError_" + formType).html("Not Valid Captcha !..");
-    //    }
-    //});
-
-    //function ValidateForm(e, formType) {
-    //    debugger;
-    //    var valid = $('btnSubmit_'+FormType).validate().checkForm();
-    //    if (valid) {
-    //        if (ValidCaptcha(formType)) {
-    //            $("#Enquiryform_" + formType).submit();
-    //        }
-    //        //$('.form-save').prop('disabled', false);
-    //        //$('.form-save').removeClass('isDisabled');
-    //    } else {
-
-    //        e.preventDefault();
-    //        $("#captchaError_" + formType).html("Not Valid Captcha !..");
-
-    //        //$('.form-save').prop('disabled', 'disabled');
-    //        //$('.form-save').addClass('isDisabled');
-    //    }
-    //}
-
 </script>
+
 <script type="text/javascript">
     var removedStr = '';
     var mydescStr = [];
@@ -225,7 +159,7 @@
                     <div class="panel panel-default">
                         <div class="panel-heading">Payment Mode</div>
                         <div class="panel-body">
-                            @using (Html.BeginForm("CheckoutForm", "BuyingInfo", FormMethod.Get))
+                            @using (Html.BeginForm("CheckoutForm", "ReportBuying", FormMethod.Get))
                             {
                             <ul class="list-group">
                                 <li class="list-group-item d-flex justify-content-between align-items-center">
@@ -365,7 +299,7 @@
                                 <div class="css-tab-content">
                                     <div class="row">
                                         <div class="col-md-12 content-text">
-                                            @{Html.RenderAction("InquiryForm", "InquiryForm", new { @ReportID = Model.ReportDetails.ReportId, @FormType = "SampleRequestForm" });}
+                                            @{Html.RenderAction("SampleRequest", "InquiryForm", new { @ReportID = Model.ReportDetails.ReportId });}
                                         </div>
                                         <!-- /.col-md-12 -->
                                     </div>

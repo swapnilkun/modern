@@ -9,8 +9,6 @@ Author: Cloud Software Solution Ltd.
 /*-------------------------------------
  *  HERO SLIDER
  *-------------------------------------*/
-@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900,200italic,300italic,400italic,600italic,700italic,900italic);
-
 .hero-slide img {
 	min-width: 100%;
 }
@@ -707,19 +705,11 @@ span.count-description {
 ABOUT PAGE
 --------------------------------------------------------------------- */
 .about-intro-section {
-	background: url(../img/about-us-excellent-market-research.jpg) no-repeat;
+	background: url(../img/intro-bg.jpg) no-repeat;
 	background-size: cover;
-	padding: 50px 0;
+	padding: 112px 0;
 }
 
-section.mission-section {
-    background: #f2f2f2;
-    padding-top: 25px;
-}
-.mission-section .text-center {
-    text-align: center;
-    margin-bottom: 40px;
-}
 .about-intro {
 }
 
@@ -1989,24 +1979,3 @@ span.field-validation-error {
 .service-sidebar.sidebar-wrapper .list-group-item {padding: 10px 5px;}
 .service-sidebar.sidebar-wrapper input {margin-right: 10px;}
 .service-sidebar.sidebar-wrapper .panel .list-group {margin-bottom:0px;}
-
-.CategoryListing img {
-    width: 22%;
-    float: right;
-    position: relative;
-}
-.CategoryListing span {
-    word-wrap: break-word;
-    word-break: break-all;
-    width: 75% !important;
-    float: left;
-    font-weight: 600;
-    line-height: 20px;
-    padding: 10px 0 0px;
-    margin-bottom: 5px;
-	font-size:13px;
-}
-.CategoryListing .panel-heading { min-height:70px;}
-.CategoryListing .col-md-4 {padding: 0 5px;}
-.accordion-inner ul li {font-size: 14px;margin-left: 25px;list-style-type: disc;}
-.verify-img img {width: 40%;}

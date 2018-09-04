@@ -34,22 +34,23 @@
     <Property Name="Designation" Type="nvarchar" Nullable="false" MaxLength="50" />
     <Property Name="Company" Type="nvarchar" Nullable="false" MaxLength="50" />
     <Property Name="CaptchaCode" Type="nvarchar" Nullable="false" MaxLength="50" />
-    <Property Name="CustomerMessage" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="CustomerMessage" Type="nvarchar" MaxLength="50" />
     <Property Name="Country" Type="nvarchar" Nullable="false" MaxLength="50" />
     <Property Name="PhoneNumber" Type="nvarchar" Nullable="false" MaxLength="50" />
     <Property Name="Price" Type="decimal" Nullable="false" Scale="2" />
     <Property Name="State" Type="nvarchar" Nullable="false" MaxLength="50" />
     <Property Name="City" Type="nvarchar" Nullable="false" MaxLength="50" />
-    <Property Name="Type" Type="nchar" MaxLength="10" />
+    <Property Name="Type" Type="nvarchar" MaxLength="20" />
     <Property Name="Address" Type="nvarchar" Nullable="false" MaxLength="50" />
     <Property Name="Zipcode" Type="nvarchar" Nullable="false" MaxLength="50" />
     <Property Name="Paymentmode" Type="nvarchar" Nullable="false" MaxLength="50" />
     <Property Name="AreaCode" Type="nvarchar" Nullable="false" MaxLength="50" />
     <Property Name="IPAddress" Type="nvarchar" Nullable="false" MaxLength="50" />
     <Property Name="GuId" Type="nvarchar" Nullable="false" MaxLength="50" />
-    <Property Name="ReportUrl" Type="nvarchar" Nullable="false" MaxLength="50" />
-    <Property Name="TransactionId" Type="nvarchar" Nullable="false" MaxLength="50" />
-    <Property Name="ReportTitle" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="ReportUrl" Type="nvarchar" Nullable="false" MaxLength="250" />
+    <Property Name="TransactionId" Type="nvarchar" MaxLength="50" />
+    <Property Name="ReportTitle" Type="nvarchar" MaxLength="250" />
+    <Property Name="ReportId" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="CategoryMaster">
     <Key>
@@ -96,13 +97,9 @@
     <Property Name="Country" Type="nvarchar" Nullable="false" MaxLength="50" />
     <Property Name="PhoneNumber" Type="nvarchar" MaxLength="15" />
     <Property Name="ReportId" Type="int" />
-    <Property Name="FormType" Type="nvarchar" MaxLength="10" />
+    <Property Name="FormType" Type="nvarchar" MaxLength="30" />
     <Property Name="ReportTitle" Type="nvarchar" MaxLength="50" />
     <Property Name="AreaCode" Type="nvarchar" MaxLength="10" />
-    <Property Name="CreatedBy" Type="int" Nullable="false" />
-    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
-    <Property Name="ModifiedBy" Type="int" />
-    <Property Name="ModifiedDate" Type="datetime" />
   </EntityType>
   <EntityType Name="NewsMaster">
     <Key>
