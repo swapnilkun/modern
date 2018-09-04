@@ -1,11 +1,13 @@
 ﻿using ModernMarketResearch.Models;
 using ModernMarketResearch.Models.ViewModel;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity.Validation;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Web;
 using System.Web.Mvc;
@@ -77,10 +79,52 @@ namespace ModernMarketResearch.Controllers
             Enquiredata.ReportId = ReportID ?? 0;
             Enquiredata.FormType = FormType;
 
-            return View(Enquiredata);
+            return PartialView(Enquiredata);
 
         }
+    
+        public ActionResult SampleRequest(int? ReportID)
+        {
+            InquiryVM Enquiredata = new InquiryVM();
 
+            if (ReportID > 0)
+            {
+                var Reports = (from l in db.ReportMasters
+                               where l.ReportId == ReportID
+                               select new
+                               {
+                                   l.ReportUrl,
+                                   l.ReportTitle
+                               }
+                               ).FirstOrDefault();
+
+                Enquiredata.ReportTitle = Reports.ReportTitle.ToString();
+                Enquiredata.ReportUrl = Reports.ReportUrl.ToString();
+            }
+            else
+            {
+                Enquiredata.ReportTitle = "!";
+                Enquiredata.ReportUrl = "!";
+
+            }
+            //if (FormType == "SampleRequestForm")
+            //{
+            //    ViewBag.FormTitle = "<b>Please fill your details below, to receive sample report:</b><div style='font-size:15px;width:100%;'><label style='color:red; display:inline;'>*</label> Indicates required fields</div>";
+            //}
+            //else
+            //{
+            //    ViewBag.FormTitle = "<b>Please submit the below form, to get more about this report:</b><div style='font-size:15px;width:100%;'><label style='color:red; display:inline;'>*</label> Indicates required fields</div>";
+            //}
+
+            Session["Captcha"] = DrawCaptcha();
+            var PlainText = Session["Captcha"].ToString();
+            var EncryCaptcha = ModernMarketResearch.Areas.Admin.Models.Common.Encrypt(PlainText);
+            Enquiredata.RealCaptcha = EncryCaptcha;
+            Enquiredata.ReportId = ReportID ?? 0;
+            Enquiredata.FormType = "SampleRequestForm";
+
+            return PartialView(Enquiredata);
+        }
         public ActionResult CaptchaValidation(string inputcapcha, string RealCaptcha)
         {
             //   HttpCookie reqCookies = Request.Cookies["CaptchaInfo"];
@@ -113,16 +157,23 @@ namespace ModernMarketResearch.Controllers
         [HttpPost]
         public ActionResult InquiryForm(InquiryVM eq)
         {
+            var response = Request["g-recaptcha-response"];
+            string secreatekey = "6LcatdW0UAAAAAERSrddZFxQdvJd0xum_wTLvhUIT";
+            var client = new WebClient();
+            var result = client.DownloadString(string.Format("https://www.google.com/recaptcha/api/siteverify?secret=(0)&response=(1)", secreatekey, response));
+            var obj = JObject.Parse(result);
+            var status = (bool)obj.SelectToken("success");
+            ViewBag.Message = status ? "Google recaptcha validation success" : "Google recaptcha validation fails";
             CustomerInquiry e = new CustomerInquiry();
             var Formname = string.Empty;
             int FormTypeId;
-
             string Publisher = string.Empty;
-            if (ModelState.IsValid)
+
+            if (ModelState.IsValid && status)
             {
                 // cap = Session["Captcha"].ToString();
                 cap = ModernMarketResearch.Areas.Admin.Models.Common.Decrypt(eq.RealCaptcha);
-
+                
                 if (eq.ReportId > 0)
                 {
                     var Publish = (from l in db.ReportMasters
@@ -206,10 +257,10 @@ namespace ModernMarketResearch.Controllers
                     }
                 }
                 //Return the if model not valid
-                return View();
+                return View(eq);
             }
 
-            return View();
+            return View(eq);
         }
 
         public FileResult GetCaptchaImage(string EncryText)
@@ -313,6 +364,10 @@ namespace ModernMarketResearch.Controllers
         //    return result;
         //}
 
-
+        public ActionResult GetCountryCode(string countryname)
+        {
+            var countrycode = db.Countries.Where(x => x.nicename == countryname).Select(x => x.phonecode).FirstOrDefault();
+            return Json(countrycode);
+        }
     }
 }

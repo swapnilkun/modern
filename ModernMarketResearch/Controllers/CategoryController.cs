@@ -29,5 +29,11 @@ namespace ModernMarketResearch.Controllers
             var maincat = _ObjCatrepository.GetMainCategories();
             return View(maincat);
         }
+
+        public ActionResult PartialCat()
+        {
+            var maincat = _ObjCatrepository.GetMainCategories();
+            return PartialView(maincat);
+        }
     }
 }

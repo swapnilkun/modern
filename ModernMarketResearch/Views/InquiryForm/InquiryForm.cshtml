@@ -4,28 +4,58 @@
 }
 <link href="~/css/style.css" rel="stylesheet" />
 
+<script src="https://www.google.com/recaptcha/api.js" type="text/javascript"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
 
+        $("#country_").change(function () {
+            var v = $(this).val();
+            debugger;
+            $.ajax({
+                type: "post",
+                url: '@Url.Action("GetCountryCode", "InquiryForm")',
+                data: JSON.stringify({ 'countryname':v }),
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                success: function (data) {
+                    debugger;
+                    $("#PhoneCode_").empty();//just cleans all html from the control, element
+                    $("#PhoneCode_").val(data);
+                    //foreach loop
+                    //$.each(data, function (i, Phonecode) {
+                    //    $("#PhoneCode_").append( Phonecode.Value)
+                    //})
+
+                },
+                error: function (res) {
+                    alert(res.responseText);
+                }
+            });
+        });
+    });
+</script>
 <style type="text/css">
     .field-validation-error {
-        color:red;
+        color: red;
     }
+
     .help-block {
         color: red;
     }
-    .customrequiredsign {
-        color:red;
-    }
 
+    .customrequiredsign {
+        color: red;
+    }
 </style>
 <div class="outerdiv">
     <div class="innerdiv">
-        
+
         <h5></h5>
         <div class="alert">
             @Html.Raw(ViewBag.FormTitle)
         </div>
 
-        @using (Html.BeginForm("InquiryForm", "InquiryForm", FormMethod.Post, new { @class = "form-horizontal", @id = "Enquiryform_" +Model.FormType }))
+        @using (Html.BeginForm("InquiryForm", "InquiryForm", FormMethod.Post, new { @class = "form-horizontal", @id = "Enquiryform_" + Model.FormType }))
         {
             @Html.ValidationSummary(true)
 
@@ -61,20 +91,21 @@
                 <div class="col-md-4 inputGroupContainer">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-phone"></i></span>
-                        @*<input class="form-control" id="areacode" name="AreaCode" placeholder="1212" type="text" value="">*@
-                        @Html.DropDownListFor(m => m.AreaCode, from l in new  ModernMarketResearch.Models.ViewModel.InquiryVM().GetCountries()
-                                                              select new SelectListItem
-                                                              {
-                                                                  Text = l.nicename+"+"+l.phonecode,
-                                                                  Value = l.phonecode.ToString()
-                                                              }, "- Select Country -", new { @Class = "form-control", @id = "country_" + Model.FormType })
+                        @*<input class="form-control" id="PhoneCode_"+ Model.FormType +" name="AreaCode" placeholder="1212" type="text" value=" " readonly >*@
+                        @Html.TextBoxFor(m => m.AreaCode, new { @Class = "form-control", @id = "PhoneCode_",@readonly="readonly" })
+@*                        @Html.DropDownListFor(m => m.AreaCode, from l in new ModernMarketResearch.Models.ViewModel.InquiryVM().GetCountries()
+                                                               select new SelectListItem
+                                                               {
+                                                                   Text = l.nicename + "  +"+ l.phonecode,
+                                                                   Value = l.phonecode.ToString()
+                                                               }, "- Select Country -", new { @Class = "form-control", @id = "Phonecode_" + Model.FormType })*@
                     </div>
                     @Html.ValidationMessageFor(model => model.AreaCode)
 
                     <span class="field-validation-valid"></span>
                 </div>
                 <div class="col-md-4 inputGroupContainer">
-                    @Html.TextBoxFor(model => model.PhoneNumber, new { @class = "form-control", @placeholder = "Phone-Number", @id = "phonenumber_" + Model.FormType })
+                    @Html.TextBoxFor(model => model.PhoneNumber, new { @class = "form-control", @placeholder = "Phone-Number", @id = "phonenumber_" })
                     @Html.ValidationMessageFor(model => model.PhoneNumber)
                 </div>
             </div>
@@ -103,12 +134,13 @@
                 <div class="col-md-8 selectContainer">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-plane"></i></span>
-                        @Html.DropDownListFor(m => m.Country, from l in new  ModernMarketResearch.Models.ViewModel.InquiryVM().GetCountries()
+                        @Html.HiddenFor(model => model.Country, new { @id = "CategoryId" })
+                        @Html.DropDownListFor(m => m.Country, from l in new ModernMarketResearch.Models.ViewModel.InquiryVM().GetCountries()
                                                               select new SelectListItem
                                                               {
                                                                   Text = l.nicename,
                                                                   Value = l.nicename.ToString()
-                                                              }, "- Select Country -", new { @Class = "form-control", @id = "country_" + Model.FormType })
+                                                              }, "- Select Country -", new { @Class = "form-control", @id = "country_" , @onchange = "javascript:$('#CategoryId').val($(this).val());"})
 
                     </div>
                     @Html.ValidationMessageFor(model => model.Country)
@@ -140,7 +172,8 @@
                 <label class="col-md-3 control-label">
                 </label>
                 <div class="col-md-8 ">
-                    <img id="CaptchImg" style="background-color:#01819c"  src="@Url.Action("GetCaptchaImage", "InquiryForm", new { @EncryText = Model.RealCaptcha })" />
+                    @*<img id="CaptchImg" style="background-color:#01819c"  src="@Url.Action("GetCaptchaImage", "InquiryForm", new { @EncryText = Model.RealCaptcha })" />*@
+                    <div class="g-recaptcha" data-sitekey="6LcatW0UAAAAALq5XQhoVCVX2o5xwbre4fyUgQeJ"></div>
                 </div>
             </div>
 
