@@ -1645,6 +1645,20 @@ Contact Page
 	text-align: left !important;
 	line-height: 0px;
 }
+.col-md-3.report-img {
+    margin: 0 auto;
+    padding-top: 3%;
+}
+.report-content h3 
+{
+    line-height: 20px;
+    margin-top: 10px;
+}
+.panel-body.category-short-note {
+    line-height: 25px;
+    font-size: 15px;
+	text-align: justify;
+}
 
 .report-content {
 	padding-bottom: 10px;
@@ -2025,6 +2039,4 @@ span.field-validation-error {
     width: 100px;
     padding: 6px;
 }
-=======
 .service-sidebar.sidebar-wrapper .panel .list-group {margin-bottom:0px;}
->>>>>>> 80c25f77c99ea029a67ef7a1a8cbddc5d6fa314e
