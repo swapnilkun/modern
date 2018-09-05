@@ -1070,6 +1070,11 @@
       <DependentUpon>ModernMarketResearch.edmx</DependentUpon>
       <LastGenOutput>ModernMarketResearch.cs</LastGenOutput>
     </Content>
+    <Content Include="Areas\Admin\Views\Category\CategoryDelete.cshtml" />
+    <Content Include="Areas\Admin\Views\Category\CategoryDetails.cshtml" />
+    <Content Include="Areas\Admin\Views\Category\CategoryEdit.cshtml" />
+    <Content Include="Areas\Admin\Views\Category\CategoryIndex.cshtml" />
+    <Content Include="Areas\Admin\Views\Category\CreateCategory.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.2.1.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
@@ -1089,7 +1094,6 @@
     <Content Include="Scripts\knockout-2.1.0.debug.js" />
     <Content Include="Scripts\knockout-2.1.0.js" />
     <Content Include="Scripts\modernizr-2.5.3.js" />
-    <Content Include="trucking.html" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -1134,10 +1138,13 @@
     <Content Include="Views\News\NewsDetails.cshtml" />
     <Content Include="Views\Report\SearchedReports.cshtml" />
     <Content Include="Views\Category\MainCategories.cshtml" />
+    <Content Include="Views\Home\TermsAndCondition.cshtml" />
     <Content Include="Views\ReportBuying\CheckoutForm.cshtml" />
-    <Content Include="Views\Home\PageTitleDiv.cshtml" />
     <Content Include="Views\Category\PartialCat.cshtml" />
     <Content Include="Views\InquiryForm\SampleRequest.cshtml" />
+    <Content Include="Views\Home\PageTitleDiv.cshtml">
+      <SubType>Code</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

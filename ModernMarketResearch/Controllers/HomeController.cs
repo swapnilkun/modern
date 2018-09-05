@@ -93,5 +93,17 @@ namespace ModernMarketResearch.Controllers
 
             return View();
         }
+
+        public ActionResult TermsAndCondition()
+        {
+            ViewBag.Message = "Terms And Conditions.";
+            return View();
+        }
+
+        public ActionResult PrivacyAndCookies()
+        {
+            ViewBag.Message = "Your contact page.";
+            return View();
+        }
     }
 }
