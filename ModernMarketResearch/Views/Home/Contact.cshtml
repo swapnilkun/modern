@@ -29,7 +29,8 @@
 								<div class="col-md-7">
 									<div class="contact-map">
 										<h3>Contact Form</h3>
-										<form id="mainContact" action="sendemail.php" method="POST">
+                                        @{Html.RenderAction("Index", "ContactUs");}
+										@*<form id="mainContact" action="sendemail.php" method="POST">
 											<div class="form-group">
 											    <label for="name">Name</label>
 											    <input name="name" type="text" class="form-control"  required="" placeholder="">
@@ -59,7 +60,7 @@
 											</div>
 
 											<button type="submit" class="btn btn-primary">Send Message</button>
-										</form>
+										</form>*@
 									</div>
 								</div>
 

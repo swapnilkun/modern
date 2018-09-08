@@ -19,6 +19,7 @@ namespace ModernMarketResearch.Controllers
 
         public ActionResult Index()
         {
+            ViewBag.activemenu = "News";
             return View();
         }
         [OutputCache(Duration = 60, VaryByParam = "none")]

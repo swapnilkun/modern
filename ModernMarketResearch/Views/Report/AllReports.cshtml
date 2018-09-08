@@ -3,9 +3,8 @@
 @model IPagedList<ModernMarketResearch.Areas.Admin.Models.ViewModel.ReportVM>
 @{
     ViewBag.Title = "All Latest Market Research Reports ";
-                        //Layout = null;
+                            //Layout = null;
 }
-<link href="~/Content/PagedList.css" rel="stylesheet" />
 
 <script type="text/javascript">
     var x = {};
@@ -54,32 +53,32 @@
     }
 </style>
 
-
-<section class="page-title-section" style="height:100px;">
+<section class="page-title-section">
     <div class="container">
         <div class="row">
             <div class="col-xs-12">
                 <div class="page-header-wrap">
-                    <div class="page-header">
-                        @{Html.RenderAction("SearchingPartialView", "Home");}
-                    </div>
-                   @* <ol class="breadcrumb">
-                        <li><a href="/">Home</a></li>
-                        <li><a>Reports</a></li>
-                        <li class="active">Report Details</li>
-                    </ol>*@
-                </div>
 
+                    <div class="page-header">
+                        <h1>Reports</h1>
+                        <div class="report-search-section">@{Html.RenderAction("SearchingPartialView", "Home");}</div>
+                    </div>
+                    <ol class="breadcrumb">
+                        <li><a href="/">Home</a></li>
+                        <li class="active">Reports</li>
+                    </ol>
+                </div>
             </div>
         </div>
     </div>
 </section>
 
+
 <!-- Single-Service-Start -->
 <section class="single-service-contents">
     <div class="container">
         <div class="row">
-            <div class="col-md-3 col-sm-5 col-xs-12" >
+            <div class="col-md-3 col-sm-5 col-xs-12">
                 @{Html.RenderAction("PartialCat", "Category");}
             </div>
             <!-- /.col -->
@@ -137,58 +136,18 @@
 
                 <!-- PAGINATION -->
                 <section class="pagination-wrap">
-
                     <div class="blog-pagination">
                         <ul class="pagination text-center">
-
-                            @if (ViewBag.Totalreports > 0)
-                            {
-                          
-
-                        @Html.PagedListPager(Model, pageno => Url.Action("AllReports", new
-                   {
-                       pageno,
-                   }) , new PagedListRenderOptions() { Display = PagedListDisplayMode.IfNeeded, DisplayPageCountAndCurrentLocation = true })
-                  
-                    }
-                </ul>
-              @*  <section class="pagination-wrap">
-										
-									    <div class="blog-pagination">
-									        <ul class="pagination text-center">
-				
-									            <li class="disabled"><a class="prev" href="#">Prev.</a></li>
-									            <li class="active"><a href="#">1</a></li>
-									            <li><a href="#">2</a></li>
-									            <li><a href="#">3</a></li>
-									            <li><a href="#">4</a></li>
-									            <li><a href="#">5</a></li>
-									            <li><a href="#">6</a></li>
-									            <li><a href="#">6</a></li>
-									            <li><a class="next" href="#">Next</a></li>
-									            
-									        </ul>
-									    </div>	
-
-									</section>*@
-
-                                @Html.PagedListPager(Model, pageno => Url.Action("AllReports", new
+                            @Html.PagedListPager(Model, pageno => Url.Action("AllReports", new
                             {
                                 pageno,
-                            }), new PagedListRenderOptions() {  LinkToPreviousPageFormat = "Prev.", LinkToNextPageFormat = "Next", LiElementClasses = new List<string> {"myClass", "yourClass"}})
-                  
-                            }
-                            
+                            }), new PagedListRenderOptions() { LinkToPreviousPageFormat = "Prev", LinkToNextPageFormat = "Next", LiElementClasses = new List<string> { "myClass" } })
+
                         </ul>
                     </div>
-
                 </section>
-
-
                 <!-- END PAGINATION -->
                 <div class="clearfix"></div>
-
-
             </div>
             <!-- /.col -->
         </div>
@@ -197,67 +156,4 @@
     <!-- /.container -->
 </section>
 <!-- Single-Service-End-->
-@*<div id="bannersection">
-    <div class="searchsection">
-        <div class="col-sm-3"></div>
-        <div class="col-sm-6">
-            <h5><span class="searchheader">Search Market Research Reports from Top Publishers</span></h5>
-            @{Html.RenderAction("SearchingPartialView", "Home");}
-        </div>
-        <div class="col-sm-3"></div>
-    </div>
-</div>
-<div class="clear"></div>
-<div class="container">
-    <div class="row">
-        <div class="col-sm-8">
-            <!--report start-->
-            <h1>Latest Reports</h1>
-            @if (ViewBag.Totalreports > 0)
-            {
-                
-                <div id="reportcontainer">
-                    @foreach (var item in Model)
-                    {
-                        <div class="latestreportdiv">
-                            <h3 class="goodretailclass"><a href='@Url.Action("ReportDetail", "Report", new { ReportUrl = item.ReportUrl })'><b>@item.ReportTitle</b></a></h3>
-                            <div id="datpric">
-                                <span class="glyphicon glyphicon-calendar"></span>@item.PublishingDate.ToString("MMM-yy") | <span class="glyphicon glyphicon-globe"></span>@Html.DisplayFor(model => item.CategoryName) |<span class="glyphicon glyphicon-usd"></span>Price : $ @item.PriceSingleUser
-                            </div>
-                            <p class="goodretailclass textjustify" style="font-size: 14px;">
-                                @Html.Raw(item.FullDescription)<a href='@Url.Action("ReportDetail", "Report", new { ReportUrl = item.ReportUrl })'><br />
-                                    <span style="border: 1px solid #009651; background-color: #009688; color: #FFFFFF; padding: 3px;">Read More..</span>
-                                </a>
-                            </p>
-                        </div>
-                    }
-                    <!-- row 2 -->
-
-
-                    <!-- row 3 -->
-
-                    <!-- pagination -->
-                    <ul class="pagination">
-                        @Html.PagedListPager(Model, pageno => Url.Action("AllReports", new
-                   {
-                       pageno
-                   }), new PagedListRenderOptions() { Display = PagedListDisplayMode.IfNeeded, DisplayPageCountAndCurrentLocation = true })
-                    </ul>
-                    <!-- pagination -->
-                </div> 
-            }
-            else
-            {
-                @ViewBag.Reports
-            }
-            <!--report finish-->
-        </div>
-        <div class="col-sm-4">
-            @{Html.RenderAction("LatestNews", "News");}
-        </div>
-    </div>
-
-</div>*@
-<!-- footer -->
-
 

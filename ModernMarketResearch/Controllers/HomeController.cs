@@ -18,7 +18,7 @@ namespace ModernMarketResearch.Controllers
         [OutputCache(Duration = 60, VaryByParam = "none")]
         public ActionResult Index()
         {
-
+            ViewBag.activemenu = "Home";
             ViewBag.ChemicalsMaterials = (from l in db.CategoryMasters
                                           join r in db.ReportMasters on l.CategoryId equals r.CategoryId
                                           //where l.CategoryName == "Chemicals & Materials"
@@ -83,6 +83,7 @@ namespace ModernMarketResearch.Controllers
         public ActionResult About()
         {
             ViewBag.Message = "Your app description page.";
+            ViewBag.activemenu = "About";
 
             return View();
         }
@@ -90,6 +91,7 @@ namespace ModernMarketResearch.Controllers
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";
+            ViewBag.activemenu = "Contact";
 
             return View();
         }

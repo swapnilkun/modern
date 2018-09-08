@@ -2,7 +2,8 @@
 @using PagedList.Mvc
 @model IPagedList<ModernMarketResearch.Areas.Admin.Models.ViewModel.ReportVM>
 @{
-                        // Layout = null;
+    ViewBag.Title = "All Latest Market Research Reports ";
+                            // Layout = null;
 }
 
 @*<link href="~/Content/PagedList.css" rel="stylesheet" />*@
@@ -53,19 +54,19 @@
         color: red;
     }
 </style>
-<section class="page-title-section" style="height:100px;">
+<section class="page-title-section">
     <div class="container">
         <div class="row">
             <div class="col-xs-12">
                 <div class="page-header-wrap">
                     <div class="page-header">
-                        @{Html.RenderAction("SearchingPartialView", "Home");}
+                        <h1>Reports</h1>
+                        <div class="report-search-section">@{Html.RenderAction("SearchingPartialView", "Home");}</div>
                     </div>
-                   @* <ol class="breadcrumb">
+                    <ol class="breadcrumb">
                         <li><a href="/">Home</a></li>
-                        <li><a>Reports</a></li>
-                        <li class="active">Report Details</li>
-                    </ol>*@
+                        <li class="active">Category Related Reports</li>
+                    </ol>
                 </div>
 
             </div>
@@ -75,20 +76,11 @@
 
 
 <!-- Single-Service-Start -->
-<div class="news-box-heading heading-btn" style="width: 95%; margin: auto;">
-    <i class="fa fa-clipboard" style="font-size: 24px"></i>&nbsp;&nbsp;&nbsp;Chemicals
-
-</div>
 <section class="single-service-contents">
     <div class="container">
         <div class="row">
             <div class="col-md-3 col-sm-5 col-xs-12">
                 @{Html.RenderAction("PartialCat", "Category");}
-                <div class="service-sidebar sidebar-wrapper">
-
-                    <!-- /.widget -->
-                </div>
-                <!-- /.sidebar-wrapper -->
             </div>
             <!-- /.col -->
             <div class="col-md-9 col-sm-7 col-xs-12">
@@ -101,7 +93,7 @@
                         {
                         <div class="row report-lst-view">
                             <div class="col-md-3 report-img">
-                                <img />
+                                <img src="~/img/icons/@(String.Format("{0}{1}", item.CategoryUrl, ".png"))" />
                             </div>
                             <div class="col-md-9 report-content">
                                 <a href="@Url.Action("ReportDetail", "Report", new { @ReportUrl = item.ReportUrl })">
@@ -135,7 +127,7 @@
                                 </div>
                             </div>
                             <div class="col-md-3 report-img">
-                                <img />
+                                <img src="~/img/icons/@(String.Format("{0}{1}", item.CategoryUrl, ".png"))" />
                             </div>
 
                         </div>
@@ -144,17 +136,19 @@
                     }
                 </div>
 
+                <!-- PAGINATION -->
+                <section class="pagination-wrap">
+                    <div class="blog-pagination">
+                        <ul class="pagination text-center">
+                            @Html.PagedListPager(Model, pageno => Url.Action("AllReports", new
+                            {
+                                pageno,
+                            }), new PagedListRenderOptions() { LinkToPreviousPageFormat = "Prev", LinkToNextPageFormat = "Next", LiElementClasses = new List<string> { "myClass" } })
 
-                <ul class="pagination">
-
-
-                    @Html.PagedListPager(Model, pageno => Url.Action("CategoryRelatedReports", new
-                   {
-                       pageno,
-                   }), new PagedListRenderOptions() { Display = PagedListDisplayMode.IfNeeded, DisplayPageCountAndCurrentLocation = true })
-
-
-                </ul>
+                        </ul>
+                    </div>
+                </section>
+                <!-- END PAGINATION -->
             </div>
             <!-- /.col -->
         </div>

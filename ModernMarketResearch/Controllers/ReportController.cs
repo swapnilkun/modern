@@ -22,6 +22,7 @@ namespace ModernMarketResearch.Controllers
 
         public ActionResult Index()
         {
+            ViewBag.activemenu = "Report";
             return View();
         }
 

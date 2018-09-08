@@ -679,7 +679,7 @@ span.count-description {
 	font-weight: 400;
 }
 
-	span.count-description:before {
+span.count-description:before {
 		position: absolute;
 		left: 0;
 		top: 0;
@@ -692,15 +692,15 @@ span.count-description {
 		margin-right: 10px;
 	}
 
-	span.count-description.flaticon-boat:before {
+span.count-description.flaticon-boat:before {
 		content: "\e006";
 	}
 
-	span.count-description.flaticon-international:before {
+span.count-description.flaticon-international:before {
 		content: "\e01d";
 	}
 
-	span.count-description.flaticon-compass:before {
+span.count-description.flaticon-compass:before {
 		content: "\e013";
 	}
 
@@ -725,11 +725,11 @@ section.mission-section {
 .about-intro {
 }
 
-	.about-intro h2 {
+.about-intro h2 {
 		margin-bottom: 25px;
 	}
 
-	.about-intro p {
+.about-intro p {
 		margin-bottom: 25px;
 	}
 
@@ -737,16 +737,16 @@ section.mission-section {
 	margin-top: 90px;
 }
 
-	.company-in-number .timer {
+.company-in-number .timer {
 		font-size: 30px;
 		font-weight: 700;
 	}
 
-	.company-in-number i {
+.company-in-number i {
 		float: left;
 	}
 
-		.company-in-number i::before {
+.company-in-number i::before {
 			font-size: 100px;
 		}
 
@@ -783,7 +783,7 @@ section.mission-section {
 	background-color: #f4f6f7;
 }
 
-	.history-section h2 {
+.history-section h2 {
 		margin-bottom: 30px;
 	}
 
@@ -804,8 +804,8 @@ section.mission-section {
 	opacity: 1;
 }
 
-	.carousel-fade .carousel-inner .active.left,
-	.carousel-fade .carousel-inner .active.right {
+.carousel-fade .carousel-inner .active.left,
+.carousel-fade .carousel-inner .active.right {
 		left: 0;
 		opacity: 0;
 		z-index: 1;
@@ -827,7 +827,7 @@ section.mission-section {
 	position: relative;
 }
 
-	.item .history-info::before {
+.item .history-info::before {
 		content: "";
 		background: url(../img/carousel-indicator-blue.png);
 		position: absolute;
@@ -842,7 +842,7 @@ section.mission-section {
 	background: #a4d4d1;
 }
 
-	.item:nth-child(2) .history-info::before {
+.item:nth-child(2) .history-info::before {
 		background: url(../img/carousel-indicator-tarquis.png);
 	}
 
@@ -850,7 +850,7 @@ section.mission-section {
 	background: #b4cd7c;
 }
 
-	.item:nth-child(3) .history-info::before {
+.item:nth-child(3) .history-info::before {
 		background: url(../img/carousel-indicator-green.png);
 	}
 
@@ -904,7 +904,7 @@ section.mission-section {
 	background-color: #f4f6f7;
 }
 
-	.annual-report-section .section-title {
+.annual-report-section .section-title {
 		line-height: 60px;
 	}
 
@@ -939,12 +939,12 @@ section.mission-section {
 	bottom: -100px;
 }
 
-	#reportCarousel .carousel-indicators li {
+#reportCarousel .carousel-indicators li {
 		background-color: rgba(0,0,0,.2);
 		border: 1px solid transparent;
 	}
 
-	#reportCarousel .carousel-indicators .active {
+#reportCarousel .carousel-indicators .active {
 		background-color: #fff;
 	}
 
@@ -968,16 +968,16 @@ SERVICE PAGES
 	margin-top: 112px;
 }
 
-	.service-blocks .service-block {
+.service-blocks .service-block {
 		margin-bottom: 35px;
 	}
 
-		.service-blocks .service-block .service-icon {
+.service-blocks .service-block .service-icon {
 			float: left;
 			margin: 10px 20px 0 0;
 		}
 
-			.service-blocks .service-block .service-icon i {
+.service-blocks .service-block .service-icon i {
 				display: block;
 				line-height: 70px;
 				width: 70px;
@@ -990,29 +990,29 @@ SERVICE PAGES
 				border-radius: 100%;
 			}
 
-		.service-blocks .service-block:hover .service-icon i {
+.service-blocks .service-block:hover .service-icon i {
 			background: #65d3e3;
 			color: #fff;
 		}
 
-		.service-blocks .service-block .service-icon i:before {
+.service-blocks .service-block .service-icon i:before {
 			font-size: 60px;
 		}
 
-		.service-blocks .service-block .service-content {
+.service-blocks .service-block .service-content {
 			overflow: hidden;
 		}
 
-			.service-blocks .service-block .service-content h3 {
+.service-blocks .service-block .service-content h3 {
 				font-size: 18px;
 				margin-bottom: 10px;
 			}
 
-				.service-blocks .service-block .service-content h3 a {
+.service-blocks .service-block .service-content h3 a {
 					color: #606676;
 				}
 
-					.service-blocks .service-block .service-content h3 a:hover {
+.service-blocks .service-block .service-content h3 a:hover {
 						color: #65d3e3;
 					}
 
@@ -1033,7 +1033,7 @@ SERVICE PAGES
 	border-radius: 5px;
 }
 
-	.service-sidebar.sidebar-wrapper h2 {
+.service-sidebar.sidebar-wrapper h2 {
 		font-size: 24px;
 		line-height: 36px;
 		text-transform: capitalize;
@@ -1045,18 +1045,18 @@ SERVICE PAGES
 	margin-bottom: 8px;
 }
 
-	.widget .service-list li:last-child {
+.widget .service-list li:last-child {
 		margin-bottom: 0;
 	}
 
-	.widget .service-list li a {
+.widget .service-list li a {
 		position: relative;
 		padding-left: 30px;
 		font-weight: 700;
 		line-height: 36px;
 	}
 
-		.widget .service-list li a:before {
+.widget .service-list li a:before {
 			content: "";
 			font-family: Flaticon;
 			position: absolute;
@@ -1066,31 +1066,31 @@ SERVICE PAGES
 			line-height: 19px;
 		}
 
-		.widget .service-list li a.icon-air:before {
+.widget .service-list li a.icon-air:before {
 			content: "\e002";
 		}
 
-		.widget .service-list li a.icon-marine:before {
+.widget .service-list li a.icon-marine:before {
 			content: "\e004";
 		}
 
-		.widget .service-list li a.icon-store:before {
+.widget .service-list li a.icon-store:before {
 			content: "\e023";
 		}
 
-		.widget .service-list li a.icon-shipping:before {
+.widget .service-list li a.icon-shipping:before {
 			content: "\e005";
 		}
 
-		.widget .service-list li a.icon-transportation:before {
+.widget .service-list li a.icon-transportation:before {
 			content: "\e043";
 		}
 
-		.widget .service-list li a.icon-trucking:before {
+.widget .service-list li a.icon-trucking:before {
 			content: "\e02b";
 		}
 
-	.widget .service-list li.active a {
+.widget .service-list li.active a {
 		color: #65D3E3;
 	}
 
@@ -1099,7 +1099,7 @@ SERVICE PAGES
 	margin-bottom: 10px;
 }
 
-	.widget .download-wrap a {
+.widget .download-wrap a {
 		background-color: #E9E9E9;
 		color: #5C5D6A;
 		border: 2px solid #E1E1E1;
@@ -1116,17 +1116,17 @@ SERVICE PAGES
 		border-radius: 3px;
 	}
 
-		.widget .download-wrap a:hover {
+.widget .download-wrap a:hover {
 			border: 2px solid #65D3E3;
 		}
 
-		.widget .download-wrap a span {
+.widget .download-wrap a span {
 			display: block;
 			font-weight: normal;
 			font-size: 10px;
 		}
 
-		.widget .download-wrap a i {
+.widget .download-wrap a i {
 			position: absolute;
 			top: 9px;
 			right: 8px;
@@ -1146,7 +1146,7 @@ SERVICE PAGES
 	margin-bottom: 50px;
 }
 
-	.single-service-content .single-service-thumb img {
+.single-service-content .single-service-thumb img {
 		width: 100%;
 	}
 
@@ -1166,7 +1166,7 @@ OUR PEOPLE
 	padding: 100px 0;
 }
 
-	.team-intro .team-thumb img {
+.team-intro .team-thumb img {
 		width: 100%;
 	}
 
@@ -1183,7 +1183,7 @@ OUR PEOPLE
 	padding-bottom: 112px !important;
 }
 
-	.team-service-contents h3 {
+.team-service-contents h3 {
 		font-size: 18px;
 		line-height: 28px;
 		font-weight: 600;
@@ -1200,20 +1200,20 @@ OUR PEOPLE
 	background-color: #f8f8f8;
 }
 
-	.team-service-testimonial > h2 {
+.team-service-testimonial > h2 {
 		line-height: 42px;
 	}
 
-	.team-service-testimonial > p {
+.team-service-testimonial > p {
 		padding: 20px 0;
 	}
 
-	.team-service-testimonial > div strong {
+.team-service-testimonial > div strong {
 		font-size: 14px;
 		color: #606676;
 	}
 
-	.team-service-testimonial > div small {
+.team-service-testimonial > div small {
 		font-size: 12px;
 		display: block;
 		line-height: 20px;
@@ -1223,7 +1223,7 @@ OUR PEOPLE
 	padding-top: 120px;
 }
 
-	.team-members .team-member {
+.team-members .team-member {
 		margin-bottom: 45px;
 	}
 
@@ -1235,11 +1235,11 @@ OUR PEOPLE
 	background: #f4f4f4;
 }
 
-	.member-thumbnail img {
+.member-thumbnail img {
 		width: 100%;
 	}
 
-	.member-thumbnail::before {
+.member-thumbnail::before {
 		content: "";
 		background-color: rgba(101, 211, 227, 0.8);
 		position: absolute;
@@ -1250,7 +1250,7 @@ OUR PEOPLE
 		opacity: 0;
 	}
 
-	.member-thumbnail:hover::before {
+.member-thumbnail:hover::before {
 		opacity: 1;
 	}
 
@@ -1265,7 +1265,7 @@ OUR PEOPLE
 	background: transparent;
 }
 
-	.member-link i {
+.member-link i {
 		display: block;
 		margin-top: 45%;
 		height: 50px;
@@ -1273,7 +1273,7 @@ OUR PEOPLE
 		color: #fff;
 	}
 
-		.member-link i:before {
+.member-link i:before {
 			font-size: 0;
 		}
 
@@ -1298,7 +1298,7 @@ OUR PEOPLE
 	margin-top: 10px;
 }
 
-	.member-info h3 {
+.member-info h3 {
 		line-height: 24px;
 		text-transform: uppercase;
 		font-family: Source Sans Pro;
@@ -1307,7 +1307,7 @@ OUR PEOPLE
 		margin: 0;
 	}
 
-	.member-info small {
+.member-info small {
 		display: block;
 		font-size: 14px;
 		color: #7B8A97;
@@ -1321,11 +1321,11 @@ OUR PEOPLE
 	padding: 100px 0;
 }
 
-	.about-member img {
+.about-member img {
 		width: 100%;
 	}
 
-	.about-member .member-info {
+.about-member .member-info {
 		background: #F5F5F5;
 		padding: 20px 25px;
 		margin: 0;
@@ -1335,7 +1335,7 @@ OUR PEOPLE
 		text-align: left;
 	}
 
-	.about-member .info-address {
+.about-member .info-address {
 		background: #F5F5F5;
 		padding: 30px;
 	}
@@ -1349,11 +1349,11 @@ CAREER Page
 	padding: 120px 0;
 }
 
-	.career .career-contents {
+.career .career-contents {
 		margin-top: 120px;
 	}
 
-	.career ul.joblist {
+.career ul.joblist {
 		border-bottom: 1px solid #E3E3E3;
 		padding-bottom: 15px;
 		margin: 0;
@@ -1362,25 +1362,25 @@ CAREER Page
 		color: #777;
 	}
 
-		.career ul.joblist li {
+.career ul.joblist li {
 			padding: 15px 0;
 		}
 
-			.career ul.joblist li a {
+.career ul.joblist li a {
 				color: #111;
 			}
 
-				.career ul.joblist li a:hover {
+.career ul.joblist li a:hover {
 					background: #65D3E3;
 					color: #FFFFFF;
 					border-radius: 2px;
 				}
 
-			.career ul.joblist li:first-child {
+.career ul.joblist li:first-child {
 				margin-right: 20px;
 			}
 
-			.career ul.joblist li:last-child {
+.career ul.joblist li:last-child {
 				float: right;
 			}
 
@@ -1404,7 +1404,7 @@ CAREER Page
 	position: relative;
 }
 
-	.job-details dl dd::before {
+.job-details dl dd::before {
 		font-family: FontAwesome;
 		content: "\f192";
 		font-size: 10px;
@@ -1438,7 +1438,7 @@ FAQ Page
 	box-shadow: none;
 }
 
-	#accordion .accordion-heading a {
+#accordion .accordion-heading a {
 		position: relative;
 		display: block;
 		font-size: 15px;
@@ -1449,15 +1449,15 @@ FAQ Page
 		border-bottom: 1px solid #F5F5F5;
 	}
 
-	#accordion .accordion-heading:hover a {
+#accordion .accordion-heading:hover a {
 		color: #65D3E3;
 	}
 
-	#accordion .accordion-heading a.collapsed {
+#accordion .accordion-heading a.collapsed {
 		border-bottom: 1px solid transparent;
 	}
 
-	#accordion .accordion-heading a:after {
+#accordion .accordion-heading a:after {
 		content: "\f107";
 		font-family: FontAwesome;
 		position: absolute;
@@ -1466,7 +1466,7 @@ FAQ Page
 		line-height: 38px;
 	}
 
-	#accordion .accordion-heading a.collapsed:after {
+#accordion .accordion-heading a.collapsed:after {
 		content: "\f105";
 	}
 
@@ -1481,15 +1481,15 @@ Contact Page
 	padding: 112px 0;
 }
 
-	.contact-info-section .section-title {
+.contact-info-section .section-title {
 		line-height: 60px;
 	}
 
-	.contact-info-section .content-row {
+.contact-info-section .content-row {
 		margin-top: 100px;
 	}
 
-	.contact-info-section h3 {
+.contact-info-section h3 {
 		margin-bottom: 20px;
 	}
 
@@ -1498,15 +1498,15 @@ Contact Page
 	background-color: #f4f6f7;
 }
 
-	.other-office-address .content-row {
+.other-office-address .content-row {
 		margin-top: 60px;
 	}
 
-	.other-office-address h2 {
+.other-office-address h2 {
 		text-align: center;
 	}
 
-	.other-office-address h3 {
+.other-office-address h3 {
 		margin-bottom: 20px;
 	}
 
@@ -1535,7 +1535,7 @@ Contact Page
 	transition-property: transform;
 }
 
-	.popular-categories i:hover {
+.popular-categories i:hover {
 		background: #31708f;
 		color: #65d3e3;
 		-webkit-transform: translateY(-5px);
@@ -1566,11 +1566,11 @@ Contact Page
 	display: inline-block;
 }
 
-	.categorys:nth-child(odd) {
+.categorys:nth-child(odd) {
 		background-color: #ffffff;
 	}
 
-	.categorys:nth-child(even) {
+.categorys:nth-child(even) {
 		background-color: #ffffff;
 	}
 
@@ -1605,7 +1605,7 @@ Contact Page
 	background-color: #f4f6f7;
 }
 
-	.news p {
+.news p {
 		color: #000000;
 	}
 
@@ -1627,7 +1627,7 @@ Contact Page
 	opacity: 0.8;
 }
 
-	.categorys img:hover {
+.categorys img:hover {
 		opacity: 1;
 	}
 
@@ -1717,7 +1717,7 @@ section.other-office-address h2, h3 {
     color: #ffffff;
     font-weight: 600;
 }
-testimonial-section.testimonial2 > .container > .row-content {
+.testimonial-section.testimonial2 > .container > .row-content {
      padding: 0px 0px 0px !important; 
 }
 section.service-home.section-padding, .section-letestnews, .footer-widget-section{
@@ -1749,12 +1749,13 @@ section.service-home.section-padding, .section-letestnews, .footer-widget-sectio
 	background-image: url(../img/background3.jpg);
 	background-size: cover;
 }
-.section-getintouch .form-group label {
+.section-getintouch .form-group label, .contact-map .form-group label {
     color: #ffffff;
     font-weight: 600;
     font-size: 1.1em;
 }
-.section-getintouch .form-group input, .section-getintouch .form-group select, .section-getintouch .form-group textarea {
+.section-getintouch .form-group input, .section-getintouch .form-group select, .section-getintouch .form-group textarea,
+.contact-map .form-group input, .contact-map .form-group select, .contact-map .form-group textarea {
     color: #000000;
 }
 
@@ -1778,7 +1779,7 @@ section.service-home.section-padding, .section-letestnews, .footer-widget-sectio
 	padding-bottom: 10px;
 }
 
-	.arrow_box:after, .arrow_box:before {
+.arrow_box:after, .arrow_box:before {
 		left: 100%;
 		top: 50%;
 		border: solid transparent;
@@ -1789,14 +1790,14 @@ section.service-home.section-padding, .section-letestnews, .footer-widget-sectio
 		pointer-events: none;
 	}
 
-	.arrow_box:after {
+.arrow_box:after {
 		border-color: rgba(136, 183, 213, 0);
 		border-left-color: #65d3e3;
 		border-width: 30px;
 		margin-top: -30px;
 	}
 
-	.arrow_box:before {
+.arrow_box:before {
 		border-color: rgba(194, 225, 245, 0);
 		border-left-color: #65d3e3;
 		border-width: 36px;
@@ -1808,7 +1809,7 @@ address {
 	color: #ffffff;
 }
 
-	address h3 {
+address h3 {
 		color: #ffffff;
 	}
 
@@ -1816,15 +1817,15 @@ address {
 	padding-left: 40px;
 }
 
-	.homepagecontact .form-control {
-		box-shadow: none;
-		border: 1px solid #d2d0d0;
-		border-radius: 7px;
-		height: 40px;
-		background: transparent;
-	}
+.homepagecontact .form-control {
+	box-shadow: none;
+	border: 1px solid #d2d0d0;
+	border-radius: 7px;
+	height: 40px;
+	background: transparent;
+}
 
-	.homepagecontact .form-group {
+.homepagecontact .form-group {
 		min-height: 40px;
 	}
 
@@ -1858,7 +1859,7 @@ input.form-control.phno {
 	padding: 30px;
 }
 
-	.searchreports .form-control {
+.searchreports .form-control {
 		background: #ffffff;
 		border-radius: 15px;
 		margin-left: 0px;
@@ -1866,6 +1867,10 @@ input.form-control.phno {
 
 .img-responsive, .thumbnail > img, .thumbnail a > img, .carousel-inner > .item > img, .carousel-inner > .item > a > img {
 	height: 300px;
+}
+.tab-post-thumb .img-responsive {
+    height: auto;
+    vertical-align: middle;
 }
 
 #main-carousel a.carousel-control i {
@@ -1889,10 +1894,9 @@ input.form-control.phno {
 	border-radius: 15px;
 }
 
-	.report-lst-view:hover {
+.report-lst-view:hover {
 		box-shadow: 10px 10px 20px #0000002e;
-	}
-
+}
 h1.title {
 	font-size: 30px;
 	line-height: 40px;
@@ -2004,7 +2008,6 @@ span.field-validation-error {
 .service-sidebar.sidebar-wrapper .badge {padding: 5px 5px;line-height: 1.5;}
 .service-sidebar.sidebar-wrapper .list-group-item {padding: 10px 5px;}
 .service-sidebar.sidebar-wrapper input {margin-right: 10px;}
-<<<<<<< HEAD
 .service-sidebar.sidebar-wrapper .panel .list-group {margin-bottom:0px;}
 
 .CategoryListing img {
@@ -2040,3 +2043,28 @@ span.field-validation-error {
     padding: 6px;
 }
 .service-sidebar.sidebar-wrapper .panel .list-group {margin-bottom:0px;}
+.footer-widget ul {
+    list-style: circle;
+    font-size: 15px;
+    color: #ffffff;
+}
+.footer-widget ul li a {
+    color: #ffffff;
+    font-size: 15px;
+}
+.report-search-section {
+    float: right;
+    width: 71%;
+}
+.report-search-section .searchreports {top: 15%;width: 70%;}
+li.myClass.PagedList-skipToPrevious a, li.myClass.PagedList-skipToNext a  {
+    width: 60px;    border-radius: 50% !important;
+}
+div#reportdetails, div#tablecontent {
+    padding: 3%;
+}
+.buyimage {width:100%;}
+li.disabled.PagedList-pageCountAndLocation a {
+    width: 100px;
+    border-radius: 20px;
+}
