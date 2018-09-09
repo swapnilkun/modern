@@ -25,17 +25,19 @@ namespace ModernMarketResearch.Controllers
         [OutputCache(Duration = 60, VaryByParam = "none")]
         public ActionResult LatestNews()
         {
+            ViewBag.activemenu = "News";
             var latestnews = db.spLatestNews().ToList();
             return PartialView(latestnews);
         }
         public ActionResult LatestNewsForIndexPage()
         {
+            ViewBag.activemenu = "News";
             var latestnews = db.spLatestNews().ToList();
             return PartialView(latestnews);
         }
         public ActionResult LatestNewsForReportDetails()
         {
-            
+            ViewBag.activemenu = "News";
             var latestnews = (from l in db.NewsMasters
                               join c in db.CategoryMasters on l.CategoryId equals c.CategoryId
                               orderby l.CreatedDate descending
@@ -54,6 +56,7 @@ namespace ModernMarketResearch.Controllers
         }
         public ActionResult NewsDetails(string NewsUrl)
         {
+            ViewBag.activemenu = "News";
             if (db.NewsMasters.Count(x => x.NewsUrl == NewsUrl) > 0)
             {
 
@@ -77,6 +80,7 @@ namespace ModernMarketResearch.Controllers
         }
         public ActionResult AllNews(int? pageno)
         {
+            ViewBag.activemenu = "News";
             var x = (from n in db.NewsMasters
                      join c in db.CategoryMasters on n.CategoryId equals c.CategoryId
                      where n.IsActive == true
@@ -92,7 +96,7 @@ namespace ModernMarketResearch.Controllers
                          CategoryUrl = c.CategoryUrl,
                          NewsImage=n.NewsImage
                      }).ToPagedList(pageno ?? 1, 10);
-            ViewBag.activemenu = "News";
+           // ViewBag.activemenu = "News";
             return View(x);
         }
 

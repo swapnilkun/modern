@@ -2010,61 +2010,26 @@ span.field-validation-error {
 .service-sidebar.sidebar-wrapper input {margin-right: 10px;}
 .service-sidebar.sidebar-wrapper .panel .list-group {margin-bottom:0px;}
 
-.CategoryListing img {
-    width: 22%;
-    float: right;
-    position: relative;
-}
-.CategoryListing span {
-    word-wrap: break-word;
-    word-break: break-all;
-    width: 75% !important;
-    float: left;
-    font-weight: 600;
-    line-height: 20px;
-    padding: 10px 0 0px;
-    margin-bottom: 5px;
-	font-size:13px;
-}
+.CategoryListing img {width: 22%;float: right;position: relative;}
+.CategoryListing span {word-wrap: break-word;word-break: break-all;width: 75% !important;float: left;font-weight: 600;line-height: 20px;padding: 10px 0 0px;margin-bottom: 5px;font-size:13px;}
 .CategoryListing .panel-heading { min-height:70px;}
 .CategoryListing .col-md-4 {padding: 0 5px;}
 .accordion-inner ul li {font-size: 14px;margin-left: 25px;list-style-type: disc;}
 .verify-img img {width: 40%;} 
 .accordion-inner ul li {font-size: 14px;margin-left: 25px;list-style-type: disc;}
 .verify-img img {width: 40%;}
-.checkout img.img-responsive {
-    height: auto;
-}
-.checkout .form-control {
-	border: 1px solid #C3CFD8;
-}
-.checkout input#AreaCode {
-    width: 100px;
-    padding: 6px;
-}
+.checkout img.img-responsive {height: auto;}
+.checkout .form-control {border: 1px solid #C3CFD8;}
+.checkout input#AreaCode {width: 100px;padding: 6px;}
 .service-sidebar.sidebar-wrapper .panel .list-group {margin-bottom:0px;}
-.footer-widget ul {
-    list-style: circle;
-    font-size: 15px;
-    color: #ffffff;
-}
-.footer-widget ul li a {
-    color: #ffffff;
-    font-size: 15px;
-}
-.report-search-section {
-    float: right;
-    width: 71%;
-}
+.footer-widget ul {list-style: circle;font-size: 15px;color: #ffffff;}
+.footer-widget ul li a {color: #ffffff;font-size: 15px;}
+.report-search-section {float: right;width: 71%;}
 .report-search-section .searchreports {top: 15%;width: 70%;}
-li.myClass.PagedList-skipToPrevious a, li.myClass.PagedList-skipToNext a  {
-    width: 60px;    border-radius: 50% !important;
-}
-div#reportdetails, div#tablecontent {
-    padding: 3%;
-}
+li.myClass.PagedList-skipToPrevious a, li.myClass.PagedList-skipToNext a  {width: 60px;    border-radius: 50% !important;}
+div#reportdetails, div#tablecontent {padding: 3%;}
 .buyimage {width:100%;}
-li.disabled.PagedList-pageCountAndLocation a {
-    width: 100px;
-    border-radius: 20px;
-}
+li.disabled.PagedList-pageCountAndLocation a {width: 100px;border-radius: 20px;}
+input#Phonecode_ {width: 100%;padding: 6px;font-size: 14px;}
+.navbar-brand>img {display: block;width: 250px;position: relative;top: -15%;}
+.logo a.navbar-brand {padding: 0;margin: 0 auto;}
