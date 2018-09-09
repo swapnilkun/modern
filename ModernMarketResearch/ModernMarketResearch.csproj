@@ -822,6 +822,7 @@
     <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Admin\Views\Action\CreateAction.cshtml" />
     <Content Include="Images\buy-now-button.png" />
+    <Content Include="Images\ganesh.jpg" />
     <Content Include="img\admin.jpg" />
     <Content Include="img\annual-thumb.jpg" />
     <Content Include="img\background1.jpg" />
@@ -861,12 +862,18 @@
     <Content Include="img\Helthcare-2.jpg" />
     <Content Include="img\Helthcare-3.jpg" />
     <Content Include="img\icons\automotive-and-transportation.png" />
+    <Content Include="img\icons\automotive-transport.png" />
     <Content Include="img\icons\chemical-and-materials.png" />
     <Content Include="img\icons\consumer-goods.png" />
     <Content Include="img\icons\electrical-and-electronic-device.png" />
     <Content Include="img\icons\food-and-beverages.png" />
+    <Content Include="img\icons\food-beverage.png" />
+    <Content Include="img\icons\life-sciences.png" />
     <Content Include="img\icons\manufacturing-and-construction.png" />
+    <Content Include="img\icons\packaging.png" />
     <Content Include="img\icons\pharmaceuticals-and-healthcare.png" />
+    <Content Include="img\icons\public-sector.png" />
+    <Content Include="img\icons\semiconductor.png" />
     <Content Include="img\icons\Technology-and-media.png" />
     <Content Include="img\intro-bg.jpg" />
     <Content Include="img\logo.png" />
@@ -1053,6 +1060,11 @@
     <Content Include="Areas\Admin\Views\Report\ReportEdit.cshtml" />
     <Content Include="Areas\Admin\Views\Report\ReportDetails.cshtml" />
     <Content Include="Areas\Admin\Views\Report\ReportDelete.cshtml" />
+    <Content Include="Areas\Admin\Views\Category\CategoryDelete.cshtml" />
+    <Content Include="Areas\Admin\Views\Category\CategoryDetails.cshtml" />
+    <Content Include="Areas\Admin\Views\Category\CategoryEdit.cshtml" />
+    <Content Include="Areas\Admin\Views\Category\CategoryIndex.cshtml" />
+    <Content Include="Areas\Admin\Views\Category\CreateCategory.cshtml" />
     <EntityDeploy Include="Models\ModernMarketResearch.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>ModernMarketResearch.Designer.cs</LastGenOutput>
@@ -1070,11 +1082,6 @@
       <DependentUpon>ModernMarketResearch.edmx</DependentUpon>
       <LastGenOutput>ModernMarketResearch.cs</LastGenOutput>
     </Content>
-    <Content Include="Areas\Admin\Views\Category\CategoryDelete.cshtml" />
-    <Content Include="Areas\Admin\Views\Category\CategoryDetails.cshtml" />
-    <Content Include="Areas\Admin\Views\Category\CategoryEdit.cshtml" />
-    <Content Include="Areas\Admin\Views\Category\CategoryIndex.cshtml" />
-    <Content Include="Areas\Admin\Views\Category\CreateCategory.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.2.1.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />

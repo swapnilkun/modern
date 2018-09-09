@@ -162,6 +162,7 @@ namespace ModernMarketResearch.Areas.Admin.Models.ViewModel
         public string ShortPublisherDesc { get; set; }
 
         public int? pagesize { get; set; }
+        public int RepImageCat { get; set; }
         //public List<ReportDeliveryType> GetDeliverytype()
         //{
         //    var x = db.ReportDeliveryTypes.ToList();

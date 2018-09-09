@@ -35,16 +35,7 @@ namespace ModernMarketResearch.Controllers
         }
         public ActionResult LatestNewsForReportDetails()
         {
-            //var latestnews = (from l in db.spLatestNews()
-            //                  select new NewsDetailsVM
-            //                  {
-            //                      NewsId = l.NewsId,
-            //                      NewsTitle = l.NewsTitle,
-            //                      NewsURL = l.NewsURL,
-            //                      NewsPublishingDate = Convert.ToDateTime(l.NewsPublishingDate),
-            //                      NewsDetail = l.NewsDetail.Substring(0, 250)
-
-            //                  }).ToList();
+            
             var latestnews = (from l in db.NewsMasters
                               join c in db.CategoryMasters on l.CategoryId equals c.CategoryId
                               orderby l.CreatedDate descending
@@ -73,7 +64,8 @@ namespace ModernMarketResearch.Controllers
                                                NewsTitle = l.NewsTitle,
                                                NewsPublishingDate = Convert.ToDateTime(l.PublishingDate),
                                                CategoryName = l.CategoryName,
-                                               CategoryUrl = l.CategoryUrl
+                                               CategoryUrl = l.CategoryUrl,
+                                               NewsImage=l.NewsImage
                                            }).FirstOrDefault();
                 return View(SelectedNewsdetails);
             }
@@ -100,7 +92,7 @@ namespace ModernMarketResearch.Controllers
                          CategoryUrl = c.CategoryUrl,
                          NewsImage=n.NewsImage
                      }).ToPagedList(pageno ?? 1, 10);
-
+            ViewBag.activemenu = "News";
             return View(x);
         }
 

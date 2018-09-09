@@ -12,8 +12,13 @@ namespace ModernMarketResearch
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
-       
 
+            routes.MapRoute(
+               name: "ReportDetails",
+               url: "report/{Reporturl}",
+               defaults: new { controller = "Report", action = "ReportDetail", Reporturl=UrlParameter.Optional },
+               namespaces: new[] { "ModernMarketResearch.Controllers" }
+            );
             routes.MapRoute(
                         name: "PublisherRelatedReports",
                         url: "publisher/{puburl}",

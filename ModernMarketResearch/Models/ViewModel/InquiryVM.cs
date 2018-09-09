@@ -16,24 +16,24 @@ namespace ModernMarketResearch.Models.ViewModel
 
             [Display(Name = "Customer Name")]
             [MaxLength(30), MinLength(2)]
-            [Required(ErrorMessage = "Customer name should not be empty")]
+            [Required(ErrorMessage = " Name must be required.")]
             public string Name { get; set; }
 
-            [Required(ErrorMessage = "EmailId Required:")]
+            [Required(ErrorMessage = "Email-Id is required.")]
             [Display(Name = "Email Id:")]
             [RegularExpression(@"^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$",
-                     ErrorMessage = "Email Format is wrong")]
+                     ErrorMessage = "Please enter valid email address.")]
             public string EmailId { get; set; }
 
             [Display(Name = "Designation")]
             public string Designation { get; set; }
 
             [Display(Name = "Company")]
-            [Required(ErrorMessage = " Company name should not be empty !!")]
+            [Required(ErrorMessage = " Company name reuired.")]
             public string Company { get; set; }
 
-            [Required(ErrorMessage = "Enter Verification Code")]
-            [Display(Name = "Verification Code:")]
+            //[Required(ErrorMessage = "Enter Verification Code")]
+            //[Display(Name = "Verification Code:")]
             public string CaptchaCode { get; set; }
 
             [Display(Name = "Customer Message")]
@@ -44,7 +44,7 @@ namespace ModernMarketResearch.Models.ViewModel
             //[Required(ErrorMessage = "Country name should not be empty")]
             public string Country { get; set; }
 
-            [Required(ErrorMessage = "Phone Number should not be empty")]
+            [Required(ErrorMessage = "Phone Number required.")]
             public string PhoneNumber { get; set; }
 
             public int ReportId { get; set; }
@@ -55,7 +55,7 @@ namespace ModernMarketResearch.Models.ViewModel
 
             public string ReportTitle { get; set; }
 
-            [Required(ErrorMessage = "Area code not be empty")]
+            [Required(ErrorMessage = "Country code not be empty")]
             public string AreaCode { get; set; }
 
             public string ReportUrl { get; set; }

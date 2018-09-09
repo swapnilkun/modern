@@ -15,6 +15,7 @@ namespace ModernMarketResearch.Models.ViewModel
         public int NewsId { get; set; }
         // [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
         public DateTime NewsPublishingDate { get; set; }
+        public string NewsImage { get; set; }
         public string NewsDetail { get; set; }
         public string NewsURL { get; set; }
         public int CategoryId { get; set; }

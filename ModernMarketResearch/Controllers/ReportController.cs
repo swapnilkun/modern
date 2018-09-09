@@ -25,7 +25,22 @@ namespace ModernMarketResearch.Controllers
             ViewBag.activemenu = "Report";
             return View();
         }
-
+        public string DDLGetparents(int catid)
+        {
+            List<int> arr = new List<int>();
+            arr.Add(catid);
+            int? parent = catid;
+            while (parent != 0)
+            {
+                parent = db.CategoryMasters.Where(x => x.CategoryId == parent).Select(x => x.ParentCategoryId).FirstOrDefault();
+                if (parent > 0)
+                    arr.Add((int)parent);
+            }
+            
+          var i=arr.Last();
+          var caturlimag = db.CategoryMasters.Where(x => x.CategoryId == i).Select(x => x.CategoryUrl).FirstOrDefault();
+          return caturlimag;
+        }
         [OutputCache(Duration = 60, VaryByParam = "none")]
         public ActionResult LatestReportsForNews()
         {
@@ -66,6 +81,7 @@ namespace ModernMarketResearch.Controllers
             //                      PublisherId=p.PublisherId,
             //                      PublishingUrl=p.PublisherUrl
             //                  }).ToList();
+            ViewBag.activemenu = "Report";
             ObjectParameter count = new ObjectParameter("p_Count", 0);
 
             var Allreports = (from r in db.spNewAllLatestReport(pageno ?? 1, count).ToList()
@@ -82,8 +98,15 @@ namespace ModernMarketResearch.Controllers
                                   CategoryUrl = r.CategoryUrl,
                                   PublisherName = r.PublisherName,
                                   PublisherId = r.PublisherId,
-                                  PublishingUrl = r.publisherUrl
+                                  PublishingUrl = r.publisherUrl,
+                                  RepImageCat = 0
                               }).ToList();
+
+            foreach(var item in Allreports)
+            {
+                item.ReportImage = DDLGetparents(item.CategoryId);
+            }
+
             var result = Allreports.Select(x => new ReportVM
             {
                 ReportTitle = x.ReportTitle,
@@ -97,7 +120,8 @@ namespace ModernMarketResearch.Controllers
                 CategoryUrl = x.CategoryUrl,
                 PublisherName = x.PublisherName,
                 PublisherId = x.PublisherId,
-                PublishingUrl = x.PublishingUrl
+                PublishingUrl = x.PublishingUrl,
+                ReportImage = x.ReportImage
             }).ToList();
 
             var reports = new StaticPagedList<ReportVM>(result, pageno ?? 1, 10, Convert.ToInt32(count.Value));
@@ -273,7 +297,8 @@ namespace ModernMarketResearch.Controllers
                                                        CategoryUrl = r.CategoryUrl,
                                                        ShortCatDesc = r.ShortDescription,
                                                        LongCatDesc = r.LongDescription,
-                                                       PublisherName = r.PublisherName
+                                                       PublisherName = r.PublisherName,
+                                                       ReportImage=DDLGetparents(r.CategoryId)
                                                    }).ToList();
 
                 var catreports = (from x in RelatedReportsOfSamefamilly
@@ -294,7 +319,8 @@ namespace ModernMarketResearch.Controllers
                                       ShortCatDesc = x.ShortCatDesc,
                                       LongCatDesc = x.LongCatDesc,
                                       PublisherId = x.PublisherId,
-                                      PublisherName = x.PublisherName
+                                      PublisherName = x.PublisherName,
+                                      ReportImage=x.ReportImage
                                   }).ToList();
 
                 var reports = new StaticPagedList<ReportVM>(catreports, pageno ?? 1, 10, Convert.ToInt32(count.Value));
@@ -466,6 +492,7 @@ namespace ModernMarketResearch.Controllers
             return View(pubrelatedreport);
 
         }
+       
         //public JsonResult GetReports(string ReportKey)
         //{
         //    /* For  Autocomplete textbox  */

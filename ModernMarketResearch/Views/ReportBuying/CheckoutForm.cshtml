@@ -4,45 +4,36 @@
     //var CountryNames = _OBJBuingForm.GetCountries();
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
 <script type="text/javascript">
-
-    function ValidCaptcha1(e) {
-        var v = $("#txtInput").val();
-        var res = false;
-        var obj = {};
-        obj.inputcapcha = v;
-        $.ajax({
-            type: "post",
-            url: '@Url.Action("ValidateCaptcha", "BuyingInfo")',
-            data: JSON.stringify(obj),
-            dataType: "json",
-            contentType: "application/json; charset=utf-8",
-            async: false,
-            success: function (data) {
-                res = data;
-            },
-            error: function (res) {
-                alert("Error..." + res.responseText);
-            }
-        });
-
-        return res;
-    }
     $(document).ready(function () {
-        $("#btnSubmit").click(function (e) {
-            if ($("#Buyingform").valid()) {
-                if (ValidCaptcha1()) {
-                    $("#Buyingform").submit();
-                } else {
-                    e.preventDefault();
-                    document.getElementById("captchaError").innerHTML = "Not Valid Captcha !.."
+
+        $("#Checkout_country").change(function () {
+            var v = $(this).val();
+            debugger;
+            $.ajax({
+                type: "post",
+                url: '@Url.Action("GetCountryCode", "InquiryForm")',
+                data: JSON.stringify({ 'countryname':v }),
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                success: function (data) {
+                    debugger;
+                    $("#Phonecode_").empty();//just cleans all html from the control, element
+                    $("#Phonecode_").val(data);
+                    //foreach loop
+                    //$.each(data, function (i, Phonecode) {
+                    //    $("#PhoneCode_").append( Phonecode.Value)
+                    //})
+
+                },
+                error: function (res) {
+                    alert(res.responseText);
                 }
-            }
+            });
         });
     });
-
 </script>
+
 
 <style type="text/css">
     .rdbmargin {
@@ -153,7 +144,7 @@
                                                                                       {
                                                                                           Text = l.nicename,
                                                                                           Value = l.nicename.ToString()
-                                                                                      }, "- Select Country -", new { @Class = "form-control", @id = "country" })
+                                                                                      }, "- Select Country -", new { @Class = "form-control", @id = "Checkout_country" })
                                             </div>
                                             @Html.ValidationMessageFor(model => model.Country)
                                         </div>
@@ -164,7 +155,7 @@
                                         <div class="col-md-3 inputGroupContainer">
                                             <div class="input-group">
                                                 <span class="input-group-addon"><i class="fa fa-phone"></i></span>
-                                                @Html.TextBoxFor(model => model.AreaCode, new { @class = "form-contol areacodebuyingcss", @placeholder = "  Area-Code" })
+                                                @Html.TextBoxFor(model => model.AreaCode, new { @class = "form-contol areacodebuyingcss", @placeholder = "Area-Code",@id="Phonecode_" })
                                             </div>
                                             @Html.ValidationMessageFor(model => model.AreaCode)
                                             <span class="field-validation-valid"></span>
@@ -294,7 +285,7 @@
                                                 <div class="form-group">
                                                     <br />
                                                     <div class=" col-sm-7 gaywayicon">
-                                                        <button type="submit" id="btnSubmit" class="btn btn-warning btnsize"><strong>Checkout</strong></button>
+                                                        <button type="submit" id="btnSubmit" class="btn btn-warning btnsize"><strong>Proceed To Payment </strong></button>
                                                     </div>
                                                 </div>
                                             </div>

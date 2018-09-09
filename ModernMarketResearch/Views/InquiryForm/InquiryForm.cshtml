@@ -86,13 +86,30 @@
                     @Html.ValidationMessageFor(model => model.EmailId)
                 </div>
             </div>
+              <div class="form-group">
+                <label class="col-md-3 control-label required">Country</label>
+                <div class="col-md-8 selectContainer">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-plane"></i></span>
+                        @Html.HiddenFor(model => model.Country, new { @id = "CategoryId" })
+                        @Html.DropDownListFor(m => m.Country, from l in new ModernMarketResearch.Models.ViewModel.InquiryVM().GetCountries()
+                                                              select new SelectListItem
+                                                              {
+                                                                  Text = l.nicename,
+                                                                  Value = l.nicename.ToString()
+                                                              }, "- Select Country -", new { @Class = "form-control", @id = "country_" , @onchange = "javascript:$('#CategoryId').val($(this).val());"})
+
+                    </div>
+                    @Html.ValidationMessageFor(model => model.Country)
+                </div>
+            </div>
             <div class="form-group">
                 <label class="col-md-3 control-label required">Phone<span class="customrequiredsign">*</span> </label>
                 <div class="col-md-4 inputGroupContainer">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-phone"></i></span>
                         @*<input class="form-control" id="PhoneCode_"+ Model.FormType +" name="AreaCode" placeholder="1212" type="text" value=" " readonly >*@
-                        @Html.TextBoxFor(m => m.AreaCode, new { @Class = "form-control", @id = "PhoneCode_",@readonly="readonly" })
+                        @Html.TextBoxFor(m => m.AreaCode, new { @Class = "form-control", @id = "PhoneCode_",@readonly="readonly",@placeholder = "Phone-Code" })
 @*                        @Html.DropDownListFor(m => m.AreaCode, from l in new ModernMarketResearch.Models.ViewModel.InquiryVM().GetCountries()
                                                                select new SelectListItem
                                                                {
@@ -129,23 +146,7 @@
                     @Html.ValidationMessageFor(model => model.Designation)
                 </div>
             </div>
-            <div class="form-group">
-                <label class="col-md-3 control-label required">Country</label>
-                <div class="col-md-8 selectContainer">
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="fa fa-plane"></i></span>
-                        @Html.HiddenFor(model => model.Country, new { @id = "CategoryId" })
-                        @Html.DropDownListFor(m => m.Country, from l in new ModernMarketResearch.Models.ViewModel.InquiryVM().GetCountries()
-                                                              select new SelectListItem
-                                                              {
-                                                                  Text = l.nicename,
-                                                                  Value = l.nicename.ToString()
-                                                              }, "- Select Country -", new { @Class = "form-control", @id = "country_" , @onchange = "javascript:$('#CategoryId').val($(this).val());"})
-
-                    </div>
-                    @Html.ValidationMessageFor(model => model.Country)
-                </div>
-            </div>
+          
             <div class="form-group">
                 <label class="col-md-3 control-label required">How can we help you ?</label>
                 <div class="col-md-8 inputGroupContainer">
@@ -155,7 +156,7 @@
                     @Html.ValidationMessageFor(model => model.CustomerMessage)
                 </div>
             </div>
-            <div class="form-group">
+            @*<div class="form-group">
                 <label class="col-md-3 control-label required">Captcha<span class="customrequiredsign">*</span></label>
                 <div class="col-md-8 inputGroupContainer">
                     <div class="input-group" style="width: 100%;">
@@ -167,7 +168,7 @@
                     @Html.ValidationMessageFor(model => model.CaptchaCode)
                     @Html.HiddenFor(model => model.ReportId)
                 </div>
-            </div>
+            </div>*@
             <div class="form-group">
                 <label class="col-md-3 control-label">
                 </label>

@@ -8,46 +8,7 @@
 
 @*<link href="~/Content/PagedList.css" rel="stylesheet" />*@
 
-<script type="text/javascript">
-    var x = {};
-    $(document).ready(function z() {
-        x = $("#ReportId");
-        ValidateInput(x);
-    });
-    function ValidateInput() {
-        if (x.val() != '') {
-            $('#btnsubmit').attr('disabled', false);
-        }
-        else {
-            $('#btnsubmit').attr('disabled', true);
-        }
-    }
-</script>
-@*<script type="text/javascript">
-    $(function () {
-        $("#ReportId").autocomplete({
-            source: function (request, response) {
-                $.ajax({
-                    url: '@Url.Action("GetReports", "Reports")',
-                    type: 'post',
-                    dataType: 'json',
-                    data: {
-                        'ReportKey': request.term
-                    },
-                    success: function (data) {
-                        debugger;
-                        response(data);
-                    },
-                    error: function (err) {
-                        debugger;
-                        console.log(err);
-                    }
-                });
-            }
-        });
 
-    });
-</script>*@
 
 <style>
     .field-validation-error {
@@ -93,7 +54,7 @@
                         {
                         <div class="row report-lst-view">
                             <div class="col-md-3 report-img">
-                                <img src="~/img/icons/@(String.Format("{0}{1}", item.CategoryUrl, ".png"))" />
+                                <img src="~/img/icons/@(String.Format("{0}{1}", item.ReportImage, ".png"))" />
                             </div>
                             <div class="col-md-9 report-content">
                                 <a href="@Url.Action("ReportDetail", "Report", new { @ReportUrl = item.ReportUrl })">
@@ -127,7 +88,7 @@
                                 </div>
                             </div>
                             <div class="col-md-3 report-img">
-                                <img src="~/img/icons/@(String.Format("{0}{1}", item.CategoryUrl, ".png"))" />
+                                <img src="~/img/icons/@(String.Format("{0}{1}", item.ReportImage, ".png"))" />
                             </div>
 
                         </div>
@@ -140,7 +101,7 @@
                 <section class="pagination-wrap">
                     <div class="blog-pagination">
                         <ul class="pagination text-center">
-                            @Html.PagedListPager(Model, pageno => Url.Action("AllReports", new
+                            @Html.PagedListPager(Model, pageno => Url.Action("CategoryRelatedReports", new
                             {
                                 pageno,
                             }), new PagedListRenderOptions() { LinkToPreviousPageFormat = "Prev", LinkToNextPageFormat = "Next", LiElementClasses = new List<string> { "myClass" } })
