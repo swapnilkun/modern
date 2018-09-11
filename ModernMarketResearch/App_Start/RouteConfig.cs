@@ -12,11 +12,63 @@ namespace ModernMarketResearch
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
+            routes.MapRoute(
+             name: "Sitemap1",
+             url: "sitemap{PageNo}.xml",
+             defaults: new { controller = "Sitemap", action = "SiteMapReports", PageNo = UrlParameter.Optional },
+              namespaces: new[] { "ModernMarketResearch.Controllers" }
+         );
+
+            routes.MapRoute(
+                name: "SitemapIndex",
+                url: "sitemap.xml",
+                defaults: new { controller = "Sitemap", action = "Index" },
+                 namespaces: new[] { "ModernMarketResearch.Controllers" }
+            );
+            routes.MapRoute(
+              name: "PrivacyAndCookies",
+              url: "privacy-policy",
+              defaults: new { controller = "Home", action = "PrivacyAndCookies" },
+              namespaces: new[] { "ModernMarketResearch.Controllers" }
+           );
+
+            routes.MapRoute(
+           name: "TermsAndCondition",
+           url: "terms-conditions",
+           defaults: new { controller = "Home", action = "TermsAndCondition" },
+           namespaces: new[] { "ModernMarketResearch.Controllers" }
+        );
+
+            routes.MapRoute(
+          name: "ContactUs",
+          url: "contactus",
+          defaults: new { controller = "ContactUs", action = "Index" },
+          namespaces: new[] { "ModernMarketResearch.Controllers" }
+       );
+            routes.MapRoute(
+            name: "AboutUs",
+            url: "aboutus",
+            defaults: new { controller = "Home", action = "About" },
+            namespaces: new[] { "ModernMarketResearch.Controllers" }
+         );
+            routes.MapRoute(
+             name: "AllLatestNews",
+             url: "latest/news/",
+             defaults: new { controller = "News", action = "AllNews" },
+             namespaces: new[] { "ModernMarketResearch.Controllers" }
+          );
+
+            routes.MapRoute(
+            name: "searchedreports",
+            url: "report/search-report/{searchkey}",
+            defaults: new { controller = "Report", action = "SearchedReports", searchkey = UrlParameter.Optional },
+            namespaces: new[] { "ModernMarketResearch.Controllers" }
+         );
 
             routes.MapRoute(
                name: "ReportDetails",
                url: "report/{Reporturl}",
-               defaults: new { controller = "Report", action = "ReportDetail", Reporturl=UrlParameter.Optional },
+               defaults: new { controller = "Report", action = "ReportDetail", Reporturl = UrlParameter.Optional },
                namespaces: new[] { "ModernMarketResearch.Controllers" }
             );
             routes.MapRoute(
@@ -32,7 +84,7 @@ namespace ModernMarketResearch
            defaults: new { controller = "Report", action = "CategoryRelatedReports", caturl = "" },
            namespaces: new[] { "ModernMarketResearch.Controllers" }
            );
-           
+
             routes.MapRoute(
                  name: "MainCategories",
                  url: "all-category",
@@ -46,7 +98,7 @@ namespace ModernMarketResearch
               defaults: new { controller = "Report", action = "AllReports" },
               namespaces: new[] { "ModernMarketResearch.Controllers" }
            );
-           
+
             routes.MapRoute(
                name: "LatestReport",
                url: "latest-report/",

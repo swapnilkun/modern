@@ -16,6 +16,19 @@ namespace ModernMarketResearch.Controllers
         // GET: /ContactUs/
 
         ModernMarketResearchEntities db = new ModernMarketResearchEntities();
+
+        public ActionResult ContactusThanks()
+        {
+            if (Session["Name"] == null)
+            {
+                return HttpNotFound();
+            }
+            else
+            {
+                ViewBag.Name = Session["Name"].ToString();
+                return View();
+            }
+        }
         public ActionResult Index()
         {
             ContactUsVM cnt = new ContactUsVM();
@@ -24,7 +37,7 @@ namespace ModernMarketResearch.Controllers
             var EncryCaptcha = ModernMarketResearch.Areas.Admin.Models.Common.Encrypt(PlainText);
             cnt.ReportId = 0;
             cnt.RealCaptcha = EncryCaptcha;
-            return PartialView(cnt);
+            return View(cnt);
         }
 
         [HttpPost]
@@ -77,7 +90,14 @@ namespace ModernMarketResearch.Controllers
 
                         Session["Name"] = cst.Name;
 
-                        return RedirectToAction("Index", "InquiryForm", new { reporrtid = cst.ReportId });
+                        return RedirectToAction("ContactusThanks", "ContactUs");
+                        //return RedirectToRoute(new
+                        //{
+                        //    controller = "InquiryForm",
+                        //    action = "Index",
+                        //    reporrtid = cst.ReportId
+                        //});
+
 
                     }
                     catch (DbEntityValidationException dbEx)
@@ -96,7 +116,7 @@ namespace ModernMarketResearch.Controllers
                 return View();
             }
 
-            return PartialView(eq);
+            return View(eq);
         }
         public string DrawCaptcha()
         {

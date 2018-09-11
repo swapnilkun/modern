@@ -200,7 +200,7 @@ namespace ModernMarketResearch.Controllers
                 #region ReportTitleOnly
                 var pricesort = sortby;
 
-                var TempReports = (from x in db.ReportMasters
+                var SearchedReport = (from x in db.ReportMasters
                                    join c in db.CategoryMasters
                                    on x.CategoryId equals c.CategoryId
                                    join p in db.PublisherMasters
@@ -219,10 +219,15 @@ namespace ModernMarketResearch.Controllers
                                        CategoryUrl = c.CategoryUrl,
                                        PublisherName = p.ContactName,
                                        PublisherId = p.PublisherId,
-                                       PublishingUrl = p.publisherUrl
+                                       PublishingUrl = p.publisherUrl,
+                                       CategoryId=c.CategoryId,
+                                       ReportImage=""
                                    }).ToList();
-
-                var Reports = (from z in TempReports
+                foreach (var item in SearchedReport)
+                {
+                    item.ReportImage = DDLGetparents(item.CategoryId);
+                }
+                var Reports = (from z in SearchedReport
                                select new ReportVM
                                {
                                    ReportTitle = z.ReportTitle,
@@ -235,8 +240,8 @@ namespace ModernMarketResearch.Controllers
                                    CategoryUrl = z.CategoryUrl,
                                    PublisherId = z.PublisherId,
                                    PublisherName = z.PublisherName,
-                                   PublishingUrl = z.PublishingUrl
-
+                                   PublishingUrl = z.PublishingUrl,
+                                   ReportImage=z.ReportImage
                                }).ToPagedList(pageno ?? 1, 10);
 
                 if (Reports.Count > 0)

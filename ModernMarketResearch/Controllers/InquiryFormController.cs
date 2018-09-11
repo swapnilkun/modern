@@ -1,4 +1,5 @@
 ﻿using ModernMarketResearch.Models;
+using ModernMarketResearch.Models.PaymentGateway;
 using ModernMarketResearch.Models.ViewModel;
 using Newtonsoft.Json.Linq;
 using System;
@@ -9,6 +10,7 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Text;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 
@@ -157,19 +159,21 @@ namespace ModernMarketResearch.Controllers
         [HttpPost]
         public ActionResult InquiryForm(InquiryVM eq)
         {
+
+            Emailsending objEmailsending = new Emailsending();
             var response = Request["g-recaptcha-response"];
-            string secreatekey = "6LcatdW0UAAAAAERSrddZFxQdvJd0xum_wTLvhUIT";
+           // string secreatekey = "6LcatdW0UAAAAAERSrddZFxQdvJd0xum_wTLvhUIT";
             var client = new WebClient();
-            var result = client.DownloadString(string.Format("https://www.google.com/recaptcha/api/siteverify?secret=(0)&response=(1)", secreatekey, response));
-            var obj = JObject.Parse(result);
-            var status = (bool)obj.SelectToken("success");
-            ViewBag.Message = status ? "Google recaptcha validation success" : "Google recaptcha validation fails";
+            //var result = client.DownloadString(string.Format("https://www.google.com/recaptcha/api/siteverify?secret=(0)&response=(1)", secreatekey, response));
+            //var obj = JObject.Parse(result);
+            //var status = (bool)obj.SelectToken("success");
+            //ViewBag.Message = status ? "Google recaptcha validation success" : "Google recaptcha validation fails";
             CustomerInquiry e = new CustomerInquiry();
             var Formname = string.Empty;
             int FormTypeId;
             string Publisher = string.Empty;
 
-            if (ModelState.IsValid && status)
+            if (ModelState.IsValid )
             {
                 // cap = Session["Captcha"].ToString();
                 cap = ModernMarketResearch.Areas.Admin.Models.Common.Decrypt(eq.RealCaptcha);
@@ -187,10 +191,10 @@ namespace ModernMarketResearch.Controllers
                     Publisher = "!";
                 }
 
-                if (eq.CaptchaCode == cap)
-                {
+                //if (eq.CaptchaCode == cap)
+               //{
                     CustomerInquiry cst = new CustomerInquiry();
-                    var IpAddress = string.Empty;
+                    var IpAddress = ModernMarketResearch.Models.PaymentGateway.IPAddress.GetIPAddress();
                     cst.Company = eq.Company;
                     cst.Country = eq.Country;
                     cst.CustomerMessage = eq.CustomerMessage;
@@ -202,6 +206,7 @@ namespace ModernMarketResearch.Controllers
                     cst.ReportId = eq.ReportId;
                     cst.CaptchaCode = eq.CaptchaCode;
                     cst.FormType = eq.FormType;
+                    cst.CaptchaCode = "121321";
                     if (eq.FormType == "InquiryForm")
                     {
                         Formname = "Inquiry";
@@ -237,8 +242,8 @@ namespace ModernMarketResearch.Controllers
                         //Task.Run(() => objEmailsending.SendEmail("sales@marketresearchtrade.com", "Sales", cst.EmailId, "", "balasaheb.p@marketresearchstore.com", "MarketResearchTrade.com : " + eq.ReportTitle, GenerateMailBody_RequestSample_AutoReply(cst.Name, eq.ReportTitle)));
 
                         //To company
-                        //Task.Run(() => objEmailsending.SendEmail("sales@marketresearchtrade.com", "Sales", "sales@marketresearchtrade.com,james@mrsresearchgroup.com,joel@marketresearchstore.com", "", "md@marketresearchstore.com,mahesh.s@marketresearchstore.com", "MarketResearchTrade.com" + " : " + Formname, GenerateMailBody_RequestSample(eq.ReportTitle, cst.Name, cst.EmailId, cst.PhoneNumber, cst.Company, cst.Country, cst.Designation, cst.CustomerMessage)));
-                        //Task.Run(() => objEmailsending.SendEmail("sales@marketresearchtrade.com", "Sales", "sales@marketresearchtrade.com,james@mrsresearchgroup.com,joel@marketresearchstore.com", "", "md@marketresearchstore.com,mahesh.s@marketresearchstore.com", "MarketResearchTrade.com" + " : " + Formname, GenerateMailBody_RequestSample(eq.ReportTitle, cst.Name, cst.EmailId, cst.PhoneNumber, cst.Company, cst.Country, cst.Designation, cst.CustomerMessage, ipAddress)));
+                       // Task.Run(() => objEmailsending.SendEmail("sales@excellentmarketresearcg.com", "Sales", "balasahebpatil1612@gmail.com", "", "", "ExcellentMarketResearch.com" + " : " + Formname,objEmailsending.GenerateMailBody_RequestSample(eq.ReportTitle, cst.Name, cst.EmailId, cst.PhoneNumber, cst.Company, cst.Country, cst.Designation, cst.CustomerMessage)));
+                        Task.Run(() => objEmailsending.SendEmail("balasahebpatil1612@gmail.com", "Sales", "balasahebpatil1612@gmail.com", "", "", "ExcellentMarketResearch.com" + " : " + Formname, GenerateMailBody_RequestSample(eq.ReportTitle, cst.Name, cst.EmailId, cst.PhoneNumber, cst.Company, cst.Country, cst.Designation, cst.CustomerMessage, IpAddress)));
 
                         Session["Name"] = cst.Name;
 
@@ -255,7 +260,7 @@ namespace ModernMarketResearch.Controllers
                             }
                         }
                     }
-                }
+                //}
                 //Return the if model not valid
                 return View(eq);
             }
@@ -310,24 +315,24 @@ namespace ModernMarketResearch.Controllers
             return File(ms.ToArray(), "image/png");
 
         }
-
-        //private string GenerateMailBody_RequestSample(string ReportTitle, string Name, string EmailID, string ContactNo, string NameOfCompany, string CountryName, string Designation, string CustomerMessage, string ipAddress = null)
-        //{
-        //    string result = "";
-        //    result = "Dear Admin,<br /><br />" + "<table>";
-        //    result += ReportTitle != "" ? "<tr> <td valign='top' width='30%'><b>Report Title</b></td>   <td valign='top' width='2%'><b> : </b></td> <td valign='top' width='68%'>" + ReportTitle + "</td> </tr>" : "";
-        //    result += Name != "" ? "<tr> <td valign='top'><b>Customer Name</b></td>  <td valign='top'><b> : </b></td> <td valign='top'>" + Name + "</td> </tr>" : "";
-        //    result += EmailID != "" ? "<tr> <td valign='top'><b>Email ID</b></td>       <td valign='top'><b> : </b></td> <td valign='top'>" + EmailID + "</td> </tr>" : "";
-        //    result += ContactNo != "" ? "<tr> <td valign='top'><b>Phone</b></td>          <td valign='top'><b> : </b></td> <td valign='top'>" + ContactNo + "</td> </tr>" : "";
-        //    result += NameOfCompany != "" ? "<tr> <td valign='top'><b>Company Name</b></td>   <td valign='top'><b> : </b></td> <td valign='top'>" + NameOfCompany + "</td> </tr>" : "";
-        //    result += Designation != "" ? "<tr> <td valign='top'><b>Designation</b></td>    <td valign='top'><b> : </b></td> <td valign='top'>" + Designation + "</td> </tr>" : "";
-        //    result += CountryName != "" ? "<tr> <td valign='top'><b>Country Name</b></td>   <td valign='top'><b> : </b></td> <td valign='top'>" + CountryName + "</td> </tr>" : "";
-        //    result += CustomerMessage != "" ? "<tr> <td valign='top'><b>Enquiry Text</b></td>   <td valign='top'><b> : </b></td> <td valign='top'>" + CustomerMessage + "</td> </tr>" : "";
-        //    result += "<tr> <td valign='top'><b>Publisher</b></td>      <td valign='top'><b> : </b></td> <td valign='top'>" + "Market Research Trade" + "</td> </tr>";
-        //    result += "<tr> <td valign='top'><b>IP Address</b></td>     <td valign='top'><b> : </b></td> <td valign='top'>" + ipAddress == null ? QYGroupRepository.PaymentGateway.IPAddress.GetIPAddress() : ipAddress + "</td> </tr>";
-        //    result += "</table>";
-        //    return result;
-        //}
+                       
+        private string GenerateMailBody_RequestSample(string reporttitle, string name, string emailid, string contactno, string nameofcompany, string countryname, string designation, string customermessage, string ipaddress)
+        {
+            string result = "";
+            result = "dear admin,<br /><br />" + "<table>";
+            result += reporttitle != "" ? "<tr> <td valign='top' width='30%'><b>report title</b></td>   <td valign='top' width='2%'><b> : </b></td> <td valign='top' width='68%'>" + reporttitle + "</td> </tr>" : "";
+            result += name != "" ? "<tr> <td valign='top'><b>customer name</b></td>  <td valign='top'><b> : </b></td> <td valign='top'>" + name + "</td> </tr>" : "";
+            result += emailid != "" ? "<tr> <td valign='top'><b>email id</b></td>       <td valign='top'><b> : </b></td> <td valign='top'>" + emailid + "</td> </tr>" : "";
+            result += contactno != "" ? "<tr> <td valign='top'><b>phone</b></td>          <td valign='top'><b> : </b></td> <td valign='top'>" + contactno + "</td> </tr>" : "";
+            result += nameofcompany != "" ? "<tr> <td valign='top'><b>company name</b></td>   <td valign='top'><b> : </b></td> <td valign='top'>" + nameofcompany + "</td> </tr>" : "";
+            result += designation != "" ? "<tr> <td valign='top'><b>designation</b></td>    <td valign='top'><b> : </b></td> <td valign='top'>" + designation + "</td> </tr>" : "";
+            result += countryname != "" ? "<tr> <td valign='top'><b>country name</b></td>   <td valign='top'><b> : </b></td> <td valign='top'>" + countryname + "</td> </tr>" : "";
+            result += customermessage != "" ? "<tr> <td valign='top'><b>enquiry text</b></td>   <td valign='top'><b> : </b></td> <td valign='top'>" + customermessage + "</td> </tr>" : "";
+            result += "<tr> <td valign='top'><b>publisher</b></td>      <td valign='top'><b> : </b></td> <td valign='top'>" + "Excellent Market Research " + "</td> </tr>";
+            result += "<tr> <td valign='top'><b>ip address</b></td>     <td valign='top'><b> : </b></td> <td valign='top'>" + ipaddress == null ? ModernMarketResearch.Models.PaymentGateway.IPAddress.GetIPAddress() : ipaddress + "</td> </tr>";
+            result += "</table>";
+            return result;
+        }
 
 
         //public string GenerateMailBody_RequestSample_AutoReply(string Name, string ReportTitle)

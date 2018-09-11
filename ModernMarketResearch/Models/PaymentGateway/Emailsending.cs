@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Net.Mail;
 using System.Web;
 
@@ -28,16 +29,18 @@ namespace ModernMarketResearch.Models.PaymentGateway
                 msg.Subject = Subject;
                 msg.Body = MailBody;
                 msg.IsBodyHtml = true;
-                SmtpClient client = new SmtpClient()
+                SmtpClient client = new SmtpClient("smtp.gmail.com", 587)
                 {
                     // Host = "smtp.qygroup.biz",
-                    Port = 587,
-                    //EnableSsl = true,
+                    //  Host = "smtp.gmail.com",
+                    //  Port = 587,
+                    Credentials = new NetworkCredential("balasahebpatil1612@gmail.com", "swami7758055664"),
+                    EnableSsl = true
                     //DeliveryMethod = SmtpDeliveryMethod.Network,
-                    //UseDefaultCredentials = false,
-                    //Credentials = new NetworkCredential("jon.tucker.865@gmail.com", "mah@1234")
-                    //Credentials = new NetworkCredential("balasahebpatil1612@gmail.com", "goalone@1612")
-                    // Credentials = new NetworkCredential("sales@marketresearchtrade.com", "ombjctgruq2efihazlnw")
+                    // UseDefaultCredentials = false,
+
+
+
                 };
                 client.Send(msg);//uncomment while uploading
                 result = true;
@@ -83,23 +86,23 @@ namespace ModernMarketResearch.Models.PaymentGateway
         }
 
 
-        public string GenerateMailBody_RequestSample(string PaymentSucess, BuyingVM userdata)
-        {
-            string result = "";
-            //result = "Dear Admin, Payment made for <br /><br />" + "<table>";
-            result = PaymentSucess + "<table>";
-            result += userdata.ReportTitle != "" ? "<tr> <td valign='top' width='30%'><b>Report Title</b></td>   <td valign='top' width='2%'><b> : </b></td> <td valign='top' width='68%'>" + userdata.ReportTitle + "</td> </tr>" : "";
-            result += userdata.Name != "" ? "<tr> <td valign='top'><b>Customer Name</b></td>  <td valign='top'><b> : </b></td> <td valign='top'>" + userdata.Name + "</td> </tr>" : "";
-            result += userdata.EmailId != "" ? "<tr> <td valign='top'><b>Email ID</b></td>       <td valign='top'><b> : </b></td> <td valign='top'>" + userdata.EmailId + "</td> </tr>" : "";
-            result += userdata.PhoneNumber != "" ? "<tr> <td valign='top'><b>Phone</b></td>          <td valign='top'><b> : </b></td> <td valign='top'>" + userdata.PhoneNumber + "</td> </tr>" : "";
-            result += userdata.Company != "" ? "<tr> <td valign='top'><b>Company Name</b></td>   <td valign='top'><b> : </b></td> <td valign='top'>" + userdata.Company + "</td> </tr>" : "";
-            result += userdata.Designation != "" ? "<tr> <td valign='top'><b>Designation</b></td>    <td valign='top'><b> : </b></td> <td valign='top'>" + userdata.Designation + "</td> </tr>" : "";
-            result += userdata.Country != "" ? "<tr> <td valign='top'><b>Country Name</b></td>   <td valign='top'><b> : </b></td> <td valign='top'>" + userdata.Country + "</td> </tr>" : "";
-            //result += txtComment.Text.Trim() != "" ? "<tr> <td valign='top'><b>Enquiry Text</b></td>   <td valign='top'><b> : </b></td> <td valign='top'>" + txtComment.Text.Trim() + "</td> </tr>" : "";
-            result += "<tr> <td valign='top'><b>IP Address</b></td>     <td valign='top'><b> : </b></td> <td valign='top'>" + userdata.IPAddress + "</td> </tr>";
-            result += "</table>";
-            return result;
-        }
+        //public string GenerateMailBody_RequestSample(string PaymentSucess, BuyingVM userdata)
+        //{
+        //    string result = "";
+        //    //result = "Dear Admin, Payment made for <br /><br />" + "<table>";
+        //    result = PaymentSucess + "<table>";
+        //    result += userdata.ReportTitle != "" ? "<tr> <td valign='top' width='30%'><b>Report Title</b></td>   <td valign='top' width='2%'><b> : </b></td> <td valign='top' width='68%'>" + userdata.ReportTitle + "</td> </tr>" : "";
+        //    result += userdata.Name != "" ? "<tr> <td valign='top'><b>Customer Name</b></td>  <td valign='top'><b> : </b></td> <td valign='top'>" + userdata.Name + "</td> </tr>" : "";
+        //    result += userdata.EmailId != "" ? "<tr> <td valign='top'><b>Email ID</b></td>       <td valign='top'><b> : </b></td> <td valign='top'>" + userdata.EmailId + "</td> </tr>" : "";
+        //    result += userdata.PhoneNumber != "" ? "<tr> <td valign='top'><b>Phone</b></td>          <td valign='top'><b> : </b></td> <td valign='top'>" + userdata.PhoneNumber + "</td> </tr>" : "";
+        //    result += userdata.Company != "" ? "<tr> <td valign='top'><b>Company Name</b></td>   <td valign='top'><b> : </b></td> <td valign='top'>" + userdata.Company + "</td> </tr>" : "";
+        //    result += userdata.Designation != "" ? "<tr> <td valign='top'><b>Designation</b></td>    <td valign='top'><b> : </b></td> <td valign='top'>" + userdata.Designation + "</td> </tr>" : "";
+        //    result += userdata.Country != "" ? "<tr> <td valign='top'><b>Country Name</b></td>   <td valign='top'><b> : </b></td> <td valign='top'>" + userdata.Country + "</td> </tr>" : "";
+        //    //result += txtComment.Text.Trim() != "" ? "<tr> <td valign='top'><b>Enquiry Text</b></td>   <td valign='top'><b> : </b></td> <td valign='top'>" + txtComment.Text.Trim() + "</td> </tr>" : "";
+        //    result += "<tr> <td valign='top'><b>IP Address</b></td>     <td valign='top'><b> : </b></td> <td valign='top'>" + userdata.IPAddress + "</td> </tr>";
+        //    result += "</table>";
+        //    return result;
+        //}
 
         public string GenerateMailBody_RequestSample_AutoReply(string Name, string ReportTitle)
         {

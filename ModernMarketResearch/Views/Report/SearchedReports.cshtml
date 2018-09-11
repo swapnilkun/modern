@@ -7,123 +7,33 @@
 }
 
 <link href="~/Content/PagedList.css" rel="stylesheet" />
-<script type="text/javascript">
-    var x = {};
-    $(document).ready(function z() {
-        x = $("#ReportId");
-        ValidateInput(x);
-    });
-    function ValidateInput() {
-        if (x.val() != '') {
-            $('#btnsubmit').attr('disabled', false);
-        }
-        else {
-            $('#btnsubmit').attr('disabled', true);
-        }
-    }
-</script>
-@*<script type="text/javascript">
-    $(function () {
-        $("#ReportId").autocomplete({
-            source: function (request, response) {
-                $.ajax({
-                    url: '@Url.Action("GetReports", "Reports")',
-                    type: 'post',
-                    dataType: 'json',
-                    data: {
-                        'ReportKey': request.term
-                    },
-                    success: function (data) {
-                        debugger;
-                        response(data);
-                    },
-                    error: function (err) {
-                        debugger;
-                        console.log(err);
-                    }
-                });
-            }
-        });
-
-    });
-</script>*@
-
-<style>
-    .field-validation-error {
-        color: red;
-    }
-</style>
-
-<section class="page-title-section" style="height:100px;">
+<section class="page-title-section">
     <div class="container">
         <div class="row">
             <div class="col-xs-12">
                 <div class="page-header-wrap">
-                    <div class="page-header">
-                        @{Html.RenderAction("SearchingPartialView", "Home");}
-                    </div>
-                   @* <ol class="breadcrumb">
-                        <li><a href="/">Home</a></li>
-                        <li><a>Reports</a></li>
-                        <li class="active">Report Details</li>
-                    </ol>*@
-                </div>
 
+                    <div class="page-header">
+                        <h1>Reports</h1>
+                        <div class="report-search-section">@{Html.RenderAction("SearchingPartialView", "Home");}</div>
+                    </div>
+                    <ol class="breadcrumb">
+                        <li><a href="/">Home</a></li>
+                        <li class="active">Reports</li>
+                    </ol>
+                </div>
             </div>
         </div>
     </div>
 </section>
+
 
 <!-- Single-Service-Start -->
 <section class="single-service-contents">
     <div class="container">
         <div class="row">
             <div class="col-md-3 col-sm-5 col-xs-12">
-                <div class="service-sidebar sidebar-wrapper">
-
-                    <div class="widget">
-                        <h2 class="widget-title">Services</h2>
-                        <ul class="service-list">
-                            <li><a href="air.html" class="icon-air">Air transportation</a></li>
-                            <li><a href="marine.html" class="icon-marine">Marine transportation</a></li>
-                            <li><a href="moving.html" class="icon-store">Moving &amp; storage</a></li>
-                            <li><a href="shipping.html" class="icon-shipping">Shipping &amp; operations</a></li>
-                            <li><a href="transportation.html" class="icon-transportation">Transportation logistics</a></li>
-                            <li class="active"><a href="trucking.html" class="icon-trucking">Trucking</a></li>
-                        </ul>
-                    </div>
-                    <!-- /.widget -->
-
-                    <div class="widget">
-                        <div class="download-wrap company">
-                            <a href="#">Company profile <span>Download</span><i class="fa fa-download"></i></a>
-                        </div>
-                        <!-- /.download-wrap -->
-                        <div class="download-wrap annual">
-                            <a href="#">Annual Report <span>Download</span><i class="fa fa-download"></i></a>
-                        </div>
-                        <!-- /.download-wrap -->
-                        <div class="download-wrap brochure">
-                            <a href="#">Corporate Brochure <span>Download</span><i class="fa fa-download"></i></a>
-                        </div>
-                        <!-- /.download-wrap -->
-                    </div>
-                    <!-- /.widget -->
-
-                    <div class="widget">
-                        <h2 class="widget-title">Office Hours</h2>
-                        <div class="textwidget">
-                            <p>
-                                Monday -
-                                                    Friday: 9:00 - 18:00<br>
-                                Saturday: 9:00 - 2:00<br>
-                                Holidays: 9:00 - 12:00
-                            </p>
-                        </div>
-                    </div>
-                    <!-- /.widget -->
-                </div>
-                <!-- /.sidebar-wrapper -->
+                @{Html.RenderAction("PartialCat", "Category");}
             </div>
             <!-- /.col -->
             <div class="col-md-9 col-sm-7 col-xs-12">
@@ -135,7 +45,8 @@
                         {
                         <div class="row report-lst-view">
                             <div class="col-md-3 report-img">
-                                <img />
+                                <img src="~/img/icons/@(String.Format("{0}{1}",item.ReportImage, ".png"))" />
+                                  
                             </div>
                             <div class="col-md-9 report-content">
                                 <a href="@Url.Action("ReportDetail", "Report", new { @ReportUrl = item.ReportUrl })">
@@ -169,7 +80,7 @@
                                 </div>
                             </div>
                             <div class="col-md-3 report-img">
-                                <img />
+                                <img src="~/img/icons/@(String.Format("{0}{1}",item.ReportImage, ".png"))" />
                             </div>
 
                         </div>
@@ -180,58 +91,19 @@
 
                 <!-- PAGINATION -->
                 <section class="pagination-wrap">
-
                     <div class="blog-pagination">
                         <ul class="pagination text-center">
-
-                            @if (ViewBag.Totalreports > 0)
-                            {
-                          
-
-                        @Html.PagedListPager(Model, pageno => Url.Action("AllReports", new
-                   {
-                       pageno,
-                   }) , new PagedListRenderOptions() { Display = PagedListDisplayMode.IfNeeded, DisplayPageCountAndCurrentLocation = true })
-                  
-                    }
-                </ul>
-              @*  <section class="pagination-wrap">
-										
-									    <div class="blog-pagination">
-									        <ul class="pagination text-center">
-				
-									            <li class="disabled"><a class="prev" href="#">Prev.</a></li>
-									            <li class="active"><a href="#">1</a></li>
-									            <li><a href="#">2</a></li>
-									            <li><a href="#">3</a></li>
-									            <li><a href="#">4</a></li>
-									            <li><a href="#">5</a></li>
-									            <li><a href="#">6</a></li>
-									            <li><a href="#">6</a></li>
-									            <li><a class="next" href="#">Next</a></li>
-									            
-									        </ul>
-									    </div>	
-
-									</section>*@
-
-                         @*       @Html.PagedListPager(Model, pageno => Url.Action("AllReports", new
+                            @Html.PagedListPager(Model, pageno => Url.Action("SearchedReports", new
                             {
                                 pageno,
-                            }), new PagedListRenderOptions() {  LinkToPreviousPageFormat = "Prev.", LinkToNextPageFormat = "Next", LiElementClasses = new List<string> {"myClass", "yourClass"}})
-                  
-                            }
-                            
-                        </ul>*@
+                                searchkey = @ViewBag.SearchedKeyword
+                            }), new PagedListRenderOptions() { LinkToPreviousPageFormat = "Prev", LinkToNextPageFormat = "Next", LiElementClasses = new List<string> { "myClass" } })
+
+                        </ul>
                     </div>
-
                 </section>
-
-
                 <!-- END PAGINATION -->
                 <div class="clearfix"></div>
-
-
             </div>
             <!-- /.col -->
         </div>
@@ -240,68 +112,4 @@
     <!-- /.container -->
 </section>
 <!-- Single-Service-End-->
-@*<div id="bannersection">
-    <div class="searchsection">
-        <div class="col-sm-3"></div>
-        <div class="col-sm-6">
-            <h5><span class="searchheader">Search Market Research Reports from Top Publishers</span></h5>
-            @{Html.RenderAction("SearchingPartialView", "Home");}
-        </div>
-        <div class="col-sm-3"></div>
-    </div>
-</div>
-<div class="clear"></div>
-<div class="container">
-    <div class="row">
-        <div class="col-sm-8">
-            <!--report start-->
-            <h1>Latest Reports</h1>
-            @if (ViewBag.Totalreports > 0)
-            {
-                
-                <div id="reportcontainer">
-                    @foreach (var item in Model)
-                    {
-                        <div class="latestreportdiv">
-                            <h3 class="goodretailclass"><a href='@Url.Action("ReportDetail", "Report", new { ReportUrl = item.ReportUrl })'><b>@item.ReportTitle</b></a></h3>
-                            <div id="datpric">
-                                <span class="glyphicon glyphicon-calendar"></span>@item.PublishingDate.ToString("MMM-yy") | <span class="glyphicon glyphicon-globe"></span>@Html.DisplayFor(model => item.CategoryName) |<span class="glyphicon glyphicon-usd"></span>Price : $ @item.PriceSingleUser
-                            </div>
-                            <p class="goodretailclass textjustify" style="font-size: 14px;">
-                                @Html.Raw(item.FullDescription)<a href='@Url.Action("ReportDetail", "Report", new { ReportUrl = item.ReportUrl })'><br />
-                                    <span style="border: 1px solid #009651; background-color: #009688; color: #FFFFFF; padding: 3px;">Read More..</span>
-                                </a>
-                            </p>
-                        </div>
-                    }
-                    <!-- row 2 -->
-
-
-                    <!-- row 3 -->
-
-                    <!-- pagination -->
-                    <ul class="pagination">
-                        @Html.PagedListPager(Model, pageno => Url.Action("AllReports", new
-                   {
-                       pageno
-                   }), new PagedListRenderOptions() { Display = PagedListDisplayMode.IfNeeded, DisplayPageCountAndCurrentLocation = true })
-                    </ul>
-                    <!-- pagination -->
-                </div> 
-            }
-            else
-            {
-                @ViewBag.Reports
-            }
-            <!--report finish-->
-        </div>
-        <div class="col-sm-4">
-            @{Html.RenderAction("LatestNews", "News");}
-        </div>
-    </div>
-
-</div>*@
-<!-- footer -->
-
-
 

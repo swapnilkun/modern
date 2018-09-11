@@ -88,13 +88,13 @@ namespace ModernMarketResearch.Controllers
             return View();
         }
 
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-            ViewBag.activemenu = "Contact";
+        //public ActionResult Contact()
+        //{
+        //    ViewBag.Message = "Your contact page.";
+        //    ViewBag.activemenu = "Contact";
 
-            return View();
-        }
+        //    return View();
+        //}
 
         public ActionResult TermsAndCondition()
         {
