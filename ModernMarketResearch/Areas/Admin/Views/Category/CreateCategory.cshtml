@@ -1,4 +1,4 @@
-﻿@model ModernMarketResearch.Areas.Admin.Models.ViewModel.CategoryVM
+﻿@model ExcellentMarketResearch.Areas.Admin.Models.ViewModel.CategoryVM
 @{
     ViewBag.Title = "CreateCategory";
 }
@@ -123,7 +123,7 @@
             <label class="control-label col-sm-2" for="pwd">Parent Category </label>
             <div class="col-sm-8">
                 @Html.HiddenFor(model => model.ParentCategoryId, new { @id = "CategoryId" })
-                @Html.DropDownList("ddlcategoryId", from l in new ModernMarketResearch.Areas.Admin.Models.DAL.CategoryRepository().GetParent().ToList()
+                @Html.DropDownList("ddlcategoryId", from l in new ExcellentMarketResearch.Areas.Admin.Models.DAL.CategoryRepository().GetParent().ToList()
                                                     select new SelectListItem
                                                     {
                                                         Text = l.CategoryName,

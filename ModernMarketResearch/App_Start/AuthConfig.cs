@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Microsoft.Web.WebPages.OAuth;
-using ModernMarketResearch.Models;
+using ExcellentMarketResearch.Models;
 
-namespace ModernMarketResearch
+namespace ExcellentMarketResearch
 {
     public static class AuthConfig
     {

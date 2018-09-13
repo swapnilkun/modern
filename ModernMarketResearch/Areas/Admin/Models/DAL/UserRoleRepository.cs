@@ -1,16 +1,16 @@
-﻿using ModernMarketResearch.Areas.Admin.Models.ViewModel;
-using ModernMarketResearch.Models;
+﻿using ExcellentMarketResearch.Areas.Admin.Models.ViewModel;
+using ExcellentMarketResearch.Models;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity.Validation;
 using System.Linq;
 using System.Web;
 
-namespace ModernMarketResearch.Areas.Admin.Models.DAL
+namespace ExcellentMarketResearch.Areas.Admin.Models.DAL
 {
     public class UserRoleRepository : IUserRoleRepository
     {
-        ModernMarketResearchEntities db = new ModernMarketResearchEntities();
+        ExcellentMarketResearchEntities db = new ExcellentMarketResearchEntities();
 
         public IEnumerable<spUserRoleSelect_Result> GetUserRole()
         {

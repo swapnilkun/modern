@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace ModernMarketResearch.Models
+namespace ExcellentMarketResearch.Models
 {
     public class CategoryDataRepository
     {
-        ModernMarketResearchEntities db = new ModernMarketResearchEntities();
+        ExcellentMarketResearchEntities db = new ExcellentMarketResearchEntities();
         public List<Category> GetAllCategories()
         {
             var repoCategory = db.ReportMasters.Select(x => x.CategoryId).ToList();

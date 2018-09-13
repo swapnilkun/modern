@@ -1,6 +1,6 @@
-﻿using ModernMarketResearch.Areas.Admin.Models.DAL;
-using ModernMarketResearch.Areas.Admin.Models.ViewModel;
-using ModernMarketResearch.Models;
+﻿using ExcellentMarketResearch.Areas.Admin.Models.DAL;
+using ExcellentMarketResearch.Areas.Admin.Models.ViewModel;
+using ExcellentMarketResearch.Models;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -8,7 +8,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace ModernMarketResearch.Areas.Admin.Controllers
+namespace ExcellentMarketResearch.Areas.Admin.Controllers
 {
     public class NewsController : Controller
     {
@@ -21,7 +21,7 @@ namespace ModernMarketResearch.Areas.Admin.Controllers
 
 
         //NewsRepository ObjNewsRepository = new NewsRepository();
-        ModernMarketResearchEntities db = new ModernMarketResearchEntities();
+        ExcellentMarketResearchEntities db = new ExcellentMarketResearchEntities();
        // [CustomAuthorization("ReportUploader,ReportCreater", "Create,Delete")]
         public ActionResult NewsIndex()
         {
@@ -92,7 +92,7 @@ namespace ModernMarketResearch.Areas.Admin.Controllers
             {
                 if (news.NewsURL == null)
                 {
-                    var newsurl =ModernMarketResearch.Areas.Admin.Models.Common.GenerateSlug(news.NewsTitle);
+                    var newsurl =ExcellentMarketResearch.Areas.Admin.Models.Common.GenerateSlug(news.NewsTitle);
                     news.NewsURL = newsurl;
                 }
                 var newsUrlwiseid = db.NewsMasters.Where(x => x.NewsUrl == news.NewsURL).Select(x => x.NewsId).FirstOrDefault();

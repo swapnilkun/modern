@@ -8,11 +8,11 @@ using System.Xml;
 using PagedList;
 using PagedList.Mvc;
 
-namespace ModernMarketResearch.Models
+namespace ExcellentMarketResearch.Models
 {
     public class Sitemap
     {
-        ModernMarketResearchEntities db = new ModernMarketResearchEntities();
+        ExcellentMarketResearchEntities db = new ExcellentMarketResearchEntities();
 
         int PageSize = 3000;
 

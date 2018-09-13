@@ -1,4 +1,4 @@
-﻿@model ModernMarketResearch.Areas.Admin.Models.ViewModel.ReportVM
+﻿@model ExcellentMarketResearch.Areas.Admin.Models.ViewModel.ReportVM
 @{
     ViewBag.Title = "ReportCreate";
 }
@@ -169,7 +169,7 @@
             <td>Publishing Name
             </td>
             <td>
-                @Html.DropDownListFor(model => model.PublisherId, from l in new ModernMarketResearch.Areas.Admin.Models.ViewModel.ReportVM().GetPublisher().ToList()
+                @Html.DropDownListFor(model => model.PublisherId, from l in new ExcellentMarketResearch.Areas.Admin.Models.ViewModel.ReportVM().GetPublisher().ToList()
                                                                   select new SelectListItem
                                                                   {
                                                                       Text = l.PublisherName,
@@ -181,7 +181,7 @@
             <td>Delivery Type
             </td>
             <td>
-                @Html.DropDownListFor(model => model.DeliveryTypeId, from l in new ModernMarketResearch.Areas.Admin.Models.ViewModel.ReportVM().GetDeliveryType().ToList()
+                @Html.DropDownListFor(model => model.DeliveryTypeId, from l in new ExcellentMarketResearch.Areas.Admin.Models.ViewModel.ReportVM().GetDeliveryType().ToList()
                                                                      select new SelectListItem
                                                                      {
                                                                          Text = l.ReportDeliveryType1,
@@ -196,7 +196,7 @@
             <td>
                 @Html.HiddenFor(model => model.CategoryId, new { @id = "CategoryId" })
 
-                @Html.DropDownList("ddlcategoryId", from l in new ModernMarketResearch.Areas.Admin.Models.ViewModel.ReportVM().GetParentCategory().ToList()
+                @Html.DropDownList("ddlcategoryId", from l in new ExcellentMarketResearch.Areas.Admin.Models.ViewModel.ReportVM().GetParentCategory().ToList()
                                                     select new SelectListItem
                                                     {
                                                         Text = l.CategoryName,
@@ -231,7 +231,7 @@
             <td>Report Type
             </td>
             <td>
-                @Html.DropDownListFor(model => model.ReportTypeId, from l in new ModernMarketResearch.Areas.Admin.Models.ViewModel.ReportVM().GetReportType().ToList()
+                @Html.DropDownListFor(model => model.ReportTypeId, from l in new ExcellentMarketResearch.Areas.Admin.Models.ViewModel.ReportVM().GetReportType().ToList()
                                                                    select new SelectListItem
                                                                    {
                                                                        Text = l.ReportType1,

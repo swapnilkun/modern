@@ -1,4 +1,4 @@
-﻿using ModernMarketResearch.Models.ViewModel;
+﻿using ExcellentMarketResearch.Models.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,7 +6,7 @@ using System.Net;
 using System.Net.Mail;
 using System.Web;
 
-namespace ModernMarketResearch.Models.PaymentGateway
+namespace ExcellentMarketResearch.Models.PaymentGateway
 {
     public class Emailsending
     {
@@ -70,7 +70,7 @@ namespace ModernMarketResearch.Models.PaymentGateway
                         + "<tr><td><b>State</b></td><td>" + State + "</td></tr>"
                         + "<tr><td><b>Country Name -</b></td><td>" + CountryName + " </td></tr>"
                         + "<tr><td>Zip Code<b></b></td><td>" + ZipCode + "</td></tr>"
-                        + "<tr><td><b>IP Address -</b> </td><td>" + ModernMarketResearch.Models.PaymentGateway.IPAddress.GetIPAddress() + "</td></tr>"
+                        + "<tr><td><b>IP Address -</b> </td><td>" + ExcellentMarketResearch.Models.PaymentGateway.IPAddress.GetIPAddress() + "</td></tr>"
                     + "</table>";
             return result;
         }

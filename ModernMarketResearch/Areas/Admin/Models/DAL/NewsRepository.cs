@@ -1,5 +1,5 @@
-﻿using ModernMarketResearch.Areas.Admin.Models.ViewModel;
-using ModernMarketResearch.Models;
+﻿using ExcellentMarketResearch.Areas.Admin.Models.ViewModel;
+using ExcellentMarketResearch.Models;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -8,11 +8,11 @@ using System.Web;
 using System.Web.Script.Serialization;
 using System.Data.Entity.Validation;
 
-namespace ModernMarketResearch.Areas.Admin.Models.DAL
+namespace ExcellentMarketResearch.Areas.Admin.Models.DAL
 {
     public class NewsRepository : INewsRepository
     {
-        ModernMarketResearchEntities db = new ModernMarketResearchEntities();
+        ExcellentMarketResearchEntities db = new ExcellentMarketResearchEntities();
         NewsMaster newsmaster = new NewsMaster();
         public List<NewsMaster> GetNews()
         {
@@ -35,7 +35,7 @@ namespace ModernMarketResearch.Areas.Admin.Models.DAL
         {
             if (news.NewsURL == null)
             {
-                var newsurl = ModernMarketResearch.Areas.Admin.Models.Common.GenerateSlug(news.NewsTitle);
+                var newsurl = ExcellentMarketResearch.Areas.Admin.Models.Common.GenerateSlug(news.NewsTitle);
                 news.NewsURL = newsurl;
             }
             news.CreatedBy = 1;

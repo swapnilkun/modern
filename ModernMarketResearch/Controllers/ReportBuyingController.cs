@@ -1,23 +1,23 @@
-﻿using ModernMarketResearch.Models.ViewModel;
+﻿using ExcellentMarketResearch.Models.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using ModernMarketResearch.Models;
+using ExcellentMarketResearch.Models;
 using System.Data.Entity.Validation;
 using System.Drawing;
 using System.IO;
 using System.Text;
 
-namespace ModernMarketResearch.Controllers
+namespace ExcellentMarketResearch.Controllers
 {
     public class ReportBuyingController : Controller
     {
         //
         // GET: /ReportBuying/
 
-        ModernMarketResearchEntities db = new ModernMarketResearchEntities();
+        ExcellentMarketResearchEntities db = new ExcellentMarketResearchEntities();
 
       //  Emailsending objEmailsending = new Emailsending();
 
@@ -90,7 +90,7 @@ namespace ModernMarketResearch.Controllers
                     //CategoryMaster categorymaster = serializer.Deserialize<CategoryMaster>(s);
 
                     ObjBuy.GuId = System.Guid.NewGuid().ToString();
-                    ObjBuy.IPAddress = ModernMarketResearch.Models.PaymentGateway.IPAddress.GetIPAddress();
+                    ObjBuy.IPAddress = ExcellentMarketResearch.Models.PaymentGateway.IPAddress.GetIPAddress();
 
 
                     BuyingInfo binfo = new BuyingInfo();

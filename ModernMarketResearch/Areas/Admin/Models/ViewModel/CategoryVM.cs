@@ -1,11 +1,11 @@
-﻿using ModernMarketResearch.Models;
+﻿using ExcellentMarketResearch.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
-namespace ModernMarketResearch.Areas.Admin.Models.ViewModel
+namespace ExcellentMarketResearch.Areas.Admin.Models.ViewModel
 {
     public class CategoryVM
     {

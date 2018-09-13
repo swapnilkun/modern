@@ -1,6 +1,6 @@
-﻿using ModernMarketResearch.Models;
-using ModernMarketResearch.Models.PaymentGateway;
-using ModernMarketResearch.Models.ViewModel;
+﻿using ExcellentMarketResearch.Models;
+using ExcellentMarketResearch.Models.PaymentGateway;
+using ExcellentMarketResearch.Models.ViewModel;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
@@ -14,7 +14,7 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 
-namespace ModernMarketResearch.Controllers
+namespace ExcellentMarketResearch.Controllers
 {
     public class InquiryFormController : Controller
     {
@@ -22,7 +22,7 @@ namespace ModernMarketResearch.Controllers
         // GET: /InquiryForm/
 
 
-        ModernMarketResearchEntities db = new ModernMarketResearchEntities();
+        ExcellentMarketResearchEntities db = new ExcellentMarketResearchEntities();
 
         string cap = string.Empty;
         string text = string.Empty;
@@ -76,7 +76,7 @@ namespace ModernMarketResearch.Controllers
 
             Session["Captcha"] = DrawCaptcha();
             var PlainText = Session["Captcha"].ToString();
-            var EncryCaptcha = ModernMarketResearch.Areas.Admin.Models.Common.Encrypt(PlainText);
+            var EncryCaptcha = ExcellentMarketResearch.Areas.Admin.Models.Common.Encrypt(PlainText);
             Enquiredata.RealCaptcha = EncryCaptcha;
             Enquiredata.ReportId = ReportID ?? 0;
             Enquiredata.FormType = FormType;
@@ -120,7 +120,7 @@ namespace ModernMarketResearch.Controllers
 
             Session["Captcha"] = DrawCaptcha();
             var PlainText = Session["Captcha"].ToString();
-            var EncryCaptcha = ModernMarketResearch.Areas.Admin.Models.Common.Encrypt(PlainText);
+            var EncryCaptcha = ExcellentMarketResearch.Areas.Admin.Models.Common.Encrypt(PlainText);
             Enquiredata.RealCaptcha = EncryCaptcha;
             Enquiredata.ReportId = ReportID ?? 0;
             Enquiredata.FormType = "SampleRequestForm";
@@ -131,7 +131,7 @@ namespace ModernMarketResearch.Controllers
         {
             //   HttpCookie reqCookies = Request.Cookies["CaptchaInfo"];
 
-            var realcaptcha = ModernMarketResearch.Areas.Admin.Models.Common.Decrypt(RealCaptcha);
+            var realcaptcha = ExcellentMarketResearch.Areas.Admin.Models.Common.Decrypt(RealCaptcha);
 
             if (realcaptcha == inputcapcha)
                 return Json(true);
@@ -176,7 +176,7 @@ namespace ModernMarketResearch.Controllers
             if (ModelState.IsValid )
             {
                 // cap = Session["Captcha"].ToString();
-                cap = ModernMarketResearch.Areas.Admin.Models.Common.Decrypt(eq.RealCaptcha);
+                cap = ExcellentMarketResearch.Areas.Admin.Models.Common.Decrypt(eq.RealCaptcha);
                 
                 if (eq.ReportId > 0)
                 {
@@ -194,7 +194,7 @@ namespace ModernMarketResearch.Controllers
                 //if (eq.CaptchaCode == cap)
                //{
                     CustomerInquiry cst = new CustomerInquiry();
-                    var IpAddress = ModernMarketResearch.Models.PaymentGateway.IPAddress.GetIPAddress();
+                    var IpAddress = ExcellentMarketResearch.Models.PaymentGateway.IPAddress.GetIPAddress();
                     cst.Company = eq.Company;
                     cst.Country = eq.Country;
                     cst.CustomerMessage = eq.CustomerMessage;
@@ -274,7 +274,7 @@ namespace ModernMarketResearch.Controllers
             //    Session["Captcha"] = GetRandomText();
             //Session["Captcha"] = DrawCaptcha();
             //text = Session["Captcha"].ToString();
-            text = ModernMarketResearch.Areas.Admin.Models.Common.Decrypt(EncryText);
+            text = ExcellentMarketResearch.Areas.Admin.Models.Common.Decrypt(EncryText);
             //first, create a dummy bitmap just to get a graphics object
             Image img = new Bitmap(1, 1);
             Graphics drawing = Graphics.FromImage(img);
@@ -329,7 +329,7 @@ namespace ModernMarketResearch.Controllers
             result += countryname != "" ? "<tr> <td valign='top'><b>country name</b></td>   <td valign='top'><b> : </b></td> <td valign='top'>" + countryname + "</td> </tr>" : "";
             result += customermessage != "" ? "<tr> <td valign='top'><b>enquiry text</b></td>   <td valign='top'><b> : </b></td> <td valign='top'>" + customermessage + "</td> </tr>" : "";
             result += "<tr> <td valign='top'><b>publisher</b></td>      <td valign='top'><b> : </b></td> <td valign='top'>" + "Excellent Market Research " + "</td> </tr>";
-            result += "<tr> <td valign='top'><b>ip address</b></td>     <td valign='top'><b> : </b></td> <td valign='top'>" + ipaddress == null ? ModernMarketResearch.Models.PaymentGateway.IPAddress.GetIPAddress() : ipaddress + "</td> </tr>";
+            result += "<tr> <td valign='top'><b>ip address</b></td>     <td valign='top'><b> : </b></td> <td valign='top'>" + ipaddress == null ? ExcellentMarketResearch.Models.PaymentGateway.IPAddress.GetIPAddress() : ipaddress + "</td> </tr>";
             result += "</table>";
             return result;
         }
@@ -341,7 +341,7 @@ namespace ModernMarketResearch.Controllers
         //    if (ReportTitle == "")
         //    {
         //        result = "Dear " + Name + ","
-        //             + "<br /><br />Thank you for your interest in <b>" + "modernmarketresearch.com" + "</b>."
+        //             + "<br /><br />Thank you for your interest in <b>" + "ExcellentMarketResearch.com" + "</b>."
         //            //+ "<br /><br />For your reference please find the below link."
         //            //+ "<br /><br />" + "QYGroup.biz"
         //            //+ "<br /><br />I'll contact you soon to serve your research needs."
@@ -350,7 +350,7 @@ namespace ModernMarketResearch.Controllers
         //             + "<br />Joel John | Corporate Sales Specialist,USA"
         //             + "<br />Direct line: + 1-855-465-4651"
         //             + "<br />" + "marketresearchtrade.com"
-        //             + "<br />E-mail: joel@qygroup.biz | Web: " + "modernmarketresearch.com" + "</b>";
+        //             + "<br />E-mail: joel@qygroup.biz | Web: " + "ExcellentMarketResearch.com" + "</b>";
         //    }
         //    else
         //    {

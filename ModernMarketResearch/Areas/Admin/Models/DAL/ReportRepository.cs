@@ -1,5 +1,5 @@
-﻿using ModernMarketResearch.Areas.Admin.Models.ViewModel;
-using ModernMarketResearch.Models;
+﻿using ExcellentMarketResearch.Areas.Admin.Models.ViewModel;
+using ExcellentMarketResearch.Models;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -8,11 +8,11 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Script.Serialization;
 
-namespace ModernMarketResearch.Areas.Admin.Models.DAL
+namespace ExcellentMarketResearch.Areas.Admin.Models.DAL
 {
     public class ReportRepository:IReportRepository
     {
-        ModernMarketResearchEntities db = new ModernMarketResearchEntities();
+        ExcellentMarketResearchEntities db = new ExcellentMarketResearchEntities();
 
         public void InsertReport(ReportVM r)
         {
@@ -79,7 +79,7 @@ namespace ModernMarketResearch.Areas.Admin.Models.DAL
             bool flag = false;
             if (r.ReportUrl == null)
             {
-                r.ReportUrl = ModernMarketResearch.Areas.Admin.Models.Common.GenerateSlug(r.ReportTitle) + "-" + r.ReportId;
+                r.ReportUrl = ExcellentMarketResearch.Areas.Admin.Models.Common.GenerateSlug(r.ReportTitle) + "-" + r.ReportId;
             }
 
             if (IsSameReportData(r))

@@ -1,4 +1,4 @@
-﻿using ModernMarketResearch.Models;
+﻿using ExcellentMarketResearch.Models;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -8,14 +8,14 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace ModernMarketResearch.Areas.Admin.Controllers
+namespace ExcellentMarketResearch.Areas.Admin.Controllers
 {
     public class ExcelCategoryController : Controller
     {
         //
         // GET: /Admin/ExcelCategory/
 
-        ModernMarketResearchEntities db = new ModernMarketResearchEntities();
+        ExcellentMarketResearchEntities db = new ExcellentMarketResearchEntities();
         //
         // GET: /Admin/ExcelUpload/
         public ActionResult Index()
@@ -168,7 +168,7 @@ namespace ModernMarketResearch.Areas.Admin.Controllers
                             else
                                 r.CategoryName = ds.Tables[tables].Rows[rows][columns].ToString().Trim().Replace("   ", " ").Replace("  ", " ").Replace("  ", " ");
 
-                            r.CategoryUrl = ModernMarketResearch.Areas.Admin.Models.Common.GenerateSlug(ds.Tables[tables].Rows[rows][columns].ToString().Trim());
+                            r.CategoryUrl = ExcellentMarketResearch.Areas.Admin.Models.Common.GenerateSlug(ds.Tables[tables].Rows[rows][columns].ToString().Trim());
 
                             if (db.CategoryMasters.Count(url => url.CategoryUrl == r.CategoryUrl.ToLower()) > 0 ? true : false)
                             { r.CategoryUrl = ""; IsVaidate = false; Message += "Long URL <br />"; }

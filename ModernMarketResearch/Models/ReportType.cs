@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ModernMarketResearch.Models
+namespace ExcellentMarketResearch.Models
 {
     using System;
     using System.Collections.Generic;

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace ModernMarketResearch.Models.PaymentGateway
+namespace ExcellentMarketResearch.Models.PaymentGateway
 {
     public class IPAddress
     {

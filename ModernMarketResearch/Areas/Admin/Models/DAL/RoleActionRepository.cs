@@ -1,15 +1,15 @@
-﻿using ModernMarketResearch.Areas.Admin.Models.ViewModel;
-using ModernMarketResearch.Models;
+﻿using ExcellentMarketResearch.Areas.Admin.Models.ViewModel;
+using ExcellentMarketResearch.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace ModernMarketResearch.Areas.Admin.Models.DAL
+namespace ExcellentMarketResearch.Areas.Admin.Models.DAL
 {
     public class RoleActionRepository
     {
-        ModernMarketResearchEntities db = new ModernMarketResearchEntities();
+        ExcellentMarketResearchEntities db = new ExcellentMarketResearchEntities();
 
         public IEnumerable<spSelectRoleAction_Result> GetRoleAction()
         {

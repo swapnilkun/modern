@@ -1,0 +1,440 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ExcellentMarketResearchModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <ComplexType Name="SplitString_Result">
+    <Property Name="Name" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+  </ComplexType>
+  <EntityType Name="ActionMaster">
+    <Key>
+      <PropertyRef Name="ActionId" />
+    </Key>
+    <Property Name="ActionId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ActionName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IsValid" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BuyingInfo">
+    <Key>
+      <PropertyRef Name="CustomerId" />
+    </Key>
+    <Property Name="CustomerId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="EmailId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Designation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Company" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CaptchaCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CustomerMessage" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Country" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Price" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="State" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Zipcode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Paymentmode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="AreaCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IPAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="GuId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ReportUrl" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="TransactionId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ReportTitle" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ReportId" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CategoryMaster">
+    <Key>
+      <PropertyRef Name="CategoryId" />
+    </Key>
+    <Property Name="CategoryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CategoryName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ParentCategoryId" Type="Int32" />
+    <Property Name="ShortDescription" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="LongDescription" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CategoryUrl" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MetaTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Keywords" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="MetaDescription" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ModifiedBy" Type="Int32" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="Country">
+    <Key>
+      <PropertyRef Name="CountryId" />
+    </Key>
+    <Property Name="CountryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="iso" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="nicename" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="iso3" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="numcode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="phonecode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CustomerInquiry">
+    <Key>
+      <PropertyRef Name="CustomerId" />
+    </Key>
+    <Property Name="CustomerId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="EmailId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Designation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Company" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CaptchaCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CustomerMessage" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Country" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="ReportId" Type="Int32" />
+    <Property Name="FormType" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="ReportTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="AreaCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="NewsMaster">
+    <Key>
+      <PropertyRef Name="NewsId" />
+    </Key>
+    <Property Name="NewsId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NewsTitle" Type="String" MaxLength="2550" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="NewsUrl" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="CategoryId" Type="Int32" Nullable="false" />
+    <Property Name="NewsImage" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="NewsDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PublishingDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="MetaTitle" Type="String" MaxLength="750" FixedLength="false" Unicode="true" />
+    <Property Name="MetaDescritpion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Keywords" Type="String" MaxLength="550" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ModifiedBy" Type="Int32" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="PublisherMaster">
+    <Key>
+      <PropertyRef Name="PublisherId" />
+    </Key>
+    <Property Name="PublisherId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PublisherName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PublisherContactNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="publisherUrl" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Keywords" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="LongDescription" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ShortDescription" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MetaDescription" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ContactName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ModifiedBy" Type="Int32" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+    <Property Name="IsValid" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="ReportDeliveryType">
+    <Key>
+      <PropertyRef Name="ReportDeliveryTypeId" />
+    </Key>
+    <Property Name="ReportDeliveryTypeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ReportDeliveryType1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ReportMaster">
+    <Key>
+      <PropertyRef Name="ReportId" />
+    </Key>
+    <Property Name="ReportId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ReportTitle" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ReportUrl" Type="String" MaxLength="350" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CategoryId" Type="Int32" Nullable="false" />
+    <Property Name="PublishereId" Type="Int32" Nullable="false" />
+    <Property Name="PublishingDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="MetaTitle" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+    <Property Name="MetaDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Keywords" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="SinglePrice" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="MultiUserPrice" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="CorporateUserPrice" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="Domain" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ReportDeliveryTypeId" Type="Int32" Nullable="false" />
+    <Property Name="ReportTypeId" Type="Int32" Nullable="false" />
+    <Property Name="ReportImage" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="NumberOfPages" Type="Int32" Nullable="false" />
+    <Property Name="ShortDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="LongDescritpion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="TableOfContent" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ListOfCharts" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ListOfFigure" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ModifiedBy" Type="Int32" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="ReportType">
+    <Key>
+      <PropertyRef Name="ReportTypeId" />
+    </Key>
+    <Property Name="ReportTypeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ReportType1" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="RoleActionRelation">
+    <Key>
+      <PropertyRef Name="RAId" />
+    </Key>
+    <Property Name="RAId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RId" Type="Int32" Nullable="false" />
+    <Property Name="AId" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RoleMaster">
+    <Key>
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="RoleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RoleName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IsValid" Type="Boolean" Nullable="false" />
+    <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ModifiedBy" Type="Int32" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="UserMaster">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserFName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UserLName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CurrentAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="EmailAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="State" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ContactNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PermnentAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Gender" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="CompanyName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ModifiedBy" Type="Int32" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="UserRoleRelation">
+    <Key>
+      <PropertyRef Name="UserRoleId" />
+    </Key>
+    <Property Name="UserRoleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="URoleId" Type="Int32" Nullable="false" />
+    <Property Name="UserId" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="ExcellentMarketResearchEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="ActionMasters" EntityType="Self.ActionMaster" />
+    <EntitySet Name="BuyingInfoes" EntityType="Self.BuyingInfo" />
+    <EntitySet Name="CategoryMasters" EntityType="Self.CategoryMaster" />
+    <EntitySet Name="Countries" EntityType="Self.Country" />
+    <EntitySet Name="CustomerInquiries" EntityType="Self.CustomerInquiry" />
+    <EntitySet Name="NewsMasters" EntityType="Self.NewsMaster" />
+    <EntitySet Name="PublisherMasters" EntityType="Self.PublisherMaster" />
+    <EntitySet Name="ReportDeliveryTypes" EntityType="Self.ReportDeliveryType" />
+    <EntitySet Name="ReportMasters" EntityType="Self.ReportMaster" />
+    <EntitySet Name="ReportTypes" EntityType="Self.ReportType" />
+    <EntitySet Name="RoleActionRelations" EntityType="Self.RoleActionRelation" />
+    <EntitySet Name="RoleMasters" EntityType="Self.RoleMaster" />
+    <EntitySet Name="UserMasters" EntityType="Self.UserMaster" />
+    <EntitySet Name="UserRoleRelations" EntityType="Self.UserRoleRelation" />
+    <FunctionImport Name="SplitString" IsComposable="true" ReturnType="Collection(ExcellentMarketResearchModel.SplitString_Result)">
+      <Parameter Name="StringToSplit" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="spBreadsCum" ReturnType="Collection(ExcellentMarketResearchModel.spBreadsCum_Result)">
+      <Parameter Name="CategoryId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="spCategoryRelatedReport" ReturnType="Collection(ExcellentMarketResearchModel.spCategoryRelatedReport_Result)">
+      <Parameter Name="Catid" Mode="In" Type="Int32" />
+      <Parameter Name="Pageno" Mode="In" Type="Int32" />
+      <Parameter Name="P_Count" Mode="InOut" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="spDetailsRoleAction" ReturnType="Collection(ExcellentMarketResearchModel.spDetailsRoleAction_Result)">
+      <Parameter Name="RoleId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="spDetailsUserRole" ReturnType="Collection(ExcellentMarketResearchModel.spDetailsUserRole_Result)">
+      <Parameter Name="UserId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="spLatestNews" ReturnType="Collection(ExcellentMarketResearchModel.spLatestNews_Result)" />
+    <FunctionImport Name="spLatestReport" ReturnType="Collection(ExcellentMarketResearchModel.spLatestReport_Result)" />
+    <FunctionImport Name="spNewAllLatestReport" ReturnType="Collection(ExcellentMarketResearchModel.spNewAllLatestReport_Result)">
+      <Parameter Name="Pageno" Mode="In" Type="Int32" />
+      <Parameter Name="P_Count" Mode="InOut" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="spRoleActionDelete">
+      <Parameter Name="RoleId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="spRoleActionInsert">
+      <Parameter Name="RoleId" Mode="In" Type="Int32" />
+      <Parameter Name="RoleName" Mode="In" Type="String" />
+      <Parameter Name="IsActive" Mode="In" Type="Boolean" />
+      <Parameter Name="CreatedBy" Mode="In" Type="Int32" />
+      <Parameter Name="ModifiedBy" Mode="In" Type="Int32" />
+      <Parameter Name="CreatedDate" Mode="In" Type="DateTime" />
+      <Parameter Name="ModifiedDate" Mode="In" Type="DateTime" />
+      <Parameter Name="ActionId" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="spRoleActionUpdate">
+      <Parameter Name="RoleId" Mode="In" Type="Int32" />
+      <Parameter Name="RoleName" Mode="In" Type="String" />
+      <Parameter Name="IsActive" Mode="In" Type="Boolean" />
+      <Parameter Name="CreatedBy" Mode="In" Type="Int32" />
+      <Parameter Name="ModifiedBy" Mode="In" Type="Int32" />
+      <Parameter Name="CreatedDate" Mode="In" Type="DateTime" />
+      <Parameter Name="ModifiedDate" Mode="In" Type="DateTime" />
+      <Parameter Name="ActionId" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="spSelectedNewsDetails" ReturnType="Collection(ExcellentMarketResearchModel.spSelectedNewsDetails_Result)">
+      <Parameter Name="NewsUrl" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="spSelectRoleAction" ReturnType="Collection(ExcellentMarketResearchModel.spSelectRoleAction_Result)" />
+    <FunctionImport Name="spUserRoleDelete">
+      <Parameter Name="UserId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="spUserRoleInsert">
+      <Parameter Name="UserId" Mode="In" Type="Int32" />
+      <Parameter Name="UserFName" Mode="In" Type="String" />
+      <Parameter Name="UserLName" Mode="In" Type="String" />
+      <Parameter Name="CurrentAddress" Mode="In" Type="String" />
+      <Parameter Name="State" Mode="In" Type="String" />
+      <Parameter Name="City" Mode="In" Type="String" />
+      <Parameter Name="ContactNumber" Mode="In" Type="String" />
+      <Parameter Name="PermnentAddress" Mode="In" Type="String" />
+      <Parameter Name="Gender" Mode="In" Type="String" />
+      <Parameter Name="CompanyName" Mode="In" Type="String" />
+      <Parameter Name="EmailAddress" Mode="In" Type="String" />
+      <Parameter Name="Password" Mode="In" Type="String" />
+      <Parameter Name="IsActive" Mode="In" Type="Boolean" />
+      <Parameter Name="CreatedBy" Mode="In" Type="Int32" />
+      <Parameter Name="ModifiedBy" Mode="In" Type="Int32" />
+      <Parameter Name="CreatedDate" Mode="In" Type="DateTime" />
+      <Parameter Name="ModifiedDate" Mode="In" Type="DateTime" />
+      <Parameter Name="RoleId" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="spUserRoleSelect" ReturnType="Collection(ExcellentMarketResearchModel.spUserRoleSelect_Result)" />
+    <FunctionImport Name="spUserRoleUpdate">
+      <Parameter Name="UserId" Mode="In" Type="Int32" />
+      <Parameter Name="UserFName" Mode="In" Type="String" />
+      <Parameter Name="UserLName" Mode="In" Type="String" />
+      <Parameter Name="CurrentAddress" Mode="In" Type="String" />
+      <Parameter Name="State" Mode="In" Type="String" />
+      <Parameter Name="City" Mode="In" Type="String" />
+      <Parameter Name="ContactNumber" Mode="In" Type="String" />
+      <Parameter Name="PermnentAddress" Mode="In" Type="String" />
+      <Parameter Name="Gender" Mode="In" Type="String" />
+      <Parameter Name="CompanyName" Mode="In" Type="String" />
+      <Parameter Name="EmailAddress" Mode="In" Type="String" />
+      <Parameter Name="Password" Mode="In" Type="String" />
+      <Parameter Name="IsActive" Mode="In" Type="Boolean" />
+      <Parameter Name="CreatedBy" Mode="In" Type="Int32" />
+      <Parameter Name="ModifiedBy" Mode="In" Type="Int32" />
+      <Parameter Name="CreatedDate" Mode="In" Type="DateTime" />
+      <Parameter Name="ModifiedDate" Mode="In" Type="DateTime" />
+      <Parameter Name="RoleId" Mode="In" Type="String" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="spBreadsCum_Result">
+    <Property Type="Int32" Name="CategoryId" Nullable="false" />
+    <Property Type="String" Name="CategoryName" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="CategoryUrl" Nullable="false" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="spCategoryRelatedReport_Result">
+    <Property Type="String" Name="ReportTitle" Nullable="false" MaxLength="2000" />
+    <Property Type="Int32" Name="CategoryId" Nullable="false" />
+    <Property Type="String" Name="ReportUrl" Nullable="false" MaxLength="350" />
+    <Property Type="String" Name="CategoryName" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="PublishingDate" Nullable="true" MaxLength="11" />
+    <Property Type="String" Name="LongDescription" Nullable="true" MaxLength="300" />
+    <Property Type="Int32" Name="NumberOfPages" Nullable="false" />
+    <Property Type="Int32" Name="ReportId" Nullable="false" />
+    <Property Type="Decimal" Name="SinglePrice" Nullable="false" Precision="18" Scale="0" />
+    <Property Type="String" Name="ShortDescription" Nullable="true" MaxLength="Max" />
+    <Property Type="String" Name="TableOfContent" Nullable="true" MaxLength="Max" />
+    <Property Type="String" Name="MetaTitle" Nullable="true" MaxLength="2000" />
+    <Property Type="String" Name="MetaDescription" Nullable="true" MaxLength="Max" />
+    <Property Type="String" Name="Keywords" Nullable="true" MaxLength="500" />
+    <Property Type="Decimal" Name="MultiUserPrice" Nullable="true" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="CorporateUserPrice" Nullable="true" Precision="18" Scale="0" />
+    <Property Type="Int32" Name="ReportTypeId" Nullable="false" />
+    <Property Type="String" Name="ReportImage" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="CategoryUrl" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="PublisherName" Nullable="false" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="spDetailsRoleAction_Result">
+    <Property Type="String" Name="RoleName" Nullable="false" MaxLength="50" />
+    <Property Type="Int32" Name="RId" Nullable="false" />
+    <Property Type="String" Name="RoleAction" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="spDetailsUserRole_Result">
+    <Property Type="String" Name="UserFName" Nullable="false" MaxLength="50" />
+    <Property Type="Int32" Name="UserId" Nullable="false" />
+    <Property Type="String" Name="UserRole" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="spLatestNews_Result">
+    <Property Type="Int32" Name="NewsId" Nullable="false" />
+    <Property Type="String" Name="NewsTitle" Nullable="false" MaxLength="2550" />
+    <Property Type="String" Name="NewsUrl" Nullable="true" MaxLength="500" />
+    <Property Type="DateTime" Name="PublishingDate" Nullable="false" Precision="23" />
+    <Property Type="String" Name="LongDescription" Nullable="true" MaxLength="300" />
+    <Property Type="Int32" Name="CategoryId" Nullable="false" />
+    <Property Type="String" Name="CategoryName" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="CategoryUrl" Nullable="false" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="spLatestReport_Result">
+    <Property Type="Int32" Name="ReportId" Nullable="false" />
+    <Property Type="String" Name="ReportTitle" Nullable="false" MaxLength="2000" />
+    <Property Type="String" Name="ReportUrl" Nullable="false" MaxLength="350" />
+    <Property Type="DateTime" Name="PublishingDate" Nullable="false" Precision="23" />
+    <Property Type="String" Name="LongDescritpion" Nullable="true" MaxLength="Max" />
+    <Property Type="Decimal" Name="SinglePrice" Nullable="false" Precision="18" Scale="0" />
+    <Property Type="String" Name="CategoryName" Nullable="false" MaxLength="50" />
+    <Property Type="Int32" Name="PublisherId" Nullable="false" />
+    <Property Type="String" Name="PublisherName" Nullable="false" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="spNewAllLatestReport_Result">
+    <Property Type="String" Name="ReportTitle" Nullable="false" MaxLength="2000" />
+    <Property Type="Int32" Name="CategoryId" Nullable="false" />
+    <Property Type="String" Name="ReportUrl" Nullable="false" MaxLength="350" />
+    <Property Type="String" Name="CategoryName" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="PublishingDate" Nullable="true" MaxLength="11" />
+    <Property Type="String" Name="LongDescription" Nullable="true" MaxLength="300" />
+    <Property Type="Int32" Name="NumberOfPages" Nullable="false" />
+    <Property Type="Int32" Name="ReportId" Nullable="false" />
+    <Property Type="Decimal" Name="SinglePrice" Nullable="false" Precision="18" Scale="0" />
+    <Property Type="String" Name="ShortDescription" Nullable="true" MaxLength="Max" />
+    <Property Type="String" Name="TableOfContent" Nullable="true" MaxLength="Max" />
+    <Property Type="String" Name="MetaTitle" Nullable="true" MaxLength="2000" />
+    <Property Type="String" Name="MetaDescription" Nullable="true" MaxLength="Max" />
+    <Property Type="String" Name="Keywords" Nullable="true" MaxLength="500" />
+    <Property Type="Decimal" Name="MultiUserPrice" Nullable="true" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="CorporateUserPrice" Nullable="true" Precision="18" Scale="0" />
+    <Property Type="Int32" Name="ReportTypeId" Nullable="false" />
+    <Property Type="String" Name="ReportImage" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="CategoryUrl" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="PublisherName" Nullable="false" MaxLength="50" />
+    <Property Type="Int32" Name="PublisherId" Nullable="false" />
+    <Property Type="String" Name="publisherUrl" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="spSelectedNewsDetails_Result">
+    <Property Type="Int32" Name="NewsId" Nullable="false" />
+    <Property Type="String" Name="NewsTitle" Nullable="false" MaxLength="2550" />
+    <Property Type="String" Name="NewsDescription" Nullable="false" MaxLength="Max" />
+    <Property Type="String" Name="NewsUrl" Nullable="true" MaxLength="500" />
+    <Property Type="Int32" Name="CategoryId" Nullable="false" />
+    <Property Type="String" Name="CategoryName" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="CategoryUrl" Nullable="false" MaxLength="50" />
+    <Property Type="DateTime" Name="PublishingDate" Nullable="false" Precision="23" />
+    <Property Type="String" Name="NewsImage" Nullable="true" MaxLength="500" />
+  </ComplexType>
+  <ComplexType Name="spSelectRoleAction_Result">
+    <Property Type="String" Name="RoleName" Nullable="false" MaxLength="50" />
+    <Property Type="Int32" Name="RId" Nullable="false" />
+    <Property Type="String" Name="RoleAction" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="spUserRoleSelect_Result">
+    <Property Type="String" Name="UserFName" Nullable="false" MaxLength="50" />
+    <Property Type="Int32" Name="UserId" Nullable="false" />
+    <Property Type="String" Name="UserRole" Nullable="true" />
+  </ComplexType>
+</Schema>

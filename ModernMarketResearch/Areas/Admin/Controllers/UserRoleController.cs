@@ -1,6 +1,6 @@
-﻿using ModernMarketResearch.Areas.Admin.Models.DAL;
-using ModernMarketResearch.Areas.Admin.Models.ViewModel;
-using ModernMarketResearch.Models;
+﻿using ExcellentMarketResearch.Areas.Admin.Models.DAL;
+using ExcellentMarketResearch.Areas.Admin.Models.ViewModel;
+using ExcellentMarketResearch.Models;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity.Validation;
@@ -8,7 +8,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace ModernMarketResearch.Areas.Admin.Controllers
+namespace ExcellentMarketResearch.Areas.Admin.Controllers
 {
     public class UserRoleController : Controller
     {

@@ -1,12 +1,12 @@
-﻿using ModernMarketResearch.Areas.Admin.Models.ViewModel;
-using ModernMarketResearch.Models;
+﻿using ExcellentMarketResearch.Areas.Admin.Models.ViewModel;
+using ExcellentMarketResearch.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace ModernMarketResearch.Controllers
+namespace ExcellentMarketResearch.Controllers
 {
     public class HomeController : Controller
     {
@@ -14,7 +14,7 @@ namespace ModernMarketResearch.Controllers
         ReportVM r = new ReportVM();
 
 
-        ModernMarketResearchEntities db = new ModernMarketResearchEntities();
+        ExcellentMarketResearchEntities db = new ExcellentMarketResearchEntities();
         [OutputCache(Duration = 60, VaryByParam = "none")]
         public ActionResult Index()
         {

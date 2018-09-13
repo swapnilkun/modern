@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
-namespace ModernMarketResearch.Areas.Admin.Models.ViewModel
+namespace ExcellentMarketResearch.Areas.Admin.Models.ViewModel
 {
     public class UserRoleVM
     {

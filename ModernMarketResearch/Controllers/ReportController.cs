@@ -1,6 +1,6 @@
-﻿using ModernMarketResearch.Areas.Admin.Models.ViewModel;
-using ModernMarketResearch.Models;
-using ModernMarketResearch.Models.ViewModel;
+﻿using ExcellentMarketResearch.Areas.Admin.Models.ViewModel;
+using ExcellentMarketResearch.Models;
+using ExcellentMarketResearch.Models.ViewModel;
 using PagedList;
 using System;
 using System.Collections.Generic;
@@ -11,14 +11,14 @@ using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.Mvc;
 
-namespace ModernMarketResearch.Controllers
+namespace ExcellentMarketResearch.Controllers
 {
     public class ReportController : Controller
     {
         //
         // GET: /Report/
 
-        ModernMarketResearchEntities db = new ModernMarketResearchEntities();
+        ExcellentMarketResearchEntities db = new ExcellentMarketResearchEntities();
 
         public ActionResult Index()
         {
@@ -155,7 +155,7 @@ namespace ModernMarketResearch.Controllers
         }
         public ActionResult ReportDetail(string Reporturl)
         {
-            ReportDetailsVM report = new ReportDetailsVM();
+            Models.ReportDetailsVM report = new Models.ReportDetailsVM();
 
             report.ReportDetails = (from l in db.ReportMasters
                                     join c in db.CategoryMasters on l.CategoryId equals c.CategoryId

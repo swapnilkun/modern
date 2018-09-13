@@ -1,12 +1,12 @@
-﻿using ModernMarketResearch.Areas.Admin.Models.ViewModel;
-using ModernMarketResearch.Models;
+﻿using ExcellentMarketResearch.Areas.Admin.Models.ViewModel;
+using ExcellentMarketResearch.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ModernMarketResearch.Areas.Admin.Models.DAL
+namespace ExcellentMarketResearch.Areas.Admin.Models.DAL
 {
     interface ICategoryRepository
     {

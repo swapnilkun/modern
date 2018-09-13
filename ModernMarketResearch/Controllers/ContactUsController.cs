@@ -1,5 +1,5 @@
-﻿using ModernMarketResearch.Models;
-using ModernMarketResearch.Models.ViewModel;
+﻿using ExcellentMarketResearch.Models;
+using ExcellentMarketResearch.Models.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity.Validation;
@@ -8,14 +8,14 @@ using System.Text;
 using System.Web;
 using System.Web.Mvc;
 
-namespace ModernMarketResearch.Controllers
+namespace ExcellentMarketResearch.Controllers
 {
     public class ContactUsController : Controller
     {
         //
         // GET: /ContactUs/
 
-        ModernMarketResearchEntities db = new ModernMarketResearchEntities();
+        ExcellentMarketResearchEntities db = new ExcellentMarketResearchEntities();
 
         public ActionResult ContactusThanks()
         {
@@ -34,7 +34,7 @@ namespace ModernMarketResearch.Controllers
             ContactUsVM cnt = new ContactUsVM();
             Session["Captcha"] = DrawCaptcha();
             var PlainText = Session["Captcha"].ToString();
-            var EncryCaptcha = ModernMarketResearch.Areas.Admin.Models.Common.Encrypt(PlainText);
+            var EncryCaptcha = ExcellentMarketResearch.Areas.Admin.Models.Common.Encrypt(PlainText);
             cnt.ReportId = 0;
             cnt.RealCaptcha = EncryCaptcha;
             return View(cnt);
@@ -50,7 +50,7 @@ namespace ModernMarketResearch.Controllers
             if (ModelState.IsValid)
             {
                 // cap = Session["Captcha"].ToString();
-                var cap = ModernMarketResearch.Areas.Admin.Models.Common.Decrypt(eq.RealCaptcha);
+                var cap = ExcellentMarketResearch.Areas.Admin.Models.Common.Decrypt(eq.RealCaptcha);
 
                 Publisher = "!";
 
@@ -168,7 +168,7 @@ namespace ModernMarketResearch.Controllers
         //             + "<br />Joel John | Corporate Sales Specialist,USA"
         //             + "<br />Direct line: + 1-855-465-4651"
         //             + "<br />" + "marketresearchtrade.com"
-        //             + "<br />E-mail: jl@qyroup.biz | Web: " + "modernmarketresearch.com" + "</b>";
+        //             + "<br />E-mail: jl@qyroup.biz | Web: " + "ExcellentMarketResearch.com" + "</b>";
         //    }
         //    else
         //    {
@@ -182,7 +182,7 @@ namespace ModernMarketResearch.Controllers
         //            + "<br />Joel John | Corporate Sales Specialist,USA"
         //            + "<br />Direct line: + 1-8556156"
         //            + "<br />" + "marketresearchtrade.com"
-        //            + "<br />E-mail: jja@qygroup.biz | Web: " + " modernmarketresearch.com" + "</b>";
+        //            + "<br />E-mail: jja@qygroup.biz | Web: " + " ExcellentMarketResearch.com" + "</b>";
         //    }
         //    return result;
         //}

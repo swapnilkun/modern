@@ -4,14 +4,14 @@ using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using ModernMarketResearch.Models;
+using ExcellentMarketResearch.Models;
 using System.Data.OleDb;
 
-namespace ModernMarketResearch.Areas.Admin.Controllers
+namespace ExcellentMarketResearch.Areas.Admin.Controllers
 {
     public class ExcelUploadController : Controller
     {
-        ModernMarketResearchEntities db = new ModernMarketResearchEntities();
+        ExcellentMarketResearchEntities db = new ExcellentMarketResearchEntities();
         //
         // GET: /Admin/ExcelUpload/
         public ActionResult Index()
@@ -185,7 +185,7 @@ namespace ModernMarketResearch.Areas.Admin.Controllers
                             else
                                 r.ReportTitle = ds.Tables[tables].Rows[rows][columns].ToString().Trim().Replace("   ", " ").Replace("  ", " ").Replace("  ", " ");
 
-                            r.ReportUrl = ModernMarketResearch.Areas.Admin.Models.Common.GenerateSlug(ds.Tables[tables].Rows[rows][columns].ToString().Trim());
+                            r.ReportUrl = ExcellentMarketResearch.Areas.Admin.Models.Common.GenerateSlug(ds.Tables[tables].Rows[rows][columns].ToString().Trim());
 
                             if (db.ReportMasters.Count(url => url.ReportUrl == r.ReportUrl.ToLower()) > 0 ? true : false)
                             { r.ReportUrl = ""; IsVaidate = false; Message += "Long URL <br />"; }

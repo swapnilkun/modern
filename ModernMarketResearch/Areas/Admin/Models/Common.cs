@@ -7,7 +7,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Web;
 
-namespace ModernMarketResearch.Areas.Admin.Models
+namespace ExcellentMarketResearch.Areas.Admin.Models
 {
     public static class Common
     {

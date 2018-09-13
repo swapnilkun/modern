@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="ModernMarketResearchModelStoreContainer" CdmEntityContainer="ModernMarketResearchEntities2">
+  <EntityContainerMapping StorageEntityContainer="ModernMarketResearchModelStoreContainer" CdmEntityContainer="ModernMarketResearchEntities">
     <EntitySetMapping Name="ActionMasters">
       <EntityTypeMapping TypeName="ModernMarketResearchModel.ActionMaster">
         <MappingFragment StoreEntitySet="ActionMaster">
@@ -367,6 +367,7 @@
           <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
           <ScalarProperty Name="CategoryUrl" ColumnName="CategoryUrl" />
           <ScalarProperty Name="PublishingDate" ColumnName="PublishingDate" />
+          <ScalarProperty Name="NewsImage" ColumnName="NewsImage" />
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>

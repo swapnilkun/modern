@@ -1,5 +1,5 @@
-﻿using ModernMarketResearch.Areas.Admin.Models.ViewModel;
-using ModernMarketResearch.Models;
+﻿using ExcellentMarketResearch.Areas.Admin.Models.ViewModel;
+using ExcellentMarketResearch.Models;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -8,18 +8,18 @@ using System.Linq;
 using System.Web;
 using System.Web.Script.Serialization;
 
-namespace ModernMarketResearch.Areas.Admin.Models.DAL
+namespace ExcellentMarketResearch.Areas.Admin.Models.DAL
 {
     public class PublisherRepository
     {
-        ModernMarketResearchEntities db = new ModernMarketResearchEntities();
+        ExcellentMarketResearchEntities db = new ExcellentMarketResearchEntities();
         public void InsertPublisher(PublisherVM pub)
         {
             pub.CreatedBy = 1;
             pub.CreatedDate = DateTime.Now;
             if (pub.PublisherUrl == null)
             {
-                var url = ModernMarketResearch.Areas.Admin.Models.Common.GenerateSlug(pub.PublisherName);
+                var url = ExcellentMarketResearch.Areas.Admin.Models.Common.GenerateSlug(pub.PublisherName);
                 pub.PublisherUrl = url;
             }
             JavaScriptSerializer serializer = new JavaScriptSerializer();

@@ -1,6 +1,6 @@
-﻿using ModernMarketResearch.Areas.Admin.Models.DAL;
-using ModernMarketResearch.Areas.Admin.Models.ViewModel;
-using ModernMarketResearch.Models;
+﻿using ExcellentMarketResearch.Areas.Admin.Models.DAL;
+using ExcellentMarketResearch.Areas.Admin.Models.ViewModel;
+using ExcellentMarketResearch.Models;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -13,7 +13,7 @@ using PagedList;
 using PagedList.Mvc;
 
 
-namespace ModernMarketResearch.Areas.Admin.Controllers
+namespace ExcellentMarketResearch.Areas.Admin.Controllers
 {
     public class ReportController : Controller
     {
@@ -34,7 +34,7 @@ namespace ModernMarketResearch.Areas.Admin.Controllers
         // GET: /Admin/Report/
         //ReportRepository _ObjReportRepository = new ReportRepository();
 
-        ModernMarketResearchEntities db = new ModernMarketResearchEntities();
+        ExcellentMarketResearchEntities db = new ExcellentMarketResearchEntities();
 
       //  [CustomAuthorization("ReportUploader,ReportCreater", "Create,Delete")]
         public ActionResult ReportIndex(int? pageno, string searchkey, int? pagesize)
@@ -121,7 +121,7 @@ namespace ModernMarketResearch.Areas.Admin.Controllers
                 {
                     if (r.ReportUrl == null)
                     {
-                        r.ReportUrl = ModernMarketResearch.Areas.Admin.Models.Common.GenerateSlug(r.ReportTitle);
+                        r.ReportUrl = ExcellentMarketResearch.Areas.Admin.Models.Common.GenerateSlug(r.ReportTitle);
                     }
                     _ObjReportRepository.InsertReport(r);
                     return RedirectToAction("ReportIndex");

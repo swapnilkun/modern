@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using ModernMarketResearch.Models;
-namespace ModernMarketResearch.Areas.Admin.Models
+using ExcellentMarketResearch.Models;
+namespace ExcellentMarketResearch.Areas.Admin.Models
 {
     public class CustomAuthentication:AuthorizeAttribute
     {
-        ModernMarketResearchEntities db = new ModernMarketResearchEntities();
+        ExcellentMarketResearchEntities db = new ExcellentMarketResearchEntities();
 
         public string Roles {get;set;}
         public string Actions{get;set;}

@@ -1,20 +1,20 @@
-﻿using ModernMarketResearch.Areas.Admin.Models.DAL;
-using ModernMarketResearch.Areas.Admin.Models.ViewModel;
-using ModernMarketResearch.Models;
+﻿using ExcellentMarketResearch.Areas.Admin.Models.DAL;
+using ExcellentMarketResearch.Areas.Admin.Models.ViewModel;
+using ExcellentMarketResearch.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace ModernMarketResearch.Areas.Admin.Controllers
+namespace ExcellentMarketResearch.Areas.Admin.Controllers
 {
     public class ActionController : Controller
     {
         //
         // GET: /Admin/Action/
         private ActionRepository _ObjActionRepository;
-        ModernMarketResearchEntities db = new ModernMarketResearchEntities();
+        ExcellentMarketResearchEntities db = new ExcellentMarketResearchEntities();
         public ActionController()
         {
             _ObjActionRepository = new ActionRepository();

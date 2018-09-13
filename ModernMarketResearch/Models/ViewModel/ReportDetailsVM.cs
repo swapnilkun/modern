@@ -1,10 +1,10 @@
-﻿using ModernMarketResearch.Areas.Admin.Models.ViewModel;
+﻿using ExcellentMarketResearch.Areas.Admin.Models.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace ModernMarketResearch.Models.ViewModel
+namespace ExcellentMarketResearch.Models.ViewModel
 {
     public class ReportDetailsVM
     {

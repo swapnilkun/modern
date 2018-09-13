@@ -1,4 +1,4 @@
-﻿using ModernMarketResearch.Models;
+﻿using ExcellentMarketResearch.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -6,12 +6,12 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace ModernMarketResearch.Areas.Admin.Models.ViewModel
+namespace ExcellentMarketResearch.Areas.Admin.Models.ViewModel
 {
     public class ReportVM
     {
 
-        ModernMarketResearchEntities db = new ModernMarketResearchEntities();
+        ExcellentMarketResearchEntities db = new ExcellentMarketResearchEntities();
         public int ReportId { get; set; }
 
         [Display(Name = "Report Tilte")]

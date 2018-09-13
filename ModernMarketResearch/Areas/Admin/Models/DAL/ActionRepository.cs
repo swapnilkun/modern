@@ -1,17 +1,17 @@
-﻿using ModernMarketResearch.Models;
+﻿using ExcellentMarketResearch.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Script.Serialization;
 
-namespace ModernMarketResearch.Areas.Admin.Models.DAL
+namespace ExcellentMarketResearch.Areas.Admin.Models.DAL
 {
     public class ActionRepository:IActionRepository
     {
-        ModernMarketResearchEntities db = new ModernMarketResearchEntities();
+        ExcellentMarketResearchEntities db = new ExcellentMarketResearchEntities();
 
-        public List<ModernMarketResearch.Models.ActionMaster> GetAction()
+        public List<ExcellentMarketResearch.Models.ActionMaster> GetAction()
         {
             return db.ActionMasters.ToList();
         }

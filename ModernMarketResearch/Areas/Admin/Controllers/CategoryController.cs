@@ -1,6 +1,6 @@
-﻿using ModernMarketResearch.Areas.Admin.Models.DAL;
-using ModernMarketResearch.Areas.Admin.Models.ViewModel;
-using ModernMarketResearch.Models;
+﻿using ExcellentMarketResearch.Areas.Admin.Models.DAL;
+using ExcellentMarketResearch.Areas.Admin.Models.ViewModel;
+using ExcellentMarketResearch.Models;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -10,13 +10,13 @@ using System.Web.Mvc;
 using PagedList;
 using PagedList.Mvc;
 
-namespace ModernMarketResearch.Areas.Admin.Controllers
+namespace ExcellentMarketResearch.Areas.Admin.Controllers
 {
     public class CategoryController : Controller
     {
         //
         // GET: /Admin/Category/
-        ModernMarketResearchEntities db = new ModernMarketResearchEntities();
+        ExcellentMarketResearchEntities db = new ExcellentMarketResearchEntities();
 
         public CategoryRepository _ObjCategoryRepository;
         public CategoryController()
@@ -89,7 +89,7 @@ namespace ModernMarketResearch.Areas.Admin.Controllers
             }
             else if (string.IsNullOrEmpty(catvm.CategoryURL))
             {
-                catvm.CategoryURL = ModernMarketResearch.Areas.Admin.Models.Common.GenerateSlug(catvm.CategoryName);
+                catvm.CategoryURL = ExcellentMarketResearch.Areas.Admin.Models.Common.GenerateSlug(catvm.CategoryName);
                 _ObjCategoryRepository.InsertCategory(catvm);
             }
             return RedirectToAction("CategoryIndex");

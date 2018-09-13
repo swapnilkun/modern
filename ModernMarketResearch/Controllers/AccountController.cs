@@ -8,10 +8,10 @@ using System.Web.Security;
 using DotNetOpenAuth.AspNet;
 using Microsoft.Web.WebPages.OAuth;
 using WebMatrix.WebData;
-using ModernMarketResearch.Filters;
-using ModernMarketResearch.Models;
+using ExcellentMarketResearch.Filters;
+using ExcellentMarketResearch.Models;
 
-namespace ModernMarketResearch.Controllers
+namespace ExcellentMarketResearch.Controllers
 {
     [Authorize]
     [InitializeSimpleMembership]

@@ -35,6 +35,7 @@
           <ScalarProperty Name="ReportUrl" ColumnName="ReportUrl" />
           <ScalarProperty Name="TransactionId" ColumnName="TransactionId" />
           <ScalarProperty Name="ReportTitle" ColumnName="ReportTitle" />
+          <ScalarProperty Name="ReportId" ColumnName="ReportId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -87,10 +88,6 @@
           <ScalarProperty Name="FormType" ColumnName="FormType" />
           <ScalarProperty Name="ReportTitle" ColumnName="ReportTitle" />
           <ScalarProperty Name="AreaCode" ColumnName="AreaCode" />
-          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
-          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
-          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -101,6 +98,7 @@
           <ScalarProperty Name="NewsTitle" ColumnName="NewsTitle" />
           <ScalarProperty Name="NewsUrl" ColumnName="NewsUrl" />
           <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+          <ScalarProperty Name="NewsImage" ColumnName="NewsImage" />
           <ScalarProperty Name="NewsDescription" ColumnName="NewsDescription" />
           <ScalarProperty Name="PublishingDate" ColumnName="PublishingDate" />
           <ScalarProperty Name="MetaTitle" ColumnName="MetaTitle" />
@@ -369,6 +367,7 @@
           <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
           <ScalarProperty Name="CategoryUrl" ColumnName="CategoryUrl" />
           <ScalarProperty Name="PublishingDate" ColumnName="PublishingDate" />
+          <ScalarProperty Name="NewsImage" ColumnName="NewsImage" />
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>

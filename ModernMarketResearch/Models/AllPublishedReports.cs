@@ -1,11 +1,11 @@
-﻿using ModernMarketResearch.Models.ViewModel;
+﻿using ExcellentMarketResearch.Models.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
-namespace ModernMarketResearch.Models
+namespace ExcellentMarketResearch.Models
 {
     public class AllPublishedReports
     {

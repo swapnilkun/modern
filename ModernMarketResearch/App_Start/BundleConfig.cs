@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Optimization;
 
-namespace ModernMarketResearch
+namespace ExcellentMarketResearch
 {
     public class BundleConfig
     {

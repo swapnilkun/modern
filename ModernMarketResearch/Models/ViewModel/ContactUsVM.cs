@@ -5,7 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace ModernMarketResearch.Models.ViewModel
+namespace ExcellentMarketResearch.Models.ViewModel
 {
     public class ContactUsVM
     {

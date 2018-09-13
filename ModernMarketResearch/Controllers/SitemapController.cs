@@ -1,18 +1,18 @@
-﻿using ModernMarketResearch.Models;
+﻿using ExcellentMarketResearch.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace ModernMarketResearch.Controllers
+namespace ExcellentMarketResearch.Controllers
 {
     public class SitemapController : Controller
     {
         //
         // GET: /Sitemap/
 
-        Sitemap report = new ModernMarketResearch.Models.Sitemap();
+        Sitemap report = new ExcellentMarketResearch.Models.Sitemap();
 
         public ActionResult Index()
         {

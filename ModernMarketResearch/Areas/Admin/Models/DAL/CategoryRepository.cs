@@ -1,5 +1,5 @@
-﻿using ModernMarketResearch.Areas.Admin.Models.ViewModel;
-using ModernMarketResearch.Models;
+﻿using ExcellentMarketResearch.Areas.Admin.Models.ViewModel;
+using ExcellentMarketResearch.Models;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -9,15 +9,15 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Script.Serialization;
 
-namespace ModernMarketResearch.Areas.Admin.Models.DAL
+namespace ExcellentMarketResearch.Areas.Admin.Models.DAL
 {
     public class CategoryRepository : ICategoryRepository
     {
-      //  ModernMarketResearchEntities db = new ModernMarketResearchEntities();
-        public ModernMarketResearchEntities db;
+      //  ExcellentMarketResearchEntities db = new ExcellentMarketResearchEntities();
+        public ExcellentMarketResearchEntities db;
         public CategoryRepository()
         {
-            db = new ModernMarketResearchEntities();
+            db = new ExcellentMarketResearchEntities();
         }
         public void InsertCategory(CategoryVM catvm)
         {
@@ -98,7 +98,7 @@ namespace ModernMarketResearch.Areas.Admin.Models.DAL
             bool flag = false;
             if (cat.CategoryURL == null)
             {
-                var caturl = ModernMarketResearch.Areas.Admin.Models.Common.GenerateSlug(cat.CategoryName);
+                var caturl = ExcellentMarketResearch.Areas.Admin.Models.Common.GenerateSlug(cat.CategoryName);
                 // cat.CategoryURL = caturl + "-" + cat.CategoryId;
                 cat.CategoryURL = caturl;
                 if (IsSameCategoryDetails(cat) || !IsCategoryNameExist(cat))
@@ -218,7 +218,7 @@ namespace ModernMarketResearch.Areas.Admin.Models.DAL
 
         public bool IsCategoryNameExist(CategoryVM cat)
         {
-            ModernMarketResearchEntities db = new ModernMarketResearchEntities();
+            ExcellentMarketResearchEntities db = new ExcellentMarketResearchEntities();
 
             bool flag = false;
 

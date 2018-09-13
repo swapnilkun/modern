@@ -4,13 +4,13 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
-namespace ModernMarketResearch.Models.ViewModel
+namespace ExcellentMarketResearch.Models.ViewModel
 {
    
         public class InquiryVM
         {
 
-            ModernMarketResearchEntities db = new ModernMarketResearchEntities();
+            ExcellentMarketResearchEntities db = new ExcellentMarketResearchEntities();
 
             public int CustomerId { get; set; }
 
