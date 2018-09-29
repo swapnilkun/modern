@@ -270,7 +270,6 @@
     <Compile Include="Models\ReportDeliveryType.cs">
       <DependentUpon>ExcellentMarketResearch.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\ReportDetailsVM.cs" />
     <Compile Include="Models\ReportMaster.cs">
       <DependentUpon>ExcellentMarketResearch.tt</DependentUpon>
     </Compile>
@@ -890,7 +889,6 @@
     <Content Include="img\icons\Technology-and-media.png" />
     <Content Include="img\icons\Technology-media.png" />
     <Content Include="img\intro-bg.jpg" />
-    <Content Include="img\logo.jpeg" />
     <Content Include="img\logo.png" />
     <Content Include="img\map-marker.png" />
     <Content Include="img\moving.jpg" />
@@ -1106,6 +1104,10 @@
     </Content>
     <None Include="Properties\PublishProfiles\excellentmarketresearch.com - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\excellentmarketresearch.com - Web Deploy1.pubxml" />
+    <None Include="Properties\PublishProfiles\excellentmarketresearch.com - Web Deploy2.pubxml" />
+    <None Include="Properties\PublishProfiles\excellentmarketresearch.com - Web Deploy3.pubxml" />
+    <None Include="Properties\PublishProfiles\excellentmarketresearch.com - Web Deploy4.pubxml" />
+    <None Include="Properties\PublishProfiles\excellentmarketresearch.com - Web Deploy5.pubxml" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.2.1.js" />

@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Web;
 using System.Xml;
+using ExcellentMarketResearch.Models;
 using PagedList;
 using PagedList.Mvc;
 

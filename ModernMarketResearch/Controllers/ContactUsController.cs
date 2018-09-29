@@ -159,7 +159,7 @@ namespace ExcellentMarketResearch.Controllers
         //    if (ReportTitle == "")
         //    {
         //        result = "Dear " + Name + ","
-        //             + "<br /><br />Thank you for your interest in <b>" + "modernmarket.biz" + "</b>."
+        //             + "<br /><br />Thank you for your interest in <b>" + "Excellentmarket.biz" + "</b>."
         //            //+ "<br /><br />For your reference please find the below link."
         //            //+ "<br /><br />" + "QYGroup.biz"
         //            //+ "<br /><br />I'll contact you soon to serve your research needs."

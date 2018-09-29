@@ -68,8 +68,8 @@ namespace ExcellentMarketResearch.Controllers
                                      }).Take(3).ToList();
 
             ViewBag.ParentCategory = db.CategoryMasters.Where(x => x.ParentCategoryId == 0).ToList();
-            ViewBag.Title = "Modern Market Research  - Market Research Reports, Industry Analysis, Trends and Forecast";
-            ViewBag.Description = "Modern Market Research  provides in-depth and reliable market data, size, applications, industry structure, forecasts, related to Global and Chinese markets";
+            ViewBag.Title = "Excellent Market Research  - Market Research Reports, Industry Analysis, Trends and Forecast";
+            ViewBag.Description = "Excellent Market Research  provides in-depth and reliable market data, size, applications, industry structure, forecasts, related to Global and Chinese markets";
             return View();
         }
 

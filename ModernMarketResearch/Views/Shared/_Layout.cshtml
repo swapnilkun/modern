@@ -12,6 +12,15 @@
 
     <title>Excellent Market Research</title>
     <!-- Web Fonts -->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-125789533-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-125789533-1');
+    </script>
 
 
     <script src="~/Scripts/jquery-3.3.1.js"></script>
@@ -73,7 +82,7 @@
                                     </div>
                                     <!-- /.col-sm-6 -->
 
-                                    <div class="col-sm-6 hidden-xs">
+                                    <div class="col-sm-6 socialicons">
                                         <div class="topbar-right">
                                             <div class="lang-support pull-right" style="display: none;">
                                                 <select class="cs-select cs-skin-elastic">
@@ -118,10 +127,10 @@
                         <div class="container mainnav">
                             <div class="navbar-header">
                                 <h1 class="logo"><a class="navbar-brand" href="@Url.Action("Index", "Home")">
-                                    <img src="@Url.Content("~/img/logo.jpeg")" alt="Excellent Market Research"></a></h1>
+                                    <img src="@Url.Content("~/img/logo.png")" alt="Excellent Market Research"></a></h1>
 
                                 <!-- offcanvas-trigger -->
-                                <button type="button" class="navbar-toggle collapsed pull-right" style="display: none;">
+                                <button type="button" class="navbar-toggle collapsed pull-right">
                                     <span class="sr-only">Toggle navigation</span>
                                     <i class="fa fa-bars"></i>
                                 </button>
@@ -241,7 +250,7 @@
                         </div>
 
                         <div class="copyright-info">
-                            <span>Copyright © 2018 Excellent Market Research. All Rights Reserved. Designed by <a href="http://idealbies.com">idealbies.com</a></span>
+                            <span>Copyright © 2018 Excellent Market Research. All Rights Reserved. Designed by <a href="http://idealbies.com" target="_blank">idealbies.com</a></span>
                         </div>
                     </div>
                     <!-- /.container -->
@@ -259,44 +268,11 @@
                     <button type="button" class="close" aria-hidden="true" data-toggle="offcanvas" id="off-canvas-close-btn">&times;</button>
                 </div>
                 <ul id="offcanvasMenu" class="list-unstyled visible-xs visible-sm">
-                    <li class="active"><a href="index.html">Home<span class="sr-only">(current)</span></a></li>
-                    <li>
-                        <a href="#">Pages</a>
-                        <ul>
-                            <li><a href="about.html">About</a></li>
-                            <li><a href="service.html">Service</a></li>
-                            <li><a href="our-people.html">Our people</a></li>
-                            <li><a href="career.html">Career</a></li>
-                            <li><a href="faq.html">FAQ Page</a></li>
-                            <li><a href="typography.html">Typography</a></li>
-                        </ul>
-
-                    </li>
-                    <li>
-                        <a href="#">Services</a>
-                        <ul>
-                            <li><a href="air.html">Air transportation</a></li>
-                            <li><a href="marine.html">Marine transportation</a></li>
-                            <li><a href="moving.html">Moving &amp; storage</a></li>
-                            <li><a href="shipping.html">Shipping &amp; operations</a></li>
-                            <li><a href="transportation.html">Transportation logistics</a></li>
-                            <li><a href="trucking.html">Trucking</a></li>
-                        </ul>
-
-                    </li>
-                    <li>
-                        <a href="#">Blog</a>
-                        <ul>
-                            <li>
-                                <a href="blog.html">Standard blog</a>
-                            </li>
-                            <li>
-                                <a href="blog-single.html">Single blog</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li><a href="contact.html">Contact</a></li>
-                    <li><a href="typography.html">Typography</a></li>
+                    <li class="@(ViewBag.activemenu == "Home" ? "active" : "")"><a href="@Url.Action("Index", "Home")">Home<span class="sr-only">(current)</span></a></li>
+                    <li class="@(ViewBag.activemenu == "About" ? "active" : "")"><a href="@Url.Action("About", "Home")">About Us</a></li>
+                    <li class="@(ViewBag.activemenu == "Report" ? "active" : "")"><a href="@Url.Action("AllReports", "Report")">Reports</a></li>
+                    <li class="@(ViewBag.activemenu == "News" ? "active" : "")"><a href="@Url.Action("AllNews", "News")">News</a></li>
+                    <li class="@(ViewBag.activemenu == "Contact" ? "active" : "")"><a href="@Url.Action("Index", "ContactUs")">Contact</a></li>
                 </ul>
                 <div class="offcanvas-widgets hidden-sm hidden-xs">
                     <div id="twitterWidget">

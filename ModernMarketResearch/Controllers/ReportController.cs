@@ -127,8 +127,8 @@ namespace ExcellentMarketResearch.Controllers
             var reports = new StaticPagedList<ReportVM>(result, pageno ?? 1, 10, Convert.ToInt32(count.Value));
            
             ViewBag.Totalreports = reports.TotalItemCount;
-            ViewBag.Title = "All Latest Market Research Reports | Modern Market Research";
-            ViewBag.Description = "Modern Market Research  Provides All Latest Market Research Reports of Different Categories and Custom Reports";
+            ViewBag.Title = "All Latest Market Research Reports | Excellent Market Research";
+            ViewBag.Description = "Excellent Market Research  Provides All Latest Market Research Reports of Different Categories and Custom Reports";
             ViewBag.Keywords = "Latest Reports, Trending Reports, Custom Reports, ";
            
             return View(reports);
@@ -155,7 +155,7 @@ namespace ExcellentMarketResearch.Controllers
         }
         public ActionResult ReportDetail(string Reporturl)
         {
-            Models.ReportDetailsVM report = new Models.ReportDetailsVM();
+            Models.ViewModel.ReportDetailsVM report = new Models.ViewModel.ReportDetailsVM();
 
             report.ReportDetails = (from l in db.ReportMasters
                                     join c in db.CategoryMasters on l.CategoryId equals c.CategoryId
