@@ -175,10 +175,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/23/2018 22:07:34</publishTime>
     </File>
     <File Include="bin/ModernMarketResearch.dll">
-      <publishTime>09/14/2018 01:04:52</publishTime>
+      <publishTime>09/30/2018 00:13:44</publishTime>
     </File>
     <File Include="bin/ModernMarketResearch.pdb">
-      <publishTime>09/14/2018 01:04:52</publishTime>
+      <publishTime>09/30/2018 00:13:44</publishTime>
     </File>
     <File Include="bin/Newtonsoft.Json.dll">
       <publishTime>07/23/2018 22:07:34</publishTime>
@@ -244,13 +244,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/23/2018 22:07:32</publishTime>
     </File>
     <File Include="Content/bootstrap.css.map">
-      <publishTime>07/23/2018 22:07:32</publishTime>
+      <publishTime>09/25/2018 23:08:22</publishTime>
     </File>
     <File Include="Content/bootstrap.min.css">
       <publishTime>07/23/2018 22:07:32</publishTime>
     </File>
     <File Include="Content/bootstrap.min.css.map">
-      <publishTime>07/23/2018 22:07:32</publishTime>
+      <publishTime>09/25/2018 23:08:22</publishTime>
     </File>
     <File Include="Content/ckeditor_4.6.2_full/ckeditor/adapters/jquery.js">
       <publishTime>07/23/2018 22:07:32</publishTime>
@@ -1456,7 +1456,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/23/2018 22:07:33</publishTime>
     </File>
     <File Include="Content/ckeditor_4.6.2_full/ckeditor/skins/moono-lisa/readme.md">
-      <publishTime>07/23/2018 22:07:33</publishTime>
+      <publishTime>09/25/2018 23:08:22</publishTime>
     </File>
     <File Include="Content/ckeditor_4.6.2_full/ckeditor/styles.js">
       <publishTime>07/23/2018 22:07:33</publishTime>
@@ -1693,7 +1693,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/23/2018 22:07:33</publishTime>
     </File>
     <File Include="css/responsive.css">
-      <publishTime>07/23/2018 22:07:33</publishTime>
+      <publishTime>09/16/2018 14:33:42</publishTime>
     </File>
     <File Include="css/style.css">
       <publishTime>09/13/2018 20:10:34</publishTime>
@@ -1711,7 +1711,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/23/2018 22:07:33</publishTime>
     </File>
     <File Include="favicon.ico">
-      <publishTime>09/13/2018 20:10:34</publishTime>
+      <publishTime>09/16/2018 14:59:01</publishTime>
     </File>
     <File Include="fonts/flaticon/flaticon.css">
       <publishTime>07/23/2018 22:07:33</publishTime>
@@ -1864,25 +1864,25 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/13/2018 20:10:35</publishTime>
     </File>
     <File Include="img/blog/blog-1.jpg">
-      <publishTime>07/23/2018 22:07:33</publishTime>
+      <publishTime>09/14/2018 23:58:03</publishTime>
     </File>
     <File Include="img/blog/blog-2.jpg">
-      <publishTime>07/23/2018 22:07:33</publishTime>
+      <publishTime>09/14/2018 23:58:03</publishTime>
     </File>
     <File Include="img/blog/blog-3.jpg">
-      <publishTime>07/23/2018 22:07:33</publishTime>
+      <publishTime>09/14/2018 23:58:05</publishTime>
     </File>
     <File Include="img/blog/blog-4.jpg">
-      <publishTime>07/23/2018 22:07:33</publishTime>
+      <publishTime>09/14/2018 23:58:06</publishTime>
     </File>
     <File Include="img/blog/blog-5.jpg">
-      <publishTime>07/23/2018 22:07:33</publishTime>
+      <publishTime>09/14/2018 23:58:28</publishTime>
     </File>
     <File Include="img/blog/blog-6.jpg">
-      <publishTime>07/23/2018 22:07:33</publishTime>
+      <publishTime>09/14/2018 23:58:25</publishTime>
     </File>
     <File Include="img/blog/blog.jpg">
-      <publishTime>07/23/2018 22:07:33</publishTime>
+      <publishTime>09/14/2018 23:58:03</publishTime>
     </File>
     <File Include="img/BuyNowButtonBlue.jpg">
       <publishTime>09/13/2018 20:10:34</publishTime>
@@ -1912,7 +1912,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/13/2018 20:10:34</publishTime>
     </File>
     <File Include="img/Chemical-and-Materials-3.jpg">
-      <publishTime>09/13/2018 20:10:34</publishTime>
+      <publishTime>09/14/2018 23:49:36</publishTime>
     </File>
     <File Include="img/client/client-1.jpg">
       <publishTime>07/23/2018 22:07:33</publishTime>
@@ -1921,19 +1921,19 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/23/2018 22:07:33</publishTime>
     </File>
     <File Include="img/counter-bg.jpg">
-      <publishTime>07/23/2018 22:07:33</publishTime>
+      <publishTime>09/14/2018 23:49:40</publishTime>
     </File>
     <File Include="img/dummy.png">
-      <publishTime>07/23/2018 22:07:33</publishTime>
+      <publishTime>09/14/2018 23:49:26</publishTime>
     </File>
     <File Include="img/fast.png">
-      <publishTime>07/23/2018 22:07:33</publishTime>
+      <publishTime>09/14/2018 23:49:29</publishTime>
     </File>
     <File Include="img/feature-bg.jpg">
-      <publishTime>07/23/2018 22:07:33</publishTime>
+      <publishTime>09/14/2018 23:49:32</publishTime>
     </File>
     <File Include="img/feature-bg2.jpg">
-      <publishTime>07/23/2018 22:07:33</publishTime>
+      <publishTime>09/14/2018 23:49:34</publishTime>
     </File>
     <File Include="img/flags/argentina.svg">
       <publishTime>07/23/2018 22:07:33</publishTime>
@@ -1996,97 +1996,97 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/23/2018 22:07:33</publishTime>
     </File>
     <File Include="img/grabbing.png">
-      <publishTime>07/23/2018 22:07:33</publishTime>
+      <publishTime>09/14/2018 23:49:30</publishTime>
     </File>
     <File Include="img/gradientbg.png">
-      <publishTime>07/23/2018 22:07:33</publishTime>
+      <publishTime>09/14/2018 23:49:40</publishTime>
     </File>
     <File Include="img/Helthcare-1.jpg">
-      <publishTime>09/13/2018 20:10:34</publishTime>
+      <publishTime>09/14/2018 23:49:39</publishTime>
     </File>
     <File Include="img/Helthcare-2.jpg">
-      <publishTime>09/13/2018 20:10:34</publishTime>
+      <publishTime>09/14/2018 23:49:38</publishTime>
     </File>
     <File Include="img/Helthcare-3.jpg">
-      <publishTime>09/13/2018 20:10:34</publishTime>
+      <publishTime>09/14/2018 23:49:44</publishTime>
     </File>
     <File Include="img/icons/automotive-and-transportation.png">
-      <publishTime>09/13/2018 20:10:35</publishTime>
+      <publishTime>09/15/2018 00:02:17</publishTime>
     </File>
     <File Include="img/icons/automotive-transport.png">
-      <publishTime>09/13/2018 20:10:35</publishTime>
+      <publishTime>09/15/2018 00:02:06</publishTime>
     </File>
     <File Include="img/icons/chemical-and-materials.png">
-      <publishTime>09/13/2018 20:10:35</publishTime>
+      <publishTime>09/15/2018 00:02:31</publishTime>
     </File>
     <File Include="img/icons/consumer-goods.png">
-      <publishTime>09/13/2018 20:10:35</publishTime>
+      <publishTime>09/15/2018 00:02:29</publishTime>
     </File>
     <File Include="img/icons/electrical-and-electronic-device.png">
-      <publishTime>09/13/2018 20:10:35</publishTime>
+      <publishTime>09/15/2018 00:02:30</publishTime>
     </File>
     <File Include="img/icons/factory-automation.png">
-      <publishTime>09/13/2018 20:10:35</publishTime>
+      <publishTime>09/15/2018 00:02:44</publishTime>
     </File>
     <File Include="img/icons/food-and-beverages.png">
-      <publishTime>09/13/2018 20:10:35</publishTime>
+      <publishTime>09/15/2018 00:02:44</publishTime>
     </File>
     <File Include="img/icons/food-beverage.png">
-      <publishTime>09/13/2018 20:10:35</publishTime>
+      <publishTime>09/15/2018 00:03:06</publishTime>
     </File>
     <File Include="img/icons/heavy-industry.png">
-      <publishTime>09/13/2018 20:10:35</publishTime>
+      <publishTime>09/15/2018 00:03:05</publishTime>
     </File>
     <File Include="img/icons/life-sciences.png">
-      <publishTime>09/13/2018 20:10:35</publishTime>
+      <publishTime>09/15/2018 00:02:59</publishTime>
     </File>
     <File Include="img/icons/manufacturing-and-construction.png">
-      <publishTime>09/13/2018 20:10:35</publishTime>
+      <publishTime>09/15/2018 00:03:02</publishTime>
     </File>
     <File Include="img/icons/marketing-market-research.png">
-      <publishTime>09/13/2018 20:10:35</publishTime>
+      <publishTime>09/15/2018 00:03:14</publishTime>
     </File>
     <File Include="img/icons/packaging.png">
-      <publishTime>09/13/2018 20:10:35</publishTime>
+      <publishTime>09/15/2018 00:03:18</publishTime>
     </File>
     <File Include="img/icons/pharmaceuticals-and-healthcare.png">
-      <publishTime>09/13/2018 20:10:35</publishTime>
+      <publishTime>09/15/2018 00:03:16</publishTime>
     </File>
     <File Include="img/icons/public-sector.png">
-      <publishTime>09/13/2018 20:10:35</publishTime>
+      <publishTime>09/15/2018 00:03:17</publishTime>
     </File>
     <File Include="img/icons/semiconductor.png">
-      <publishTime>09/13/2018 20:10:35</publishTime>
+      <publishTime>09/15/2018 00:03:19</publishTime>
     </File>
     <File Include="img/icons/service-industries.png">
-      <publishTime>09/13/2018 20:10:35</publishTime>
+      <publishTime>09/15/2018 00:03:28</publishTime>
     </File>
     <File Include="img/icons/Technology-and-media.png">
-      <publishTime>09/13/2018 20:10:35</publishTime>
+      <publishTime>09/15/2018 00:03:30</publishTime>
     </File>
     <File Include="img/icons/Technology-media.png">
-      <publishTime>09/13/2018 20:10:35</publishTime>
+      <publishTime>09/15/2018 00:03:30</publishTime>
     </File>
     <File Include="img/intro-bg.jpg">
-      <publishTime>07/23/2018 22:07:33</publishTime>
+      <publishTime>09/14/2018 23:49:57</publishTime>
     </File>
     <File Include="img/logo.jpeg">
       <publishTime>09/13/2018 20:10:35</publishTime>
     </File>
     <File Include="img/logo.png">
-      <publishTime>09/13/2018 20:10:35</publishTime>
+      <publishTime>09/29/2018 23:49:43</publishTime>
     </File>
     <File Include="img/map-marker.png">
-      <publishTime>07/23/2018 22:07:33</publishTime>
+      <publishTime>09/14/2018 23:50:18</publishTime>
     </File>
     <File Include="img/moving.jpg">
-      <publishTime>07/23/2018 22:07:33</publishTime>
+      <publishTime>09/14/2018 23:49:58</publishTime>
     </File>
     <File Include="img/page-header-bg.jpg">
-      <publishTime>07/23/2018 22:07:33</publishTime>
+      <publishTime>09/14/2018 23:49:59</publishTime>
     </File>
     <File Include="img/page-title-bg.jpg">
-      <publishTime>07/23/2018 22:07:33</publishTime>
+      <publishTime>09/14/2018 23:50:30</publishTime>
     </File>
     <File Include="img/partner/m-partner-1.jpg">
       <publishTime>07/23/2018 22:07:33</publishTime>
@@ -2134,25 +2134,25 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/23/2018 22:07:33</publishTime>
     </File>
     <File Include="img/paypal-verified.png">
-      <publishTime>09/13/2018 20:10:35</publishTime>
+      <publishTime>09/14/2018 23:50:37</publishTime>
     </File>
     <File Include="img/paypal.png">
-      <publishTime>09/13/2018 20:10:35</publishTime>
+      <publishTime>09/14/2018 23:50:30</publishTime>
     </File>
     <File Include="img/PayPal2.png">
-      <publishTime>09/13/2018 20:10:34</publishTime>
+      <publishTime>09/14/2018 23:50:36</publishTime>
     </File>
     <File Include="img/preloder.gif">
       <publishTime>07/23/2018 22:07:33</publishTime>
     </File>
     <File Include="img/reliable.png">
-      <publishTime>07/23/2018 22:07:33</publishTime>
+      <publishTime>09/14/2018 23:53:58</publishTime>
     </File>
     <File Include="img/secure.png">
-      <publishTime>07/23/2018 22:07:33</publishTime>
+      <publishTime>09/14/2018 23:53:55</publishTime>
     </File>
     <File Include="img/service-home2-bg.jpg">
-      <publishTime>07/23/2018 22:07:33</publishTime>
+      <publishTime>09/14/2018 23:53:50</publishTime>
     </File>
     <File Include="img/service/airthumb.jpg">
       <publishTime>07/23/2018 22:07:33</publishTime>
@@ -2242,7 +2242,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/23/2018 22:07:33</publishTime>
     </File>
     <File Include="img/shipping.jpg">
-      <publishTime>07/23/2018 22:07:33</publishTime>
+      <publishTime>09/14/2018 23:53:51</publishTime>
     </File>
     <File Include="img/slider/.DS_Store">
       <publishTime>07/23/2018 22:07:33</publishTime>
@@ -2254,7 +2254,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/13/2018 20:10:35</publishTime>
     </File>
     <File Include="img/sslverified.png">
-      <publishTime>09/13/2018 20:10:35</publishTime>
+      <publishTime>09/14/2018 23:53:58</publishTime>
     </File>
     <File Include="img/team/introthumb.jpg">
       <publishTime>07/23/2018 22:07:33</publishTime>
@@ -2278,34 +2278,34 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/23/2018 22:07:33</publishTime>
     </File>
     <File Include="img/Technology-and-Media-1.jpg">
-      <publishTime>09/13/2018 20:10:34</publishTime>
+      <publishTime>09/14/2018 23:54:06</publishTime>
     </File>
     <File Include="img/Technology-and-Media-2.jpg">
-      <publishTime>09/13/2018 20:10:35</publishTime>
+      <publishTime>09/14/2018 23:54:05</publishTime>
     </File>
     <File Include="img/Technology-and-Media-3.jpg">
-      <publishTime>09/13/2018 20:10:35</publishTime>
+      <publishTime>09/14/2018 23:54:03</publishTime>
     </File>
     <File Include="img/topbar-bg.jpg">
-      <publishTime>07/23/2018 22:07:33</publishTime>
+      <publishTime>09/14/2018 23:54:07</publishTime>
     </File>
     <File Include="img/track.png">
-      <publishTime>07/23/2018 22:07:33</publishTime>
+      <publishTime>09/14/2018 23:54:19</publishTime>
     </File>
     <File Include="img/trans.jpg">
-      <publishTime>07/23/2018 22:07:33</publishTime>
+      <publishTime>09/14/2018 23:54:16</publishTime>
     </File>
     <File Include="img/wire-transfer.jpeg">
-      <publishTime>09/13/2018 20:10:35</publishTime>
+      <publishTime>09/14/2018 23:54:36</publishTime>
     </File>
     <File Include="img/wire-transfer.png">
-      <publishTime>09/13/2018 20:10:35</publishTime>
+      <publishTime>09/14/2018 23:54:34</publishTime>
     </File>
     <File Include="img/WireTransferHowItWorks.png">
-      <publishTime>09/13/2018 20:10:35</publishTime>
+      <publishTime>09/14/2018 23:54:35</publishTime>
     </File>
     <File Include="img/zoomin.png">
-      <publishTime>07/23/2018 22:07:33</publishTime>
+      <publishTime>09/14/2018 23:54:33</publishTime>
     </File>
     <File Include="js/bootstrap.min.js">
       <publishTime>07/23/2018 22:07:33</publishTime>
@@ -2365,13 +2365,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/23/2018 22:07:33</publishTime>
     </File>
     <File Include="js/vendor/modernizr-2.8.1.min.js">
-      <publishTime>07/23/2018 22:07:33</publishTime>
+      <publishTime>09/29/2018 23:41:58</publishTime>
     </File>
     <File Include="js/vendor/respond.min.js">
       <publishTime>07/23/2018 22:07:33</publishTime>
     </File>
     <File Include="Models/ExcellentMarketResearch.edmx.diagram">
-      <publishTime>09/14/2018 00:37:46</publishTime>
+      <publishTime>09/25/2018 23:04:03</publishTime>
     </File>
     <File Include="Models/ModernMarketResearch.edmx.diagram">
       <publishTime>09/13/2018 21:26:39</publishTime>
@@ -2386,7 +2386,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/23/2018 22:07:33</publishTime>
     </File>
     <File Include="packages.config">
-      <publishTime>09/13/2018 20:10:35</publishTime>
+      <publishTime>09/29/2018 23:41:58</publishTime>
     </File>
     <File Include="Scripts/bootstrap.bundle.js">
       <publishTime>07/23/2018 22:07:33</publishTime>
@@ -2416,7 +2416,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/13/2018 20:10:34</publishTime>
     </File>
     <File Include="Scripts/jquery-3.3.1.js">
-      <publishTime>07/23/2018 22:07:33</publishTime>
+      <publishTime>09/25/2018 23:08:22</publishTime>
     </File>
     <File Include="Scripts/jquery-3.3.1.min.js">
       <publishTime>07/23/2018 22:07:33</publishTime>
@@ -2425,7 +2425,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/23/2018 22:07:33</publishTime>
     </File>
     <File Include="Scripts/jquery-3.3.1.slim.js">
-      <publishTime>07/23/2018 22:07:33</publishTime>
+      <publishTime>09/25/2018 23:08:22</publishTime>
     </File>
     <File Include="Scripts/jquery-3.3.1.slim.min.js">
       <publishTime>07/23/2018 22:07:33</publishTime>
@@ -2434,7 +2434,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/23/2018 22:07:33</publishTime>
     </File>
     <File Include="Scripts/jquery-ui-1.8.20.js">
-      <publishTime>07/23/2018 22:07:33</publishTime>
+      <publishTime>09/25/2018 23:08:22</publishTime>
     </File>
     <File Include="Scripts/jquery-ui-1.8.20.min.js">
       <publishTime>07/23/2018 22:07:33</publishTime>
@@ -2446,7 +2446,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/23/2018 22:07:33</publishTime>
     </File>
     <File Include="Scripts/jquery.validate.js">
-      <publishTime>09/13/2018 20:10:34</publishTime>
+      <publishTime>09/25/2018 23:08:22</publishTime>
     </File>
     <File Include="Scripts/jquery.validate.min.js">
       <publishTime>09/13/2018 20:10:34</publishTime>
@@ -2461,10 +2461,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/23/2018 22:07:33</publishTime>
     </File>
     <File Include="Scripts/modernizr-2.5.3.js">
-      <publishTime>07/23/2018 22:07:33</publishTime>
+      <publishTime>09/29/2018 23:41:46</publishTime>
     </File>
     <File Include="Scripts/_references.js">
-      <publishTime>07/23/2018 22:07:33</publishTime>
+      <publishTime>09/29/2018 23:41:54</publishTime>
     </File>
     <File Include="Views/Category/MainCategories.cshtml">
       <publishTime>09/14/2018 00:42:22</publishTime>
@@ -2482,22 +2482,22 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/13/2018 20:10:34</publishTime>
     </File>
     <File Include="Views/Home/ContactusThanks.cshtml">
-      <publishTime>09/14/2018 00:42:23</publishTime>
+      <publishTime>09/25/2018 23:08:22</publishTime>
     </File>
     <File Include="Views/Home/Index.cshtml">
-      <publishTime>09/14/2018 00:42:23</publishTime>
+      <publishTime>09/25/2018 23:08:22</publishTime>
     </File>
     <File Include="Views/Home/PageTitleDiv.cshtml">
       <publishTime>09/13/2018 20:10:34</publishTime>
     </File>
     <File Include="Views/Home/SearchingPartialView.cshtml">
-      <publishTime>09/14/2018 00:42:23</publishTime>
+      <publishTime>09/16/2018 13:39:35</publishTime>
     </File>
     <File Include="Views/Home/TermsAndCondition.cshtml">
       <publishTime>09/13/2018 20:10:34</publishTime>
     </File>
     <File Include="Views/InquiryForm/Index.cshtml">
-      <publishTime>09/14/2018 00:42:23</publishTime>
+      <publishTime>09/25/2018 23:08:21</publishTime>
     </File>
     <File Include="Views/InquiryForm/InquiryForm.cshtml">
       <publishTime>09/14/2018 00:42:23</publishTime>
@@ -2542,7 +2542,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/23/2018 22:07:33</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>09/13/2018 20:10:34</publishTime>
+      <publishTime>09/29/2018 23:55:56</publishTime>
     </File>
     <File Include="Views/Web.config">
       <publishTime>07/23/2018 22:07:33</publishTime>
@@ -2551,7 +2551,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/23/2018 22:07:33</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>09/14/2018 00:48:46</publishTime>
+      <publishTime>09/30/2018 00:13:46</publishTime>
     </File>
   </ItemGroup>
 </Project>

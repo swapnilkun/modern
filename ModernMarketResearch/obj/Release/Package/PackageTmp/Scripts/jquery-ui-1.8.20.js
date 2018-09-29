@@ -11117,7 +11117,7 @@ $.widget( "ui.tabs", {
 
 			// Prevent IE from keeping other link focussed when using the back button
 			// and remove dotted border from clicked link. This is controlled via CSS
-			// in modern browsers; blur() removes focus from address bar in Firefox
+			// in Excellent browsers; blur() removes focus from address bar in Firefox
 			// which can become a usability and annoying problem with tabs('rotate').
 			if ( $.browser.msie ) {
 				this.blur();

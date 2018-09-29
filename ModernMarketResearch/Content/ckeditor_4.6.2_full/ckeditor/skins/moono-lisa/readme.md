@@ -8,7 +8,7 @@ documentation.
 
 Features
 -------------------
-"Moono-lisa" is a monochromatic skin, which offers a modern, flat and minimalistic look which blends very well in modern design.
+"Moono-lisa" is a monochromatic skin, which offers a Excellent, flat and minimalistic look which blends very well in Excellent design.
 It comes with the following features:
 
 - Chameleon feature with brightness.
