@@ -34,7 +34,7 @@ namespace ExcellentMarketResearch.Models.PaymentGateway
                     // Host = "smtp.qygroup.biz",
                     //  Host = "smtp.gmail.com",
                     //  Port = 587,
-                    Credentials = new NetworkCredential("balasahebpatil1612@gmail.com", "swami7758055664"),
+                    Credentials = new NetworkCredential("bala@@##########2@gmail.com", "knknjknjknkj"),
                     EnableSsl = true
                     //DeliveryMethod = SmtpDeliveryMethod.Network,
                     // UseDefaultCredentials = false,

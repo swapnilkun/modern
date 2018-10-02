@@ -36,7 +36,9 @@
                 @{Html.RenderAction("PartialCat", "Category");}
             </div>
             <!-- /.col -->
-            <div class="col-md-9 col-sm-7 col-xs-12">
+            @if (ViewBag.TotalReports > 0) 
+            {
+                <div class="col-md-9 col-sm-7 col-xs-12">
                 <div class="col-md-12">
                     @{ int i = 0; }
                     @foreach (var item in Model)
@@ -105,6 +107,11 @@
                 <!-- END PAGINATION -->
                 <div class="clearfix"></div>
             </div>
+            }
+            else
+            {
+                @ViewBag.NoReport
+            }
             <!-- /.col -->
         </div>
         <!-- /.row -->

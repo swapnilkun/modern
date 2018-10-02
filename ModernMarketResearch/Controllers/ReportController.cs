@@ -253,7 +253,7 @@ namespace ExcellentMarketResearch.Controllers
                 }
                 else
                 {
-                    ViewBag.NoReport = "No Reports Found !....";
+                    ViewBag.NoReport = "Reports not found for such keyword !....";
                     return View();
                 }
 
