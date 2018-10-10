@@ -7,6 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Web;
 using System.Web.Mvc;
+using System.Net;
+using Newtonsoft.Json.Linq;
+using ExcellentMarketResearch.Models.PaymentGateway;
 
 namespace ExcellentMarketResearch.Controllers
 {
@@ -29,6 +32,16 @@ namespace ExcellentMarketResearch.Controllers
                 return View();
             }
         }
+        public ActionResult GetinTouch()
+        {
+            ContactUsVM cnt = new ContactUsVM();
+            Session["Captcha"] = DrawCaptcha();
+            var PlainText = Session["Captcha"].ToString();
+            var EncryCaptcha = ExcellentMarketResearch.Areas.Admin.Models.Common.Encrypt(PlainText);
+            cnt.ReportId = 0;
+            cnt.RealCaptcha = EncryCaptcha;
+            return PartialView(cnt);
+        }
         public ActionResult Index()
         {
             ContactUsVM cnt = new ContactUsVM();
@@ -44,7 +57,14 @@ namespace ExcellentMarketResearch.Controllers
         public ActionResult Index(ContactUsVM eq)
         {
             InquiryVM e = new InquiryVM();
-
+            Emailsending objEmailsending = new Emailsending();
+            var response = Request["g-recaptcha-response"];
+            string secreatekey = "6LcatdW0UAAAAAERSrddZFxQdvJd0xum_wTLvhUIT";
+            var client = new WebClient();
+            var result = client.DownloadString(string.Format("https://www.google.com/recaptcha/api/siteverify?secret=(0)&response=(1)", secreatekey, response));
+            var obj = JObject.Parse(result);
+            var status = (bool)obj.SelectToken("success");
+           
             //int FormTypeId=4;
             string Publisher = string.Empty;
             if (ModelState.IsValid)
@@ -83,10 +103,10 @@ namespace ExcellentMarketResearch.Controllers
 
 
                         //Auto Mailer
-                       // objEmailsending.SendEmail("sales@marketresearchtrade.com", "Sales", cst.EmailId, "", "balasaheb.p@marketresearchstore.com", "MarketResearchTrade.com  : ContactUs" + " ", GenerateMailBody_RequestSample_AutoReply(cst.Name, ReportTitle));
+                        objEmailsending.SendEmail("sales@excellentmarketresearch.com", "Sales", cst.EmailId, "", "", "ExcellentMarketResearch.com  : ContactUs" + " ", GenerateMailBody_ContactUs_AutoReply(cst.Name, ReportTitle));
 
                         //To company
-                        //objEmailsending.SendEmail("sales@marketresearchtrade.com", "Sales", "sales@mrsresearchtrade.com,james@mrsresearchgroup.com,joel@marketresearchstore.com", "", "md@marketresearchstore.com,mahesh.s@marketresearchstore.com", "MarketResearchTrade.com " + " : " + "Contact Us", GenerateMailBody_RequestSample(ReportTitle, cst.Name, cst.EmailId, cst.PhoneNumber, "!", "!", "!", cst.CustomerMessage));
+                        objEmailsending.SendEmail("sales@excellentmarketresearch.com", "Sales", "sales@excellentmarketresearch.com,", "", "md@excellentmarketresearch.com", "ExcellentMarketResearch.com " + " : " + "Contact Us", GenerateMailBody_ContactUs(ReportTitle, cst.Name, cst.EmailId, cst.PhoneNumber, "!", "!", "!", cst.CustomerMessage));
 
                         Session["Name"] = cst.Name;
 
@@ -134,6 +154,58 @@ namespace ExcellentMarketResearch.Controllers
             return randomText.ToString();
         }
 
+        //Auto Company
+        private string GenerateMailBody_ContactUs(string ReportTitle, string Name, string EmailID, string ContactNo, string NameOfCompany, string CountryName, string Designation, string CustomerMessage)
+        {
+            string result = "";
+            result = "Dear Admin,<br /><br />" + "<table>";
+            result += ReportTitle != "" ? "<tr> <td valign='top' width='30%'><b>Report Title</b></td>   <td valign='top' width='2%'><b> : </b></td> <td valign='top' width='68%'>" + ReportTitle + "</td> </tr>" : "";
+            result += Name != "" ? "<tr> <td valign='top'><b>Customer Name</b></td>  <td valign='top'><b> : </b></td> <td valign='top'>" + Name + "</td> </tr>" : "";
+            result += EmailID != "" ? "<tr> <td valign='top'><b>Email ID</b></td>       <td valign='top'><b> : </b></td> <td valign='top'>" + EmailID + "</td> </tr>" : "";
+            result += ContactNo != "" ? "<tr> <td valign='top'><b>Phone</b></td>          <td valign='top'><b> : </b></td> <td valign='top'>" + ContactNo + "</td> </tr>" : "";
+            result += NameOfCompany != "" ? "<tr> <td valign='top'><b>Company Name</b></td>   <td valign='top'><b> : </b></td> <td valign='top'>" + NameOfCompany + "</td> </tr>" : "";
+            result += Designation != "" ? "<tr> <td valign='top'><b>Designation</b></td>    <td valign='top'><b> : </b></td> <td valign='top'>" + Designation + "</td> </tr>" : "";
+            result += CountryName != "" ? "<tr> <td valign='top'><b>Country Name</b></td>   <td valign='top'><b> : </b></td> <td valign='top'>" + CountryName + "</td> </tr>" : "";
+            result += CustomerMessage != "" ? "<tr> <td valign='top'><b>Enquiry Text</b></td>   <td valign='top'><b> : </b></td> <td valign='top'>" + CustomerMessage + "</td> </tr>" : "";
+            result += "<tr> <td valign='top'><b>Publisher</b></td><td valign='top'><b> : </b></td> <td valign='top'>" + "Market Research Trade" + "</td> </tr>";
+            result += "<tr> <td valign='top'><b>IP Address</b></td><td valign='top'><b> : </b></td> <td valign='top'>" + ExcellentMarketResearch.Models.PaymentGateway.IPAddress.GetIPAddress() + "</td> </tr>";
+            result += "</table>";
+            return result;
+        }
+        //Auto mailer
+        public string GenerateMailBody_ContactUs_AutoReply(string Name, string ReportTitle)
+        {
+            string result = "";
+            if (ReportTitle == "")
+            {
+                result = "Dear " + Name + ","
+                     + "<br /><br />Thank you for your interest in <b>" + "ExcellentMarketResearch.Com" + "</b>."
+                    //+ "<br /><br />For your reference please find the below link."
+                    //+ "<br /><br />" + "QYGroup.biz"
+                    //+ "<br /><br />I'll contact you soon to serve your research needs."
+                     + "<br /><br />We'll contact you soon to serve your research needs."
+                     + "<b><br /><br />Warm regards,"
+                     + "<br />Miler # | Corporate Sales Specialist,USA"
+                     + "<br />Direct line: + 1-88888-8888-1#"
+                     + "<br />" + "excellentmarketresearch.com"
+                     + "<br />E-mail: miler@excellentmarketresearch.com | Web: " + "excellentmarketresearch.com" + "</b>";
+            }
+            else
+            {
+                result = "Dear " + Name + ","
+                    + "<br /><br />Thank you for your interest in our research report, <b>" + ReportTitle + "</b>."
+                    //+ "<br /><br />I will share the sample pages shortly."
+                    //+ "<br /><br />For your reference please find the below link."
+                    //+ "<br /><br />" + "QYGroup.biz".Substring(0, "QYGroup.biz".Length - 1) + ReportURL
+                    + "<br /><br />We'll contact you soon to serve your research needs."
+                    + "<b><br /><br />Warm regards,"
+                    + "<br />Joel John | Corporate Sales Specialist,USA"
+                    + "<br />Direct line: + 1-445-45-54#"
+                    + "<br />" + "excellentmarketresearch.com"
+                    + "<br />E-mail: josss@excellentmarketresearch | Web: " + "excellentmarketresearch.com" + "</b>";
+            }
+            return result;
+        }
 
         //private string GenerateMailBody_RequestSample(string ReportTitle, string Name, string EmailID, string ContactNo, string NameOfCompany, string CountryName, string Designation, string CustomerMessage)
         //{

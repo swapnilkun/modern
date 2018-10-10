@@ -85,7 +85,56 @@ namespace ExcellentMarketResearch.Models.PaymentGateway
             return result;
         }
 
+        public string GenerateMailBody_RequestSample_AutoReply(string Name, string ReportTitle)
+        {
+            string result = "";
+            if (ReportTitle == "")
+            {
+                result = "Dear " + Name + ","
+                     + "<br /><br />Thank you for your interest in <b>" + "ExcellentMarketResearch.com" + "</b>."
+                     + "<br /><br />We'll contact you soon to serve your research needs."
+                     + "<b><br /><br />Warm regards,"
+                     + "<br />Miler Jhon | Corporate Sales Specialist,USA"
+                     + "<br />Direct line: + 1888-868686-68686#"
+                     + "<br />" + "excellentmarketresearch.com"
+                     + "<br />E-mail: sales@excellentmarketresearch.com | Web: " + "excellentmarketresearch.com" + "</b>";
+            }
+            else
+            {
+                result = "Dear " + Name + ","
+                    + "<br /><br />Thank you for your interest in our research report, <b>" + ReportTitle + "</b>."
+                    //+ "<br /><br />I will share the sample pages shortly."
+                    //+ "<br /><br />For your reference please find the below link."
+                    //+ "<br /><br />" + "hhj.biz".Substring(0, "jhjhg.biz".Length - 1) + ReportURL
+                    + "<br /><br />We'll contact you soon to serve your research needs."
+                    + "<b><br /><br />Warm regards,"
+                    + "<br />Miler Jhon | Corporate Sales Specialist,USA"
+                    + "<br />Direct line: +  1888-868686-68686#"
+                    + "<br />" + "excellentmarketresearch.com"
+                    + "<br />E-mail: sales@excellentmarketresearch.com  | Web: " + "excellentmarketresearch.com" + "</b>";
+            }
+            return result;
+        }
 
+        public string GenerateMailBody_RequestSample(string reporttitle, string name, string emailid, string contactno, string nameofcompany, string countryname, string designation, string customermessage, string ipaddress)
+        {
+            string result = "";
+            result = "dear admin,<br /><br />" + "<table>";
+            result += reporttitle != "" ? "<tr> <td valign='top' width='30%'><b>report title</b></td>   <td valign='top' width='2%'><b> : </b></td> <td valign='top' width='68%'>" + reporttitle + "</td> </tr>" : "";
+            result += name != "" ? "<tr> <td valign='top'><b>customer name</b></td>  <td valign='top'><b> : </b></td> <td valign='top'>" + name + "</td> </tr>" : "";
+            result += emailid != "" ? "<tr> <td valign='top'><b>email id</b></td>       <td valign='top'><b> : </b></td> <td valign='top'>" + emailid + "</td> </tr>" : "";
+            result += contactno != "" ? "<tr> <td valign='top'><b>phone</b></td>          <td valign='top'><b> : </b></td> <td valign='top'>" + contactno + "</td> </tr>" : "";
+            result += nameofcompany != "" ? "<tr> <td valign='top'><b>company name</b></td>   <td valign='top'><b> : </b></td> <td valign='top'>" + nameofcompany + "</td> </tr>" : "";
+            result += designation != "" ? "<tr> <td valign='top'><b>designation</b></td>    <td valign='top'><b> : </b></td> <td valign='top'>" + designation + "</td> </tr>" : "";
+            result += countryname != "" ? "<tr> <td valign='top'><b>country name</b></td>   <td valign='top'><b> : </b></td> <td valign='top'>" + countryname + "</td> </tr>" : "";
+            result += customermessage != "" ? "<tr> <td valign='top'><b>enquiry text</b></td>   <td valign='top'><b> : </b></td> <td valign='top'>" + customermessage + "</td> </tr>" : "";
+            result += "<tr> <td valign='top'><b>publisher</b></td>      <td valign='top'><b> : </b></td> <td valign='top'>" + "Excellent Market Research " + "</td> </tr>";
+            result += "<tr> <td valign='top'><b>ip address</b></td>     <td valign='top'><b> : </b></td> <td valign='top'>" + ipaddress == null ? ExcellentMarketResearch.Models.PaymentGateway.IPAddress.GetIPAddress() : ipaddress + "</td> </tr>";
+            result += "</table>";
+            return result;
+        }
+        
+        
         //public string GenerateMailBody_RequestSample(string PaymentSucess, BuyingVM userdata)
         //{
         //    string result = "";
@@ -104,16 +153,16 @@ namespace ExcellentMarketResearch.Models.PaymentGateway
         //    return result;
         //}
 
-        public string GenerateMailBody_RequestSample_AutoReply(string Name, string ReportTitle)
-        {
-            string result = "";
-            result = "Dear " + Name + ","
-                + "<br /><br />Thanks for payment for report, <b>" + ReportTitle + "</b>."
-                + "<br /><br />Hope you like our service. We would like to service you again."
-                + "<br /><br />Thanks,"
-                + "<br />" + "www.excellentmarketresearch.com" + " | " + "www.excellentmarketresearch.com";
-            return result;
-        }
+        //public string GenerateMailBody_RequestSample_AutoReply(string Name, string ReportTitle)
+        //{
+        //    string result = "";
+        //    result = "Dear " + Name + ","
+        //        + "<br /><br />Thanks for payment for report, <b>" + ReportTitle + "</b>."
+        //        + "<br /><br />Hope you like our service. We would like to service you again."
+        //        + "<br /><br />Thanks,"
+        //        + "<br />" + "www.excellentmarketresearch.com" + " | " + "www.excellentmarketresearch.com";
+        //    return result;
+        //}
 
         public string GenerateMailBody_PaypalError_AutoReply(string Name, string ReportTitle, string ReportURL)
         {
@@ -121,11 +170,11 @@ namespace ExcellentMarketResearch.Models.PaymentGateway
             result = "Dear " + Name + ","
                 + "<br /><br />You canceled payment for report,"
                 + "<br /><b>" + ReportTitle + "</b>."
-                + "<br />" + "www.QYGROUP.biz" + "/report/" + ReportURL
+                + "<br />" + "www.excellentmarketresearch.biz" + "/report/" + ReportURL
                 + "<br /><br />Did you experienced problem in our service?"
                 + "<br /><br />Let us know."
                 + "<b><br /><br />Warm regards,"
-                + "<br />Joel John | Corporate Sales Specialist,USA"
+                + "<br />Miler John | Corporate Sales Specialist,USA"
                 + "<br />Direct line: + 1-855-465-4651"
                 + "<br />9D Research Group"
                 + "<br />E-mail: joel@9dresearchgroup.com | Web: " + "www.QYGROUP.biz" + "</b>"
