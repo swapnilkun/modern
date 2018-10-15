@@ -104,7 +104,13 @@ namespace ExcellentMarketResearch.Controllers
 
         public ActionResult PrivacyAndCookies()
         {
-            ViewBag.Message = "Your contact page.";
+            ViewBag.Message = "Privacy And Cookies page.";
+            return View();
+        }
+
+        public ActionResult Faqs()
+        {
+            ViewBag.Message = "FAQ page.";
             return View();
         }
     }

@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="ExcellentMarketResearchModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="ExcellentMarketResearchModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="ActionMaster">
           <Key>
             <PropertyRef Name="ActionId" />
@@ -343,7 +343,8 @@
           <EntitySet Name="UserMaster" EntityType="Self.UserMaster" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UserRoleRelation" EntityType="Self.UserRoleRelation" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="ExcellentMarketResearchModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -587,10 +588,10 @@
           <EntitySet Name="UserMasters" EntityType="Self.UserMaster" />
           <EntitySet Name="UserRoleRelations" EntityType="Self.UserRoleRelation" />
           <FunctionImport Name="SplitString" IsComposable="true" ReturnType="Collection(ExcellentMarketResearchModel.SplitString_Result)">
-          <Parameter Name="StringToSplit" Mode="In" Type="String" />
+            <Parameter Name="StringToSplit" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="spBreadsCum" ReturnType="Collection(ExcellentMarketResearchModel.spBreadsCum_Result)">
-          <Parameter Name="CategoryId" Mode="In" Type="Int32" />
+            <Parameter Name="CategoryId" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="spCategoryRelatedReport" ReturnType="Collection(ExcellentMarketResearchModel.spCategoryRelatedReport_Result)">
             <Parameter Name="Catid" Mode="In" Type="Int32" />
@@ -598,10 +599,10 @@
             <Parameter Name="P_Count" Mode="InOut" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="spDetailsRoleAction" ReturnType="Collection(ExcellentMarketResearchModel.spDetailsRoleAction_Result)">
-          <Parameter Name="RoleId" Mode="In" Type="Int32" />
+            <Parameter Name="RoleId" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="spDetailsUserRole" ReturnType="Collection(ExcellentMarketResearchModel.spDetailsUserRole_Result)">
-          <Parameter Name="UserId" Mode="In" Type="Int32" />
+            <Parameter Name="UserId" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="spLatestNews" ReturnType="Collection(ExcellentMarketResearchModel.spLatestNews_Result)" />
           <FunctionImport Name="spLatestReport" ReturnType="Collection(ExcellentMarketResearchModel.spLatestReport_Result)" />
@@ -610,7 +611,7 @@
             <Parameter Name="P_Count" Mode="InOut" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="spRoleActionDelete">
-          <Parameter Name="RoleId" Mode="In" Type="Int32" />
+            <Parameter Name="RoleId" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="spRoleActionInsert">
             <Parameter Name="RoleId" Mode="In" Type="Int32" />
@@ -633,11 +634,11 @@
             <Parameter Name="ActionId" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="spSelectedNewsDetails" ReturnType="Collection(ExcellentMarketResearchModel.spSelectedNewsDetails_Result)">
-          <Parameter Name="NewsUrl" Mode="In" Type="String" />
+            <Parameter Name="NewsUrl" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="spSelectRoleAction" ReturnType="Collection(ExcellentMarketResearchModel.spSelectRoleAction_Result)" />
           <FunctionImport Name="spUserRoleDelete">
-          <Parameter Name="UserId" Mode="In" Type="Int32" />
+            <Parameter Name="UserId" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="spUserRoleInsert">
             <Parameter Name="UserId" Mode="In" Type="Int32" />

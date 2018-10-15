@@ -255,9 +255,9 @@ namespace ExcellentMarketResearch.Areas.Admin.Controllers
                         //   r.Summary = "null";
                         //   r.Methodology = null;
 
-                       // r.DiscountPrice = 0;
+                        // r.DiscountPrice = 0;
                         r.IsActive = true;
-                       // r.IsUpcomming = true;
+                        // r.IsUpcomming = true;
                         r.ReportTypeId = r.ReportDeliveryTypeId;
                         r.CreatedBy = 1;//Convert.ToInt32(QYGroupRepository.Areas.Admin.Models.CommonCode.MySession());
                         r.CreatedDate = DateTime.Now;
@@ -304,8 +304,6 @@ namespace ExcellentMarketResearch.Areas.Admin.Controllers
 
         //    if (true)
         //    {
-
-
         //        for (int tables = 0; tables < ds.Tables.Count; tables++)
         //        {
         //            for (int rows = 0; rows < ds.Tables[tables].Rows.Count; rows++)
@@ -345,14 +343,14 @@ namespace ExcellentMarketResearch.Areas.Admin.Controllers
         //                    else if (ds.Tables[tables].Columns[columns].ToString() == "Publisher ID")
         //                    {
         //                        if (Int32.TryParse(ds.Tables[tables].Rows[rows][columns].ToString().Trim(), out _PublisherID))
-        //                            r.PublisherId = _PublisherID;
+        //                            r.PublishereId = _PublisherID;
         //                        else
         //                        { IsVaidate = false; Message += "Publisher ID <br />"; }
         //                    }
         //                    else if (ds.Tables[tables].Columns[columns].ToString() == "Delivery Format ID")
         //                    {
         //                        if (Int32.TryParse(ds.Tables[tables].Rows[rows][columns].ToString().Trim(), out _DeliveryFormatID))
-        //                            r.DeliveryTypeId = _DeliveryFormatID;
+        //                            r.ReportDeliveryTypeId = _DeliveryFormatID;
         //                        else
         //                        { IsVaidate = false; Message += "Delivery Format ID <br />"; }
         //                    }
@@ -365,10 +363,10 @@ namespace ExcellentMarketResearch.Areas.Admin.Controllers
         //                        else
         //                           r.ReportTitle = ds.Tables[tables].Rows[rows][columns].ToString().Trim().Replace("   ", " ").Replace("  ", " ").Replace("  ", " ");
 
-        //                       r.ReportURL = QYGROUP.Areas.Admin.Models.Session.GenerateSlug(ds.Tables[tables].Rows[rows][columns].ToString().Trim());
+        //                       r.ReportUrl = ExcellentMarketResearch.Areas.Admin.Models.Common.GenerateSlug(ds.Tables[tables].Rows[rows][columns].ToString().Trim());
 
-        //                       if (db.ReportMasters.Count(url => url.ReportURL == r.ReportURL.ToLower()) > 0 ? true : false)
-        //                       { r.ReportURL = ""; IsVaidate = false; Message += "Long URL <br />"; }
+        //                       if (db.ReportMasters.Count(url => url.ReportUrl == r.ReportUrl.ToLower()) > 0 ? true : false)
+        //                       { r.ReportUrl = ""; IsVaidate = false; Message += "Long URL <br />"; }
         //                    }
         //                    else if (ds.Tables[tables].Columns[columns].ToString() == "Published Date")
         //                    {
@@ -380,14 +378,14 @@ namespace ExcellentMarketResearch.Areas.Admin.Controllers
         //                    else if (ds.Tables[tables].Columns[columns].ToString() == "Number Of Pages")
         //                    {
         //                        if (Int32.TryParse(ds.Tables[tables].Rows[rows][columns].ToString().Trim(), out _NumberOfPages))
-        //                            r.NumberOfPage = _NumberOfPages;
+        //                            r.NumberOfPages = _NumberOfPages;
         //                        else
         //                        { IsVaidate = false; Message += "Number Of Pages <br />"; }
         //                    }
         //                    else if (ds.Tables[tables].Columns[columns].ToString() == "Long Description")
         //                    {
         //                        if (ds.Tables[tables].Rows[rows][columns].ToString().Trim() != "")
-        //                            r.FullDescription= ds.Tables[tables].Rows[rows][columns].ToString().Trim();
+        //                            r.LongDescritpion= ds.Tables[tables].Rows[rows][columns].ToString().Trim();
         //                        else
         //                        { IsVaidate = false; Message += "Long Description \n"; }
         //                    }
@@ -397,21 +395,21 @@ namespace ExcellentMarketResearch.Areas.Admin.Controllers
         //                    else if (ds.Tables[tables].Columns[columns].ToString() == "Single User Price")
         //                    {
         //                        if (Decimal.TryParse(ds.Tables[tables].Rows[rows][columns].ToString().Trim() == "" ? "0" : ds.Tables[tables].Rows[rows][columns].ToString().Trim(), out _SingleUserPrice))
-        //                            r.PriceSingleUser = _SingleUserPrice;
+        //                            r.SinglePrice = _SingleUserPrice;
         //                        else
         //                        { IsVaidate = false; Message += "Single User Price <br />"; }
         //                    }
         //                    else if (ds.Tables[tables].Columns[columns].ToString() == "Multi User Price")
         //                    {
         //                        if (Decimal.TryParse(ds.Tables[tables].Rows[rows][columns].ToString().Trim() == "" ? "0": ds.Tables[tables].Rows[rows][columns].ToString().Trim(), out _MultiUserPrice))
-        //                            r.PriceMultiUser = _MultiUserPrice;
+        //                            r.MultiUserPrice = _MultiUserPrice;
         //                        else
         //                        { IsVaidate = false; Message += "Multi User Price <br />"; }
         //                    }
         //                    else if (ds.Tables[tables].Columns[columns].ToString() == "Corporate User Price")
         //                    {
         //                        if (Decimal.TryParse(ds.Tables[tables].Rows[rows][columns].ToString().Trim() == "" ? "0": ds.Tables[tables].Rows[rows][columns].ToString().Trim(), out _CorporateUserPrice))
-        //                            r.PriceCUL = _CorporateUserPrice;
+        //                            r.CorporateUserPrice = _CorporateUserPrice;
         //                        else
         //                        { IsVaidate = false; Message += "Corporate User Price <br />"; }
         //                    }
@@ -420,10 +418,10 @@ namespace ExcellentMarketResearch.Areas.Admin.Controllers
         //                    else if (ds.Tables[tables].Columns[columns].ToString() == "Meta Description")
         //                      r.MetaDescription = ds.Tables[tables].Rows[rows][columns].ToString().Trim();
         //                    else if (ds.Tables[tables].Columns[columns].ToString() == "Meta Keywords")
-        //                       r.MetaKeywords = ds.Tables[tables].Rows[rows][columns].ToString().Trim();
+        //                       r.Keywords = ds.Tables[tables].Rows[rows][columns].ToString().Trim();
         //                }
 
-        //                if (r.PriceSingleUser <= 0 && r.PriceMultiUser <= 0 && r.PriceCUL <= 0)
+        //                if (r.SinglePrice <= 0 && r.MultiUserPrice <= 0 && r.CorporateUserPrice <= 0)
         //                { IsVaidate = false; Message += "Add Atleast one Price <br />"; }
 
         //                //Save data in Database.
@@ -431,20 +429,20 @@ namespace ExcellentMarketResearch.Areas.Admin.Controllers
         //                {
         //                    r.ReportImage = null;
         //                    r.ListOfCharts = null;
-        //                    r.FreeAnalysis = null;
-        //                    r.Summary = "null";
-        //                    r.Methodology = null;
-        //                    r.DiscountPrice = 0;
+        //                  //  r.FreeAnalysis = null;
+        //                   // r.Summary = "null";
+        //                    //r.Methodology = null;
+        //                   // r.DiscountPrice = 0;
         //                    r.IsActive = true;
-        //                    r.IsUpcomming = true;
-        //                    r.ReportTypeId = r.DeliveryTypeId;
-        //                    r.CreatedBy = Convert.ToInt32(QYGROUP.Areas.Admin.Models.Session.MySession());
+        //                    //r.IsUpcomming = true;
+        //                    r.ReportTypeId = r.ReportDeliveryTypeId;
+        //                    r.CreatedBy = Convert.ToInt32(ExcellentMarketResearch.Areas.Admin.Models.Common.MySession());
         //                    r.CreatedDate = DateTime.Now;
         //                    reportlist.Add(r);
         //                    db.ReportMasters.Add(r);
         //                    db.SaveChanges();
-        //                    var repturl = r.ReportURL + "/" + r.ReportId.ToString();
-        //                    r.ReportURL = repturl;
+        //                    var repturl = r.ReportUrl + "/" + r.ReportId.ToString();
+        //                    r.ReportUrl = repturl;
         //                    db.Entry(r).State = EntityState.Modified;
         //                    //db.Entry(rid).CurrentValues.SetValues(reportmaster);
         //                    db.SaveChanges();
@@ -452,7 +450,7 @@ namespace ExcellentMarketResearch.Areas.Admin.Controllers
         //                }
         //                else
         //                {
-        //                    return ();
+        //                    return View();
         //                }
 
 

@@ -11,6 +11,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using PagedList;
 using PagedList.Mvc;
+using System.Text;
 
 
 namespace ExcellentMarketResearch.Areas.Admin.Controllers
@@ -22,7 +23,7 @@ namespace ExcellentMarketResearch.Areas.Admin.Controllers
 
         private ReportRepository _ObjReportRepository;
 
-       public ReportController()
+        public ReportController()
         {
             _ObjReportRepository = new ReportRepository();
         }
@@ -36,9 +37,30 @@ namespace ExcellentMarketResearch.Areas.Admin.Controllers
 
         ExcellentMarketResearchEntities db = new ExcellentMarketResearchEntities();
 
-      //  [CustomAuthorization("ReportUploader,ReportCreater", "Create,Delete")]
-        public ActionResult ReportIndex(int? pageno, string searchkey, int? pagesize)
+        //  [CustomAuthorization("ReportUploader,ReportCreater", "Create,Delete")]
+        public ActionResult ReportIndex(int? pageno, string searchkey, int? pagesize, DateTime? FromDate, DateTime? ToDate)
         {
+
+            if (FromDate != null)
+            {
+                var reports = (from r in db.ReportMasters
+                               where r.CreatedDate >= FromDate
+                               select new ExcelReport
+                               {
+                                   ReportId = r.ReportId,
+                                   ReportTitle = r.ReportTitle,
+                                   ReportUrl = "https://www.excellentmarketresearch.com/report/" + r.ReportUrl,
+                                   // TableOfContent = r.TableOfContent,
+                                   FullDescription = r.LongDescritpion,
+                                   PublishingDate = r.PublishingDate,
+                                   ReportInquiryUrl = "https://www.excellentmarketresearch.com/report/" + r.ReportUrl + "#inquiry",
+                                   RequestSampleUrl = "https://www.excellentmarketresearch.com/report/" + r.ReportUrl + "#reqsample"
+                               }).ToList();
+                Session["ExcelData"] = reports;
+                var x = reports.ToPagedList(pageno ?? 1, pagesize ?? 10);
+                return View(x);
+            }
+
             if (!String.IsNullOrEmpty(searchkey))
             {
                 // return View(db.ReportMasters.Where(x => x.ReportTitle.Contains(ReportTitle)).ToList().ToPagedList(pageno ?? 1, 4));
@@ -48,7 +70,7 @@ namespace ExcellentMarketResearch.Areas.Admin.Controllers
                 var z = (from l in db.ReportMasters
                          orderby l.CreatedDate descending
                          where l.ReportTitle.Contains(" " + searchkey + " ") || l.ReportTitle.Contains(searchkey + " ") || l.ReportTitle.Contains(" " + searchkey) && l.IsActive == true
-                         select new ReportVM
+                         select new ExcelReport
                          {
                              ReportId = l.ReportId,
                              ReportTitle = l.ReportTitle
@@ -57,6 +79,7 @@ namespace ExcellentMarketResearch.Areas.Admin.Controllers
                 //   var rep = new StaticPagedList<ReportMaster>(z, pageno ?? 1, 10, z.TotalItemCount);
                 return View(z);
             }
+
             else
             {
 
@@ -64,7 +87,7 @@ namespace ExcellentMarketResearch.Areas.Admin.Controllers
                 var reports = (from l in db.ReportMasters
                                where l.IsActive == true
                                orderby l.CreatedDate descending
-                               select new ReportVM
+                               select new ExcelReport
                                {
                                    ReportTitle = l.ReportTitle,
                                    ReportId = l.ReportId
@@ -78,13 +101,13 @@ namespace ExcellentMarketResearch.Areas.Admin.Controllers
             //return View(report);
         }
         [HttpGet]
-       // [CustomAuthorization("ReportUploader,ReportCreater", "Create,Delete")]
+        // [CustomAuthorization("ReportUploader,ReportCreater", "Create,Delete")]
         public ActionResult ReportCreate()
         {
             return View();
         }
         [HttpPost]
-       // [CustomAuthorization("ReportUploader,ReportCreater", "Create,Delete")]
+        // [CustomAuthorization("ReportUploader,ReportCreater", "Create,Delete")]
         public ActionResult ReportCreate(ReportVM r, HttpPostedFileBase file)
         {
             if (file != null && !string.IsNullOrEmpty(file.FileName))
@@ -132,7 +155,7 @@ namespace ExcellentMarketResearch.Areas.Admin.Controllers
 
         }
         [HttpGet]
-       // [CustomAuthorization("ReportUploader,ReportCreater", "Create,Delete")]
+        // [CustomAuthorization("ReportUploader,ReportCreater", "Create,Delete")]
         public ActionResult ReportEdit(int id)
         {
             var catid = db.ReportMasters.Where(x => x.ReportId == id).Select(x => x.CategoryId).FirstOrDefault();
@@ -145,7 +168,7 @@ namespace ExcellentMarketResearch.Areas.Admin.Controllers
             return View(z);
         }
         [HttpPost]
-       // [CustomAuthorization("ReportUploader,ReportCreater", "Create,Delete")]
+        // [CustomAuthorization("ReportUploader,ReportCreater", "Create,Delete")]
         public ActionResult ReportEdit(ReportVM r)
         {
             if (_ObjReportRepository.EditPostReport(r))
@@ -168,22 +191,22 @@ namespace ExcellentMarketResearch.Areas.Admin.Controllers
         public ActionResult ReportDetails(int id)
         {
             //var reportdetails = db.ReportMasters.Where(x => x.ReportId == id).FirstOrDefault();
-          
+
             return View(_ObjReportRepository.GetReportById(id));
         }
         [HttpGet]
-       // [CustomAuthorization("ReportUploader,ReportCreater", "Create,Delete")]
+        // [CustomAuthorization("ReportUploader,ReportCreater", "Create,Delete")]
         public ActionResult ReportDelete(int id)
         {
             var reportdetails = db.ReportMasters.Where(x => x.ReportId == id).FirstOrDefault();
             return View(reportdetails);
         }
         [HttpPost]
-      //  [CustomAuthorization("ReportUploader,ReportCreater", "Create,Delete")]
+        //  [CustomAuthorization("ReportUploader,ReportCreater", "Create,Delete")]
         [ActionName(name: "ReportDelete")]
         public ActionResult ReportDelete1(int id)
         {
-            
+
             return RedirectToAction("ReportIndex");
         }
         public ActionResult GetChildCategory(int id)
@@ -205,25 +228,32 @@ namespace ExcellentMarketResearch.Areas.Admin.Controllers
             return Json(z);
         }
 
-        //public IEnumerable<ExcelReport> GetReportData(DateTime FromDate, DateTime ToDate)
-        //{
-        //    var reportlist = (from l in db.ReportMasters
-        //                      join c in db.CategoryMasters on l.CategoryId equals c.CategoryId
-        //                      orderby l.CreatedDate descending
-        //                      where l.CreatedDate >= FromDate.Date && FromDate.Date <= ToDate.Date
-        //                      select new ExcelReport
-        //                      {
-        //                          ReportId = l.ReportId,
-        //                          ReportTitle = l.ReportTitle,
-        //                          FullDescription = l.FullDescription,
-        //                          PublishingDate = l.PublishingDate,
-        //                          CategoryName = c.CategoryName,
-        //                          ReportUrl = "#report/" + l.ReportURL,
-        //                          CreatedDate = l.CreatedDate
-        //                      }).ToList();
+        public ActionResult DownloadSheet()
+        {
+            List<ExcelReport> report = (List<ExcelReport>)Session["ExcelData"];
+            try
+            {
+                string str = DateTime.Now.ToString();
+                Response.ClearContent();
+                Response.AddHeader("content-disposition", "attachment;filename=" + str + "CSV.csv");
+                Response.ContentType = "application/text";
+                StringBuilder stringbuilder = new StringBuilder();
+                stringbuilder.Append(string.Format("\"{0}\",\"{1}\",\"{2}\",\"{3}\",\"{4}\",\"{5}\",\"{6}\",\"{7}\",\n", "Sr.No", "Report ID", "Report Title", "Report Url", "Full Description", "Publishing Date", "Inquiry Url", "Sample Url"));
+                for (int index = 0; index < report.Count; index++)
+                {
+                    stringbuilder.Append(string.Format("\"{0}\",\"{1}\",\"{2}\",\"{3}\",\"{4}\",\"{5}\",\"{6}\",\"{7}\",\n", (index + 1), report[index].ReportId, report[index].ReportTitle, report[index].ReportUrl, report[index].FullDescription, report[index].PublishingDate, report[index].ReportInquiryUrl, report[index].RequestSampleUrl));
+                }
+                Response.Write(stringbuilder.ToString());
+                Response.Flush();
+                Response.End();
+            }
+            catch (Exception ex)
+            {
 
-        //    return reportlist;
-        //}
+            }
+            return RedirectToAction("ReportIndex", "Report");
+        }
+        [HttpPost]
         public ActionResult ExportData(DateTime FromDate, DateTime ToDate)
         {
             GridView gv = new GridView();
