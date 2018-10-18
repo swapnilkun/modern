@@ -150,10 +150,10 @@ namespace ExcellentMarketResearch.Controllers
                             //The paypalpage will appear to the user or buer ....
                             //Paypal._PayPal(ObjBuy);
 
-                            //PaymentWithPaypal(null);
-                            return RedirectToAction("PaymentWithPaypal", "ReportBuying", new { Cancel = false });
+                            PaymentWithPaypal(ObjBuy,null);
+                            //return RedirectToAction("PaymentWithPaypal", "ReportBuying", new {ObjBuy, Cancel = false });
                             //return RedirectToAction("PaymentWithPaypal");
-
+                            
                         }
 
 
@@ -344,12 +344,12 @@ namespace ExcellentMarketResearch.Controllers
                 + "<br />excellentmarketresearch"
                 + "<br />E-mail: sales@excellentmarketresearch.biz | Web: " + "https://www.excellentmarketresearch.com" + "</b>"
                 + "<br /><br />Thanks,"
-                + "<br />excellentmarketresearch.biz";
+                + "<br />excellentmarketresearch.com";
 
             return result;
         }
 
-        public ActionResult PaymentWithPaypal(string Cancel = null)
+        public ActionResult PaymentWithPaypal(BuyingVM buyingVM, string Cancel = null)
         {
             //getting the apiContext  
             PayPal.Api.APIContext apiContext = PaypalConfiguration.GetAPIContext();
@@ -364,13 +364,13 @@ namespace ExcellentMarketResearch.Controllers
                     //it is returned by the create function call of the payment class  
                     // Creating a payment  
                     // baseURL is the url on which paypal sendsback the data.  
-                    string baseURI = Request.Url.Scheme + "://" + Request.Url.Authority + "/ReportBuying/PaymentWithPayPal?";
+                    string baseURI = Request.Url.Scheme + "://" + Request.Url.Authority + "/ReportBuying/PaymentSuccess?";
                     //here we are generating guid for storing the paymentID received in session  
                     //which will be used in the payment execution  
                     var guid = Convert.ToString((new Random()).Next(100000));
                     //CreatePayment function gives us the payment approval url  
                     //on which payer is redirected for paypal account payment  
-                    var createdPayment = this.CreatePayment(apiContext, baseURI + "guid=" + guid);
+                    var createdPayment = this.CreatePayment(apiContext, baseURI + "guid=" + buyingVM.GuId, buyingVM);
                     //get links returned from paypal in response to Create function call  
                     var links = createdPayment.links.GetEnumerator();
                     string paypalRedirectUrl = null;
@@ -385,7 +385,7 @@ namespace ExcellentMarketResearch.Controllers
                     }
                     // saving the paymentID in the key guid  
                     Session.Add(guid, createdPayment.id);
-                    return Redirect(paypalRedirectUrl);
+                    Response.Redirect(paypalRedirectUrl);
                 }
                 else
                 {
@@ -420,8 +420,62 @@ namespace ExcellentMarketResearch.Controllers
             };
             return this.payment.Execute(apiContext, paymentExecution);
         }
-        private Payment CreatePayment(PayPal.Api.APIContext apiContext, string redirectUrl)
+        private Payment CreatePayment(PayPal.Api.APIContext apiContext, string redirectUrl, BuyingVM buyingVM)
         {
+            //create itemlist and add item objects to it 
+            
+            var itemList = new ItemList()
+            {
+                items = new List<Item>()
+            };
+            // Adding Item Details like name, currency, price etc
+            itemList.items.Add(new Item()
+            {
+                name = buyingVM.ReportTitle.ToString(),// buyingVM.ReportTitle,
+                currency = "USD",
+                price = buyingVM.Price.ToString(),//(buyingVM.Price).ToString(),
+                quantity = "1",
+                sku = "sku"
+            });
+            var transaction = new Transaction()
+            {
+                amount = new Amount()
+                {
+                    currency = "USD",
+                    total = buyingVM.Price.ToString()
+
+                },
+                item_list = itemList,
+
+                description = "This is the payment transaction description.",
+
+                invoice_number = GetRandomInvoiceNumber()
+            };
+
+            var payer = new Payer()
+            {
+                payment_method = "paypal"
+            };
+
+
+            var redirUrls = new RedirectUrls()
+            {
+                cancel_url = redirectUrl + "&Cancel=true",
+                return_url = redirectUrl
+            };
+
+      
+            this.payment = new Payment()
+            {
+                intent = "sale",
+                payer = payer,
+                transactions = new List<Transaction>() { transaction },
+                redirect_urls = redirUrls
+            };
+
+            return this.payment.Create(apiContext);
+
+            /*
             //create itemlist and add item objects to it  
             //var pricedemo = 10;
             var itemList = new ItemList()
@@ -480,6 +534,17 @@ namespace ExcellentMarketResearch.Controllers
             };
             // Create a payment using a APIContext  
             return this.payment.Create(apiContext);
+            */
+        }
+        public static string GetRandomInvoiceNumber()
+        {
+            return new Random().Next(999999).ToString();
+        }
+
+        public ActionResult PaymentSuccess(string responce)
+        {
+
+            return View();
         }
     }
 }

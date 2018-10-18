@@ -1192,6 +1192,7 @@
     <Content Include="Views\ContactUs\ContactusThanks.cshtml" />
     <Content Include="Views\ContactUs\GetinTouch.cshtml" />
     <Content Include="Views\Home\Faqs.cshtml" />
+    <Content Include="Views\ReportBuying\PaymentSuccess.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

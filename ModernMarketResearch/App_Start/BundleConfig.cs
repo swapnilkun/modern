@@ -29,7 +29,7 @@ namespace ExcellentMarketResearch
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
                         "~/Scripts/modernizr-*"));
 
-          //  bundles.Add(new StyleBundle("~/Content/css").Include("~/Content/site.css"));
+            //  bundles.Add(new StyleBundle("~/Content/css").Include("~/Content/site.css"));
 
             //bundles.Add(new StyleBundle("~/Content/themes/base/css").Include(
             //            "~/Content/themes/base/jquery.ui.core.css",
@@ -45,11 +45,11 @@ namespace ExcellentMarketResearch
             //            "~/Content/themes/base/jquery.ui.progressbar.css",
             //            "~/Content/themes/base/jquery.ui.theme.css"));
 
-         //   bundles.Add(new ScriptBundle("~/bundles/bootstrapscript")
-         //.Include("~/Scripts/bootstrap.js"
-         //));
-         //   bundles.Add(new StyleBundle("~/bundles/bootstrapstyle")
-         //       .Include("~/Content/bootstrap.css"));
+            bundles.Add(new ScriptBundle("~/bundles/bootstrapscript")
+         .Include("~/Scripts/bootstrap.js"
+         ));
+            bundles.Add(new StyleBundle("~/bundles/bootstrapstyle")
+                .Include("~/Content/bootstrap.css"));
 
             bundles.Add(new StyleBundle("~/bundles/templatestyle")
                 .Include("~/css/bootstrap.min.css", // will look for bootstrap.min.css
