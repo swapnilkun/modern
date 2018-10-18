@@ -6,6 +6,7 @@ using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using ExcellentMarketResearch.Models;
 
 namespace ExcellentMarketResearch
 {
@@ -24,5 +25,27 @@ namespace ExcellentMarketResearch
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             AuthConfig.RegisterAuth();
         }
-    }
+        protected void Application_BeginRequest(object sender, EventArgs e)
+        {
+            if ((Request.Url.Scheme != "https" || Request.Url.AbsoluteUri.Contains("www.")) && !Request.IsLocal)
+            {
+                Response.RedirectPermanent("https://www.excellentmarketresearch.com");
+            }
+
+            //ExcellentMarketResearchEntities db = new ExcellentMarketResearchEntities();
+
+            //if ((!string.IsNullOrEmpty(Request.Url.AbsoluteUri)))
+            //{
+            //    var redirecturl = (from l in db.RedirectUrls
+            //                       where l.SourceUrl == Request.Url.AbsoluteUri
+            //                       select l.TargetUrl).FirstOrDefault();
+            //    if (redirecturl == null)
+            //    {
+
+            //    }
+            //    else
+            //        Response.RedirectPermanent(redirecturl);
+            //}
+        }
+}
 }

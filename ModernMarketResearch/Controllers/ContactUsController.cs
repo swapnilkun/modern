@@ -59,7 +59,7 @@ namespace ExcellentMarketResearch.Controllers
             InquiryVM e = new InquiryVM();
             Emailsending objEmailsending = new Emailsending();
             var response = Request["g-recaptcha-response"];
-            string secreatekey = "6LcatdW0UAAAAAERSrddZFxQdvJd0xum_wTLvhUIT";
+            string secreatekey = "6LcatW0UAAAAAERSrddZFxQdvJd0xum_wTLvhUIT";
             var client = new WebClient();
             var result = client.DownloadString(string.Format("https://www.google.com/recaptcha/api/siteverify?secret=(0)&response=(1)", secreatekey, response));
             var obj = JObject.Parse(result);
