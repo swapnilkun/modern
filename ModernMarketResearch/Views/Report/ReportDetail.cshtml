@@ -22,109 +22,35 @@
     //});
 </script>
 
-<script type="text/javascript">
-    function ValidCaptcha(formType) {
-        debugger;
-        var obj = {};
-        var v = $("#txtInput_" + formType).val();
-        var w = $("#txtCaptcha_" + formType).val();
-        var res = false;
-
-        obj.inputcapcha = v;
-        obj.RealCaptcha = w;
-        if (v == null) {
-            e.preventDefault();
-            $("#captchaError_" + formType).html("Captcha should enter !..");
-        }
-        $.ajax({
-            type: "post",
-            url: '@Url.Action("CaptchaValidation", "InquiryForm")',
-            data: JSON.stringify(obj),
-            dataType: "json",
-            contentType: "application/json; charset=utf-8",
-            async: false,
-            success: function (data) {
-                res = data;
-            },
-            error: function (res) {
-                alert("Error..." + res.responseText);
-            }
-        });
-        return res;
-    }
-    function ValidateForm(e, formType) {
-        debugger;
-        var IsValid = $("#Enquiryform_" + formType).valid();
-        if (IsValid) {
-            if (ValidCaptcha(formType)) {
-                $("#Enquiryform_" + formType).submit();
-            } else {
-                e.preventDefault();
-                $("#captchaError_" + formType).html("Not Valid Captcha !..");
-            }
-        }
-    }
-
-</script>
-
-<script type="text/javascript">
-    var removedStr = '';
-    var mydescStr = [];
-    var newStr = '';
+<script>
     $(document).ready(function () {
-        var maxLength = 500;
-        $(".show-read-more").each(function () {
-            mydescStr.push($(this).text());
 
-            if ($(this).text().length > maxLength) {
-                newdescStr = $(this).text().substring(0, maxLength);
-                // removedStr = myStr.substring(maxLength, $.trim(myStr).length);
-                $(this).html(newdescStr);
-                $(this).append('<div class="read-more"><button type="button" class="btn btn-primary" style="border: 1px solid #009651; background-color: #009688; color: #FFFFFF;padding:3px;">Read More..</button></div>');
-                //$(this).append('<span class="more-text">' + removedStr + '</span>');
-            }
-        });
+        var url = window.location.href;
+        // Get the tab to make active from url link.
 
-        $(".read-more").click(function () {
-            debugger;
-            var t = $(this);
-            $(".read-more").empty();
-            $(".show-read-more").html("");
-            $(".show-read-more").append(mydescStr);
-        });
+        var activeTab = url.substring(url.indexOf("#") + 1);
+        // Remove old active tab class
+
+        //   $(".tab-pane").removeClass("active in");
+
+        //  Add active class to new tab
+        if (url.indexOf("#") > -1) {
+            $("#" + activeTab).addClass("active in");
+        }
+        //  Or directly open tab after getting activeTab.
+
+        $('a[href="#' + activeTab + '"]').tab('show');
+
+        //$('html, body').animate({
+        //    scrollTop: $('.titlecolor').offset().top - 50
+        //}, 2000);
+
+        //$('html, body').animate({
+        //    scrollTop: $('.titlecolor').offset().top - 50
+        //}, 2000);
+
 
     });
-</script>
-<script type="text/javascript">
-    var removedStr = '';
-    var myStr = [];
-    var newStr = '';
-    $(document).ready(function () {
-        var maxLength = 500;
-
-        $("#TOC").each(function () {
-            myStr.push($(this).text());
-
-            if ($(this).text().length > maxLength) {
-                newStr = $(this).text().substring(0, maxLength);
-                // removedStr = myStr.substring(maxLength, $.trim(myStr).length);
-                //$(this).html('<pre>'+newStr+'<div class="read-more1"><button type="button" class="btn btn-primary" style="padding: 2px 6px; font-size: 11px">Read More..</button></div></pre>');
-                $(this).html(newStr + '<div class="read-more1"><button type="button" class="btn btn-primary" style="border: 1px solid #009651; background-color: #009688; color: #FFFFFF;padding:3px;">Read More..</button></div>');
-                //$(this).append(' <div class="read-more1"><button type="button" class="btn btn-primary" style="padding: 2px 6px; font-size: 11px">Read More..</button></div>');
-                //$(this).append('<span class="more-text">' + removedStr + '</span>');
-            }
-
-        });
-        $(".read-more1").click(function () {
-            debugger;
-            var t = $(this);
-            $(".read-more1").empty();
-            $("#TOC").html("");
-            //$("#TOC").append('<pre>'+ myStr + '</pre>');
-            $("#TOC").append(myStr);
-        });
-    });
-
 </script>
 
 <input type="hidden" value="@Model.ReportDetails.ReportId" id="RepID" />

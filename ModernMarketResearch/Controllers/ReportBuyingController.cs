@@ -22,7 +22,7 @@ namespace ExcellentMarketResearch.Controllers
 
         ExcellentMarketResearchEntities db = new ExcellentMarketResearchEntities();
 
-      //  Emailsending objEmailsending = new Emailsending();
+        //  Emailsending objEmailsending = new Emailsending();
 
         string generatedtext = string.Empty;
         string realCaptcha = string.Empty;
@@ -71,7 +71,7 @@ namespace ExcellentMarketResearch.Controllers
         [HttpPost]
         public ActionResult CheckoutForm(BuyingVM ObjBuy)
         {
-          //  var MailbodyMethodCall = new QYGroupRepository.PaymentGateway.Emailsending();
+            //  var MailbodyMethodCall = new QYGroupRepository.PaymentGateway.Emailsending();
 
             if (ModelState.IsValid)
             {
@@ -126,14 +126,14 @@ namespace ExcellentMarketResearch.Controllers
                         db.SaveChanges();
 
                         //The lead information goes to CRM here......
-                      //  new CRMWebService.WebServiceSoapClient().InsertUpdateKey(0, ObjBuy.ReportId, ObjBuy.ReportTitle, 3, 34, 1, 1, ObjBuy.ReportUrl, QYGroupRepository.PaymentGateway.IPAddress.GetIPAddress(), ObjBuy.Name, ObjBuy.EmailId, ObjBuy.AreaCode, ObjBuy.Company, ObjBuy.Designation, "!", ObjBuy.State, ObjBuy.Country, ObjBuy.Zipcode, ObjBuy.CustomerMessage, 1, ObjBuy.GuId, "!", "!", Publisher, 38, "BW&Zk^HfZ44P339nEzqrrawY4HL_VXw-5f+%8b4Hdw?$?m$G*!+kCGLK%3JjDn-74NY*LyhdJr6RAte&8MBWy6F2j82+qn7ap&DB@z-*q3sdH*#D-kwACucyaM7vzet4pSa?m^xnP@3zN5K9=*L6WLpDurTSuVTR3Hd&3XLHJnCcR!h*dL#fQhp^*#25LEFrMTt@z&8RWdf^CQcj!QrQU^WkdC5$Ub$8qnu!g7?*$$4%%M9?8spAugyCzZg5@dLGBNS_^7?x3VczR75J&=+9yFDVg*Qpd@R^_Jz-GtWgHxv4Kf$=2pxT@bqhx%aqgzZAN6RzZZ%rNX7km3fu$h?Z=+V3b_MQPLAxJBVT!=Ta+7Xd?CF3#4w44L@HU%nf4m#y-d2vgn6Gp2t7w!qFY%kN#y6DNAy#TbrZnqnjMtgeAd%BHSm9H29z4G_?qnBHE5J2EyutZ2RSh?P2fUE-sF8bNFdre@G^qQ??JzJuDCT3hby2py#+yfg*jC%&YBkrutHs");
+                        //  new CRMWebService.WebServiceSoapClient().InsertUpdateKey(0, ObjBuy.ReportId, ObjBuy.ReportTitle, 3, 34, 1, 1, ObjBuy.ReportUrl, QYGroupRepository.PaymentGateway.IPAddress.GetIPAddress(), ObjBuy.Name, ObjBuy.EmailId, ObjBuy.AreaCode, ObjBuy.Company, ObjBuy.Designation, "!", ObjBuy.State, ObjBuy.Country, ObjBuy.Zipcode, ObjBuy.CustomerMessage, 1, ObjBuy.GuId, "!", "!", Publisher, 38, "BW&Zk^HfZ44P339nEzqrrawY4HL_VXw-5f+%8b4Hdw?$?m$G*!+kCGLK%3JjDn-74NY*LyhdJr6RAte&8MBWy6F2j82+qn7ap&DB@z-*q3sdH*#D-kwACucyaM7vzet4pSa?m^xnP@3zN5K9=*L6WLpDurTSuVTR3Hd&3XLHJnCcR!h*dL#fQhp^*#25LEFrMTt@z&8RWdf^CQcj!QrQU^WkdC5$Ub$8qnu!g7?*$$4%%M9?8spAugyCzZg5@dLGBNS_^7?x3VczR75J&=+9yFDVg*Qpd@R^_Jz-GtWgHxv4Kf$=2pxT@bqhx%aqgzZAN6RzZZ%rNX7km3fu$h?Z=+V3b_MQPLAxJBVT!=Ta+7Xd?CF3#4w44L@HU%nf4m#y-d2vgn6Gp2t7w!qFY%kN#y6DNAy#TbrZnqnjMtgeAd%BHSm9H29z4G_?qnBHE5J2EyutZ2RSh?P2fUE-sF8bNFdre@G^qQ??JzJuDCT3hby2py#+yfg*jC%&YBkrutHs");
 
                         if (ObjBuy.Paymentmode == "wireTransfer")
                         {
                             //Auto Mailer
-                          //  objEmailsending.SendEmail("sales@xyz.com", "Sales", ObjBuy.EmailId, "", "naveen.p@xyz.com", "Payment Initiated : " + ObjBuy.ReportTitle, MailbodyMethodCall.GenerateMailBody_PaymentInitiated_AutoReply(ObjBuy.ReportTitle, ObjBuy.Name));
+                            //  objEmailsending.SendEmail("sales@xyz.com", "Sales", ObjBuy.EmailId, "", "naveen.p@xyz.com", "Payment Initiated : " + ObjBuy.ReportTitle, MailbodyMethodCall.GenerateMailBody_PaymentInitiated_AutoReply(ObjBuy.ReportTitle, ObjBuy.Name));
                             //To company
-//                            objEmailsending.SendEmail(ObjBuy.EmailId, ObjBuy.Name, "payments@xyz.com", "", "md@xyz.com,naveen.p@xyz.com", "xyz.com" + " : Payment Initiated(Wire Transfer)", MailbodyMethodCall.GenerateMailBody_PaymentInitiated(ObjBuy.ReportTitle, ObjBuy.Name, ObjBuy.EmailId, ObjBuy.PhoneNumber, ObjBuy.Company, "", "", ObjBuy.Country, ""));
+                            //                            objEmailsending.SendEmail(ObjBuy.EmailId, ObjBuy.Name, "payments@xyz.com", "", "md@xyz.com,naveen.p@xyz.com", "xyz.com" + " : Payment Initiated(Wire Transfer)", MailbodyMethodCall.GenerateMailBody_PaymentInitiated(ObjBuy.ReportTitle, ObjBuy.Name, ObjBuy.EmailId, ObjBuy.PhoneNumber, ObjBuy.Company, "", "", ObjBuy.Country, ""));
 
 
                         }
@@ -150,10 +150,10 @@ namespace ExcellentMarketResearch.Controllers
                             //The paypalpage will appear to the user or buer ....
                             //Paypal._PayPal(ObjBuy);
 
-                            PaymentWithPaypal(ObjBuy,null);
+                            PaymentWithPaypal(ObjBuy, null);
                             //return RedirectToAction("PaymentWithPaypal", "ReportBuying", new {ObjBuy, Cancel = false });
                             //return RedirectToAction("PaymentWithPaypal");
-                            
+
                         }
 
 
@@ -423,7 +423,7 @@ namespace ExcellentMarketResearch.Controllers
         private Payment CreatePayment(PayPal.Api.APIContext apiContext, string redirectUrl, BuyingVM buyingVM)
         {
             //create itemlist and add item objects to it 
-            
+
             var itemList = new ItemList()
             {
                 items = new List<Item>()
@@ -464,7 +464,7 @@ namespace ExcellentMarketResearch.Controllers
                 return_url = redirectUrl
             };
 
-      
+
             this.payment = new Payment()
             {
                 intent = "sale",
@@ -544,7 +544,45 @@ namespace ExcellentMarketResearch.Controllers
         public ActionResult PaymentSuccess(string responce)
         {
 
+            string querystring = string.Empty;
+            foreach (var q in Request.QueryString.AllKeys)
+            {
+                querystring += q + "=" + Request.QueryString[q] + "&";
+
+            }
+         
+            string paypalGuid = Request.QueryString["guid"];
+            string paymentId = Request.QueryString["paymentId"];
+            string token = Request.QueryString["token"];
+            string PayerID = Request.QueryString["PayerID"];
+            string Cancel = Request.QueryString["cancel"];
+            bool paymentcancel = false;
+
+            if (IsValidUser(paypalGuid))
+            {
+
+            }
+
+            if (Cancel == "true")
+            {
+                paymentcancel = true;
+            }
+            else
+            {
+                paymentcancel = false;
+            }
+
             return View();
+        }
+        public bool IsValidUser(string paypalGuid)
+        {
+            string valid = db.BuyingInfoes.Where(x => x.GuId == paypalGuid).Select(x => x.Name).FirstOrDefault();
+            if (!string.IsNullOrEmpty(valid))
+            {
+                return true;
+            }
+            else
+                return false;
         }
     }
 }
