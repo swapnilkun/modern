@@ -27,10 +27,10 @@ namespace ExcellentMarketResearch
         }
         protected void Application_BeginRequest(object sender, EventArgs e)
         {
-            if ((Request.Url.Scheme != "https" || Request.Url.AbsoluteUri.Contains("www.")) && !Request.IsLocal)
-            {
-                Response.RedirectPermanent("https://www.excellentmarketresearch.com");
-            }
+            //if ((Request.Url.Scheme != "https" || Request.Url.AbsoluteUri.Contains("www.")) && !Request.IsLocal)
+            //{
+            //    Response.RedirectPermanent("https://www.excellentmarketresearch.com");
+            //}
 
             //ExcellentMarketResearchEntities db = new ExcellentMarketResearchEntities();
 

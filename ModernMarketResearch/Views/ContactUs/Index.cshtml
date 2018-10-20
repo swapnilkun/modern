@@ -1,12 +1,9 @@
 ﻿@model ExcellentMarketResearch.Models.ViewModel.ContactUsVM
 @{
-    ViewBag.Title = "Index";
-   
-}
-@{
     ViewBag.Title = "Contact";
-}
 
+}
+<script src="https://www.google.com/recaptcha/api.js" type="text/javascript"></script>
 <section class="page-title-section">
     <div class="container">
         <div class="page-header-wrap">
@@ -39,7 +36,7 @@
                         @using (Html.BeginForm("Index", "ContactUs", FormMethod.Post, new { @class = "form-horizontal", @id = "ContactUs" }))
                         {
                             @Html.ValidationSummary(true)
-            
+
                             @Html.HiddenFor(model => model.RealCaptcha, new { @id = "txtCaptcha" })
                             <div class="form-group">
                                 <div class="col-md-3 col-sm-12">
@@ -86,22 +83,22 @@
 
                                 </div>
                             </div>@*
-            <div class="form-group">
-                <div class="col-md-3 col-sm-12">
-                    <label for="designation">Designation</label>
-                </div>
-                <div class="col-md-9 col-sm-12">
-                    <input name="designation" type="text" class="form-control" required="" placeholder="">
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="col-md-3 col-sm-12">
-                    <label for="company">Company</label>
-                </div>
-                <div class="col-md-9 col-sm-12">
-                    <input name="company" type="text" class="form-control" required="" placeholder="">
-                </div>
-            </div>*@
+                                <div class="form-group">
+                                    <div class="col-md-3 col-sm-12">
+                                        <label for="designation">Designation</label>
+                                    </div>
+                                    <div class="col-md-9 col-sm-12">
+                                        <input name="designation" type="text" class="form-control" required="" placeholder="">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-3 col-sm-12">
+                                        <label for="company">Company</label>
+                                    </div>
+                                    <div class="col-md-9 col-sm-12">
+                                        <input name="company" type="text" class="form-control" required="" placeholder="">
+                                    </div>
+                                </div>*@
                             <div class="form-group">
                                 <div class="col-md-3 col-sm-12">
                                     <label for="custmsg">Customer Message</label>
@@ -116,17 +113,18 @@
                                 <div class="col-md-3 col-sm-12">
                                     <label for="recaptcha">
                                         @*<img id="CaptchImg"  style="background-color:#01819c" src="@Url.Action("GetCaptchaImage", "InquiryForm", new { @EncryText = Model.RealCaptcha })" /></label>*@
-                                        <div class="g-recaptcha" data-sitekey="6LcatW0UAAAAALq5XQhoVCVX2o5xwbre4fyUgQeJ"></div>
-                                        </label>
+
+                                    </label>
                                 </div>
                                 <div class="col-md-9 col-sm-12">
-                                    @Html.TextBoxFor(model => model.CaptchaCode, new { @class = "form-control", @placeholder = "Enter Captcha", @id = "txtInput" })
-                                    @Html.ValidationMessageFor(model => model.CaptchaCode)
+                                    @*                                    @Html.TextBoxFor(model => model.CaptchaCode, new { @class = "form-control", @placeholder = "Enter Captcha", @id = "txtInput" })
+                                        @Html.ValidationMessageFor(model => model.CaptchaCode)*@
+                                    <div class="g-recaptcha" data-sitekey="6LcatW0UAAAAALq5XQhoVCVX2o5xwbre4fyUgQeJ"></div>
                                     <label id="captchaError"></label>
                                 </div>
                                 @*<p class="help-block">
-                    <label id="captchaError"></label>
-                </p>*@
+                                        <label id="captchaError"></label>
+                                    </p>*@
                                 @*onClick="ValidateForm(this);*@
                             </div>
                             <div class="form-group">
@@ -149,10 +147,11 @@
                     <h3>Head Office</h3>
 
                     <address>
-                        384 Maple Circle<br>
-                        Simi Valley, Nevada 47424<br>
-                        Phone : +12 30 456789<br>
-                        Email : yourname@transport.com<br>
+                        S. No. 66/3/29, Gajanan<br>
+                        Nagar, Pimple Gurav,<br>
+                        Pune - 411061 India.<br />
+                        Phone : +1(312) 588-9716<br>
+                        Email : sales@excellentmarketresearch.com<br>
                     </address>
                 </div>
                 <!-- /.contact-info -->
@@ -181,10 +180,12 @@
                     <h3>United States Office</h3>
 
                     <address>
-                        384 Maple Circle<br>
-                        Simi Valley, Nevada 47424<br>
-                        Phone : +12 30 456789<br>
-                        Email : yourname@transport.com<br>
+                        444 E Lake Street,
+                        <br>
+                        Suite 1700, Chicago,<br> IL 60606
+                        USA.<br />
+                        Phone : +1(312) 588-9716<br>
+                        Email : sales@excellentmarketresearch.com<br>
                     </address>
                 </div>
                 <!-- /.contact-info -->
