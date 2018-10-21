@@ -8,6 +8,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Script.Serialization;
+using ExcellentMarketResearch.Areas.Admin.Models;
 
 namespace ExcellentMarketResearch.Areas.Admin.Controllers
 {
@@ -25,7 +26,7 @@ namespace ExcellentMarketResearch.Areas.Admin.Controllers
             _ObjPublisherRepository = new PublisherRepository();
         }
 
-        //[CustomAuthorization("ReportUploader,ReportCreater", "Create,Delete")]
+        [CustomAuthentication("ReportUploader", "Create,Edit,Delete")]
         public ActionResult PublisherIndex()
         {
             // var publisher = db.PublisherMasters.ToList();
@@ -34,14 +35,14 @@ namespace ExcellentMarketResearch.Areas.Admin.Controllers
         }
 
         [HttpGet]
-        //[CustomAuthorization("ReportUploader,ReportCreater", "Create,Delete")]
+        [CustomAuthentication("ReportUploader", "Create,Edit,Delete")]
         public ActionResult PublisherCreate()
         {
             return View();
         }
 
         [HttpPost]
-        //[CustomAuthorization("ReportUploader,ReportCreater", "Create,Delete")]
+        [CustomAuthentication("ReportUploader", "Create,Edit,Delete")]
         public ActionResult PublisherCreate(PublisherVM pub)
         {
             _ObjPublisherRepository.InsertPublisher(pub);
@@ -49,18 +50,18 @@ namespace ExcellentMarketResearch.Areas.Admin.Controllers
         }
 
         [HttpGet]
-        //[CustomAuthorization("ReportUploader,ReportCreater", "Create,Delete")]
+        [CustomAuthentication("ReportUploader", "Create,Edit,Delete")]
         public ActionResult PublisherEdit(int id)
         {
             return View(_ObjPublisherRepository.GetById(id));
         }
-        // [CustomAuthorization("ReportUploader,ReportCreater", "Create,Delete")]
+        [CustomAuthentication("ReportUploader", "Create,Edit,Delete")]
         public ActionResult PublisherEdit(PublisherVM pub)
         {
             _ObjPublisherRepository.PublisherEdit(pub);
             return RedirectToAction("PublisherIndex");
         }
-        //[CustomAuthorization("ReportUploader,ReportCreater", "Create,Delete")]
+        [CustomAuthentication("ReportUploader", "Create,Edit,Delete")]
         public ActionResult PublisherDetails(int id)
         {
             return View(_ObjPublisherRepository.GetById(id));

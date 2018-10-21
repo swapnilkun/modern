@@ -7,6 +7,7 @@ using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using ExcellentMarketResearch.Areas.Admin.Models;
 
 namespace ExcellentMarketResearch.Areas.Admin.Controllers
 {
@@ -22,20 +23,20 @@ namespace ExcellentMarketResearch.Areas.Admin.Controllers
 
         //NewsRepository ObjNewsRepository = new NewsRepository();
         ExcellentMarketResearchEntities db = new ExcellentMarketResearchEntities();
-       // [CustomAuthorization("ReportUploader,ReportCreater", "Create,Delete")]
+       [CustomAuthentication("ReportUploader", "Create,Edit,Delete")]
         public ActionResult NewsIndex()
         {
             return View(_ObjNewsRepository.GetNews());
         }
         [HttpGet]
-      //  [CustomAuthorization("ReportUploader,ReportCreater", "Create,Delete")]
+        [CustomAuthentication("ReportUploader", "Create,Edit,Delete")]
         public ActionResult NewsCreate()
         {
             return View();
         }
         [HttpPost]
         [ValidateInput(false)]
-      //  [CustomAuthorization("ReportUploader,ReportCreater", "Create,Delete")]
+        [CustomAuthentication("ReportUploader", "Create,Edit,Delete")]
         public ActionResult NewsCreate(NewsVM news,HttpPostedFileBase file)
         {
 
@@ -74,8 +75,9 @@ namespace ExcellentMarketResearch.Areas.Admin.Controllers
                 return View(news);
             }
         }
+        
         [HttpGet]
-     //   [CustomAuthorization("ReportUploader,ReportCreater", "Create,Delete")]
+        [CustomAuthentication("ReportUploader", "Create,Edit,Delete")]
         public ActionResult NewsEdit(int id)
         {
             return View(_ObjNewsRepository.EditNews(id));
@@ -83,7 +85,7 @@ namespace ExcellentMarketResearch.Areas.Admin.Controllers
 
         [HttpPost]
         [ValidateInput(false)]
-       // [CustomAuthorization("ReportUploader,ReportCreater", "Create,Delete")]
+        [CustomAuthentication("ReportUploader", "Create,Edit,Delete")]
         public ActionResult NewsEdit(NewsVM news)
         {
             var newsTitlewiseid = db.NewsMasters.Where(x => x.NewsTitle == news.NewsTitle).Select(x => x.NewsId).FirstOrDefault();
@@ -114,7 +116,7 @@ namespace ExcellentMarketResearch.Areas.Admin.Controllers
                 return View(news);
             }
         }
-     //   [CustomAuthorization("ReportUploader,ReportCreater", "Create,Delete")]
+        [CustomAuthentication("ReportUploader", "Create,Edit,Delete")]
         public ActionResult NewsDetails(int id)
         {
             
@@ -122,14 +124,14 @@ namespace ExcellentMarketResearch.Areas.Admin.Controllers
 
         }
         [HttpGet]
-      //  [CustomAuthorization("ReportUploader,ReportCreater", "Create,Delete")]
+        [CustomAuthentication("ReportUploader", "Create,Edit,Delete")]
         public ActionResult NewsDelete(int id)
         {
             return View(_ObjNewsRepository.GetNewsById(id));
         }
         [HttpPost]
         [ActionName(name: "NewsDelete")]
-    //    [CustomAuthorization("ReportUploader,ReportCreater", "Create,Delete")]
+        [CustomAuthentication("ReportUploader", "Create,Edit,Delete")]
         public ActionResult NewsDelete1(int id)
         {
             var n = db.NewsMasters.Where(x => x.NewsId == id).Select(x => x).FirstOrDefault();

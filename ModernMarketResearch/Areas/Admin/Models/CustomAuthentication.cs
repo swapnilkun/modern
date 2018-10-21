@@ -43,7 +43,7 @@ namespace ExcellentMarketResearch.Areas.Admin.Models
                        filterContext.Result = new RedirectToRouteResult(new System.Web.Routing.RouteValueDictionary(new
                        {
                            controller = "Adminlogin",
-                           action = "logon",
+                           action = "login",
                            area = "Admin"
                        }));
                    }
@@ -53,7 +53,7 @@ namespace ExcellentMarketResearch.Areas.Admin.Models
                    filterContext.Result = new RedirectToRouteResult(new System.Web.Routing.RouteValueDictionary(new
                    {
                        controller = "Adminlogin",
-                       action = "logon",
+                       action = "login",
                        area = "Admin"
                    }));
                }
@@ -63,7 +63,7 @@ namespace ExcellentMarketResearch.Areas.Admin.Models
                 filterContext.Result = new RedirectToRouteResult(new System.Web.Routing.RouteValueDictionary(new
                 {
                     controller = "Adminlogin",
-                    action = "logon",
+                    action = "login",
                     area = "Admin"
                 }));
             }

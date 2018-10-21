@@ -9,6 +9,7 @@ using System.Web;
 using System.Web.Mvc;
 using PagedList;
 using PagedList.Mvc;
+using ExcellentMarketResearch.Areas.Admin.Models;
 
 namespace ExcellentMarketResearch.Areas.Admin.Controllers
 {
@@ -24,7 +25,7 @@ namespace ExcellentMarketResearch.Areas.Admin.Controllers
             _ObjCategoryRepository = new CategoryRepository();
         }
 
-       // [CustomAuthorization("ReportUploader,ReportCreater", "Create,Delete")]
+        [CustomAuthentication("ReportUploader,ReportCreater", "Create,Delete")]
         public ActionResult CategoryIndex(int? pageno, string CategoryName)
         {
 
@@ -39,13 +40,13 @@ namespace ExcellentMarketResearch.Areas.Admin.Controllers
             }
         }
         [HttpGet]
-       // [CustomAuthorization("ReportUploader,ReportCreater", "Create,Delete")]
+        [CustomAuthentication("ReportUploader,ReportCreater", "Create,Delete")]
         public ActionResult CreateCategory()
         {
             return View();
         }
         [HttpPost]
-        //[CustomAuthorization("ReportUploader,ReportCreater", "Create,Delete")]
+        [CustomAuthentication("ReportUploader,ReportCreater", "Create,Delete")]
         public ActionResult CreateCategory(CategoryVM catvm, HttpPostedFileBase file)
         {
             #region File Extension of image is proper or not
@@ -95,7 +96,7 @@ namespace ExcellentMarketResearch.Areas.Admin.Controllers
             return RedirectToAction("CategoryIndex");
         }
         [HttpGet]
-      //  [CustomAuthorization("ReportUploader,ReportCreater", "Create,Delete")]
+        [CustomAuthentication("ReportUploader,ReportCreater", "Create,Delete")]
         public ActionResult CategoryEdit(int id)
         {
             var catdata = _ObjCategoryRepository.EditCategory(id);
@@ -105,7 +106,7 @@ namespace ExcellentMarketResearch.Areas.Admin.Controllers
         }
 
         [HttpPost]
-       // [CustomAuthorization("ReportUploader,ReportCreater", "Create,Delete")]
+        [CustomAuthentication("ReportUploader,ReportCreater", "Create,Delete")]
         [ValidateInput(false)]
         public ActionResult CategoryEdit(CategoryVM cat)
         {
@@ -122,7 +123,7 @@ namespace ExcellentMarketResearch.Areas.Admin.Controllers
                 return RedirectToAction("CategoryIndex");
             }
         }
-       // [CustomAuthorization("ReportUploader,ReportCreater", "Create,Delete")]
+        [CustomAuthentication("ReportUploader,ReportCreater", "Create,Delete")]
         public ActionResult CategoryDetails(int id)
         {
             var catdetails = _ObjCategoryRepository.GetCategoryById(id);
@@ -130,7 +131,7 @@ namespace ExcellentMarketResearch.Areas.Admin.Controllers
         }
 
         [HttpGet]
-      //  [CustomAuthorization("ReportUploader,ReportCreater", "Create,Delete")]
+        [CustomAuthentication("ReportUploader,ReportCreater", "Create,Delete")]
         public ActionResult CategoryDelete(int id)
         {
             var catm = _ObjCategoryRepository.GetCategoryById(id);
@@ -139,7 +140,7 @@ namespace ExcellentMarketResearch.Areas.Admin.Controllers
 
         [HttpPost]
         [ActionName("CategoryDelete")]
-      //  [CustomAuthorization("ReportUploader,ReportCreater", "Create,Delete")]
+        [CustomAuthentication("ReportUploader,ReportCreater", "Create,Delete")]
         public ActionResult CategoryDelete1(int id)
         {
             _ObjCategoryRepository.DeleteCategory(id);

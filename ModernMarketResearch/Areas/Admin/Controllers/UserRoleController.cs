@@ -7,6 +7,7 @@ using System.Data.Entity.Validation;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using ExcellentMarketResearch.Areas.Admin.Models;
 
 namespace ExcellentMarketResearch.Areas.Admin.Controllers
 {
@@ -17,19 +18,19 @@ namespace ExcellentMarketResearch.Areas.Admin.Controllers
 
 
         UserRoleRepository ObjUserRoleRepository = new UserRoleRepository();
-        //[CustomAuthorization("ReportUploader,ReportCreater", "Create,Delete")]
+        [CustomAuthentication("ReportUploader", "Create,Edit,Delete")]
         public ActionResult UserRoleIndex()
         {
             return View(ObjUserRoleRepository.GetUserRole());
         }
         [HttpGet]
-        //[CustomAuthorization("ReportUploader,ReportCreater", "Create,Delete")]
+        [CustomAuthentication("ReportUploader", "Create,Edit,Delete")]
         public ActionResult UserRoleCreate()
         {
             return View();
         }
         [HttpPost]
-        //[CustomAuthorization("ReportUploader,ReportCreater", "Create,Delete")]
+        [CustomAuthentication("ReportUploader", "Create,Edit,Delete")]
         public ActionResult UserRoleCreate(UserRoleVM userrole, int[] Roles)
         {
             try
@@ -53,20 +54,20 @@ namespace ExcellentMarketResearch.Areas.Admin.Controllers
             return View(userrole);
         }
         [HttpGet]
-        //[CustomAuthorization("ReportUploader,ReportCreater", "Create,Delete")]
+        [CustomAuthentication("ReportUploader", "Create,Edit,Delete")]
         public ActionResult UserRoleEdit(int id)
         {
             var x = ObjUserRoleRepository.EditingData(id);
             return View(x);
         }
         [HttpPost]
-        // [CustomAuthorization("ReportUploader,ReportCreater", "Create,Delete")]
+        [CustomAuthentication("ReportUploader", "Create,Edit,Delete")]
         public ActionResult UserRoleEdit(UserRoleVM userrole, int[] Roles)
         {
             ObjUserRoleRepository.UpdateUserRole(userrole.UserId, userrole, Roles);
             return RedirectToAction("UserRoleIndex");
         }
-        //[CustomAuthorization("ReportUploader,ReportCreater", "Create,Delete")]
+        [CustomAuthentication("ReportUploader", "Create,Edit,Delete")]
         public ActionResult UserRoleDetail(int id)
         {
             var x = ObjUserRoleRepository.DetailUserRole(id);

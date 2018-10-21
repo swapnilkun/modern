@@ -7,6 +7,7 @@ using System.Data.Entity.Validation;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using ExcellentMarketResearch.Areas.Admin.Models;
 
 namespace ExcellentMarketResearch.Areas.Admin.Controllers
 {
@@ -26,20 +27,20 @@ namespace ExcellentMarketResearch.Areas.Admin.Controllers
         {
             _ObjRoleActionRepository = new RoleActionRepository();
         }
-
+        [CustomAuthentication("ReportUploader", "Create,Edit,Delete")]
         public ActionResult RoleActionIndex()
         {
             var RoleAction = _ObjRoleActionRepository.GetRoleAction();
             return View(RoleAction);
         }
-        //[CustomAuthorization("ReportUploader,ReportCreater", "Create,Delete")]
+        [CustomAuthentication("ReportUploader", "Create,Edit,Delete")]
         public ActionResult RoleActionCreate()
         {
             return View();
         }
 
         [HttpPost]
-        //[CustomAuthorization("ReportUploader,ReportCreater", "Create,Delete")]
+        [CustomAuthentication("ReportUploader", "Create,Edit,Delete")]
         public ActionResult RoleActionCreate(RoleActionVM roleaction, int[] actions)
         {
             if (ModelState.IsValid)
@@ -65,20 +66,20 @@ namespace ExcellentMarketResearch.Areas.Admin.Controllers
         }
 
         [HttpGet]
-        //[CustomAuthorization("ReportUploader,ReportCreater", "Create,Delete")]
+        [CustomAuthentication("ReportUploader", "Create,Edit,Delete")]
         public ActionResult RoleActionDetail(int id)
         {
             var Detail = _ObjRoleActionRepository.DetailAction(id);
             return View(Detail);
         }
-        //[CustomAuthorization("ReportUploader,ReportCreater", "Create,Delete")]
+        [CustomAuthentication("ReportUploader", "Create,Edit,Delete")]
         public ActionResult RoleActionEdit(int id = 0)
         {
             var EditGet = _ObjRoleActionRepository.GetRoleActionsEdit(id);
             return View(EditGet);
         }
         [HttpPost]
-        //[CustomAuthorization("ReportUploader,ReportCreater", "Create,Delete")]
+        [CustomAuthentication("ReportUploader", "Create,Edit,Delete")]
         public ActionResult RoleActionEdit(int id, RoleMaster rolemaster, int[] actions)
         {
 
@@ -104,14 +105,14 @@ namespace ExcellentMarketResearch.Areas.Admin.Controllers
             return RedirectToAction("RoleAction", "RoleActionIndex");
         }
         [HttpGet]
-       // [CustomAuthorization("ReportUploader,ReportCreater", "Create,Delete")]
+        [CustomAuthentication("ReportUploader", "Create,Edit,Delete")]
         public ActionResult RoleActionDelete(int id)
         {
             return View(_ObjRoleActionRepository.DetailAction(id));
         }
         [ActionName("RoleActionDelete")]
         [HttpPost]
-        //[CustomAuthorization("ReportUploader,ReportCreater", "Create,Delete")]
+        [CustomAuthentication("ReportUploader", "Create,Edit,Delete")]
         public ActionResult RoleActionDelete1(int id)
         {
             _ObjRoleActionRepository.DeleteAction(id);

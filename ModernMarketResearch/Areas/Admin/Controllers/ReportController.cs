@@ -12,6 +12,7 @@ using System.Web.UI.WebControls;
 using PagedList;
 using PagedList.Mvc;
 using System.Text;
+using ExcellentMarketResearch.Areas.Admin.Models;
 
 
 namespace ExcellentMarketResearch.Areas.Admin.Controllers
@@ -37,7 +38,7 @@ namespace ExcellentMarketResearch.Areas.Admin.Controllers
 
         ExcellentMarketResearchEntities db = new ExcellentMarketResearchEntities();
 
-        //  [CustomAuthorization("ReportUploader,ReportCreater", "Create,Delete")]
+        [CustomAuthentication("ReportUploader,ReportCreater", "Create,Delete")]
         public ActionResult ReportIndex(int? pageno, string searchkey, int? pagesize, DateTime? FromDate, DateTime? ToDate)
         {
 
@@ -101,13 +102,13 @@ namespace ExcellentMarketResearch.Areas.Admin.Controllers
             //return View(report);
         }
         [HttpGet]
-        // [CustomAuthorization("ReportUploader,ReportCreater", "Create,Delete")]
+        [CustomAuthentication("ReportUploader,ReportCreater", "Create,Delete")]
         public ActionResult ReportCreate()
         {
             return View();
         }
         [HttpPost]
-        // [CustomAuthorization("ReportUploader,ReportCreater", "Create,Delete")]
+        [CustomAuthentication("ReportUploader,ReportCreater", "Create,Delete")]
         public ActionResult ReportCreate(ReportVM r, HttpPostedFileBase file)
         {
             if (file != null && !string.IsNullOrEmpty(file.FileName))
@@ -155,7 +156,7 @@ namespace ExcellentMarketResearch.Areas.Admin.Controllers
 
         }
         [HttpGet]
-        // [CustomAuthorization("ReportUploader,ReportCreater", "Create,Delete")]
+        [CustomAuthentication("ReportUploader,ReportCreater", "Create,Delete")]
         public ActionResult ReportEdit(int id)
         {
             var catid = db.ReportMasters.Where(x => x.ReportId == id).Select(x => x.CategoryId).FirstOrDefault();
@@ -168,7 +169,7 @@ namespace ExcellentMarketResearch.Areas.Admin.Controllers
             return View(z);
         }
         [HttpPost]
-        // [CustomAuthorization("ReportUploader,ReportCreater", "Create,Delete")]
+        [CustomAuthentication("ReportUploader,ReportCreater", "Create,Delete")]
         public ActionResult ReportEdit(ReportVM r)
         {
             if (_ObjReportRepository.EditPostReport(r))
@@ -187,7 +188,7 @@ namespace ExcellentMarketResearch.Areas.Admin.Controllers
 
         }
         [HttpGet]
-        //[CustomAuthorization("ReportUploader,ReportCreater", "Create,Delete")]
+        [CustomAuthentication("ReportUploader,ReportCreater", "Create,Delete")]
         public ActionResult ReportDetails(int id)
         {
             //var reportdetails = db.ReportMasters.Where(x => x.ReportId == id).FirstOrDefault();
@@ -195,14 +196,14 @@ namespace ExcellentMarketResearch.Areas.Admin.Controllers
             return View(_ObjReportRepository.GetReportById(id));
         }
         [HttpGet]
-        // [CustomAuthorization("ReportUploader,ReportCreater", "Create,Delete")]
+        [CustomAuthentication("ReportUploader,ReportCreater", "Create,Delete")]
         public ActionResult ReportDelete(int id)
         {
             var reportdetails = db.ReportMasters.Where(x => x.ReportId == id).FirstOrDefault();
             return View(reportdetails);
         }
         [HttpPost]
-        //  [CustomAuthorization("ReportUploader,ReportCreater", "Create,Delete")]
+        [CustomAuthentication("ReportUploader,ReportCreater", "Create,Delete")]
         [ActionName(name: "ReportDelete")]
         public ActionResult ReportDelete1(int id)
         {

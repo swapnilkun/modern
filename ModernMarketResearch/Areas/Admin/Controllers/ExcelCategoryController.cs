@@ -7,6 +7,7 @@ using System.Data.OleDb;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using ExcellentMarketResearch.Areas.Admin.Models;
 
 namespace ExcellentMarketResearch.Areas.Admin.Controllers
 {
@@ -24,12 +25,13 @@ namespace ExcellentMarketResearch.Areas.Admin.Controllers
             return View();
         }
 
+        [CustomAuthentication("ReportUploader", "Create,Edit,Delete")]
         public ActionResult Import()
         {
             return View();
         }
         [HttpPost]
-        // [CustomValidation("ReportUploader", "Create,Edit,Delete")]
+        [CustomAuthentication("ReportUploader", "Create,Edit,Delete")]
         public ActionResult Import(HttpPostedFileBase excelfile)
         {
             string Value = string.Empty;
@@ -101,7 +103,7 @@ namespace ExcellentMarketResearch.Areas.Admin.Controllers
             return View();
         }
 
-        //   [CustomValidation("ReportUploader", "Create,Edit,Delete")]
+        [CustomAuthentication("ReportUploader", "Create,Edit,Delete")]  
         public ActionResult TotalReports()
         {
             var Reports = db.ReportMasters.ToList();
