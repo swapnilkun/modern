@@ -2006,8 +2006,18 @@ span.field-validation-error {
 }
 .service-sidebar.sidebar-wrapper .panel-heading {text-align:center;	font-weight:700;}
 .service-sidebar.sidebar-wrapper .panel-body {padding: 5px;}
-.service-sidebar.sidebar-wrapper .badge {padding: 5px 5px;line-height: 1.5;}
-.service-sidebar.sidebar-wrapper .list-group-item {padding: 10px 5px;}
+.service-sidebar.sidebar-wrapper .badge {
+    padding: 5px 5px;
+    line-height: 1.5;
+    font-size: 12px;
+    margin: 2px 0;
+}
+
+.service-sidebar.sidebar-wrapper .list-group-item {
+    padding: 10px 5px;
+    font-size: 14px;
+    font-weight: 600;
+}
 .service-sidebar.sidebar-wrapper input {margin-right: 10px;}
 .service-sidebar.sidebar-wrapper .panel .list-group {margin-bottom:0px;}
 
