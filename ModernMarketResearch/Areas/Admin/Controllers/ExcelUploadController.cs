@@ -47,7 +47,7 @@ namespace ExcellentMarketResearch.Areas.Admin.Controllers
                     //   string path = Server.MapPath("~/Content/" + excelfile.FileName + DateTime.Now.ToString("MM.dd.yyyy-hh.mm.ss"));
                     try
                     {
-                        path = Server.MapPath("~/Content/" + excelfile.FileName + DateTime.Now.ToString("MM.dd.yyyy-hh.mm.ss"));
+                        path = Server.MapPath("~/UploadSheet/" + excelfile.FileName + DateTime.Now.ToString("MM.dd.yyyy-hh.mm.ss"));
                         if (System.IO.File.Exists(path))
                         {
                             System.IO.File.Delete(path);
