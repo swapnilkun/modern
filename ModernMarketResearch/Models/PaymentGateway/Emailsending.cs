@@ -21,22 +21,26 @@ namespace ExcellentMarketResearch.Models.PaymentGateway
                 msg.From = new MailAddress(From, DisplayName);
                 //if (To != "") msg.To.Add(To);
 
-                string[] strTo = To.Split(','); if (To != "" && strTo.Length > 0) { for (int count = 0; count < strTo.Length; count++)  msg.To.Add(strTo[count].Trim()); }
+                string[] strTo = To.Split(','); if (To != "" && strTo.Length > 0) { for (int count = 0; count < strTo.Length; count++) msg.To.Add(strTo[count].Trim()); }
                 string[] strCc = CC.Split(','); if (CC != "" && strCc.Length > 0) { for (int count = 0; count < strCc.Length; count++) msg.CC.Add(strCc[count].Trim()); }
-                string[] strBcc = Bcc.Split(','); if (Bcc != "" && strBcc.Length > 0) { for (int count = 0; count < strBcc.Length; count++)msg.Bcc.Add(strBcc[count].Trim()); }
+                string[] strBcc = Bcc.Split(','); if (Bcc != "" && strBcc.Length > 0) { for (int count = 0; count < strBcc.Length; count++) msg.Bcc.Add(strBcc[count].Trim()); }
                 msg.Priority = MailPriority.Normal;
                 //msg.Subject = "Search_Radiology " + Subject;
                 msg.Subject = Subject;
                 msg.Body = MailBody;
+                msg.BodyEncoding = System.Text.Encoding.UTF8;
+                msg.SubjectEncoding = System.Text.Encoding.Default;
                 msg.IsBodyHtml = true;
-                SmtpClient client = new SmtpClient("smtp.gmail.com",587)
+                SmtpClient client = new SmtpClient()
                 {
-                    // Host = "smtp.qygroup.biz",
+                    Host = "smtp.excellentmarketresearch.com",
                     //  Host = "smtp.gmail.com",
-                    //  Port = 587,
-                   // Credentials = new NetworkCredential("danielmiller@excellentmarketresearch.com", "Jmt?23r2"),
-                    Credentials = new NetworkCredential("test93ssk@gmail.com", "Swapnil@6207"),
-                    EnableSsl = true
+                    Port = 587,
+                    DeliveryMethod = SmtpDeliveryMethod.Network,
+                    UseDefaultCredentials=false,
+                    // Credentials = new NetworkCredential("danielmiller@excellentmarketresearch.com", "Jmt?23r2"),
+                    Credentials = new NetworkCredential("sales@excellentmarketresearch.com", "bUt#m061"),
+                    EnableSsl = false
                     //DeliveryMethod = SmtpDeliveryMethod.Network,
                     // UseDefaultCredentials = false,
 
@@ -94,11 +98,11 @@ namespace ExcellentMarketResearch.Models.PaymentGateway
                 result = "Dear " + Name + ","
                      + "<br /><br />Thank you for your interest in <b>" + "ExcellentMarketResearch.com" + "</b>."
                      + "<br /><br />We'll contact you soon to serve your research needs."
-                     + "<b><br /><br />Warm regards,"
-                     + "<br />Miler Jhon | Corporate Sales Specialist,USA"
-                     + "<br />Direct line: + 1888-868686-68686#"
-                     + "<br />" + "excellentmarketresearch.com"
-                     + "<br />E-mail: sales@excellentmarketresearch.com | Web: " + "excellentmarketresearch.com" + "</b>";
+                     + "<b><br /><br />Regards,"
+                     + "<br /Daniel Miller | Corporate Sales Specialist, USA"
+                     + "<br />Direct line: +1-312-588-9716#"
+                     + "<br />" + "https://www.excellentmarketresearch.com"
+                     + "<br />E-mail: sales@excellentmarketresearch.com | Web: " + "https://www.excellentmarketresearch.com" + "</b>";
             }
             else
             {
@@ -108,11 +112,11 @@ namespace ExcellentMarketResearch.Models.PaymentGateway
                     //+ "<br /><br />For your reference please find the below link."
                     //+ "<br /><br />" + "hhj.biz".Substring(0, "jhjhg.biz".Length - 1) + ReportURL
                     + "<br /><br />We'll contact you soon to serve your research needs."
-                    + "<b><br /><br />Warm regards,"
-                    + "<br />Miler Jhon | Corporate Sales Specialist,USA"
-                    + "<br />Direct line: +  1888-868686-68686#"
-                    + "<br />" + "excellentmarketresearch.com"
-                    + "<br />E-mail: sales@excellentmarketresearch.com  | Web: " + "excellentmarketresearch.com" + "</b>";
+                    + "<b><br /><br />Regards,"
+                     + "<br /Daniel Miller | Corporate Sales Specialist, USA"
+                     + "<br />Direct line: +1-312-588-9716#"
+                     + "<br />" + "https://www.excellentmarketresearch.com"
+                     + "<br />E-mail: sales@excellentmarketresearch.com | Web: " + "https://www.excellentmarketresearch.com" + "</b>";
             }
             return result;
         }
@@ -134,8 +138,8 @@ namespace ExcellentMarketResearch.Models.PaymentGateway
             result += "</table>";
             return result;
         }
-        
-        
+
+
         //public string GenerateMailBody_RequestSample(string PaymentSucess, BuyingVM userdata)
         //{
         //    string result = "";

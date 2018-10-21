@@ -182,6 +182,7 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\ActionController.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminCategoryController.cs" />
+    <Compile Include="Areas\Admin\Controllers\AdminloginController.cs" />
     <Compile Include="Areas\Admin\Controllers\CategoryController.cs" />
     <Compile Include="Areas\Admin\Controllers\ExcelCategoryController.cs" />
     <Compile Include="Areas\Admin\Controllers\ExcelUploadController.cs" />
@@ -1111,6 +1112,9 @@
       <DependentUpon>ExcellentMarketResearch.edmx</DependentUpon>
     </Content>
     <Content Include="PayPal\PayPal.config" />
+    <Content Include="Areas\Admin\Views\Adminlogin\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Adminlogin\Login.cshtml" />
+    <Content Include="Areas\Admin\Views\Adminlogin\loginfailed.cshtml" />
     <None Include="Properties\PublishProfiles\excellentmarketresearch.com - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\excellentmarketresearch.com - Web Deploy1.pubxml" />
     <None Include="Properties\PublishProfiles\excellentmarketresearch.com - Web Deploy2.pubxml" />

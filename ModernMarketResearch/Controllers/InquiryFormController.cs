@@ -252,7 +252,7 @@ namespace ExcellentMarketResearch.Controllers
 
                         //To company
                         // Task.Run(() => objEmailsending.SendEmail("sales@excellentmarketresearcg.com", "Sales", "balasahebpatil1612@gmail.com", "", "", "ExcellentMarketResearch.com" + " : " + Formname,objEmailsending.GenerateMailBody_RequestSample(eq.ReportTitle, cst.Name, cst.EmailId, cst.PhoneNumber, cst.Company, cst.Country, cst.Designation, cst.CustomerMessage)));
-                        Task.Run(() => objEmailsending.SendEmail("sales@excellentmarketresearch.com", "Sales", "balasahebpatil1612@gmail.com", "", "", "excellentMarketResearch.com" + " : " + Formname, objEmailsending.GenerateMailBody_RequestSample(eq.ReportTitle, cst.Name, cst.EmailId, cst.PhoneNumber, cst.Company, cst.Country, cst.Designation, cst.CustomerMessage, IpAddress)));
+                        Task.Run(() => objEmailsending.SendEmail("sales@excellentmarketresearch.com", "Sales", "sales@excellentmarketresearch.com", "", "", "excellentMarketResearch.com" + " : " + Formname, objEmailsending.GenerateMailBody_RequestSample(eq.ReportTitle, cst.Name, cst.EmailId, cst.PhoneNumber, cst.Company, cst.Country, cst.Designation, cst.CustomerMessage, IpAddress)));
 
                         Session["Name"] = cst.Name;
 
