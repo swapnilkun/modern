@@ -162,17 +162,25 @@ namespace ExcellentMarketResearch.Controllers
 
             Emailsending objEmailsending = new Emailsending();
             var response = Request["g-recaptcha-response"];
+            var catptchastatus = false;
             string secreatekey = "6LdU_nUUAAAAAD6JiuKTysnVW6Aa4D5SU0z1Fl4u";
             var client = new WebClient();
-            var result = client.DownloadString(string.Format("https://www.google.com/recaptcha/api/siteverify?secret=(0)&response=(1)", secreatekey, response));
-            var obj = JObject.Parse(result);
-            var status = (bool)obj.SelectToken("success");
+            string resstring = string.Format("https://www.google.com/recaptcha/api/siteverify?secret={0}&response={1}", secreatekey, response);
+            var result = client.DownloadString(resstring);
+            if (result.ToLower().Contains("false"))
+            {
+                catptchastatus = false;
+            }
+            else
+            {
+                catptchastatus = true;
+            }
             // ViewBag.Message = status ? "Google recaptcha validation success" : "Google recaptcha validation fails";
             CustomerInquiry e = new CustomerInquiry();
             var Formname = string.Empty;
             int FormTypeId;
             string Publisher = string.Empty;
-            if (status == true)
+            if (catptchastatus == true)
             {
                 if (ModelState.IsValid)
                 {
@@ -240,11 +248,11 @@ namespace ExcellentMarketResearch.Controllers
                         // Task.Run(() => new CRMWebService.WebServiceSoapClient().InsertUpdateKey(0, eq.ReportId, eq.ReportTitle, FormTypeId, 34, 1, 1, eq.ReportUrl, ipAddress, eq.Name, eq.EmailId, eq.AreaCode, eq.Company, eq.Designation, "!", "!", eq.Country, "!", eq.CustomerMessage, 1, "!", "!", "!", Publisher, 38, "BW&Zk^HfZ44P339nEzqrrawY4HL_VXw-5f+%8b4Hdw?$?m$G*!+kCGLK%3JjDn-74NY*LyhdJr6RAte&8MBWy6F2j82+qn7ap&DB@z-*q3sdH*#D-kwACucyaM7vzet4pSa?m^xnP@3zN5K9=*L6WLpDurTSuVTR3Hd&3XLHJnCcR!h*dL#fQhp^*#25LEFrMTt@z&8RWdf^CQcj!QrQU^WkdC5$Ub$8qnu!g7?*$$4%%M9?8spAugyCzZg5@dLGBNS_^7?x3VczR75J&=+9yFDVg*Qpd@R^_Jz-GtWgHxv4Kf$=2pxT@bqhx%aqgzZAN6RzZZ%rNX7km3fu$h?Z=+V3b_MQPLAxJBVT!=Ta+7Xd?CF3#4w44L@HU%nf4m#y-d2vgn6Gp2t7w!qFY%kN#y6DNAy#TbrZnqnjMtgeAd%BHSm9H29z4G_?qnBHE5J2EyutZ2RSh?P2fUE-sF8bNFdre@G^qQ??JzJuDCT3hby2py#+yfg*jC%&YBkrutHs"));
 
                         //Auto Mailer
-                        Task.Run(() => objEmailsending.SendEmail("sales@excellentmarketresearch.com", "Sales", cst.EmailId, "", "balasahebpatil1612@gmail.com", "Excellentmarketresearch.com : " + eq.ReportTitle, objEmailsending.GenerateMailBody_RequestSample_AutoReply(cst.Name, eq.ReportTitle)));
+                        Task.Run(() => objEmailsending.SendEmail("sales@excellentmarketresearch.com", "Sales", cst.EmailId, "", "balasahebpatil1612@gmail.com", "excellentmarketresearch.com : " + eq.ReportTitle, objEmailsending.GenerateMailBody_RequestSample_AutoReply(cst.Name, eq.ReportTitle)));
 
                         //To company
                         // Task.Run(() => objEmailsending.SendEmail("sales@excellentmarketresearcg.com", "Sales", "balasahebpatil1612@gmail.com", "", "", "ExcellentMarketResearch.com" + " : " + Formname,objEmailsending.GenerateMailBody_RequestSample(eq.ReportTitle, cst.Name, cst.EmailId, cst.PhoneNumber, cst.Company, cst.Country, cst.Designation, cst.CustomerMessage)));
-                        Task.Run(() => objEmailsending.SendEmail("sales@excellentmarketresearch.com", "Sales", "balasahebpatil1612@gmail.com", "", "", "ExcellentMarketResearch.com" + " : " + Formname, objEmailsending.GenerateMailBody_RequestSample(eq.ReportTitle, cst.Name, cst.EmailId, cst.PhoneNumber, cst.Company, cst.Country, cst.Designation, cst.CustomerMessage, IpAddress)));
+                        Task.Run(() => objEmailsending.SendEmail("sales@excellentmarketresearch.com", "Sales", "balasahebpatil1612@gmail.com", "", "", "excellentMarketResearch.com" + " : " + Formname, objEmailsending.GenerateMailBody_RequestSample(eq.ReportTitle, cst.Name, cst.EmailId, cst.PhoneNumber, cst.Company, cst.Country, cst.Designation, cst.CustomerMessage, IpAddress)));
 
                         Session["Name"] = cst.Name;
 

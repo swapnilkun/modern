@@ -29,12 +29,13 @@ namespace ExcellentMarketResearch.Models.PaymentGateway
                 msg.Subject = Subject;
                 msg.Body = MailBody;
                 msg.IsBodyHtml = true;
-                SmtpClient client = new SmtpClient("smtp.gmail.com", 587)
+                SmtpClient client = new SmtpClient("smtp.gmail.com",587)
                 {
                     // Host = "smtp.qygroup.biz",
                     //  Host = "smtp.gmail.com",
                     //  Port = 587,
-                    Credentials = new NetworkCredential("bala@@##########2@gmail.com", "knknjknjknkj"),
+                   // Credentials = new NetworkCredential("danielmiller@excellentmarketresearch.com", "Jmt?23r2"),
+                    Credentials = new NetworkCredential("test93ssk@gmail.com", "Swapnil@6207"),
                     EnableSsl = true
                     //DeliveryMethod = SmtpDeliveryMethod.Network,
                     // UseDefaultCredentials = false,

@@ -59,82 +59,94 @@ namespace ExcellentMarketResearch.Controllers
             InquiryVM e = new InquiryVM();
             Emailsending objEmailsending = new Emailsending();
             var response = Request["g-recaptcha-response"];
-            string secreatekey = "6LcatW0UAAAAAERSrddZFxQdvJd0xum_wTLvhUIT";
+            var catptchastatus = false;
+            string secreatekey = "6LdU_nUUAAAAAD6JiuKTysnVW6Aa4D5SU0z1Fl4u";
             var client = new WebClient();
-            var result = client.DownloadString(string.Format("https://www.google.com/recaptcha/api/siteverify?secret=(0)&response=(1)", secreatekey, response));
-            var obj = JObject.Parse(result);
-            var status = (bool)obj.SelectToken("success");
-           
+            string resstring = string.Format("https://www.google.com/recaptcha/api/siteverify?secret={0}&response={1}", secreatekey, response);
+            var result = client.DownloadString(resstring);
+            if (result.ToLower().Contains("false"))
+            {
+                catptchastatus = false;
+            }
+            else
+            {
+                catptchastatus = true;
+            }
+
             //int FormTypeId=4;
             string Publisher = string.Empty;
-            if (ModelState.IsValid)
+            if (catptchastatus)
             {
-                // cap = Session["Captcha"].ToString();
-                var cap = ExcellentMarketResearch.Areas.Admin.Models.Common.Decrypt(eq.RealCaptcha);
-
-                Publisher = "!";
-
-                if (eq.CaptchaCode == cap)
+                if (ModelState.IsValid)
                 {
-                    CustomerInquiry cst = new CustomerInquiry();
+                    // cap = Session["Captcha"].ToString();
+                    var cap = ExcellentMarketResearch.Areas.Admin.Models.Common.Decrypt(eq.RealCaptcha);
 
-                    cst.CustomerMessage = eq.CustomerMessage;
-                    cst.EmailId = eq.EmailId;
-                    cst.Name = eq.Name;
-                   // eq.AreaCode += "-" + eq.PhoneNumber;
-                    cst.PhoneNumber = eq.PhoneNumber;
-                    cst.ReportId = eq.ReportId;
-                    cst.Country = eq.Country;
-                    cst.CaptchaCode = eq.CaptchaCode;
-                  
-                    string ReportTitle = string.Empty;
-                    string ReportUrl = string.Empty;
+                    Publisher = "!";
 
-                    try
+                    if (eq.CaptchaCode == cap)
                     {
-                       db.CustomerInquiries.Add(cst);
-                        //db.Entry(cst).State = EntityState.Added;
+                        CustomerInquiry cst = new CustomerInquiry();
 
-                        db.SaveChanges();
+                        cst.CustomerMessage = eq.CustomerMessage;
+                        cst.EmailId = eq.EmailId;
+                        cst.Name = eq.Name;
+                        // eq.AreaCode += "-" + eq.PhoneNumber;
+                        cst.PhoneNumber = eq.PhoneNumber;
+                        cst.ReportId = eq.ReportId;
+                        cst.Country = eq.Country;
+                        cst.CaptchaCode = eq.CaptchaCode;
 
-                      //  QYGroupRepository.PaymentGateway.Emailsending objEmailsending = new QYGroupRepository.PaymentGateway.Emailsending();
+                        string ReportTitle = string.Empty;
+                        string ReportUrl = string.Empty;
 
-                        
-
-
-                        //Auto Mailer
-                        objEmailsending.SendEmail("sales@excellentmarketresearch.com", "Sales", cst.EmailId, "", "", "ExcellentMarketResearch.com  : ContactUs" + " ", GenerateMailBody_ContactUs_AutoReply(cst.Name, ReportTitle));
-
-                        //To company
-                        objEmailsending.SendEmail("sales@excellentmarketresearch.com", "Sales", "sales@excellentmarketresearch.com,", "", "md@excellentmarketresearch.com", "ExcellentMarketResearch.com " + " : " + "Contact Us", GenerateMailBody_ContactUs(ReportTitle, cst.Name, cst.EmailId, cst.PhoneNumber, "!", "!", "!", cst.CustomerMessage));
-
-                        Session["Name"] = cst.Name;
-
-                        return RedirectToAction("ContactusThanks", "ContactUs");
-                        //return RedirectToRoute(new
-                        //{
-                        //    controller = "InquiryForm",
-                        //    action = "Index",
-                        //    reporrtid = cst.ReportId
-                        //});
-
-
-                    }
-                    catch (DbEntityValidationException dbEx)
-                    {
-                        foreach (var validationErrors in dbEx.EntityValidationErrors)
+                        try
                         {
-                            foreach (var validationError in validationErrors.ValidationErrors)
+                            db.CustomerInquiries.Add(cst);
+                            //db.Entry(cst).State = EntityState.Added;
+
+                            db.SaveChanges();
+
+                            //  QYGroupRepository.PaymentGateway.Emailsending objEmailsending = new QYGroupRepository.PaymentGateway.Emailsending();
+
+
+
+
+                            //Auto Mailer
+                            objEmailsending.SendEmail("sales@excellentmarketresearch.com", "Sales", cst.EmailId, "", "", "ExcellentMarketResearch.com  : ContactUs" + " ", GenerateMailBody_ContactUs_AutoReply(cst.Name, ReportTitle));
+
+                            //To company
+                            objEmailsending.SendEmail("sales@excellentmarketresearch.com", "Sales", "sales@excellentmarketresearch.com,", "", "md@excellentmarketresearch.com", "ExcellentMarketResearch.com " + " : " + "Contact Us", GenerateMailBody_ContactUs(ReportTitle, cst.Name, cst.EmailId, cst.PhoneNumber, "!", "!", "!", cst.CustomerMessage));
+
+                            Session["Name"] = cst.Name;
+
+                            return RedirectToAction("ContactusThanks", "ContactUs");
+                            //return RedirectToRoute(new
+                            //{
+                            //    controller = "InquiryForm",
+                            //    action = "Index",
+                            //    reporrtid = cst.ReportId
+                            //});
+
+
+                        }
+                        catch (DbEntityValidationException dbEx)
+                        {
+                            foreach (var validationErrors in dbEx.EntityValidationErrors)
                             {
-                                System.Console.WriteLine("Property: {0} Error: {1}", validationError.PropertyName, validationError.ErrorMessage);
+                                foreach (var validationError in validationErrors.ValidationErrors)
+                                {
+                                    System.Console.WriteLine("Property: {0} Error: {1}", validationError.PropertyName, validationError.ErrorMessage);
+                                }
                             }
                         }
-                    }
 
+                    }
+                    //Return the if model not valid
+                    return View();
                 }
-                //Return the if model not valid
-                return View();
             }
+            
 
             return View(eq);
         }
