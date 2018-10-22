@@ -38,7 +38,7 @@ namespace ExcellentMarketResearch.Areas.Admin.Controllers
 
         ExcellentMarketResearchEntities db = new ExcellentMarketResearchEntities();
 
-        [CustomAuthentication("ReportUploader,ReportCreater", "Create,Delete")]
+        [CustomAuthentication("ReportUploader,ReportCreator", "Create,Delete")]
         public ActionResult ReportIndex(int? pageno, string searchkey, int? pagesize, DateTime? FromDate, DateTime? ToDate)
         {
 
@@ -102,13 +102,13 @@ namespace ExcellentMarketResearch.Areas.Admin.Controllers
             //return View(report);
         }
         [HttpGet]
-        [CustomAuthentication("ReportUploader,ReportCreater", "Create,Delete")]
+        [CustomAuthentication("ReportUploader,ReportCreator", "Create,Delete")]
         public ActionResult ReportCreate()
         {
             return View();
         }
         [HttpPost]
-        [CustomAuthentication("ReportUploader,ReportCreater", "Create,Delete")]
+        [CustomAuthentication("ReportUploader,ReportCreator", "Create,Delete")]
         public ActionResult ReportCreate(ReportVM r, HttpPostedFileBase file)
         {
             if (file != null && !string.IsNullOrEmpty(file.FileName))
@@ -156,7 +156,7 @@ namespace ExcellentMarketResearch.Areas.Admin.Controllers
 
         }
         [HttpGet]
-        [CustomAuthentication("ReportUploader,ReportCreater", "Create,Delete")]
+        [CustomAuthentication("ReportUploader,ReportCreator", "Create,Delete")]
         public ActionResult ReportEdit(int id)
         {
             var catid = db.ReportMasters.Where(x => x.ReportId == id).Select(x => x.CategoryId).FirstOrDefault();
@@ -169,7 +169,7 @@ namespace ExcellentMarketResearch.Areas.Admin.Controllers
             return View(z);
         }
         [HttpPost]
-        [CustomAuthentication("ReportUploader,ReportCreater", "Create,Delete")]
+        [CustomAuthentication("ReportUploader,ReportCreator", "Create,Delete")]
         public ActionResult ReportEdit(ReportVM r)
         {
             if (_ObjReportRepository.EditPostReport(r))

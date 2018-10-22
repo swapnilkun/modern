@@ -26,7 +26,7 @@ namespace ExcellentMarketResearch.Areas.Admin.Controllers
             return View();
         }
         [HttpPost]
-        [CustomAuthentication("ReportUploader", "Create,Edit,Delete")]
+        [CustomAuthentication("ReportUploader,ReportCreator", "Create,Edit,Delete")]
         public ActionResult Import(HttpPostedFileBase excelfile)
         {
             string Value = string.Empty;
@@ -98,7 +98,7 @@ namespace ExcellentMarketResearch.Areas.Admin.Controllers
             return View();
         }
 
-        [CustomAuthentication("ReportUploader", "Create,Edit,Delete")]
+        [CustomAuthentication("ReportUploader,ReportCreator", "Create,Edit,Delete")]
         public ActionResult TotalReports()
         {
             var Reports = db.ReportMasters.ToList();
