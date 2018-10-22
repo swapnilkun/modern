@@ -1108,6 +1108,7 @@
     <Content Include="Models\ExcellentMarketResearch.edmx.diagram">
       <DependentUpon>ExcellentMarketResearch.edmx</DependentUpon>
     </Content>
+<<<<<<< HEAD
     <Content Include="Models\ExcellentMarketResearch.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>ExcellentMarketResearch.edmx</DependentUpon>
@@ -1116,6 +1117,12 @@
     <Content Include="Areas\Admin\Views\Adminlogin\Login.cshtml" />
     <Content Include="Areas\Admin\Views\Adminlogin\loginfailed.cshtml" />
     <Content Include="Areas\Admin\Views\Adminlogin\Index.cshtml" />
+=======
+    <Content Include="PayPal\PayPal.config" />
+    <Content Include="Areas\Admin\Views\Adminlogin\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Adminlogin\Login.cshtml" />
+    <Content Include="Areas\Admin\Views\Adminlogin\loginfailed.cshtml" />
+>>>>>>> 4e5c8b0c42fc0d26836d7fd9124553db64ddb26b
     <None Include="Properties\PublishProfiles\excellentmarketresearch.com - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\excellentmarketresearch.com - Web Deploy1.pubxml" />
     <None Include="Properties\PublishProfiles\excellentmarketresearch.com - Web Deploy2.pubxml" />
